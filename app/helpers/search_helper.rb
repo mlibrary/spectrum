@@ -46,7 +46,7 @@ module SearchHelper
 
 
   def display_advanced_search_form(source)
-    options = DATASOURCES_CONFIG['datasources'][source]['search_box'] || {}
+    options = FOCUS_CONFIG[source].search_box || {}
     blacklight_config = Spectrum::SearchEngines::Solr.generate_config(source)
 
     if options['search_type'] == 'blacklight' && options['advanced'] == true
@@ -61,7 +61,7 @@ module SearchHelper
 
 
   def display_basic_search_form(source)
-    options = DATASOURCES_CONFIG['datasources'][source]['search_box'] || {}
+    options = FOCUS_CONFIG[source].search_box || {}
 
     search_params = determine_search_params
     div_classes = ['search_box', source]
@@ -151,7 +151,13 @@ module SearchHelper
 
       fail "no route in #{source} " unless options['route']
 
-      result = content_tag(:form, result, :'accept-charset' => 'UTF-8', :class => 'form-inline', :action => send(options['route']), :method => 'get')
+      result = content_tag(:form,
+        result,
+        :'accept-charset' => 'UTF-8',
+        :class => 'form-inline',
+        :action => config.relative_url_root + send(options['route']),
+        :method => 'get'
+      )
 
       result = content_tag(:div, result, class: div_classes.join(' '))
 

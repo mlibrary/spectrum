@@ -29,8 +29,7 @@ class User < ActiveRecord::Base
   def self.on_campus?(ip_addr)
     # check passed string against regexp from standard library
     return false unless ip_addr =~ Resolv::IPv4::Regex
-
-    APP_CONFIG['COLUMBIA_IP_RANGES'].any? do |ir|
+    APP_CONFIG['CAMPUS_IP_RANGES'].any? do |ir|
       IPAddr.new(ir) === ip_addr
     end
   end
@@ -50,7 +49,7 @@ class User < ActiveRecord::Base
 
   def default_email
     login = send User.wind_login_field
-    mail = "#{login}@columbia.edu"
+    mail = "#{login}@#{APP_CONFIG['user']['default_email_domain']}"
     self.email = mail
   end
 
@@ -58,7 +57,7 @@ class User < ActiveRecord::Base
 
   def default_email
     login = send User.wind_login_field
-    mail = "#{login}@columbia.edu"
+    mail = "#{login}@#{APP_CONFIG['user']['default_email_domain']}"
     self.email = mail
    end
 

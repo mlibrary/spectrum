@@ -2,15 +2,7 @@
 module DatasourcesHelper
 
   def datasource_list(category = :all)
-    results = []
-    results |= DATASOURCES_CONFIG['datasource_bar']['major_sources'] if category.in?(:all, :major)
-    results |= DATASOURCES_CONFIG['datasource_bar']['minor_sources'] if category.in?(:all, :minor)
-
-    # DO NOT SHOW DCV IN PRODUCTION YET
-    results.delete('dcv') if Rails.env == 'clio_prod'
-    results.delete('dcv') if Rails.env == 'test'
-
-    results
+    FOCUS_CONFIG.by_category(category).map { |item| item.name }
   end
 
   def active_query?
@@ -130,10 +122,7 @@ module DatasourcesHelper
     return false if @show_landing_pages
 
     # No facets, if this datasource explicitly says so
-    return false if DATASOURCES_CONFIG['datasources'][source]['no_facets']
-
-    # Otherwise, always show the facets
-    true
+    FOCUS_CONFIG[source].has_facets?
   end
 
   # Build up the HTML of a single datasource link, to be used along the left-side menu.
@@ -150,98 +139,23 @@ module DatasourcesHelper
     li_classes << 'selected' if source == options[:active_source]
 
     # li_classes << 'subsource' if options[:subsource]
-    li_classes << 'subsource' if DATASOURCES_CONFIG['datasource_bar']['subsources'].include?(source)
+    li_classes << 'subsource' if FOCUS_CONFIG[source].subsource
 
-    href = datasource_landing_page_path(source, query)
-
-    # What parts of a query should we carry-over between data-sources?
-    # -- Any basic query term, yes, query it against the newly selected datasources
-    # -- Any facets?  Drop them, clear all filtering when switching datasources.
-    # NEXT-954 - Improve Landing Page access
-    # href = if query.empty?
-      # Don't carry-over the null query, just link to new datasource's landing page
-    #   "/#{source}"
-    # else
-      # case source
-      # when 'quicksearch'
-      #   quicksearch_index_path(:q => query)
-      # when 'catalog'
-      #   base_catalog_index_path(:q => query)
-      # when 'databases'
-      #   databases_index_path(:q => query)
-      # when 'articles'
-      #   articles_index_path('s.q' => query, 'new_search' => true)
-      # when 'journals'
-      #   journals_index_path(:q => query)
-      # when 'ebooks'
-      #   ebooks_index_path(:q => query)
-      # when 'dissertations'
-      #   dissertations_index_path(:q => query)
-      # when 'newspapers'
-      #   newspapers_index_path(:q => query, 'new_search' => true)
-      # when 'new_arrivals'
-      #   new_arrivals_index_path(:q => query)
-      # when 'academic_commons'
-      #   academic_commons_index_path(:q => query)
-      # when 'library_web'
-      #   library_web_index_path(:q => query)
-      # when 'archives'
-      #   archives_index_path(:q => query)
-      # end
-    # end
-
-    fail "no source data found for #{source}" unless DATASOURCES_CONFIG['datasources'][source]
-    content_tag(:li,
-                link_to(DATASOURCES_CONFIG['datasources'][source]['name'],
-                        href,
-                        class: classes.join(' ')
-                ),
-                source: source,
-                class: li_classes.join(' ')
+    fail "no source data found for #{source}" unless FOCUS_CONFIG.has_key? source
+    content_tag(
+      :li,
+      link_to(
+        FOCUS_CONFIG[source].title,
+        config.relative_url_root + FOCUS_CONFIG[source].path(query),
+        class: classes.join(' ')
+      ),
+      source: source,
+      class: li_classes.join(' ')
     )
   end
 
   def datasource_landing_page_path(source, query = '')
-    # What parts of a query should we carry-over between data-sources?
-    # -- Any basic query term, yes, query it against the newly selected datasources
-    # -- Any facets?  No, Drop them, clear all filtering when switching datasources.
-    # NEXT-954 - Improve Landing Page access
-    if query.empty?
-      # Don't carry-over the null query, just link to new datasource's landing page
-      "/#{source}"
-    else
-      case source
-      when 'quicksearch'
-        quicksearch_index_path(q: query)
-      when 'catalog'
-        base_catalog_index_path(q: query)
-      when 'databases'
-        databases_index_path(q: query)
-      when 'articles'
-        # articles_index_path('s.q' => query, 'new_search' => true)
-        articles_index_path('q' => query, 'new_search' => true)
-      when 'journals'
-        journals_index_path(q: query)
-      when 'ebooks'
-        ebooks_index_path(q: query)
-      when 'dissertations'
-        dissertations_index_path(q: query)
-      when 'newspapers'
-        newspapers_index_path(:q => query, 'new_search' => true)
-      when 'new_arrivals'
-        new_arrivals_index_path(q: query)
-      when 'academic_commons'
-        academic_commons_index_path(q: query)
-      when 'dcv'
-        dcv_index_path(q: query)
-      when 'library_web'
-        library_web_index_path(q: query)
-      when 'archives'
-        archives_index_path(q: query)
-      else
-        fail "datasource_landing_page_path() passed unknown source [#{source}]"
-      end
-    end
+    FOCUS_CONFIG[source].path(query)
   end
 
   def datasource_switch_link(title, source, *args)

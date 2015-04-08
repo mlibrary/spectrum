@@ -1,9 +1,12 @@
-config/database.yml
-config/app_config.yml
-config/solr.yml
-config/*.sphinx.conf
-config/s3_credentials.yml
-config/initializers/computer_specific_config.rb
+/config/source.yml
+/config/focus.yml
+/config/database.yml
+/config/app_config.yml
+/config/solr.yml
+/config/*.sphinx.conf
+/config/s3_credentials.yml
+/config/initializers/computer_specific_config.rb
+/.bundle
 *~
 *.cache
 *.log
@@ -30,3 +33,4 @@ db/*.sqlite3
 public/clicktale
 spec/reports
 token.txt
+/

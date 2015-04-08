@@ -14,7 +14,7 @@ RELEASE_STAMP = IO.read('VERSION').strip
 
 # explicitly require, so that "config.middleware.use" works below during
 # capistrano's assets:precompile step
-require 'rack/attack'
+# require 'rack/attack'
 require 'rack/utf8_sanitizer'
 
 module Clio
@@ -27,7 +27,8 @@ module Clio
     # config.autoload_paths += %W(#{config.root}/extras #{config.root}/lib)
     config.autoload_paths += %W(#{config.root}/lib)
 
-
+    config.action_controller.relative_url_root = ENV['RAILS_RELATIVE_URL_ROOT']
+    config.relative_url_root = ENV['RAILS_RELATIVE_URL_ROOT']
     # require File.expand_path('../../lib/monkey_patches', __FILE__)
     require 'monkey_patches'
     # require File.expand_path('../../lib/rsolr_notifications', __FILE__)

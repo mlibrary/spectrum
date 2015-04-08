@@ -67,7 +67,7 @@ module Spectrum
           # The Academic Commons Solr has been down so often, and generating
           # so many emails to the CLIO group, that we're going to special-case
           # this to swallow AC connection errors, and partially report to patron.
-          if ['academic_commons', 'ac_dissertations'].include?(@source)
+          if SOURCE_CONFIG[@source].truncate?
             @errors = ex.message.truncate(40)
           else
             raise 'Error searching Solr'
@@ -184,12 +184,10 @@ module Spectrum
       end
 
       def self.generate_rsolr(source, solr_url = nil)
-        if source.in?('academic_commons', 'ac_dissertations')
-          RSolr.connect(url: APP_CONFIG['ac2_solr_url'])
-        elsif source.in?('dcv')
-          RSolr.connect(url: APP_CONFIG['dcv_solr_url'])
+        if SOURCE_CONFIG[source].is_solr?
+          RSolr.connect url: SOURCE_CONFIG[source].url
         elsif solr_url
-          RSolr.connect(url: solr_url)
+          RSolr.connect url: solr_url
         else
           RSolr.connect(Blacklight.solr_config)
         end

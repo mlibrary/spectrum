@@ -67,10 +67,9 @@ module Spectrum
         # These are ALWAYS in effect for Summon API queries
         @params.merge!(SUMMON_FIXED_PARAMS)
 
-        @config = options.delete('config') || APP_CONFIG['summon']
+        @config = options.delete('config') || SOURCE_CONFIG['summon']
 
-        @config.merge!(url: 'http://api.summon.serialssolutions.com/2.0.0')
-        @config.symbolize_keys!
+        @config.url = 'http://api.summon.serialssolutions.com/2.0.0'
 
         @search_url = options.delete('search_url')
 

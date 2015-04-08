@@ -40,7 +40,7 @@ Clio::Application.routes.draw do
 
   match 'catalog', to: 'catalog#index', as: :base_catalog_index
 
-  match 'quicksearch/', to: 'spectrum#search', as: :quicksearch_index, defaults: { layout: 'quicksearch' }
+  #match 'quicksearch/', to: 'spectrum#search', as: :quicksearch_index, defaults: { layout: 'quicksearch' }
 
   # "Browser Options" are things like facet open/close state, view-style, etc.
   match 'set_browser_option', to: 'application#set_browser_option_handler'
@@ -95,7 +95,9 @@ Clio::Application.routes.draw do
 
   match 'spectrum/fetch/:layout/:datasource', to: 'spectrum#fetch', as: 'spectrum_fetch'
 
-  match 'articles', to: 'spectrum#search', as: :articles_index, defaults: { layout: 'articles' }
+  FOCUS_CONFIG.add_routes(self)
+
+  #match 'articles', to: 'spectrum#search', as: :articles_index, defaults: { layout: 'articles' }
   # there's no 'articles' controller, and no item-detail page for articles
   # match 'articles/show', :to => "articles#show", :as => :articles_show
 
