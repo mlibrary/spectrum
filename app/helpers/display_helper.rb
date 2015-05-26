@@ -84,21 +84,20 @@ module DisplayHelper
     action = options.delete(:action) || fail('Must specify action')
 
     # Assume view-style is the configured default, or "standard_list" if no default configured...
-    viewstyle = DATASOURCES_CONFIG['datasources'][@active_source]['default_viewstyle'] ||
-                'standard_list'
+    viewstyle = FOCUS_CONFIG[@active_source].default_viewstyle || 'standard_list'
 
     # ... but if an alternative view-style option is saved to browser options,
     # and if this data-source has a configuration which includes that view-style,
     # then use it instead.
     saved_viewstyle_option = get_browser_option('viewstyle')
-    datasource_viewstyles = DATASOURCES_CONFIG['datasources'][@active_source]['viewstyles']
+    datasource_viewstyles = FOCUS_CONFIG[@active_source].viewstyles
 
     # (10/2014 - support forward-conversion of renamed viewstyle names...)
     saved_viewstyle_option = 'standard_list' if saved_viewstyle_option && (saved_viewstyle_option == 'list')
     saved_viewstyle_option = 'compact_list'  if saved_viewstyle_option && (saved_viewstyle_option == 'compact')
 
     if saved_viewstyle_option &&
-       (datasource_viewstyles = DATASOURCES_CONFIG['datasources'][@active_source]['viewstyles']) &&
+       (datasource_viewstyles = FOCUS_CONFIG[@active_source].viewstyles) &&
        datasource_viewstyles.key?(saved_viewstyle_option)
       viewstyle = saved_viewstyle_option
     end
@@ -120,9 +119,9 @@ module DisplayHelper
 
     partial_list = formats.map { |format| "/_formats/#{format}/#{template}" }
     @add_row_style = options[:style]
+
     view = render_first_available_partial(partial_list, options.merge(document: document))
     @add_row_style = nil
-
     view
   end
 

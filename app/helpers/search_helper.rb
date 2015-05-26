@@ -22,6 +22,7 @@ module SearchHelper
 
 
   def search_render_options(search, source)
+    source ||= {}
     opts = { 'template' => @search_style }.
         merge(source['render_options'] || {}).
         merge(search['render_options'] || {})

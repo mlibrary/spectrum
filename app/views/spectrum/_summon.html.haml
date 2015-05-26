@@ -6,7 +6,7 @@
 
 -# This partial is only for Summon/Articles Search, with a layout defined in
 -# searches.yml that'll never ever ever have more than a single column.
-- @search_layout['columns'].each do |column|
+- @search_layout.columns.each do |column|
   -# %div.result_column
   - column['searches'].each do |search|
     - result = @results[search['source']]

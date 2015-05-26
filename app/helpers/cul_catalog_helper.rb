@@ -44,8 +44,11 @@ module CulCatalogHelper
     label ||= blacklight_config.index.title_field.to_sym
     label = render_document_index_label doc, opts
     source = opts[:source] || @active_source
-
-    url = "/#{source}/#{doc['id'].listify.first.to_s}"
+    
+    url = SOURCE_CONFIG[source].link_to(
+      config.relative_url_root + "/#{source}",
+      doc
+    )
 
     # BlackLight 5.2 updates how they track the counter, 
     # link_to label, url, :'data-counter' => options[:counter]

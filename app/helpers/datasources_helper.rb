@@ -28,14 +28,21 @@ module DatasourcesHelper
     content_tag('div', class: 'landing_pages') do
       classes = ['landing_page', source]
       classes << 'selected' if source == @active_source
-      search_config = SEARCHES_CONFIG['sources'][source]
-      warning = search_config ? search_config['warning'] : nil
-      content_tag(:div,
-                  render(partial: "/_search/landing_pages/#{source}",
-                         locals: { warning: warning }),
-                  class: classes.join(' '),
-                  data: { 'ga-action' => 'Landing Page Click' }
-                  )
+      warning = FOCUS_CONFIG[source].warning
+      content_tag(
+        :div,
+        render(
+          partial: "/_search/landing_page",
+          locals: {
+            source: source,
+            warning: warning,
+            title: FOCUS_CONFIG[source].title,
+            description: FOCUS_CONFIG[source].description
+           }
+        ),
+        class: classes.join(' '),
+        data: { 'ga-action' => 'Landing Page Click' }
+      )
     end
   end
 

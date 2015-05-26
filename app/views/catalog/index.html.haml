@@ -45,6 +45,7 @@
     .alert.alert-danger
       Unexpected Error during search.
       Please #{link_to "restart your search", datasource_landing_page_path(@active_source)}
+      <pre>#{@errors.inspect}</pre>
 
 
 

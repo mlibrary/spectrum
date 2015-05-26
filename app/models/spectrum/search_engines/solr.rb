@@ -490,8 +490,19 @@ module Spectrum
       end
 
       def self.generate_config(source)
+        puts "Solr#generate_config(#{source.inspect})"
+        self.blacklight_config = Blacklight::Configuration.new do |config|
+          if FOCUS_CONFIG.has_key? source
+            FOCUS_CONFIG[source].blacklight.configure(config, SEARCH_FIELD_CONFIG)
+          end
+        end
+
+        return self.blacklight_config
         # If we're in one of the hybrid-source bento-box searches....
-        if source.in?('quicksearch', 'ebooks', 'dissertations')
+        if true
+          #self.blacklight_config = Blacklight::Configuration.new
+          self.blacklight_config
+        elsif source.in?('quicksearch', 'ebooks', 'dissertations')
           self.blacklight_config = Blacklight::Configuration.new do |config|
 
             # Add the "All Fields" seach field first, then append all the other default searches

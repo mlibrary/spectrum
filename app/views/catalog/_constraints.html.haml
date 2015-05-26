@@ -16,7 +16,7 @@
               %span.caret
             %ul.dropdown-menu
               - @query.query_operator_change_links.each do |label, link|
-                %li= link_to label, link
+                %li= link_to label, config.relative_url_root + link
 
         - @query.queries.each do |query|
           - span_class = @query.multiple_queries? ? "inner-dropdown" : ""
@@ -25,7 +25,7 @@
               #{query[:value]}
             - else
               #{query[:label]}: #{query[:value]}
-            =link_to content_tag(:span, '', :class => 'glyphicon glyphicon-remove'), query[:remove]
+            =link_to content_tag(:span, '', :class => 'glyphicon glyphicon-remove'), config.relative_url_root + query[:remove]
         %span.chrome-fix
 
 
@@ -41,7 +41,7 @@
               %span.caret
             %ul.dropdown-menu
               - filter[:operator_change_links].each do |label, link|
-                %li= link_to label, link
+                %li= link_to label, config.relative_url_root + link
 
         -# Print a box for each applied facet filter...
         - filter[:values].each do |value|
@@ -54,16 +54,16 @@
               %ul.dropdown-menu
                 -# The invert_links are "Is"/"Is Not", with links
                 - value[:invert_links].each do |label, link|
-                  %li= link_to label, link
+                  %li= link_to label, config.relative_url_root + link
             = value[:label]
             -# Add a "remove" icon to turn off this facet filter
-            =link_to content_tag(:span, '', :class => 'glyphicon glyphicon-remove'), value[:remove]
+            =link_to content_tag(:span, '', :class => 'glyphicon glyphicon-remove'), config.relative_url_root + value[:remove]
           %span.chrome-fix
 
     - @query.ranges.each_pair do |range_key, range|
       %div.constraint-box
         #{range[:label]}: #{range[:value]}
-        =link_to content_tag(:span, '', :class => 'glyphicon glyphicon-remove'), range[:remove]
+        =link_to content_tag(:span, '', :class => 'glyphicon glyphicon-remove'), config.relative_url_root + range[:remove]
 
 
     -#= render_advanced_constraints(params)

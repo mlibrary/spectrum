@@ -1,0 +1,20 @@
+= display_search_boxes(source)
+
+.row
+  .landing_main.col-sm-8
+    .title
+      = title
+    = render partial: '/datasource_warning', locals: {warning: warning}
+    = description
+
+  .landing_side.col-sm-4
+    .well.sidebar-nav
+      .nav
+        %ul.nav.nav-list
+          %li.nav-header Guide
+          %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/clio/guides/quicksearch-guide/", :target => "_blank"
+          %li.nav-divider
+
+        %ul.nav.nav-list
+          %li.nav-header Related Links
+          %li=link_to "CLIO News ", "https://blogs.cul.columbia.edu/clio/"

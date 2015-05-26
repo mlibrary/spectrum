@@ -276,44 +276,7 @@ class ApplicationController < ActionController::Base
   end
 
   def determine_active_source
-    active_source_from_params = params['active_source']
-    if active_source_from_params
-      @active_source = active_source_from_params.underscore
-    else
-      path_minus_advanced = request.path.to_s.gsub(/^\/advanced/, '')
-      @active_source = case path_minus_advanced
-      when /^\/databases/
-        'databases'
-      when /^\/new_arrivals/
-        'new_arrivals'
-      when /^\/catalog/
-        'catalog'
-      when /^\/articles/
-        'articles'
-      when /^\/journals/
-        'journals'
-      when /^\/dissertations/
-        'dissertations'
-      when /^\/ebooks/
-        'ebooks'
-      when /^\/academic_commons/
-        'academic_commons'
-      when /^\/dcv/
-        'dcv'
-      when /^\/library_web/
-        'library_web'
-      when /^\/newspapers/
-        # re-direct bookmarked newspaper urls to articles
-        'articles'
-      when /^\/archives/
-        'archives'
-      # Browse (Shelf-Browse, Call-Number Browse) is assumed to act like Catalog
-      when /^\/browse/
-        'catalog'
-      else
-        active_source_from_params || 'quicksearch'
-      end
-    end
+    FOCUS_CONFIG.match(params) || FOCUS_CONFIG.match(request.path) || FOCUS_CONFIG.default
   end
 
   def blacklight_solr(source = @active_source)
@@ -326,7 +289,7 @@ class ApplicationController < ActionController::Base
   def blacklight_config(source = @active_source)
     if self.respond_to?(:blacklight_config)
       @blacklight_configs ||= {}
-      @blacklight_configs[source] || (@blacklight_configs[source] = Spectrum::SearchEngines::Solr.generate_config(source))
+      @blacklight_configs[source] ||= Spectrum::SearchEngines::Solr.generate_config(source)
     end
   end
 

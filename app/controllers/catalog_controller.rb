@@ -77,6 +77,8 @@ class CatalogController < ApplicationController
 
     # this does not execute a query - it only organizes query parameters
     # conveniently for use by the view in echoing back to the user.
+    puts params.inspect
+    puts blacklight_config.inspect
     @query = Spectrum::Queries::Solr.new(params, blacklight_config)
 
     @filters = params[:f] || []
@@ -110,6 +112,7 @@ class CatalogController < ApplicationController
       @document_list = search_engine.documents
       # If the search was not successful, there may be errors
       @errors = search_engine.errors
+      raise @errors if @errors
       debug_timestamp('CatalogController#index() end - implicit render to follow')
     end
 
