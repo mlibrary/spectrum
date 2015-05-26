@@ -3,13 +3,16 @@ source 'http://gems.www.lib.umich.edu' do
 end
 
 source 'https://rubygems.org' do
-
+  gem 'puma'
   gem 'pry'
+  gem 'pry-byebug', platforms: :mri
   gem 'pry-rails'
+#  gem 'spectrum-config',
+#     git: File.expand_path(File.join(File.dirname(__FILE__), '..', 'gems', 'spectrum-config')),
+#     branch: 'master',
+#     require: 'spectrum/config'
   gem 'spectrum-config',
-     git: File.expand_path(File.join(File.dirname(__FILE__), '..', 'gems', 'spectrum-config')),
-     branch: 'master',
-     require: 'spectrum/config'
+    path: '../gems/spectrum-config'
 
   # FIXED:  Can't move up to 4.0 series yet - blacklight_range_limit has dependency on 3
   # but, devise_wind still has Rails 3.2 dependencies.
