@@ -11,11 +11,14 @@
 - if show_title
   = add_row('Title', document.get("title_display"), :html_safe => false)
 
-= add_row('Title', document.get("title_vern_display"), :html_safe => false)
+- index_fields(document).each do |name, field|
+  - if should_render_index_field?(document, field)
+    = add_row(render_index_field_label(document, field: name).chop, render_index_field_value(document, field: name), html_safe: false)
 
-= add_row('Author', [document.get("author_display"),document.get("author_vern_display")].compact, :html_safe => false)
-= add_row('Published', document.get("full_publisher_display"), :html_safe => false)
-= add_row('Online', format_online_results(online_link_hash(document)))
+-# = add_row('Title', document.get("title_vern_display"), :html_safe => false)
+-# = add_row('Author', [document.get("author_display"),document.get("author_vern_display")].compact, :html_safe => false)
+-# = add_row('Published', document.get("full_publisher_display"), :html_safe => false)
+-# = add_row('Online', format_online_results(online_link_hash(document)))
 
 
 - unless (locations = document["location_call_number_id_display"].listify.reject { |l| l.match(/^Online/) }).empty?

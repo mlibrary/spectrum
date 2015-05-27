@@ -490,7 +490,6 @@ module Spectrum
       end
 
       def self.generate_config(source)
-        puts "Solr#generate_config(#{source.inspect})"
         self.blacklight_config = Blacklight::Configuration.new do |config|
           if FOCUS_CONFIG.has_key? source
             FOCUS_CONFIG[source].blacklight.configure(config, SEARCH_FIELD_CONFIG)

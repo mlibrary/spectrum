@@ -77,8 +77,6 @@ class CatalogController < ApplicationController
 
     # this does not execute a query - it only organizes query parameters
     # conveniently for use by the view in echoing back to the user.
-    puts params.inspect
-    puts blacklight_config.inspect
     @query = Spectrum::Queries::Solr.new(params, blacklight_config)
 
     @filters = params[:f] || []
