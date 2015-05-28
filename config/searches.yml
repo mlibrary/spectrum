@@ -6,11 +6,11 @@ layouts:
     columns:
       - searches:
           - source: articles 
-  library_web:
+  website:
     style: single
     columns:
       - searches:
-          - source: library_web 
+          - source: website 
             # let per-page (row count) be parameterized
             # count: 10
   quicksearch:
