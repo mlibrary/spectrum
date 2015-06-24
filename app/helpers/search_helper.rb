@@ -25,8 +25,8 @@ module SearchHelper
     source ||= {}
     opts = { 'template' => @search_style }.
         merge(source['render_options'] || {}).
-        merge(search['render_options'] || {})
-    opts['count'] = search['count'].to_i if search['count']
+        merge(search.render_options || {})
+    opts['count'] = search.count.to_i if search.count
     opts
   end
 

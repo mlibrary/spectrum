@@ -55,12 +55,7 @@ class SpectrumController < ApplicationController
     else
       @search_style = @search_layout.style
       # @has_facets = @search_layout['has_facets']
-      sources =  @search_layout.columns.map do |col|
-
-        col['searches'].map do |search|
-          search['source']
-        end
-      end.flatten
+      sources = @search_layout.sources
 
       @action_has_async = true if @search_style == 'aggregate'
 
@@ -78,20 +73,18 @@ class SpectrumController < ApplicationController
   end
 
   def fetch
-    @search_layout = SEARCHES_CONFIG['layouts'][params[:layout]]
+    #@search_layout = SEARCHES_CONFIG['layouts'][params[:layout]]
+    @search_layout = FOCUS_CONFIG[params['layout']].layout
 
-    @datasource = params[:datasource]
+    @active_source = @datasource = params[:datasource]
 
     if @search_layout.nil?
       render text: 'Search layout invalid.'
     else
       @fetch_action = true
-      @search_style = @search_layout['style']
-      # @has_facets = @search_layout['has_facets']
-      sources =  @search_layout['columns'].map do |col|
-        col['searches'].map { |item| item['source'] }
-      end.flatten.select { |source| source == @datasource }
-
+      @search_style = @search_layout.style
+      # @has_facets = @search_layout.has_facets
+      sources = @search_layout.sources.select { |source| source == @datasource }
       @results = get_results(sources)
       render 'fetch', layout: 'js_return'
    end
