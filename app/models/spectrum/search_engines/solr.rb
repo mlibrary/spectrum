@@ -490,13 +490,13 @@ module Spectrum
       end
 
       def self.generate_config(source)
-        self.blacklight_config = Blacklight::Configuration.new do |config|
+        @blacklight_config = Blacklight::Configuration.new do |config|
           if FOCUS_CONFIG.has_key? source
             FOCUS_CONFIG[source].blacklight.configure(config, SEARCH_FIELD_CONFIG)
           end
         end
 
-        return self.blacklight_config
+        return @blacklight_config
         # If we're in one of the hybrid-source bento-box searches....
         if true
           #self.blacklight_config = Blacklight::Configuration.new

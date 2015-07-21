@@ -73,7 +73,8 @@ module DatasourcesHelper
       query: params['q'] || params['s.q'] || ''
     }
 
-    has_facets = source_has_facets?(active_source)
+    has_facets = FOCUS_CONFIG[active_source].has_facets?
+
     # Show all datasources when there's no current query, or
     # when we're in a datasource that doesn't have facets.
     options[:all_sources] = !active_query? || !has_facets

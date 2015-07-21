@@ -57,7 +57,7 @@
                   %li= link_to label, config.relative_url_root + link
             = value[:label]
             -# Add a "remove" icon to turn off this facet filter
-            =link_to content_tag(:span, '', :class => 'glyphicon glyphicon-remove'), config.relative_url_root + value[:remove]
+            = link_to content_tag(:span, '', :class => 'glyphicon glyphicon-remove'), config.relative_url_root + url_for(value[:remove])
           %span.chrome-fix
 
     - @query.ranges.each_pair do |range_key, range|
