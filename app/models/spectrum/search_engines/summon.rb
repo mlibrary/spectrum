@@ -5,31 +5,32 @@ module Spectrum
       include ActionView::Helpers::NumberHelper
       include Rails.application.routes.url_helpers
       Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
+      MAX_PAGE_SIZE = 50
 
       # These are ALWAYS in effect for Summon API queries
       # s.ff - how many options to retrieve for each filter field
       SUMMON_FIXED_PARAMS = {
         'spellcheck' => true,
-        's.ff' => ['ContentType,and,1,10', 'SubjectTerms,and,1,10', 'Language,and,1,5']
+        's.ff' => ['ContentType,and,1,10', 'SubjectTerms,and,1,10', 'Language,and,1,5', 'IsScholarly,and,2', 'IsFullText,and,2']
       }.freeze
 
       # These source-specific params are ONLY FOR NEW SEARCHES
       # s.ho=<boolean>     Holdings Only Parameter, a.k.a., "Columbia's collection only"
       SUMMON_DEFAULT_PARAMS = {
 
-        'newspapers' =>  { 
+        'newspapers' =>  {
           's.ho' => 't',
           # 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)'
           's.fvf' => ['ContentType, Newspaper Article']
         }.freeze,
 
-        'articles' =>  { 
+        'articles' =>  {
           's.ho' => 't',
           # 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)'
           's.fvf' => ['ContentType, Newspaper Article,t']
         }.freeze,
 
-        'ebooks' => { 
+        'ebooks' => {
           's.ho' => 't',
           's.cmd' => 'addFacetValueFilters(IsFullText, true)',
           's.fvf' => ['ContentType,eBook']
@@ -55,21 +56,17 @@ module Spectrum
 
         # These sources only come from bento-box aggregate searches, so enforce
         # the source-specific params without requires 'new_search' CGI param
-        if @source && (@source == 'ebooks' || @source == 'dissertations')
+        if @source && (@source == 'ebooks' || @source == 'dissertations') && SUMMON_DEFAULT_PARAMS[@source]
           @params = SUMMON_DEFAULT_PARAMS[@source].dup
 
         # Otherwise, when source is Articles or Newspapers, we set source-specific default
         # params only for new searches.  Subsequent searches may change these values.
-        elsif @source && options.delete('new_search')
+        elsif @source && options.delete('new_search') && SUMMON_DEFAULT_PARAMS[@source]
           @params = SUMMON_DEFAULT_PARAMS[@source].dup
         end
 
         # These are ALWAYS in effect for Summon API queries
         @params.merge!(SUMMON_FIXED_PARAMS)
-
-        @config = options.delete('config') || SOURCE_CONFIG['summon']
-
-        @config.url = 'http://api.summon.serialssolutions.com/2.0.0'
 
         @search_url = options.delete('search_url')
 
@@ -79,15 +76,16 @@ module Spectrum
         @debug_entries = Hash.arbitrary_depth
 
         # Map the 'q' CGI param to a 's.q' internal Summon param
-        @params['s.q'] = options.delete('q')
+        @params['s.q'] = options.delete(:q)
+        @params['s.hl'] = 'false'
 
         @params.merge!(options)
         @params.delete('utf8')
 
         # assure these are empty strings, if not passed via CGI params
-        @params['s.q'] ||= ''
+        @params['s.q']   ||= ''
         @params['s.cmd'] ||= ''
-        @params['s.fq'] ||= ''
+        @params['s.fq']  ||= ''
 
         # This allows authenticated searches within Summon.
         #   http://api.summon.serialssolutions.com/help/api/search/parameters/role
@@ -111,6 +109,19 @@ module Spectrum
 
         @errors = nil
 # raise
+
+        if @params[:per_page] and !@params['s.ps']
+          @params['s.ps'] = @params.delete(:per_page)
+        end
+
+        if @params[:page] and !@params['s.pn']
+          @params['s.pn'] = @params.delete(:page)
+        end
+
+        if  @params['s.ps'] > MAX_PAGE_SIZE
+          @params['s.ps'] = MAX_PAGE_SIZE
+        end
+
         begin
           # do_benchmarking = false
           # if do_benchmarking
@@ -121,7 +132,9 @@ module Spectrum
 
           Rails.logger.debug "[Spectrum][Summon] config: #{@config}"
           Rails.logger.debug "[Spectrum][Summon] params: #{@params}"
-          @service = ::Summon::Service.new(@config)
+          @service = ::Summon::Service.new(@source)
+
+          puts "[Spectrum][Summon] params: #{@params}"
 
           ### THIS is the actual call to the Summon service to do the search
           @search = @service.search(@params)
@@ -292,7 +305,11 @@ module Spectrum
       end
 
       def documents
-        @search.documents
+        if @search
+          @search.documents
+        else
+          []
+        end
       end
 
       # def start_over_link

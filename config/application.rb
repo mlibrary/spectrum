@@ -73,7 +73,7 @@ module Clio
     #
     # Catch 404s
     config.after_initialize do |app|
-      app.routes.append { match '*catch_unknown_routes', to: 'application#catch_404s' }
+      app.routes.append { get '*catch_unknown_routes', to: 'application#catch_404s' }
     end
 
     # After seeing some: ActionDispatch::RemoteIp::IpSpoofAttackError
@@ -89,10 +89,6 @@ module Clio
     #    turn off the middleware that populates remote_ip.
     # http://blog.gingerlime.com/2012/rails-ip-spoofing
     config.middleware.delete ActionDispatch::RemoteIp
-
-    # https://github.com/kickstarter/rack-attack
-    # "DSL for blocking & throttling abusive clients"
-    config.middleware.use Rack::Attack
 
     # https://github.com/whitequark/rack-utf8_sanitizer
     # Rack::UTF8Sanitizer is a Rack middleware which cleans up

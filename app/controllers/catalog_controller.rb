@@ -286,6 +286,7 @@ class CatalogController < ApplicationController
   # 
   # *** Blacklight 5 ***
   def facet
+    puts blacklight_config.inspect
     @facet = blacklight_config.facet_fields[params[:id]]
 
     # Allow callers to pass in extra params, that won't be sanitized-out by

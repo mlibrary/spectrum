@@ -10,8 +10,6 @@ end
 
 PERMISSIONS_CONFIG ||= YAML.load(File.read(Rails.root.to_s + '/config/permissions.yml'))
 
-SOURCE_CONFIG ||= Spectrum::Config::SourceList.new(YAML.load(File.read(Rails.root.to_s + '/config/source.yml')))
-FOCUS_CONFIG ||= Spectrum::Config::FocusList.new(YAML.load(File.read(Rails.root.to_s + '/config/focus.yml')))
 SEARCH_FIELD_CONFIG ||= Spectrum::Config::SearchFieldList.load(Rails.root.to_s + '/config/search_field.yml')
 
 SEARCHES_CONFIG ||= YAML.load(File.read(Rails.root.to_s + '/config/searches.yml'))

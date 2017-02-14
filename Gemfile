@@ -5,21 +5,24 @@ end
 source 'https://rubygems.org' do
   gem 'puma'
   gem 'pry'
-  gem 'pry-byebug', platforms: :mri
+  #gem 'pry-byebug', platforms: :mri
   gem 'pry-rails'
+  gem 'pry-rescue'
 
   # Use this version for local development and testing changes to spectrum-config.
-  # gem 'spectrum-config',
-  #   path: '../gems/spectrum-config'
   gem 'spectrum-config',
-    git: 'git://github.com/mlibrary/spectrum-config',
-    branch: 'master'
+    path: '../gems/spectrum-config'
+  # gem 'spectrum-config',
+  #  git: 'git://github.com/mlibrary/spectrum-config',
+  #  branch: 'master'
   
+  gem 'spectrum-json',
+    path: '../gems/spectrum-json'
 
   # FIXED:  Can't move up to 4.0 series yet - blacklight_range_limit has dependency on 3
   # but, devise_wind still has Rails 3.2 dependencies.
-  gem 'rails', '~> 3.2'
-  # gem 'rails', '~> 4.0.0'
+  #gem 'rails', '~> 3.2'
+  gem 'rails', '~> 4.2.0'
 
   #  ###  BLACKLIGHT (begin)  ###
   gem 'blacklight', '~>5.3.0'
@@ -44,11 +47,11 @@ source 'https://rubygems.org' do
   gem 'kaminari', '0.15.0'
 
   # pull from rubygems...
-  # gem 'devise_wind'
+  #gem 'devise_wind'
   # Local copy relaxes rails version requirements (allows 4.x)
   # gem "devise_wind", :path => "/Users/marquis/src/devise_wind"
   # New branch to recover from when CUIT broke wind
-  gem "devise_wind", :git => 'git://github.com/cul/devise_wind.git', :branch => 'broke_wind'
+  #gem "devise_wind", :git => 'git://github.com/cul/devise_wind.git', :branch => 'broke_wind'
 
   gem 'json'
 
@@ -102,7 +105,7 @@ source 'https://rubygems.org' do
   # doesn't work in Rails 4 ??
   # RecordMailer uses partials that do fragment caching... but somehow
   # this just doesn't work in stock rails.
-  gem 'caching_mailer'
+  # gem 'caching_mailer'
 
   # Talks to Voyager API directly, return XML-format for Spectrum use.
   # But, this is now used from within the Voyager-Backend application
@@ -113,8 +116,8 @@ source 'https://rubygems.org' do
   gem 'exception_notification'
   gem 'net-ldap'
 
-  gem 'devise'
-  gem 'devise-encryptable'
+  #gem 'devise'
+  #gem 'devise-encryptable'
 
   # application monitoring tool
   gem 'newrelic_rpm'
@@ -152,7 +155,7 @@ source 'https://rubygems.org' do
 
   # https://github.com/kickstarter/rack-attack
   # A DSL for blocking & throttling abusive clients
-  gem 'rack-attack'
+  # gem 'rack-attack'
 
   # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 
@@ -210,6 +213,7 @@ source 'https://rubygems.org' do
 
   end
 
+  gem 'minitest'
   group :test, :development do
 
 

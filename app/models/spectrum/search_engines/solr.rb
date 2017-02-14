@@ -33,20 +33,26 @@ module Spectrum
           solr_search_params_logic << :add_range_limit_params
         end
 
+
         options = original_options.to_hash.deep_clone
         @source = options.delete('source') || options.delete(:source) || fail('Must specify source')
         options.delete(:source)
+
+        @config = options.delete('config') || options.delete(:config) || fail('Must specify config')
+        options.delete(:config)
+
         @debug_mode = options.delete(:debug_mode) || options.delete('debug_mode') || false
+
         @debug_entries = Hash.arbitrary_depth
         @current_user = options.delete('current_user')
         @search_url = options.delete('search_url')
 
         # allow pass-in override solr url
         @solr_url = options.delete('solr_url')
+
         # generate a Solr object
         blacklight_solr()
         # generate a Solr config object
-        blacklight_solr_config()
         @params = options
         @params.symbolize_keys!
         Rails.logger.info "[Spectrum][Solr] source: #{@source} params: #{@params}"
@@ -67,7 +73,7 @@ module Spectrum
           # The Academic Commons Solr has been down so often, and generating
           # so many emails to the CLIO group, that we're going to special-case
           # this to swallow AC connection errors, and partially report to patron.
-          if SOURCE_CONFIG[@source].truncate?
+          if @source.truncate?
             @errors = ex.message.truncate(40)
           else
             raise 'Error searching Solr'
@@ -77,10 +83,6 @@ module Spectrum
 
       def blacklight_solr
         @solr ||= Solr.generate_rsolr(@source, @solr_url)
-      end
-
-      def blacklight_solr_config
-        @config ||= Solr.generate_config(@source)
       end
 
       def results
@@ -177,6 +179,10 @@ module Spectrum
         else
           # use blacklight gem to run the actual search against Solr,
           # call Blacklight::SolrHelper::get_search_results()
+          extra_controller_params['fq'] = @params[:fq]
+          @params[:facets] = @params[:f]
+          extra_controller_params[:sort] = @params[:sort]
+
           @search, @documents = get_search_results(@params, extra_controller_params)
         end
 
@@ -184,8 +190,8 @@ module Spectrum
       end
 
       def self.generate_rsolr(source, solr_url = nil)
-        if SOURCE_CONFIG[source].is_solr?
-          RSolr.connect url: SOURCE_CONFIG[source].url
+        if source.is_solr?
+          RSolr.connect url: source.url
         elsif solr_url
           RSolr.connect url: solr_url
         else
@@ -491,9 +497,9 @@ module Spectrum
 
       def self.generate_config(source)
         @blacklight_config = Blacklight::Configuration.new do |config|
-          if FOCUS_CONFIG.has_key? source
-            FOCUS_CONFIG[source].blacklight.configure(config, SEARCH_FIELD_CONFIG)
-          end
+          #if Spectrum::Json.foci.has_key? source.id
+            #Spectrum::Json.foci[source.id].configure_blacklight(config)
+          #end
         end
 
         return @blacklight_config
@@ -570,7 +576,7 @@ module Spectrum
               config.add_facet_field 'language_facet',
                                      label: 'Language',
                                      # BL5 - "open" becomes "collapse"
-                                     # limit: 5, open: true                                     
+                                     # limit: 5, open: true
                                      limit: 5, collapse: false
               config.add_facet_field 'subject_topic_facet',
                                      label: 'Subject',
@@ -693,9 +699,9 @@ module Spectrum
 
               default_catalog_config(config, :display_fields, :search_fields, :sorts)
 
-              config.add_facet_field 'acq_dt', 
-                                    # label: 'Acquisition Date', open: true, 
-                                    label: 'Acquisition Date', collapse: false, 
+              config.add_facet_field 'acq_dt',
+                                    # label: 'Acquisition Date', open: true,
+                                    label: 'Acquisition Date', collapse: false,
                                     query: {
                 week_1: { label: 'within 1 Week', fq: "acq_dt:[#{(Date.today - 1.weeks).to_datetime.utc.to_solr_s} TO *]" },
                 month_1: { label: 'within 1 Month', fq: "acq_dt:[#{(Date.today - 1.months).to_datetime.utc.to_solr_s} TO *]" },

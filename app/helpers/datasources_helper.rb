@@ -141,13 +141,10 @@ module DatasourcesHelper
     classes << 'minor_source' if options[:minor]
     query = options[:query]
 
-# DATASOURCES_CONFIG['datasource_bar']['major_sources']
-
     li_classes = %w(datasource_link)
     li_classes << 'selected' if source == options[:active_source]
 
-    # li_classes << 'subsource' if options[:subsource]
-    li_classes << 'subsource' if FOCUS_CONFIG[source].subsource
+    li_classes << 'subsource' if FOCUS_CONFIG[source].is_subsource?
 
     fail "no source data found for #{source}" unless FOCUS_CONFIG.has_key? source
     content_tag(

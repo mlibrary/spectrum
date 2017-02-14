@@ -80,7 +80,7 @@ class ApplicationController < ActionController::Base
     # be manipulated by the client.  use remote_addr instead.
     # this will have to be revisited if/when clio lives behind a proxy.
     client_ip = request.remote_addr
-    is_on_campus = User.on_campus?(client_ip)
+    is_on_campus = false #User.on_campus?(client_ip)
     @user_characteristics =
     {
       ip: client_ip,
@@ -248,13 +248,13 @@ class ApplicationController < ActionController::Base
 
     params.delete('debug_mode')
 
-    unless current_user
+    #unless current_user
       @debug_mode = false
-    end
+    #end
 
     session['debug_mode'] = @debug_mode
 
-    @current_user = current_user
+    #@current_user = current_user
     default_debug
   end
 
@@ -276,7 +276,7 @@ class ApplicationController < ActionController::Base
   end
 
   def determine_active_source
-    FOCUS_CONFIG.match(params) || FOCUS_CONFIG.match(request.path) || FOCUS_CONFIG.default
+    nil #FOCUS_CONFIG.match(params) || FOCUS_CONFIG.match(request.path) || FOCUS_CONFIG.default
   end
 
   def blacklight_solr(source = @active_source)

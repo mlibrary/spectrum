@@ -1,7 +1,7 @@
 module LocalSolrHelperExtension
   extend ActiveSupport::Concern
   include Blacklight::SolrHelper
-  include BlacklightRangeLimit::SegmentCalculation
+  #include BlacklightRangeLimit::SegmentCalculation
 
   def is_advanced_search?(req_params = params)
     req_params[:search_field] == 'advanced' && req_params[:adv].kind_of?(Hash)

@@ -3,6 +3,8 @@
 
 require ::File.expand_path('../config/environment',  __FILE__)
 
+::BLACKLIGHT_VERBOSE_LOGGING=true
+
 if false
   use LIT::Rack::Env do |env|
     if env['REQUEST_URI'].start_with? env['SCRIPT_NAME']
