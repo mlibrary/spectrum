@@ -27,13 +27,13 @@ Clio::Application.configure do
   config.assets.debug = true
   config.assets.digest = false
 
+  config.eager_load = false
   # Don't care if the mailer can't send
   config.action_mailer.delivery_method = :test
   config.action_mailer.raise_delivery_errors = false
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
-  config.active_record.auto_explain_threshold_in_seconds = 0.5
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 
