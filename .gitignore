@@ -33,4 +33,5 @@ db/*.sqlite3
 public/clicktale
 spec/reports
 token.txt
-/
+/.idea
+/.env
