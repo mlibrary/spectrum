@@ -134,8 +134,6 @@ module Spectrum
           Rails.logger.debug "[Spectrum][Summon] params: #{@params}"
           @service = ::Summon::Service.new(@source)
 
-          puts "[Spectrum][Summon] params: #{@params}"
-
           ### THIS is the actual call to the Summon service to do the search
           @search = @service.search(@params)
 
