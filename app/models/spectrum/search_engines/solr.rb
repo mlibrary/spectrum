@@ -182,7 +182,7 @@ module Spectrum
           extra_controller_params['fq'] = @params[:fq]
           @params[:facets] = @params[:f]
           extra_controller_params[:sort] = @params[:sort]
-
+          @params[:qt] = 'standard'
           @search, @documents = get_search_results(@params, extra_controller_params)
         end
 
@@ -287,7 +287,6 @@ module Spectrum
           config.add_search_field('subject') do |field|
             field.show_in_dropdown = true
             # field.solr_parameters = { :'spellcheck.dictionary' => 'subject' }
-            field.qt = 'search'
             field.solr_local_parameters = {
               qf: '$subject_qf',
               pf: '$subject_pf'
@@ -298,7 +297,6 @@ module Spectrum
         if fields.include?('form_genre')
           config.add_search_field('form_genre') do |field|
             field.show_in_dropdown = true
-            field.qt = 'search'
             field.label = 'Form/Genre'
             field.solr_local_parameters = {
               qf: 'subject_form_txt',
@@ -310,7 +308,6 @@ module Spectrum
         if fields.include?('publication_place')
           config.add_search_field('publication_place') do |field|
             field.show_in_dropdown = true
-            field.qt = 'search'
             field.solr_local_parameters = {
               qf: 'pub_place_txt',
               pf: 'pub_place_txt'
@@ -321,7 +318,6 @@ module Spectrum
         if fields.include?('publisher')
           config.add_search_field('publisher') do |field|
             field.show_in_dropdown = true
-            field.qt = 'search'
             field.solr_local_parameters = {
               qf: 'pub_name_txt',
               pf: 'pub_name_txt'
@@ -332,7 +328,6 @@ module Spectrum
         if fields.include?('publication_year')
           config.add_search_field('publication_year') do |field|
             field.show_in_dropdown = true
-            field.qt = 'search'
             field.solr_local_parameters = {
               qf: 'pub_year_txt',
               pf: 'pub_year_txt'
@@ -343,7 +338,6 @@ module Spectrum
         if fields.include?('isbn')
           config.add_search_field('isbn') do |field|
             field.show_in_dropdown = true
-            field.qt = 'search'
             field.label = 'ISBN'
             field.solr_local_parameters = {
               qf: 'isbn_txt',
@@ -355,7 +349,6 @@ module Spectrum
         if fields.include?('issn')
           config.add_search_field('issn') do |field|
             field.show_in_dropdown = true
-            field.qt = 'search'
             field.label = 'ISSN'
             field.solr_local_parameters = {
               qf: 'issn_txt',
@@ -367,7 +360,6 @@ module Spectrum
         if fields.include?('call_number')
           config.add_search_field('call_number') do |field|
             field.show_in_dropdown = true
-            field.qt = 'search'
             field.solr_local_parameters = {
               qf: 'location_call_number_txt',
               pf: 'location_call_number_txt'
@@ -378,7 +370,6 @@ module Spectrum
         if fields.include?('location')
           config.add_search_field('location') do |field|
             field.show_in_dropdown = true
-            field.qt = 'search'
             field.solr_local_parameters = {
               qf: 'location_txt',
               pf: 'location_txt'
@@ -415,7 +406,6 @@ module Spectrum
 
         if elements.include?(:solr_params)
           config.default_solr_params = {
-            qt: 'search',
             rows: 25
           }
         end
@@ -517,7 +507,6 @@ module Spectrum
 
             # override defaults to lower rows from 25 to 10 for bento-box searches
             config.default_solr_params = {
-              qt: 'search',
               rows: 10
             }
 
@@ -529,7 +518,6 @@ module Spectrum
           self.blacklight_config = Blacklight::Configuration.new do |config|
 
             config.default_solr_params = {
-              qt: 'search',
               rows: 25
             }
 
@@ -547,14 +535,12 @@ module Spectrum
             when 'catalog_ebooks'
               default_catalog_config(config, :display_fields, :facets, :search_fields, :sorts)
               config.default_solr_params = {
-                qt: 'search',
                 rows: 25,
                 fq: ['{!raw f=format}Book', '{!raw f=format}Online']
               }
             when 'catalog_dissertations'
               default_catalog_config(config, :display_fields, :facets, :search_fields, :sorts)
               config.default_solr_params = {
-                qt: 'search',
                 rows: 25,
                 fq: ['{!raw f=format}Thesis']
               }
@@ -562,7 +548,6 @@ module Spectrum
               default_catalog_config(config, :display_fields, :sorts)
 
               config.default_solr_params = {
-                qt: 'search',
                 rows: 25,
                 fq: ['{!raw f=source_facet}ejournal']
               }
@@ -600,7 +585,6 @@ module Spectrum
               default_catalog_config(config, :display_fields)
 
               config.default_solr_params = {
-                qt: 'search',
                 rows: 25,
                 fq: ['{!raw f=source_facet}database']
               }
@@ -648,7 +632,6 @@ module Spectrum
               default_catalog_config(config, :display_fields,  :sorts)
 
               config.default_solr_params = {
-                qt: 'search',
                 rows: 25,
                 fq: ['{!raw f=source_facet}archive']
               }
@@ -690,7 +673,6 @@ module Spectrum
               # which need to read in source-default solr params
               # (e.g., to merge fq values)
               config.default_solr_params = {
-                qt: 'search',
                 rows: 25,
                 # NEXT-845 - New Arrivals timeframe (6 month count == 1 year count)
                 # :fq  => ["acq_dt:[#{(Date.today - 6.months).to_datetime.utc.to_solr_s} TO *]"]
@@ -738,7 +720,6 @@ module Spectrum
               default_catalog_config(config, :search_fields)
 
               config.default_solr_params = {
-                qt: 'search',
                 rows: 25,
                 fq: ['{!raw f=genre_facet}Dissertations']
               }
@@ -833,7 +814,6 @@ module Spectrum
               add_search_fields(config, 'dcv_title', 'dcv_name')
 
               config.default_solr_params = {
-                qt: 'search',
                 rows: 25,
                 qf: 'all_text_teim',
                 pf: 'all_text_teim',
