@@ -179,10 +179,14 @@ module Spectrum
         else
           # use blacklight gem to run the actual search against Solr,
           # call Blacklight::SolrHelper::get_search_results()
-          extra_controller_params['fq'] = @params[:fq]
+          extra_controller_params['fq']  = @params[:fq]
+          extra_controller_params['mm']  = @params[:mm]
+          extra_controller_params['qf']  = @params[:qf]
+          extra_controller_params['pf']  = @params[:pf]
+          extra_controller_params['tie'] = @params[:tie]
           @params[:facets] = @params[:f]
           extra_controller_params[:sort] = @params[:sort]
-          @params[:qt] = 'standard'
+          @params[:qt] = 'standard' unless @params[:qt] == 'edismax'
           @search, @documents = get_search_results(@params, extra_controller_params)
         end
 

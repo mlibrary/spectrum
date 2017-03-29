@@ -11,7 +11,8 @@ module Spectrum
       # s.ff - how many options to retrieve for each filter field
       SUMMON_FIXED_PARAMS = {
         'spellcheck' => true,
-        's.ff' => ['ContentType,and,1,10', 'SubjectTerms,and,1,10', 'Language,and,1,5', 'IsScholarly,and,2', 'IsFullText,and,2']
+        's.ff' => ['ContentType,and,1,10', 'SubjectTerms,and,1,10', 'Language,and,1,5', 'IsScholarly,and,1,2', 'IsFullText,and,1,2'],
+        's.rff' => ['PublicationDate,1901:1910,1911:1920,1921:1930,1931:1940,1941:1950,1951:1960,1961:1970,1971:1980,1981:1990,1991:2000,2001:2010,2011:2020'],
       }.freeze
 
       # These source-specific params are ONLY FOR NEW SEARCHES
@@ -121,6 +122,8 @@ module Spectrum
         if  @params['s.ps'] > MAX_PAGE_SIZE
           @params['s.ps'] = MAX_PAGE_SIZE
         end
+
+        @params['s.ho'] = options.delete('s.ho')
 
         begin
           # do_benchmarking = false
