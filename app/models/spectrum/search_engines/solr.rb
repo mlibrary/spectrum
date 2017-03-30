@@ -186,7 +186,7 @@ module Spectrum
           extra_controller_params['tie'] = @params[:tie]
           @params[:facets] = @params[:f]
           extra_controller_params[:sort] = @params[:sort]
-          @params[:qt] = 'standard' unless @params[:qt] == 'edismax'
+          @params[:qt] = 'standard' unless @params[:qt] == 'edismax' || @params[:qt] == 'dismax'
           @search, @documents = get_search_results(@params, extra_controller_params)
         end
 
