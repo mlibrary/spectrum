@@ -1,6 +1,10 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
+require 'action_controller/railtie'
+require 'action_mailer/railtie'
+require 'sprockets/railtie'
+require 'rails/test_unit/railtie'
+require 'active_model/railtie'
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
@@ -113,5 +117,11 @@ module Clio
     # (from http://api.rubyonrails.org/classes/ActionDispatch/Request.html
     # e.g., :original_url, :remote_ip, etc.)
     config.log_tags = [:remote_ip]
+
+    config.before_eager_load do
+      Blacklight::Engine.class_eval do
+        config.eager_load_paths = config.eager_load_paths.reject { |path| path.end_with?('/models') }
+      end
+    end
   end
 end
