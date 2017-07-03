@@ -219,11 +219,9 @@ module Spectrum
       #     fvf.negated? }
       # end
 
-      # SpectrumController sets @results = search_engine.documents,
-      # does not expect a results() method
-      # def results
-      #   documents
-      # end
+      def results
+        documents || []
+      end
 
       def search_path
         @search_url || by_source_search_link(@params)
