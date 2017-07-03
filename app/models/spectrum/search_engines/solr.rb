@@ -86,7 +86,7 @@ module Spectrum
       end
 
       def results
-        documents
+        documents || []
       end
 
       def search_path
