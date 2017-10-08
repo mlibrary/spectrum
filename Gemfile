@@ -10,15 +10,18 @@ source 'https://rubygems.org' do
   gem 'pry-rails'
 
   # Use this version for local development and testing changes to spectrum-config.
-  gem 'spectrum-config',
-    path: '../gems/spectrum-config'
-  # gem 'spectrum-config',
-  #  git: 'git://github.com/mlibrary/spectrum-config',
-  #  branch: 'master'
-  
-  gem 'spectrum-json',
-    path: '../gems/spectrum-json'
+  #gem 'spectrum-config',
+  #  path: '../gems/spectrum-config'
+  #gem 'spectrum-json',
+  #  path: '../gems/spectrum-json'
 
+  gem 'spectrum-config',
+    git: 'git://github.com/mlibrary/spectrum-config',
+    branch: 'master'
+  gem 'spectrum-json',
+    git: 'git://github.com/mlibrary/spectrum-json',
+    branch: 'master'
+  
   gem 'rails', '~> 4.2.0'
 
   #  ###  BLACKLIGHT (begin)  ###
