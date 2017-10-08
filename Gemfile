@@ -5,6 +5,7 @@ end
 source 'https://rubygems.org' do
 
 	gem 'rbtrace'
+  gem 'puma'
   gem 'pry'
   gem 'pry-byebug', platforms: :mri
   gem 'pry-rails'
