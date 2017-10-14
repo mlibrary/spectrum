@@ -1,7 +1,3 @@
-source 'http://gems.www.lib.umich.edu' do
-  gem 'lit'
-end
-
 source 'https://rubygems.org' do
 
 	gem 'rbtrace'

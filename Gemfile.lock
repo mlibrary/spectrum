@@ -35,7 +35,6 @@ GIT
       rack (~> 1.0)
 
 GEM
-  remote: http://gems.www.lib.umich.edu/
   remote: https://rubygems.org/
   specs:
     abstract_type (0.0.7)
@@ -209,8 +208,6 @@ GEM
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
-    lit (10.0.1)
-      net-ldap
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -247,7 +244,6 @@ GEM
     minitest (5.8.0)
     msgpack (1.1.0)
     multi_json (1.11.2)
-    net-ldap (0.11)
     netrc (0.10.3)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
@@ -435,7 +431,6 @@ DEPENDENCIES
   json!
   kaminari (= 0.15.0)!
   launchy!
-  lit!
   metric_fu!
   minitest!
   nokogiri (= 1.6.1)!
