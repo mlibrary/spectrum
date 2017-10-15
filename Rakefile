@@ -9,7 +9,7 @@ Clio::Application.load_tasks
 Rake::Task['assets:precompile'].enhance do
   system('rm -rf tmp/search')
   system('git clone https://github.com/mlibrary/search tmp/search')
-  system('(cd tmp/search && git checkout config-using-window-location-origin && git rebase master && npm install && npm run build)')
+  system('(cd tmp/search && git checkout config-using-window-location-origin && git rebase master && bundle exec npm install && bundle exec npm run build)')
   system('(cd tmp/search/build && tar cf - . ) | (cd public && tar xf -)')
 end
 
