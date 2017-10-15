@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/mlibrary/nodenv-wrapper
+  revision: 0d6b91c19edbdb41dfe174398a5738be445e1f00
+  branch: master
+  specs:
+    nodenv-wrapper (0.1.0)
+      rake (~> 10.0)
+
+GIT
   remote: git://github.com/mlibrary/spectrum-config
   revision: aec7eb3e2d29ba5e44114b8cdca6a307004388f0
   branch: master
@@ -433,6 +441,7 @@ DEPENDENCIES
   launchy!
   metric_fu!
   minitest!
+  nodenv-wrapper!
   nokogiri (= 1.6.1)!
   pry!
   pry-byebug!

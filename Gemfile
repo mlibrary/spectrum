@@ -6,6 +6,10 @@ source 'https://rubygems.org' do
   gem 'pry-byebug', platforms: :mri
   gem 'pry-rails'
 
+  gem 'nodenv-wrapper',
+    git: 'git://github.com/mlibrary/nodenv-wrapper',
+    branch: 'master'
+
   # Use this version for local development and testing changes to spectrum-config.
   #gem 'spectrum-config',
   #  path: '../gems/spectrum-config'
