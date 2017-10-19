@@ -42,6 +42,7 @@ end
 Clio::Application.routes.draw do
 
   mount Spectrum::Json::Engine => '/spectrum/'
-  get '*_', to: static('index.html')
+  get '/', to: redirect('/everything', status: 302)
+  get '*_', to: static('app.html')
 
 end
