@@ -7,8 +7,13 @@ require 'rake'
 Clio::Application.load_tasks
 
 Rake::Task['assets:precompile'].enhance do
+  branch = if File.exists?('config/ui-version.txt')
+    Shellwords.escape(IO.read('config/ui-version.txt').strip)
+  else
+    'master'
+  end
   system('rm -rf tmp/search')
-  system('git clone https://github.com/mlibrary/search tmp/search')
+  system("git clone --branch #{branch} --depth 1 https://github.com/mlibrary/search tmp/search")
   system('(cd tmp/search && bundle exec npm install && bundle exec npm run build)')
   system('(cd tmp/search/build && tar cf - . ) | (cd public && tar xf -)')
   system('mv public/index.html public/app.html')
