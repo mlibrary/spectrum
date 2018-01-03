@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/mlibrary/aleph
+  revision: 538ac8314c44020bf8e010e7ad3c0a483f0a8298
+  branch: master
+  specs:
+    aleph (0.1.0)
+      httparty
+      nokogiri
+
+GIT
   remote: git://github.com/mlibrary/nodenv-wrapper
   revision: 0d6b91c19edbdb41dfe174398a5738be445e1f00
   branch: master
@@ -8,7 +17,7 @@ GIT
 
 GIT
   remote: git://github.com/mlibrary/spectrum-config
-  revision: 40196038e12b53752ec1aaf0827756c14cdd92ca
+  revision: 11d4af3dc8ea90be6a6bb1093c36a437dda8f428
   branch: master
   specs:
     spectrum-config (0.0.1)
@@ -16,7 +25,7 @@ GIT
 
 GIT
   remote: git://github.com/mlibrary/spectrum-json
-  revision: 0a6d4c3e3a1c16b42b6696fdfb1f3d02fd83de04
+  revision: a366129347d0bea62d8ef461091c9e44b8578f5c
   branch: master
   specs:
     spectrum-json (0.1.0)
@@ -24,16 +33,6 @@ GIT
       json-schema
       rails (~> 4.2.0)
       rsolr
-
-GIT
-  remote: git://github.com/projectblacklight/blacklight_range_limit.git
-  revision: 6f32bb29c0a6d68988a3f473637b510048d7dbd4
-  branch: master
-  specs:
-    blacklight_range_limit (5.1.0)
-      blacklight (>= 5.0.0.pre4, < 6)
-      jquery-rails
-      rails (>= 3.0, < 5.0)
 
 GIT
   remote: git://github.com/whitequark/rack-utf8_sanitizer
@@ -195,6 +194,8 @@ GEM
     htmlentities (4.3.4)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
+    httparty (0.15.6)
+      multi_xml (>= 0.5.2)
     httpclient (2.6.0.1)
     i18n (0.7.0)
     ice_nine (0.11.1)
@@ -252,6 +253,7 @@ GEM
     minitest (5.8.0)
     msgpack (1.1.0)
     multi_json (1.11.2)
+    multi_xml (0.6.0)
     netrc (0.10.3)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
@@ -420,11 +422,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aleph!
   better_errors!
   binding_of_caller!
   blacklight (~> 5.3.0)!
   blacklight-marc!
-  blacklight_range_limit!
   bootstrap-sass!
   cancan!
   capybara!

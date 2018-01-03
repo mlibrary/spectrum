@@ -10,17 +10,16 @@ source 'https://rubygems.org' do
     git: 'git://github.com/mlibrary/nodenv-wrapper',
     branch: 'master'
 
-  # Use this version for local development and testing changes to spectrum-config.
-  #gem 'spectrum-config',
-  #  path: '../gems/spectrum-config'
-  #gem 'spectrum-json',
-  #  path: '../gems/spectrum-json'
-
   gem 'spectrum-config',
     git: 'git://github.com/mlibrary/spectrum-config',
     branch: 'master'
+
   gem 'spectrum-json',
     git: 'git://github.com/mlibrary/spectrum-json',
+    branch: 'master'
+
+  gem 'aleph',
+    git: 'git://github.com/mlibrary/aleph',
     branch: 'master'
   
   gem 'rails', '~> 4.2.0'
@@ -29,7 +28,6 @@ source 'https://rubygems.org' do
   gem 'blacklight', '~>5.3.0'
   gem 'blacklight-marc'
 
-  gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
 
   #  ###  BLACKLIGHT (end)  ###
 
