@@ -25,12 +25,13 @@ GIT
 
 GIT
   remote: git://github.com/mlibrary/spectrum-json
-  revision: 4d06515becc5de0bd9994ab75d1eca0bda55aaf1
+  revision: dffc0d68212399b4750dfff5481f5305d83237c3
   branch: master
   specs:
     spectrum-json (0.1.0)
       activesupport
       json-schema
+      marc
       rails (~> 4.2.0)
       rsolr
 
