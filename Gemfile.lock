@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/mlibrary/aleph
-  revision: 1b4dac0686c4a951f79c7e50423bb27a35486afb
+  revision: 149ac53d72878092f834a8df695543350dc4debd
   branch: master
   specs:
     aleph (0.1.0)
@@ -25,7 +25,7 @@ GIT
 
 GIT
   remote: git://github.com/mlibrary/spectrum-json
-  revision: dffc0d68212399b4750dfff5481f5305d83237c3
+  revision: 541ed226959b569a24ca208a8aea80f4a35d35d7
   branch: master
   specs:
     spectrum-json (0.1.0)
