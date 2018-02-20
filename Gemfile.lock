@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/mlibrary/aleph
-  revision: 0eb2e1bda7df6656815feb9d8635dafbe7fa46cc
+  revision: 4f99b9b862dccc0113ce34a2de3eb5e7c70adfac
   branch: master
   specs:
     aleph (0.1.0)
@@ -207,7 +207,7 @@ GEM
     htmlentities (4.3.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    httparty (0.15.6)
+    httparty (0.16.0)
       multi_xml (>= 0.5.2)
     httpclient (2.8.3)
     i18n (0.9.3)
