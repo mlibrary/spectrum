@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: git://github.com/mlibrary/spectrum-config
-  revision: 2cd6fce983ed6c018666b21803d8f6b668236981
+  revision: c67fbe422f8bf95716b41e3a79b31eaf5759dced
   branch: master
   specs:
     spectrum-config (0.0.1)
@@ -25,7 +25,7 @@ GIT
 
 GIT
   remote: git://github.com/mlibrary/spectrum-json
-  revision: bf0cdb9a2411ed82d6bd4b94d6adb2a59092b74b
+  revision: e70bae346e98136efb065dbf4ff7af4b8eb73368
   branch: master
   specs:
     spectrum-json (0.1.0)
@@ -210,7 +210,7 @@ GEM
     httparty (0.16.0)
       multi_xml (>= 0.5.2)
     httpclient (2.8.3)
-    i18n (0.9.3)
+    i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
     jquery-rails (4.3.1)
@@ -231,7 +231,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.1.1)
+    loofah (2.2.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.0)
@@ -290,7 +290,7 @@ GEM
       pry (~> 0.10)
     pry-rails (0.3.6)
       pry (>= 0.10.4)
-    public_suffix (3.0.1)
+    public_suffix (3.0.2)
     puma (3.11.2)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
