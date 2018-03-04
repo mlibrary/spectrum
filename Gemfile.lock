@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/mlibrary/aleph
+  remote: https://github.com/mlibrary/aleph
   revision: 4f99b9b862dccc0113ce34a2de3eb5e7c70adfac
   branch: master
   specs:
@@ -8,7 +8,7 @@ GIT
       nokogiri
 
 GIT
-  remote: git://github.com/mlibrary/nodenv-wrapper
+  remote: https://github.com/mlibrary/nodenv-wrapper
   revision: dbf475d556685fc82bf63f417991addcda6df415
   branch: master
   specs:
@@ -16,15 +16,15 @@ GIT
       rake (~> 10.0)
 
 GIT
-  remote: git://github.com/mlibrary/spectrum-config
-  revision: c67fbe422f8bf95716b41e3a79b31eaf5759dced
+  remote: https://github.com/mlibrary/spectrum-config
+  revision: 763e3183f1818435c75e403fc51ba3b653655eaa
   branch: master
   specs:
     spectrum-config (0.0.1)
       htmlentities
 
 GIT
-  remote: git://github.com/mlibrary/spectrum-json
+  remote: https://github.com/mlibrary/spectrum-json
   revision: 8ea1718b4803d7fbc0960f67d51038f92755ff1c
   branch: master
   specs:
@@ -37,10 +37,10 @@ GIT
       rsolr
 
 GIT
-  remote: git://github.com/whitequark/rack-utf8_sanitizer
-  revision: 99f76732781619b89147ed1e295994fbb5abb4a7
+  remote: https://github.com/whitequark/rack-utf8_sanitizer
+  revision: e05853ca2f3dc7bd94a44baa13ad84cec8f1a8bf
   specs:
-    rack-utf8_sanitizer (1.4.0)
+    rack-utf8_sanitizer (1.5.0)
       rack (>= 1.0, < 3.0)
 
 GEM

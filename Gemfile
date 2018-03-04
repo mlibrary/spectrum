@@ -7,19 +7,19 @@ source 'https://rubygems.org' do
   gem 'pry-rails'
 
   gem 'nodenv-wrapper',
-    git: 'git://github.com/mlibrary/nodenv-wrapper',
+    git: 'https://github.com/mlibrary/nodenv-wrapper',
     branch: 'master'
 
   gem 'spectrum-config',
-    git: 'git://github.com/mlibrary/spectrum-config',
+    git: 'https://github.com/mlibrary/spectrum-config',
     branch: 'master'
 
   gem 'spectrum-json',
-    git: 'git://github.com/mlibrary/spectrum-json',
+    git: 'https://github.com/mlibrary/spectrum-json',
     branch: 'master'
 
   gem 'aleph',
-    git: 'git://github.com/mlibrary/aleph',
+    git: 'https://github.com/mlibrary/aleph',
     branch: 'master'
   
   gem 'rails', '~> 4.2.0'
@@ -69,7 +69,7 @@ source 'https://rubygems.org' do
   # We also still have invalid %-encoding w/submitted form fields.
   # This is an open issue at rack-utf8_sanitizer.
   # gem 'rack-utf8_sanitizer', :github => 'whitequark/rack-utf8_sanitizer'
-  gem 'rack-utf8_sanitizer', :git => 'git://github.com/whitequark/rack-utf8_sanitizer'
+  gem 'rack-utf8_sanitizer', :git => 'https://github.com/whitequark/rack-utf8_sanitizer'
 
   # gives us jQuery and jQuery-ujs, but not jQuery UI
   # (blacklight_range_limit brings this in anyway - no way to switch to CDN)
