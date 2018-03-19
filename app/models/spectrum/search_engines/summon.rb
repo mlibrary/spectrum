@@ -119,7 +119,7 @@ module Spectrum
           @params['s.pn'] = @params.delete(:page)
         end
 
-        if  @params['s.ps'] > MAX_PAGE_SIZE
+        if  !@params['s.ps'] || @params['s.ps'] > MAX_PAGE_SIZE
           @params['s.ps'] = MAX_PAGE_SIZE
         end
 
