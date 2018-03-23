@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-config
-  revision: 59084fb724fbf10ef0ab122de8575954fcc49e59
+  revision: c870e1865c9e6e601cc69da7175223478c42ff1a
   branch: master
   specs:
     spectrum-config (0.0.1)
@@ -25,7 +25,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 12538bd8110cfc0721b67495720ecce4d9e6a10a
+  revision: a3e58c9bee894f838e813777aa4dcc2ff28dda61
   branch: master
   specs:
     spectrum-json (0.1.0)
@@ -221,6 +221,7 @@ GEM
     json-schema (2.8.0)
       addressable (>= 2.4)
     json_pure (2.1.0)
+    jwt (2.1.0)
     kaminari (0.15.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -423,6 +424,10 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.8)
     trollop (2.1.2)
+    twilio-ruby (5.7.2)
+      faraday (~> 0.9)
+      jwt (>= 1.5, <= 2.5)
+      nokogiri (>= 1.6, < 2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.5)
@@ -457,6 +462,7 @@ DEPENDENCIES
   coffee-rails!
   database_cleaner!
   exception_notification!
+  exlibris-aleph (~> 2.0.4)!
   factory_girl_rails!
   haml!
   haml-rails!
@@ -491,6 +497,7 @@ DEPENDENCIES
   summon!
   therubyracer!
   therubyrhino!
+  twilio-ruby!
   uglifier!
   unicode!
 

@@ -1,6 +1,8 @@
 source 'https://rubygems.org' do
 
-	gem 'rbtrace'
+  gem 'twilio-ruby'
+  gem 'exlibris-aleph', '~>2.0.4'
+  gem 'rbtrace'
   gem 'puma'
   gem 'pry'
   gem 'pry-byebug', platforms: :mri
