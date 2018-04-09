@@ -25,13 +25,14 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 2e711963276ed142c08292a2d93289d3aced7b76
+  revision: 397014880d36c676ca5b95ebb3d30d5d9383e4fe
   branch: master
   specs:
     spectrum-json (0.1.0)
       activesupport
       exlibris-aleph
       json-schema
+      lru_redux
       marc
       rails (~> 4.2.0)
       rsolr
@@ -235,6 +236,7 @@ GEM
     loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
+    lru_redux (1.1.0)
     mail (2.7.0)
       mini_mime (>= 0.1.1)
     main (6.2.2)
