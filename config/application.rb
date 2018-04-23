@@ -98,6 +98,22 @@ module Clio
     # Rack::UTF8Sanitizer is a Rack middleware which cleans up
     # invalid UTF8 characters in request URI and headers.
     config.middleware.insert_before 'Rack::Runtime', Rack::UTF8Sanitizer
+    config.middleware.insert_before 'Rack::UTF8Sanitizer',
+      Ipresolver::Middleware,
+      proxies: [
+        '127.0.0.1/16',
+        '141.211.168.128/25',
+        '141.213.128.128/25',
+        '10.255.0.0/16'
+      ]
+    config.middleware.insert_after 'Ipresolver::Middleware',
+      Keycard::Rack::InjectAttributes,
+      Keycard::Yaml::InstitutionFinder.new
+
+    require 'keycard/ldap/institution_finder'
+    config.middleware.insert_after 'Ipresolver::Middleware',
+      Keycard::Rack::InjectAttributes,
+      Keycard::Ldap::InstitutionFinder.new
 
     # [deprecated] I18n.enforce_available_locales will default to true in the
     # future. If you really want to skip validation of your locale you can set

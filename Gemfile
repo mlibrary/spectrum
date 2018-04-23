@@ -1,5 +1,6 @@
 source 'https://rubygems.org' do
 
+  gem 'net-ldap'
   gem 'twilio-ruby'
   gem 'exlibris-aleph', '~>2.0.4'
   gem 'rbtrace'
@@ -7,6 +8,15 @@ source 'https://rubygems.org' do
   gem 'pry'
   gem 'pry-byebug', platforms: :mri
   gem 'pry-rails'
+
+  gem 'ipresolver',
+    git: 'https://github.com/mlibrary/ipresolver',
+    branch: 'master'
+
+  gem 'keycard',
+    git: 'https://github.com/bertrama/keycard',
+    branch: 'rack-yaml-institution-finder',
+    require: ['keycard/rack', 'keycard/yaml/institution_finder']
 
   gem 'nodenv-wrapper',
     git: 'https://github.com/mlibrary/nodenv-wrapper',
