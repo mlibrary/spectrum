@@ -45,6 +45,7 @@ module Keycard
 
       def attributes_for(request)
         return {} unless (username = request.env['HTTP_X_REMOTE_USER'])
+        return {} if username.empty?
         return {} unless (record = search(username))
         return {} if (institutions = match(record)).empty?
         {config.institution_finder.key => institutions}
