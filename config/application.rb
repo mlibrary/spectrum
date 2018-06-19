@@ -133,7 +133,7 @@ module Clio
     # (from http://api.rubyonrails.org/classes/ActionDispatch/Request.html
     # e.g., :original_url, :remote_ip, etc.)
     config.log_tags = [:remote_ip]
-
+    config.eager_load = true
     config.before_eager_load do
       Blacklight::Engine.class_eval do
         config.eager_load_paths = config.eager_load_paths.reject { |path| path.end_with?('/models') }
