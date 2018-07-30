@@ -43,7 +43,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 538bca98a9ee7d7159fa6ac3e82f30d16275fd37
+  revision: dc62cc556c4e0e6513b662998015cac251d5a793
   branch: master
   specs:
     spectrum-json (0.1.0)
