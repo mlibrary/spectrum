@@ -3,11 +3,7 @@ source 'https://rubygems.org' do
   gem 'net-ldap'
   gem 'twilio-ruby'
   gem 'exlibris-aleph', '~>2.0.4'
-  gem 'rbtrace'
   gem 'puma'
-  gem 'pry'
-  gem 'pry-byebug', platforms: :mri
-  gem 'pry-rails'
 
   gem 'ipresolver',
     git: 'https://github.com/mlibrary/ipresolver',
@@ -54,10 +50,6 @@ source 'https://rubygems.org' do
     gem 'therubyracer'
   end
 
-  platforms :jruby do
-    gem 'therubyrhino'
-  end
-
   gem 'httpclient'
   gem 'nokogiri', '1.6.1'
 
@@ -99,6 +91,10 @@ source 'https://rubygems.org' do
   gem 'stringex'
 
   group :development do
+    gem 'rbtrace'
+    gem 'pry'
+    gem 'pry-byebug', platforms: :mri
+    gem 'pry-rails'
     gem 'rerun'
     gem 'quiet_assets'
 

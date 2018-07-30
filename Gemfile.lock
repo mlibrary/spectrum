@@ -523,7 +523,6 @@ DEPENDENCIES
   stringex!
   summon!
   therubyracer!
-  therubyrhino!
   twilio-ruby!
   uglifier!
   unicode!
