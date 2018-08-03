@@ -24,7 +24,7 @@ source 'https://rubygems.org' do
 
   gem 'spectrum-json',
     git: 'https://github.com/mlibrary/spectrum-json',
-    branch: 'master'
+    branch: 'wrapped-booleans'
 
   gem 'aleph',
     git: 'https://github.com/mlibrary/aleph',
