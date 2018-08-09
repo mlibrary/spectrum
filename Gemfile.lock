@@ -43,8 +43,8 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 1f2feebebc9ac18940547e4eb120de2a4293786f
-  branch: wrapped-booleans
+  revision: a61dbb58a07150f2d06e3a4b4d9373defedc3b4c
+  branch: master
   specs:
     spectrum-json (0.1.0)
       activesupport
