@@ -35,7 +35,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-config
-  revision: c983b7b2eba4b71f24ff8cff6d75e2f4b2c1816b
+  revision: 7e54ff4027dd62e4db15faeb67d8a02dcd86f71b
   branch: master
   specs:
     spectrum-config (0.0.1)
@@ -43,7 +43,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 8e818b5eb142d0a8a42168865c5259d00c8395ab
+  revision: 7204f3db35938cdeba5132873928ec48a3a8f17d
   branch: master
   specs:
     spectrum-json (0.1.0)
