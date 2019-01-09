@@ -1,5 +1,6 @@
 source 'https://rubygems.org' do
 
+  gem 'skylight'
   gem 'net-ldap'
   gem 'twilio-ruby'
   gem 'exlibris-aleph', '~>2.0.4'
