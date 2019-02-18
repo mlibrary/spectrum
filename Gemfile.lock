@@ -35,7 +35,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-config
-  revision: cbe4279c46afcd33520ab2f2939de954b82e5215
+  revision: ad0fa6f3780be4d55b8c0f47eaa0c07744134de6
   branch: master
   specs:
     spectrum-config (0.0.1)
@@ -43,7 +43,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 9acac72523c00ef6c3de5c6dbe98d4e55a39ef45
+  revision: 6d7043c837f0b87e629285fbf64617c66ae5cf41
   branch: master
   specs:
     spectrum-json (0.1.0)
@@ -533,4 +533,4 @@ DEPENDENCIES
   unicode!
 
 BUNDLED WITH
-   1.17.1
+   1.17.2
