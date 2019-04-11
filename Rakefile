@@ -14,7 +14,9 @@ Rake::Task['assets:precompile'].enhance do
   end
   system('rm -rf tmp/search') || abort('Unable to remove existing search directory')
   system("git clone --branch #{branch} --depth 1 https://github.com/mlibrary/search tmp/search") || abort("Couldn't clone search")
-  system('(cd tmp/search && bundle exec npm install && bundle exec npm run build)') || abort("Couldn't build search front end")
+  Bundler.with_clean_env do
+    system('(cd tmp/search && bundle exec npm install && bundle exec npm run build)') || abort("Couldn't build search front end")
+  end
   system('(cd tmp/search/build && tar cf - . ) | (cd public && tar xf -)') || abort("Couldn't copy build to public directory")
   system('mv public/index.html public/app.html') || abort("Couldn't rename index to app")
 end
