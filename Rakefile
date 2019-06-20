@@ -3,26 +3,58 @@
 
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
+require 'json'
 
 Clio::Application.load_tasks
 
-Rake::Task['assets:precompile'].enhance do
-  search_branch = if File.exists?('config/ui-version.txt')
-    Shellwords.escape(IO.read('config/ui-version.txt').strip)
+REPO_SPEC = Struct.new(:url, :branch)
+
+REPO_URL_MATCHER = /\A(.+?)(?:#(.+))?\Z/
+
+def rewrite_pride_package_json(pride_repo_spec)
+  search_package_json                          = JSON.load(File.read 'tmp/search/package.json')
+  search_package_json['dependencies']['pride'] = "../pride"
+  File.open('tmp/search/package.json', 'w:utf-8') { |f| f.puts search_package_json.to_json }
+end
+
+def env_repo_spec(env_var_name)
+  if m = REPO_URL_MATCHER.match(ENV[env_var_name])
+    REPO_SPEC.new(m[1], m[2] || 'master')
   else
-    'master'
+    nil
+  end
+end
+
+Rake::Task['assets:precompile'].enhance do
+
+  # The env variables can include a branch by ending them with '#branchname'
+  # If not, branch names will be pulled from config/ui-version.txt and
+  # config/pride-version.txt, as shown below
+
+  search_repo_spec = env_repo_spec('SEARCH_REPO_URL') or
+    REPO_SPEC.new('git@github:/mlibrary/search', 'master')
+
+  pride_repo_spec = env_repo_spec('PRIDE_REPO_URL') or
+    REPO_SPEC.new('git@github:/mlibrary/pride', 'master')
+
+  if File.exists?('config/pride-version.txt')
+    pride_repo_spec.branch = Shellwords.escape(IO.read('config/pride-version.txt').strip)
   end
 
-  pride_branch = if File.exists?('config/pride-version.txt')
-    Shellwords.escape(IO.read('config/pride-version.txt').strip)
-  else
-    'master'
+  if File.exists?('config/ui-version.txt')
+    search_repo_spec.branch = Shellwords.escape(IO.read('config/ui-version.txt').strip)
   end
+
+  # puts "Cloning `search` from #{search_repo_spec.url}, branch #{search_repo_spec.branch}"
+  # puts "Cloning `pride` from #{pride_repo_spec.url}, branch #{pride_repo_spec.branch}"
 
   system('rm -rf tmp/search') || abort('Unable to remove existing search directory')
-  system("git clone --branch #{search_branch} --depth 1 https://github.com/mlibrary/search tmp/search") || abort("Couldn't clone search")
+  system('rm -rf tmp/pride') || abort('Unable to remove existing search directory')
+
+  system("git clone --branch #{search_repo_spec.branch} --depth 1 #{search_repo_spec.url} tmp/search") || abort("Couldn't clone search")
+  system("git clone --branch #{pride_repo_spec.branch} --depth 1 #{pride_repo_spec.url} tmp/pride") || abort("Couldn't clone pride")
   Bundler.with_clean_env do
-    system("sed -e 's%pride.git.*\"%pride.git##{pride_branch}\"%' -i tmp/search/package.json")
+    rewrite_pride_package_json(pride_repo_spec)
     system('(cd tmp/search && bundle exec npm install --no-progress && bundle exec npm run build)') || abort("Couldn't build search front end")
   end
   system('(cd tmp/search/build && tar cf - . ) | (cd public && tar xf -)') || abort("Couldn't copy build to public directory")
@@ -33,7 +65,7 @@ end
 # Doing this lets us test by just typing "rake", but that also means
 # rake will re-initialize the test db every time.
 # This is annoying, since we need a library_hours table synced up with
-# production data to validate tests.  
+# production data to validate tests.
 # So, omit this, run 'rspec' instead of 'rake'.
 # task :default  => :spec
 
@@ -41,7 +73,7 @@ end
 # This bit is for working with a CI server (e.g., Jenkins)
 # # https://github.com/nicksieger/ci_reporter
 # # To use CI::Reporter, simply add one of the following lines to your Rakefile:
-# # 
+# #
 # require 'ci/reporter/rake/rspec'     # use this if you're using RSpec
 # # require 'ci/reporter/rake/cucumber'  # use this if you're using Cucumber
 # # require 'ci/reporter/rake/spinach'   # use this if you're using Spinach
