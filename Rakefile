@@ -11,9 +11,10 @@ REPO_SPEC = Struct.new(:url, :branch)
 
 REPO_URL_MATCHER = /\A(.+?)(?:#(.+))?\Z/
 
-def rewrite_pride_package_json(pride_repo_spec)
+def rewrite_search_package_json(pride_repo_spec)
+  pride_dir = Pathname.new(__dir__).parent + 'pride'
   search_package_json                          = JSON.load(File.read 'tmp/search/package.json')
-  search_package_json['dependencies']['pride'] = "../pride"
+  search_package_json['dependencies']['pride'] = "git+file://#{pride_dir.realpath}##{pride_repo_spec.branch}"
   File.open('tmp/search/package.json', 'w:utf-8') { |f| f.puts search_package_json.to_json }
 end
 
@@ -45,8 +46,8 @@ Rake::Task['assets:precompile'].enhance do
     search_repo_spec.branch = Shellwords.escape(IO.read('config/ui-version.txt').strip)
   end
 
-  # puts "Cloning `search` from #{search_repo_spec.url}, branch #{search_repo_spec.branch}"
-  # puts "Cloning `pride` from #{pride_repo_spec.url}, branch #{pride_repo_spec.branch}"
+  puts "Cloning `search` from #{search_repo_spec.url}, branch #{search_repo_spec.branch}"
+  puts "Cloning `pride` from #{pride_repo_spec.url}, branch #{pride_repo_spec.branch}"
 
   system('rm -rf tmp/search') || abort('Unable to remove existing search directory')
   system('rm -rf tmp/pride') || abort('Unable to remove existing search directory')
@@ -54,7 +55,9 @@ Rake::Task['assets:precompile'].enhance do
   system("git clone --branch #{search_repo_spec.branch} --depth 1 #{search_repo_spec.url} tmp/search") || abort("Couldn't clone search")
   system("git clone --branch #{pride_repo_spec.branch} --depth 1 #{pride_repo_spec.url} tmp/pride") || abort("Couldn't clone pride")
   Bundler.with_clean_env do
-    rewrite_pride_package_json(pride_repo_spec)
+    rewrite_search_package_json(pride_repo_spec)
+    system('(cd tmp/search && bundle exec npm update pride && cd -)') || abort("Can't update pride")
+    abort("quitting")
     system('(cd tmp/search && bundle exec npm install --no-progress && bundle exec npm run build)') || abort("Couldn't build search front end")
   end
   system('(cd tmp/search/build && tar cf - . ) | (cd public && tar xf -)') || abort("Couldn't copy build to public directory")

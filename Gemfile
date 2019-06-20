@@ -30,7 +30,7 @@ source 'https://rubygems.org' do
   gem 'aleph',
     git: 'https://github.com/mlibrary/aleph',
     branch: 'master'
-  
+
   gem 'rails', '~> 4.2.0'
 
   #  ###  BLACKLIGHT (begin)  ###
@@ -54,9 +54,6 @@ source 'https://rubygems.org' do
   gem 'httpclient'
   gem 'nokogiri', '1.6.1'
 
-  # HTML replacement language
-  gem 'haml'
-  gem 'haml-rails'
 
   # CSS replacement language
   gem 'sass'
@@ -79,7 +76,7 @@ source 'https://rubygems.org' do
   # gives us jQuery and jQuery-ujs, but not jQuery UI
   # (blacklight_range_limit brings this in anyway - no way to switch to CDN)
   gem 'jquery-rails'
-  
+
   group :assets do
     gem 'sass-rails'
     gem 'coffee-rails'
@@ -104,7 +101,7 @@ source 'https://rubygems.org' do
       # http://railscasts.com/episodes/402-better-errors-railspanel
       gem 'better_errors'
       gem 'binding_of_caller'
-  
+
       # "A fist full of code metrics"
       gem 'metric_fu'
     end
