@@ -52,7 +52,7 @@ source 'https://rubygems.org' do
   end
 
   gem 'httpclient'
-  gem 'nokogiri', '1.6.1'
+  gem 'nokogiri', '>= 1.8.5'
 
   # HTML replacement language
   gem 'haml'
@@ -84,7 +84,7 @@ source 'https://rubygems.org' do
     gem 'sass-rails'
     gem 'coffee-rails'
     gem 'uglifier'
-    gem 'bootstrap-sass'
+    gem 'bootstrap-sass', ">= 3.4.1"
   end
 
 
