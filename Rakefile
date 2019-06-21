@@ -11,11 +11,16 @@ REPO_SPEC = Struct.new(:url, :branch)
 
 REPO_URL_MATCHER = /\A(.+?)(?:#(.+))?\Z/
 
+# Rewrite tmp/search package.json to point to its sister-directory `pride`
+# and update package-lock.json so "npm install" will actually use it.
 def rewrite_search_package_json(pride_repo_spec)
-  pride_dir = Pathname.new(__dir__).parent + 'pride'
-  search_package_json                          = JSON.load(File.read 'tmp/search/package.json')
-  search_package_json['dependencies']['pride'] = "git+file://#{pride_dir.realpath}##{pride_repo_spec.branch}"
+  pride_dir           = Pathname.new(__dir__).parent + 'pride'
+  search_package_json = JSON.load(File.read 'tmp/search/package.json')
+  # search_package_json['dependencies']['pride'] = "git+file://#{pride_dir.realpath}##{pride_repo_spec.branch}"
+  search_package_json['dependencies']['pride'] = "../pride"
   File.open('tmp/search/package.json', 'w:utf-8') { |f| f.puts search_package_json.to_json }
+  puts "Linking in pride from ../pride"
+  system('(cd tmp/search && bundle exec "npm --no-progress install ../pride" && cd -)') || abort("Can't update pride")
 end
 
 def env_repo_spec(env_var_name)
@@ -32,11 +37,11 @@ Rake::Task['assets:precompile'].enhance do
   # If not, branch names will be pulled from config/ui-version.txt and
   # config/pride-version.txt, as shown below
 
-  search_repo_spec = env_repo_spec('SEARCH_REPO_URL') or
-    REPO_SPEC.new('git@github:/mlibrary/search', 'master')
+  search_repo_spec = env_repo_spec('SEARCH_REPO_URL') ||
+    REPO_SPEC.new('git@github.com:/mlibrary/search', 'master')
 
-  pride_repo_spec = env_repo_spec('PRIDE_REPO_URL') or
-    REPO_SPEC.new('git@github:/mlibrary/pride', 'master')
+  pride_repo_spec = env_repo_spec('PRIDE_REPO_URL') ||
+    REPO_SPEC.new('git@github.com:/mlibrary/pride', 'master')
 
   if File.exists?('config/pride-version.txt')
     pride_repo_spec.branch = Shellwords.escape(IO.read('config/pride-version.txt').strip)
@@ -50,14 +55,12 @@ Rake::Task['assets:precompile'].enhance do
   puts "Cloning `pride` from #{pride_repo_spec.url}, branch #{pride_repo_spec.branch}"
 
   system('rm -rf tmp/search') || abort('Unable to remove existing search directory')
-  system('rm -rf tmp/pride') || abort('Unable to remove existing search directory')
+  system('rm -rf tmp/pride') || abort('Unable to remove existing  pride directory')
 
   system("git clone --branch #{search_repo_spec.branch} --depth 1 #{search_repo_spec.url} tmp/search") || abort("Couldn't clone search")
   system("git clone --branch #{pride_repo_spec.branch} --depth 1 #{pride_repo_spec.url} tmp/pride") || abort("Couldn't clone pride")
   Bundler.with_clean_env do
     rewrite_search_package_json(pride_repo_spec)
-    system('(cd tmp/search && bundle exec npm update pride && cd -)') || abort("Can't update pride")
-    abort("quitting")
     system('(cd tmp/search && bundle exec npm install --no-progress && bundle exec npm run build)') || abort("Couldn't build search front end")
   end
   system('(cd tmp/search/build && tar cf - . ) | (cd public && tar xf -)') || abort("Couldn't copy build to public directory")
