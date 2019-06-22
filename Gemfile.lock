@@ -35,19 +35,21 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-config
-  revision: 4aa987e8871294ae15eb9ecc04d80dac0203365c
+  revision: d12781f84ad4f83546c3dace2ac58b62ccb3a47a
   branch: master
   specs:
     spectrum-config (0.0.1)
       htmlentities
+      rails-html-sanitizer
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: bf0ae56354361d9ae15a969cba857ad0f49aae42
+  revision: 6433a608c002ebd1f6b78c1a19f90bc9dd8e1e52
   branch: master
   specs:
     spectrum-json (0.1.0)
       activesupport
+      execjs
       exlibris-aleph
       json-schema
       lru_redux
