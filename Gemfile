@@ -4,6 +4,7 @@ source 'https://rubygems.org' do
   gem 'net-ldap'
   gem 'twilio-ruby'
   gem 'exlibris-aleph', '~>2.0.4'
+  gem 'rake'
 
   gem 'ipresolver',
     git: 'https://github.com/mlibrary/ipresolver',
