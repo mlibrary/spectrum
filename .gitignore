@@ -21,7 +21,6 @@
 /config/source.yml
 /config/focus.yml
 /config/database.yml
-/config/app_config.yml
 /config/solr.yml
 /config/*.sphinx.conf
 /config/s3_credentials.yml

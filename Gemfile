@@ -102,7 +102,7 @@ source 'https://rubygems.org' do
     platforms :mri do
       # browser-based live debugger and REPL
       # http://railscasts.com/episodes/402-better-errors-railspanel
-      gem 'better_errors'
+      #gem 'better_errors'
       gem 'binding_of_caller'
   
       # "A fist full of code metrics"
