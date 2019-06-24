@@ -4,7 +4,6 @@ source 'https://rubygems.org' do
   gem 'net-ldap'
   gem 'twilio-ruby'
   gem 'exlibris-aleph', '~>2.0.4'
-  gem 'puma'
 
   gem 'ipresolver',
     git: 'https://github.com/mlibrary/ipresolver',
@@ -98,6 +97,7 @@ source 'https://rubygems.org' do
     gem 'pry-rails'
     gem 'rerun'
     gem 'quiet_assets'
+    gem 'puma'
 
     platforms :mri do
       # browser-based live debugger and REPL
