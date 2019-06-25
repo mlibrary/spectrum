@@ -12,7 +12,8 @@ if defined?(Bundler)
   Bundler.require *Rails.groups(assets: %w(development test))
 end
 
-
+# Load up .env file if we've got one
+Dotenv::Railtie.load
 
 RELEASE_STAMP = IO.read('VERSION').strip
 
