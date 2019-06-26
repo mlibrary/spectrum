@@ -7,6 +7,7 @@ require 'rake'
 Clio::Application.load_tasks
 
 Rake::Task['assets:precompile'].enhance do
+  break
   search_branch = if File.exists?('config/ui-version.txt')
     Shellwords.escape(IO.read('config/ui-version.txt').strip)
   else
