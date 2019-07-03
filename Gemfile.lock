@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/nodenv-wrapper
-  revision: b4f80eb0697dc0b32c04b172fe20c6f9afc46670
+  revision: 59538400ac8f5e10476f2571058dc114c64e5fa4
   branch: master
   specs:
     nodenv-wrapper (0.1.0)
