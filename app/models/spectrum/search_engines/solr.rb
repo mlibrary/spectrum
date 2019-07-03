@@ -56,6 +56,7 @@ module Spectrum
         @params = options
         @params.symbolize_keys!
         Rails.logger.info "[Spectrum][Solr] source: #{@source} params: #{@params}"
+
 # ###
 # For better-errors debugging, perform the search outside the begin/rescue/end
 # perform_search
@@ -189,6 +190,7 @@ module Spectrum
           @params[:qt] = 'standard' unless @params[:qt] == 'edismax' || @params[:qt] == 'dismax'
           extra_controller_params['qq'] = '"' + RSolr.solr_escape(@params[:q]) + '"'
           @search, @documents = get_search_results(@params, extra_controller_params)
+          logger.debug { @solr.uri.to_s + 'select' + '?' + URI.encode_www_form(@search.params.merge(wt: "xml", "debugQuery" => 'true')) }
         end
 
         self
