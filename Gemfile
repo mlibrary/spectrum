@@ -1,10 +1,14 @@
 source 'https://rubygems.org' do
 
+  # Allow dotenv configuration
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
+
   gem 'skylight'
   gem 'net-ldap'
   gem 'twilio-ruby'
   gem 'exlibris-aleph', '~>2.0.4'
   gem 'puma'
+
 
   gem 'ipresolver',
     git: 'https://github.com/mlibrary/ipresolver',
