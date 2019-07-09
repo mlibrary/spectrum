@@ -26,14 +26,6 @@ GIT
     ipresolver (0.1.0)
 
 GIT
-  remote: https://github.com/mlibrary/nodenv-wrapper
-  revision: 65b17fe81ad4b5130df43df358de6f17fb5f7087
-  branch: master
-  specs:
-    nodenv-wrapper (0.1.0)
-      rake (~> 10.0)
-
-GIT
   remote: https://github.com/mlibrary/spectrum-config
   revision: a579b3c1c628d7ec3c4b6986367be6345fdec62c
   branch: master
@@ -505,7 +497,6 @@ DEPENDENCIES
   metric_fu!
   minitest!
   net-ldap!
-  nodenv-wrapper!
   nokogiri (>= 1.8.5)!
   pry!
   pry-byebug!
