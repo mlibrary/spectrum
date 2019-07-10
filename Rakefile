@@ -15,13 +15,10 @@ Rake::Task['assets:precompile'].enhance do
   search_branch = ENV['SPECTRUM_SEARCH_GIT_BRANCH'] || 'master'
   pride_branch = ENV['SPECTRUM_PRIDE_GIT_BRANCH'] || 'master'
 
-
   system('rm -rf tmp/search') || abort('Unable to remove existing search directory')
   system("git clone --branch #{search_branch} --depth 1 https://github.com/mlibrary/search tmp/search") || abort("Couldn't clone search")
-  Bundler.with_clean_env do
-    system("sed -e 's%pride.git.*\"%pride.git##{pride_branch}\"%' -i '' tmp/search/package.json")
-    system('(cd tmp/search && bundle exec npm install --no-progress && bundle exec npm run build)') || abort("Couldn't build search front end")
-  end
+  system("sed -e 's%pride.git.*\"%pride.git##{pride_branch}\"%' -i '' tmp/search/package.json")
+  system('(cd tmp/search && npm install --no-progress && npm run build)') || abort("Couldn't build search front end")
   system('(cd tmp/search/build && tar cf - . ) | (cd public && tar xf -)') || abort("Couldn't copy build to public directory")
   system('mv public/index.html public/app.html') || abort("Couldn't rename index to app")
 end
