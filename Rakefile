@@ -17,8 +17,12 @@ Rake::Task['assets:precompile'].enhance do
 
   system('rm -rf tmp/search') || abort('Unable to remove existing search directory')
   system("git clone --branch #{search_branch} --depth 1 https://github.com/mlibrary/search tmp/search") || abort("Couldn't clone search")
-  system("sed -e 's%pride.git.*\"%pride.git##{pride_branch}\"%' -i '' tmp/search/package.json")
+
+  search_package = 'tmp/search/package.json'
+  File.read(search_package).tap{|contents| File.open(search_package, 'w:utf-8') {|f| f.puts contents.gsub(/pride\.git/, "pride.git\##{pride_branch}")}}
+    
   system('(cd tmp/search && npm install --no-progress && npm run build)') || abort("Couldn't build search front end")
+
   system('(cd tmp/search/build && tar cf - . ) | (cd public && tar xf -)') || abort("Couldn't copy build to public directory")
   system('mv public/index.html public/app.html') || abort("Couldn't rename index to app")
 end
