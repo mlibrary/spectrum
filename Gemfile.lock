@@ -508,6 +508,7 @@ DEPENDENCIES
   quiet_assets!
   rack-utf8_sanitizer!
   rails (~> 4.2.0)!
+  rake!
   rb-fsevent!
   rbtrace!
   rerun!
