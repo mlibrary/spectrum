@@ -19,10 +19,6 @@ source 'https://rubygems.org' do
     branch: 'rack-yaml-institution-finder',
     require: ['keycard/rack', 'keycard/yaml/institution_finder']
 
-  gem 'nodenv-wrapper',
-    git: 'https://github.com/mlibrary/nodenv-wrapper',
-    branch: 'master'
-
   gem 'spectrum-config',
     git: 'https://github.com/mlibrary/spectrum-config',
     branch: 'master'
