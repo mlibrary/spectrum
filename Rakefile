@@ -22,6 +22,7 @@ Rake::Task['assets:precompile'].enhance do
   File.read(search_package).tap{|contents| File.open(search_package, 'w:utf-8') {|f| f.puts contents.gsub(/pride\.git/, "pride.git\##{pride_branch}")}}
     
   Bundler.with_clean_env do
+    Dotenv.load
     system('(cd tmp/search && npm install --no-progress && npm run build)') || abort("Couldn't build search front end")
   end
 
