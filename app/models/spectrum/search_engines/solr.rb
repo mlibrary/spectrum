@@ -188,11 +188,33 @@ module Spectrum
           extra_controller_params[:sort] = @params[:sort]
           @params[:qt] = 'standard' unless @params[:qt] == 'edismax' || @params[:qt] == 'dismax'
           extra_controller_params['qq'] = '"' + RSolr.solr_escape(@params[:q]) + '"'
+
+          if @params[:q] == '*:*'
+            remove_null_search_extraneous_parameters
+          end
+
+
           @search, @documents = get_search_results(@params, extra_controller_params)
         end
 
         self
       end
+
+      NULL_SEARCH_EXTRANEOUS_PARAMS = %w[
+        boost
+        bq
+        qf
+        pf
+        pf2
+        pf3
+        mm
+      ]
+      def remove_null_search_extraneous_parameters
+        NULL_SEARCH_EXTRANEOUS_PARAMS.each do |f|
+          @config.default_solr_params.delete(f)
+        end
+      end
+
 
       def self.generate_rsolr(source, solr_url = nil)
         if source.is_solr?
