@@ -113,7 +113,7 @@ module Clio
 
     config.middleware.insert_after 'Ipresolver::Middleware',
       Keycard::Rack::InjectAttributes,
-      Keycard::Yaml::InstitutionFinder.new
+      Keycard::Ldap::InstitutionFinder.new
 
     config.middleware.insert_after 'Ipresolver::Middleware',
       Keycard::Rack::InjectAttributes,
@@ -121,7 +121,7 @@ module Clio
 
     config.middleware.insert_after 'Ipresolver::Middleware',
       Keycard::Rack::InjectAttributes,
-      Keycard::Ldap::InstitutionFinder.new
+      Keycard::Yaml::InstitutionFinder.new
 
     # [deprecated] I18n.enforce_available_locales will default to true in the
     # future. If you really want to skip validation of your locale you can set
