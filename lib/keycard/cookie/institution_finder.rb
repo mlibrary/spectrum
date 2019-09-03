@@ -28,14 +28,18 @@ module Keycard
     class InstitutionFinder
       attr_reader :config
 
+      DEFAULT_KEY = 'dlpsInstitutionId'
+
       def initialize(config: 'config/keycard.yml')
         @config = configure(YAML.load_file(config)['cookie'])
       end
 
       def attributes_for(request)
+        binding.pry
+        return {} unless request.env[key].nil? || request.env[key].empty?
         return {} unless request.cookies
         return {} if (institutions = match(request.cookies)).empty?
-        {config.institution_finder.key => institutions}
+        {key => institutions}
       end
 
       private
@@ -45,10 +49,14 @@ module Keycard
         matches.select(&:allow?).map(&:name).reject { |inst| denied.include?(inst) }
       end
 
+      def key
+        config.institution_finder.key
+      end
+
       def configure(cfg)
         OpenStruct.new(
           institution_finder: OpenStruct.new(
-            key: cfg['institution_finder']['key'] || 'dlpsInstitutionId',
+            key: cfg['institution_finder']['key'] || DEFAULT_KEY,
             institutions: cfg['institution_finder']['institutions'].map {|inst| Institution.new(inst) }
           )
         )

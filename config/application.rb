@@ -107,11 +107,18 @@ module Clio
         '141.213.128.128/25',
         '10.255.0.0/16'
       ]
+
+    require 'keycard/cookie/institution_finder'
+    require 'keycard/ldap/institution_finder'
+
     config.middleware.insert_after 'Ipresolver::Middleware',
       Keycard::Rack::InjectAttributes,
       Keycard::Yaml::InstitutionFinder.new
 
-    require 'keycard/ldap/institution_finder'
+    config.middleware.insert_after 'Ipresolver::Middleware',
+      Keycard::Rack::InjectAttributes,
+      Keycard::Cookie::InstitutionFinder.new
+
     config.middleware.insert_after 'Ipresolver::Middleware',
       Keycard::Rack::InjectAttributes,
       Keycard::Ldap::InstitutionFinder.new
