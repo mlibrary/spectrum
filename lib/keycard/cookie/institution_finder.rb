@@ -35,7 +35,6 @@ module Keycard
       end
 
       def attributes_for(request)
-        binding.pry
         return {} unless request.env[key].nil? || request.env[key].empty?
         return {} unless request.cookies
         return {} if (institutions = match(request.cookies)).empty?
