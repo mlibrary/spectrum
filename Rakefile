@@ -26,8 +26,20 @@ Rake::Task['assets:precompile'].enhance do
     system('(cd tmp/search && npm install --no-progress && npm run build)') || abort("Couldn't build search front end")
   end
 
+  system('mv tmp/search/build/index.html tmp/search/build/app.html') || abort("Couldn't rename index to app")
   system('(cd tmp/search/build && tar cf - . ) | (cd public && tar xf -)') || abort("Couldn't copy build to public directory")
-  system('mv public/index.html public/app.html') || abort("Couldn't rename index to app")
+
+  # Temporary addition: build an alt search interface.
+  # We know we want this to use the master branch of pride.
+  if pride_branch != 'master'
+    system('rm -rf tmp/search.alt') || abort('Unable to remove existing search directory')
+    system("git clone --branch #{search_branch} --depth 1 https://github.com/mlibrary/search tmp/search.alt") || abort("Couldn't clone search")
+    Bundler.with_clean_env do
+      Dotenv.load
+      system('(cd tmp/search.alt && npm install --no-progress && npm run build)') || abort("Couldn't build search front end")
+    end
+    system('mv tmp/search.alt/build/index.html tmp/search.alt/build/app.html') || abort("Couldn't rename index to app")
+  end
 end
 
 
