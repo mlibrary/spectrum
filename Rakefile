@@ -18,7 +18,7 @@ Rake::Task['assets:precompile'].enhance do
   system("chmod g-s tmp") || abort("Couldn't fix permissions")
   system('rm -rf tmp/search') || abort('Unable to remove existing search directory')
   system("git clone --branch #{search_branch} --depth 1 https://github.com/mlibrary/search tmp/search") || abort("Couldn't clone search")
-  group = `groups 2>/dev/null | awk '{print $1}'`
+  group = `groups 2>/dev/null | awk '{print $1}'`.chomp
   system("chgrp -R '#{group}' tmp/search") || abort("Couldn't chgrp search")
 
   search_package = 'tmp/search/package.json'
