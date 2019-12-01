@@ -27,8 +27,8 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-config
-  revision: dc731ded2676dd05d664043e3ce35c012e463bad
-  branch: master
+  revision: 614db08aebc06cef69c84e9ec4c817faf7cf7558
+  branch: SEARCH-1041
   specs:
     spectrum-config (0.0.1)
       htmlentities
@@ -36,8 +36,8 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: e0dc7a48fcc4bbc07ae95634a8bb6ac35c2db331
-  branch: master
+  revision: 306658aabcbdbcc57009ecbf79a2bd0e6ddf768b
+  branch: SEARCH-1041
   specs:
     spectrum-json (0.1.0)
       activesupport
