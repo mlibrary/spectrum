@@ -6,6 +6,11 @@ Somewhere there was a light/color analogy, so some files and class names reflect
 
 source -> focus (bends the light coming from a source) -> filter (alters the light in some way once it's been focused)
 
+Areas of confusion or inconsistency:
+
+* Foci are called DataStores in most places.
+* We decided on referring to `facets` as `filters` on the front-end.  The front end makes no mention of `facet`.  Spectrum has a different `filter` concept that alters the content of a field (for example, adding a proxy prefix to a url).  TODO: Other terms like transform might make more sense.
+
 ## Where the code lives
 
 * https://github.com/mlibrary/spectrum 
@@ -124,3 +129,44 @@ A lot of these configuration files ended up being mappings from catalog codes to
     This describes the subject specialists to be shown along with search results. The implementation was only ever partially completed.
 
     TODO: Rearchitect this as a separate datastore or other feature.
+
+## Lifecycle of a search
+
+Broad overview of what happens when a search is conducted by an end user.
+
+1. User enters a query into the search box, clicks submit.
+2. The React front-end passes the query to it's instance of Pride.
+3. Pride parses the query, and sends a multi-search to the configured datastores in Spectrum.
+4. Spectrum converts the requests from Pride into a request for Solr or Summon.
+5. Results from the multi-search return to Pride, and the record metadata is augmented from Prejudice.
+6. Search is notified of the new records asynchronously, and the Redux state is updated, leading to React drawing the search results.
+
+## Lifecycle of a request in Spectrum.
+
+Detailed walkthrough of what happens when a search request is received by Spectrum
+
+1. the Puma app server receives the request, and passes it down the Rack stack.
+2. Custom portions of the rack stack
+    `github.com/mlibrary/spectrum:config/appliation.rb:103`
+    1. Ipresolver::Middleware - Correctly handles X-Forwarded-For headers for our environment
+    2. Keycard::Rack::InjectAttributes - Inject attributes to the request indicating which institution the visitor is from ( AA or Flint)
+         We actually do this 3 times, once looking at the IP address, once looking at a cookie, and once looking at the user's ldap info.
+         We use this information to set user preferences, and not for robust access control, so the cookie-based attributes don't need to be secured or signed.
+3. Eventually the request makes it to the JsonController#index method.
+    1. A `before_filter` runs `:init` and `:cors`
+        `:init` does common setup that would be shared across all of the endpoints
+        `:cors` Sets cors headers for the response.  TODO: 500 errors break the cors headers, maybe set that up to respond in a way Pride understands.
+    2. Set up a datastore request (`Spectrum::Request::DataStore`) which acts as a decorator around the Rails request object and the datastore configuration.
+    3. Set up a new request for echoing back what was understood by the parser etc (`Spectrum::Request::DataStore`).
+    4. Set up the datastore description for the response (`Spectrum::Response::DataStore`).
+    5. Set up the specialists for the response (`Spectrum::Response::Specialists`).
+    6. Set up the record list for the response (`Spectrum::Response::RecordList`).
+    7. render the response as json.
+
+## Initialization
+
+Rails initializers are in `mlibrary/spectrum-json:lib/spectrum/json/railtie.rb`.
+
+Most of the configuration loading gets handed off to `Spectrum:Json::configure` which loads the config files for `mlibrary/spectrum-config` classes.  Loaded configuration information is housed in `Spectrum::Json` class variables with accessors defined.  i.e. `Spectrum::Json.foci`, `Spectrum::Json.fields`, etc.
+
+TODO: Figure out what to do about the deferred work of getting null facets.  The deferred work is defined in `mlibrary/spectrum-json:lib/spectrum/json.rb` but it gets triggered in `mlibrary/spectrum-config:lib/spectrum/config/focus.rb`.
