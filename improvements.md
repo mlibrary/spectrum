@@ -9,7 +9,7 @@
     * Put more query generation logic in the same place. 
     * Generate queries that work as planned for solr (i.e. expand aliases so they have a real pf or bq)
         * field:value => _query_:"{!dismax qf=$field.qf pf=$field.pf bq=$field.bq v=$field.clauseN}"
-        * query generation will need to add arbitrary variables to the query
+        * query generation will need to add arbitrary variables to the query (i.e. $field.clauseN)
     * Some of this is in `spectrum-json:lib/spectrum/field_tree/` files
     * facet generation is handled some in `spectrum-config:lib/spectrum/config/source.rb`
 
