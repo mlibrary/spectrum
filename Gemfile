@@ -25,7 +25,7 @@ source 'https://rubygems.org' do
 
   gem 'spectrum-json',
     git: 'https://github.com/mlibrary/spectrum-json',
-    branch: 'master'
+    branch: 'SEARCH-1121'
 
   gem 'aleph',
     git: 'https://github.com/mlibrary/aleph',
