@@ -12,6 +12,16 @@ Forked from Columbia Libraries Unified Search &amp; Discovery
 1. `cd spectrum-project/spectrum BUNDLE_GEMFILE=Gemfile.dev bundle install --path .bundle`
 1. Get a copy of the config files from the dev server.
 1. `tar xf spectrum-dev-config.tar`
+1. Update the values in `.env` from `spectrum-dev-config.tar`.
+    You'll probably use:
+    ```bash
+RAILS_RELATIVE_URL_ROOT=http://localhost:9292/spectrum
+SPECTRUM_SEARCH_GIT_BRANCH=master
+SPECTRUM_PRIDE_GIT_BRANCH=master
+REACT_APP_LOGIN_BASE_URL=http://localhost:9292
+REACT_APP_SPECTRUM_BASE_URL=http://localhost:9292/spectrum
+    ```
+1. `BUNDLE_GEMFILE=Gemfile.dev bundle exec rake assets:precompile`
 1. `BUNDLE_GEMFILE=Gemfile.dev bundle exec rackup`
 
 ## Overview of Spectrum
