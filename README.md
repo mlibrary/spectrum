@@ -9,7 +9,8 @@ Forked from Columbia Libraries Unified Search &amp; Discovery
 1. `git clone git@github.com:mlibrary/spectrum.git spectrum-project/spectrum`
 1. `git clone git@github.com:mlibrary/spectrum-config.git spectrum-project/spectrum-config`
 1. `git clone git@github.com:mlibrary/spectrum-json.git spectrum-project/spectrum-json`
-1. `cd spectrum-project/spectrum BUNDLE_GEMFILE=Gemfile.dev bundle install --path .bundle`
+1. `cd spectrum-project/spectrum`
+1. `BUNDLE_GEMFILE=Gemfile.dev bundle install --path .bundle`
 1. Get a copy of the config files from the dev server.
 1. `tar xf spectrum-dev-config.tar`
 1. Update the values in `.env` from `spectrum-dev-config.tar`.
