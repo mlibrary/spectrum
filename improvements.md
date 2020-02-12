@@ -8,8 +8,8 @@
     * Remove dependency on CLIO and Blacklight (`spectrum:app/models/spectrum/search_engines/solr.rb`, `spectrum:app/models/spectrum/search_engines/summon.rb`). 
     * Put more query generation logic in the same place. 
     * Generate queries that work as planned for solr (i.e. expand aliases so they have a real pf or bq)
-        * field:value => _query_:"{!dismax qf=$field.qf pf=$field.pf bq=$field.bq v=$field.clauseN}"
-        * query generation will need to add arbitrary variables to the query
+        * `field:value` => `_query_:"{!dismax qf=$field.qf pf=$field.pf bq=$field.bq v=$field.clauseN}"`
+        * query generation will need to add arbitrary variables to the query (i.e. `$field.clauseN`)
     * Some of this is in `spectrum-json:lib/spectrum/field_tree/` files
     * facet generation is handled some in `spectrum-config:lib/spectrum/config/source.rb`
 
@@ -28,5 +28,5 @@
 
 * Filters / data rewriting altering
     * Filters like the proxy prefix needs to know about the user's affiliation.
-    * Currently accomplished by passing the request object all the way down to filter to make that decision.
+    * Currently accomplished by passing the request object all the way down to the filter to make that decision.
     * Maybe move towards building each request's filter stack with that information in mind, rather than assembling one stack to apply every time.
