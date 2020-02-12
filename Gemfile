@@ -21,11 +21,11 @@ source 'https://rubygems.org' do
 
   gem 'spectrum-config',
     git: 'https://github.com/mlibrary/spectrum-config',
-    branch: 'master'
+    branch: 'record-fields'
 
   gem 'spectrum-json',
     git: 'https://github.com/mlibrary/spectrum-json',
-    branch: 'master'
+    branch: 'record-fields'
 
   gem 'aleph',
     git: 'https://github.com/mlibrary/aleph',
