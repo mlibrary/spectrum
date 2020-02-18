@@ -144,5 +144,8 @@ source 'https://rubygems.org' do
     # code coverage
     gem 'simplecov'
 
+    # Lock sprockets to 3.x
+    gem 'sprockets', '~>3.0'
+
   end
 end
