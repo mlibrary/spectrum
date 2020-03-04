@@ -196,7 +196,6 @@ module Spectrum
 
 
           @search, @documents = get_search_results(@params, extra_controller_params)
-          logger.debug { @solr.uri.to_s + 'select' + '?' + URI.encode_www_form(@search.params.merge(wt: "xml", "debugQuery" => 'true')) }
         end
 
         self

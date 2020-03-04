@@ -36,7 +36,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 6d91880e6c5d264d5e2ce363f4628cc35d476ae9
+  revision: 8ee294677aad6ff0ac09eb635d8d07a3bdbcd7ee
   branch: master
   specs:
     spectrum-json (0.1.0)
@@ -510,7 +510,6 @@ DEPENDENCIES
   quiet_assets!
   rack-utf8_sanitizer!
   rails (~> 4.2.0)!
-  rake!
   rb-fsevent!
   rbtrace!
   rerun!
