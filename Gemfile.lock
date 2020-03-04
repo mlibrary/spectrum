@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-config
-  revision: f436937083ac6eb9dda6b007d8fe716dff4e68b2
+  revision: 967faeaed91a73701a067a969969da52a858a048
   branch: master
   specs:
     spectrum-config (0.0.1)
@@ -36,7 +36,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: ebfab5960bd682fb18b8256ce1b1ae6275fdb5a3
+  revision: 8ee294677aad6ff0ac09eb635d8d07a3bdbcd7ee
   branch: master
   specs:
     spectrum-json (0.1.0)
@@ -292,7 +292,8 @@ GEM
     mysql2 (0.5.1)
     net-ldap (0.16.1)
     netrc (0.11.0)
-    nokogiri (1.10.3)
+    nio4r (2.5.2)
+    nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     parallel (1.12.1)
     parser (2.4.0.2)
@@ -308,7 +309,8 @@ GEM
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     public_suffix (3.0.2)
-    puma (3.11.2)
+    puma (4.3.3)
+      nio4r (~> 2.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.11)
@@ -348,7 +350,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (2.2.2)
       rake
-    rake (10.5.0)
+    rake (13.0.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
