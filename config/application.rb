@@ -40,6 +40,8 @@ module Clio
     require 'rsolr_notifications'
     require 'browse_support'
 
+    MARC::ControlField.control_tags.add('FMT')
+
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
@@ -107,14 +109,21 @@ module Clio
         '141.213.128.128/25',
         '10.255.0.0/16'
       ]
-    config.middleware.insert_after 'Ipresolver::Middleware',
-      Keycard::Rack::InjectAttributes,
-      Keycard::Yaml::InstitutionFinder.new
 
+    require 'keycard/cookie/institution_finder'
     require 'keycard/ldap/institution_finder'
+
     config.middleware.insert_after 'Ipresolver::Middleware',
       Keycard::Rack::InjectAttributes,
       Keycard::Ldap::InstitutionFinder.new
+
+    config.middleware.insert_after 'Ipresolver::Middleware',
+      Keycard::Rack::InjectAttributes,
+      Keycard::Cookie::InstitutionFinder.new
+
+    config.middleware.insert_after 'Ipresolver::Middleware',
+      Keycard::Rack::InjectAttributes,
+      Keycard::Yaml::InstitutionFinder.new
 
     # [deprecated] I18n.enforce_available_locales will default to true in the
     # future. If you really want to skip validation of your locale you can set

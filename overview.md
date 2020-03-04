@@ -1,0 +1,172 @@
+# Overview
+
+## Nomenclature
+
+Somewhere there was a light/color analogy, so some files and class names reflect that.  A lot of it originated with blacklight (single-color) and spectrum (multiple colors).  It didn't hold up well and leads to confusing reuse of terms like filter.
+
+source -> focus (bends the light coming from a source) -> filter (alters the light in some way once it's been focused)
+
+Areas of confusion or inconsistency:
+
+* Foci are called DataStores in most places.
+* We decided on referring to `facets` as `filters` on the front-end.  The front end makes no mention of `facet`.  Spectrum has a different `filter` concept that alters the content of a field (for example, adding a proxy prefix to a url).  TODO: Other terms like transform might make more sense.
+
+## Where the code lives
+
+* https://github.com/mlibrary/spectrum 
+
+    This repository, the rails app hosting the spectrum-json gem engine
+
+    These two are the main parts from CLIO that we're still using.
+
+    * https://github.com/mlibrary/spectrum/tree/master/app/models/spectrum/search_engines/solr.rb
+    * https://github.com/mlibrary/spectrum/tree/master/app/models/spectrum/search_engines/summon.rb
+
+    Otherwise, these are probably also somewhat relevant:
+    * https://github.com/mlibrary/spectrum/tree/master/lib/keycard/
+    * https://github.com/mlibrary/spectrum/tree/master/config/
+
+* https://github.com/mlibrary/spectrum-config 
+
+    The repository for the spectrum-json configuration processing and logic.
+    Entirely new code.
+
+* https://github.com/mlibrary/spectrum-json
+
+    The gem engine that handles requests for spectrum.
+    Entirely new code.
+
+* https://github.com/mlibrary/pride
+
+    The javascript library for interacting with spectrum-json for search-related functions.
+
+* https://github.com/mlibrary/prejudice
+
+    The javascript library for interacting with spectrum-json for personalization-related functions.
+
+* https://github.com/mlibrary/search
+
+    The React-based front-end for Search
+
+## Where the configuration lives
+
+  * git repository on a local-directory on a dev server
+  * moku dev / search-testing
+
+## Configuration files
+
+* `config/source.yml`
+
+    This defines different souces for data.  We only currently use summon and solr, but eventually we will have to use CDI to replace Summon.
+
+* `config/foci/*.yml`
+
+    The config/foci/ directory includes the definitions for the different datastores.  Or logical buckets that can be searched separately.  Each datastore has a source, information on how to generate queries and how to interpret the results.
+
+    TODO: Rename `foci` to `datastore` to match later naming conventions.
+
+* `config/fields.yml`
+
+    Where each field is defined.  The intention was to allow the field definitions to be shared across datastores so that fielded search concepts could be made to work across multiple datastores.  This didn't work so well in practice. 
+
+
+A lot of these configuration files ended up being mappings from catalog codes to human readable text or urls. Or providing information on how some hierarchical data is structured.
+
+* `config/sorts.yml`
+
+   Where each sort option is defined.  The intention was to allow the sorting to be shared across datastores so that the same sort concept could be made to work across multiple datastores.  That didn't work so well in practice.
+
+
+* `config/actions.yml`
+
+    Defines actions a user can take on a record, like exporting to email, sms, a file download or library favorites.
+
+* `config/aleph.yml`
+
+    Defines some aleph related functionality, describes how to display some status codes, and maps patron statuses to services allowed through Get This.
+
+* `config/facet_parents.yml`
+
+    The `academic_disciplines` field is hierarchical.  This defines that hierarchy.  I hope it was automatically generated, but if so I don't recall how it was automatically generated.
+
+* `config/filters.yml`
+
+    I think this is no longer used.  I think this was merged into field definitions.
+
+    TODO: Remove this file and any code that depends on it if possible.
+
+* `config/get_this.yml`
+
+    Describes services available to patrons based on their role at the university.
+
+*  `config/keycard.yml`
+
+    This is a configuration for an expansion of an early version of keycard to support IP addrresses defined in a yaml file, and ldap.  Some of that functionality may have been incorporated into keycard itself.  We used a fork of keycard because at that time, keycard had a dependency on ActiveRecord.
+
+    TODO: See if we can get back onto the main branch of keycard.
+
+* `config/layout.yml`
+
+    Early mapping for how the different features were displayed on the page.  Probably not used.
+
+    TODO: Remove this file and any code that depends on it if possible.
+
+* `config/locColl.yaml`, `config/instLocs.yaml`, `config/floor_locations.json`
+
+    These are generated by AIM and written outside of the search directory, and loaded on application startup.
+    That is inconsistent with the moku model, so copies are supplied here.
+
+    TODO: Find a longer-term way to keep this information up to date in the running appliation.
+
+* `confing/role_map.yml` and `config/search_field.yml`
+
+    These are leftover from CLIO. I don't believe these are used anymore.
+
+    TODO: Remove this file and any code that depends on it if possible.
+
+* `config/specialists.yml`
+
+    This describes the subject specialists to be shown along with search results. The implementation was only ever partially completed.
+
+    TODO: Rearchitect this as a separate datastore or other feature.
+
+## Lifecycle of a search
+
+Broad overview of what happens when a search is conducted by an end user.
+
+1. User enters a query into the search box, clicks submit.
+2. The React front-end passes the query to it's instance of Pride.
+3. Pride parses the query, and sends a multi-search to the configured datastores in Spectrum.
+4. Spectrum converts the requests from Pride into a request for Solr or Summon.
+5. Results from the multi-search return to Pride, and the record metadata is augmented from Prejudice.
+6. Search is notified of the new records asynchronously, and the Redux state is updated, leading to React drawing the search results.
+
+## Lifecycle of a request in Spectrum.
+
+Detailed walkthrough of what happens when a search request is received by Spectrum
+
+1. the Puma app server receives the request, and passes it down the Rack stack.
+2. Custom portions of the rack stack
+    `github.com/mlibrary/spectrum:config/appliation.rb:103`
+    1. Ipresolver::Middleware - Correctly handles X-Forwarded-For headers for our environment
+    2. Keycard::Rack::InjectAttributes - Inject attributes to the request indicating which institution the visitor is from ( AA or Flint)
+         We actually do this 3 times, once looking at the IP address, once looking at a cookie, and once looking at the user's ldap info.
+         We use this information to set user preferences, and not for robust access control, so the cookie-based attributes don't need to be secured or signed.
+3. Eventually the request makes it to the JsonController#index method.
+    1. A `before_filter` runs `:init` and `:cors`
+        `:init` does common setup that would be shared across all of the endpoints
+        `:cors` Sets cors headers for the response.  TODO: 500 errors break the cors headers, maybe set that up to respond in a way Pride understands.
+    2. Set up a datastore request (`Spectrum::Request::DataStore`) which acts as a decorator around the Rails request object and the datastore configuration.
+    3. Set up a new request for echoing back what was understood by the parser etc (`Spectrum::Request::DataStore`).
+    4. Set up the datastore description for the response (`Spectrum::Response::DataStore`).
+    5. Set up the specialists for the response (`Spectrum::Response::Specialists`).
+    6. Set up the record list for the response (`Spectrum::Response::RecordList`).
+    7. render the response as json.
+
+## Initialization
+
+Rails initializers are in `mlibrary/spectrum-json:lib/spectrum/json/railtie.rb`.
+
+Most of the configuration loading gets handed off to `Spectrum:Json::configure` which loads the config files for `mlibrary/spectrum-config` classes.  Loaded configuration information is housed in `Spectrum::Json` class variables with accessors defined.  i.e. `Spectrum::Json.foci`, `Spectrum::Json.fields`, etc.
+
+TODO: Figure out what to do about the deferred work of getting null facets.  The deferred work is defined in `mlibrary/spectrum-json:lib/spectrum/json.rb` but it gets triggered in `mlibrary/spectrum-config:lib/spectrum/config/focus.rb`.

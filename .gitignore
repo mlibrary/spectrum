@@ -56,3 +56,4 @@ spec/reports
 token.txt
 /.idea
 /.env
+/public

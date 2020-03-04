@@ -7,7 +7,6 @@ source 'https://rubygems.org' do
   gem 'net-ldap'
   gem 'twilio-ruby'
   gem 'exlibris-aleph', '~>2.0.4'
-  gem 'rake'
 
   gem 'ipresolver',
     git: 'https://github.com/mlibrary/ipresolver',
@@ -18,13 +17,9 @@ source 'https://rubygems.org' do
     branch: 'rack-yaml-institution-finder',
     require: ['keycard/rack', 'keycard/yaml/institution_finder']
 
-  gem 'spectrum-config',
-    git: 'https://github.com/mlibrary/spectrum-config',
-    branch: 'master'
+  gem 'spectrum-config', path: '../spectrum-config'
 
-  gem 'spectrum-json',
-    git: 'https://github.com/mlibrary/spectrum-json',
-    branch: 'master'
+  gem 'spectrum-json', path: '../spectrum-json'
 
   gem 'aleph',
     git: 'https://github.com/mlibrary/aleph',
@@ -97,7 +92,6 @@ source 'https://rubygems.org' do
     gem 'pry-rails'
     gem 'rerun'
     gem 'quiet_assets'
-    gem 'puma'
 
     platforms :mri do
       # browser-based live debugger and REPL
