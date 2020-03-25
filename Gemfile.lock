@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-config
-  revision: 8f2ceeab5ac9f1eca7016221ad5224f2bd343419
+  revision: 4eca4b2daf3677fe47a40a3339faec4b5e04269e
   branch: record-fields
   specs:
     spectrum-config (0.0.1)
@@ -37,7 +37,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 55e225518dd10629821044acd1f46d270c9454fe
+  revision: 9d680831aaff7318312863d788fc3a0fb9463143
   branch: record-fields
   specs:
     spectrum-json (0.1.0)
