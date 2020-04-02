@@ -17,6 +17,7 @@ Forked from Columbia Libraries Unified Search &amp; Discovery
     You'll probably use:
     ```bash
     RAILS_RELATIVE_URL_ROOT=http://localhost:9292/spectrum
+    SPECTRUM_INST_LOCATION_FILES_DIR=config
     SPECTRUM_SEARCH_GIT_BRANCH=master
     SPECTRUM_PRIDE_GIT_BRANCH=master
     REACT_APP_LOGIN_BASE_URL=http://localhost:9292
