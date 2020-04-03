@@ -27,17 +27,18 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-config
-  revision: 7bc3425164c51d239a48f29949b5260f10097403
+  revision: d6c55491b546724416e1b076785ef66d7069c7a9
   branch: record-fields
   specs:
     spectrum-config (0.0.1)
+      activesupport
       htmlentities
       marc
       rails-html-sanitizer
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 9d680831aaff7318312863d788fc3a0fb9463143
+  revision: 04fc40bafaeea9359fb1e442224c215b9ac20842
   branch: record-fields
   specs:
     spectrum-json (0.1.0)
