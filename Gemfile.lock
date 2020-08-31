@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/aleph
-  revision: 9e17ee339903b26cd3669fc277a838c7b2403e33
+  revision: 15b3f12445513bb3ccd724e79df46b0c385a01a1
   branch: master
   specs:
     aleph (0.1.0)
@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-config
-  revision: cccf2f13e8d5a151d01b53440d362ed6d6af4d68
+  revision: 38be8914c549046e4cf0c231127a9010159372a2
   branch: master
   specs:
     spectrum-config (0.0.1)
@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 482b6d9c8d2000c2fb72ed31951f3546fc3c85d9
+  revision: 13800bf7b3cc0406f839525cc051fb4c53914522
   branch: master
   specs:
     spectrum-json (0.1.0)
@@ -222,7 +222,8 @@ GEM
     htmlentities (4.3.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    httparty (0.16.2)
+    httparty (0.18.1)
+      mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
     httpclient (2.8.3)
     i18n (0.9.5)
