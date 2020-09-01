@@ -10,6 +10,20 @@ Dotenv.load
 
 Clio::Application.load_tasks
 
+desc "Install versioned/flavored Search UI"
+task :search, [:version, :flavor] do |t, args|
+  unless args.version && args.flavor
+    puts "Cowardly refusing to deploy Search UI without 'version' and 'flavor'"
+    next
+  end
+  url = Shellwords.escape("https://github.com/mlibrary/search/releases/download/#{args.version}/search-#{args.flavor}.tar.gz")
+  pub = Shellwords.escape(File.join(Rails.root, 'public'))
+  strip = '--strip-components=1'
+  xform = "'--transform=s%search/index.html%search/app.html%'"
+  puts "Deploying Search UI #{args.version} for #{args.flavor}"
+  system("wget -O - -q #{url} | tar -xzf - -C #{pub} #{xform} #{strip}")
+end
+
 Rake::Task['assets:precompile'].enhance do
 
   search_branch = ENV['SPECTRUM_SEARCH_GIT_BRANCH'] || 'master'
