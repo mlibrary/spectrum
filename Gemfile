@@ -25,7 +25,7 @@ source 'https://rubygems.org' do
 
   gem 'spectrum-json',
     git: 'https://github.com/mlibrary/spectrum-json',
-    branch: 'master'
+    branch: 'holding-action-link-update'
 
   gem 'aleph',
     git: 'https://github.com/mlibrary/aleph',
