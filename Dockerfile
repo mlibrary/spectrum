@@ -4,7 +4,8 @@ WORKDIR /app/tmp/search
 RUN wget -q -O - https://github.com/mlibrary/search/archive/master.tar.gz | \
   tar xzf - -C /app/tmp/search  --strip-components=1 && \
   npm install && \
-  npm run build
+  npm run build && \
+  mv build/index.html build/app.html
 
 
 FROM ruby:2.6
