@@ -52,4 +52,4 @@ RUN ln -s /secrets/config--fields.yml config/fields.yml && \
 
 ENV BIND_IP ${BIND_IP}
 ENV BIND_PORT ${BIND_PORT}
-CMD echo bundle exec rails s -b ${BIND_IP} -p ${BIND_PORT}
+CMD bundle exec rails s -b ${BIND_IP} -p ${BIND_PORT}
