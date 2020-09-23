@@ -27,6 +27,7 @@ COPY --from=0 /app/tmp/search /app/tmp/search
 COPY --from=0 /app/tmp/search/build /app/public
 
 ENV RAILS_RELATIVE_URL_ROOT=${PROTO}://${HOST}:${PORT}/spectrum \
+    SPECTRUM_INST_LOCATION_FILES_DIR=config \
     SPECTRUM_SEARCH_GIT_BRANCH=${SEARCH_VERSION} \
     SPECTRUM_PRIDE_GIT_BRANCH=master \
     REACT_APP_LOGIN_BASE_URL=${PROTO}://${HOST}:${PORT} \
@@ -56,4 +57,4 @@ RUN ln -s /secrets/config--fields.yml config/fields.yml && \
   ln -s /secrets/config--floor_locations.yml config/floor_locations.yml && \
   ln -s /secrets/config--get_this.yml config/get_this.yml
 
-CMD bundle exec rails server --bind ${BIND_IP} --port ${BIND_PORT}
+CMD bundle exec rails server --binding ${BIND_IP} --port ${BIND_PORT}
