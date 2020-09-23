@@ -50,4 +50,6 @@ RUN ln -s /secrets/config--fields.yml config/fields.yml && \
   ln -s /secrets/config--floor_locations.yml config/floor_locations.yml && \
   ln -s /secrets/config--get_this.yml config/get_this.yml
 
-CMD bundle exec rails s -b $BIND_IP -p $BIND_PORT
+ENV BIND_IP ${BIND_IP}
+ENV BIND_PORT ${BIND_PORT}
+CMD echo bundle exec rails s -b ${BIND_IP} -p ${BIND_PORT}
