@@ -1,30 +1,24 @@
-FROM node:14
-RUN mkdir -p /app/tmp/search
-WORKDIR /app/tmp/search
+ARG SEARCH_VERSION=latest
 
-ARG SEARCH_VERSION=master
-ARG HOST=localhost
+FROM bertrama/search:testing-1-${SEARCH_VERSION} as search
+
+FROM ruby:2.6
+RUN mkdir -p /app/public /app/config/foci /secrets
+WORKDIR /app
+COPY --from=search /app/build/* /app/public/
+
+COPY Gemfile* /app/
+
+RUN gem install bundler
+RUN bundle install
+
+COPY . /app
+
 ARG PROTO=http
+ARG HOST=localhost
 ARG PORT=3000
 ARG BIND_IP=0.0.0.0
 ARG BIND_PORT=3000
-
-ENV REACT_APP_LOGIN_BASE_URL=${PROTO}://${HOST}:${PORT} \
-    REACT_APP_SPECTRUM_BASE_URL=${PROTO}://${HOST}:${PORT}/spectrum
-
-RUN wget -q -O - https://github.com/mlibrary/search/archive/${SEARCH_VERSION}.tar.gz | \
-  tar xzf - -C /app/tmp/search  --strip-components=1 && \
-  npm install && \
-  npm run build && \
-  mv build/index.html build/app.html
-
-
-FROM ruby:2.6
-RUN mkdir -p /app/tmp /app/config/foci /secrets
-WORKDIR /app
-COPY . /app
-COPY --from=0 /app/tmp/search /app/tmp/search
-COPY --from=0 /app/tmp/search/build /app/public
 
 ENV RAILS_RELATIVE_URL_ROOT=${PROTO}://${HOST}:${PORT}/spectrum \
     SPECTRUM_INST_LOCATION_FILES_DIR=config \
@@ -33,9 +27,8 @@ ENV RAILS_RELATIVE_URL_ROOT=${PROTO}://${HOST}:${PORT}/spectrum \
     REACT_APP_LOGIN_BASE_URL=${PROTO}://${HOST}:${PORT} \
     REACT_APP_LOGIN_BASE_URL=${PROTO}://${HOST}:${PORT}/spectrum
 
-RUN gem install bundler
-RUN bundle install
 RUN bundle exec rake assets:precompile
+
 RUN ln -s /secrets/config--fields.yml config/fields.yml && \
   ln -s /secrets/config--aleph.yml config/aleph.yml && \
   ln -s /secrets/config--filters.yml config/filters.yml && \
@@ -57,4 +50,4 @@ RUN ln -s /secrets/config--fields.yml config/fields.yml && \
   ln -s /secrets/config--floor_locations.yml config/floor_locations.yml && \
   ln -s /secrets/config--get_this.yml config/get_this.yml
 
-CMD bundle exec rails server --binding ${BIND_IP} --port ${BIND_PORT}
+CMD bundle exec rails s -b ${BIND_IP} -p ${BIND_PORT}
