@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/aleph
-  revision: 15b3f12445513bb3ccd724e79df46b0c385a01a1
+  revision: 4edb6d25dbff11de1a53b9d932819719cd4d209d
   branch: master
   specs:
     aleph (0.1.0)
@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-config
-  revision: 38be8914c549046e4cf0c231127a9010159372a2
+  revision: 780c0efde242f305ce8a6b2203d2201deb6ac1d6
   branch: master
   specs:
     spectrum-config (0.0.1)
@@ -45,10 +45,11 @@ GIT
       activesupport
       execjs
       exlibris-aleph
+      httparty
       json-schema
       lru_redux
       marc
-      rails
+      rails (~> 4.2.0)
       rsolr
 
 GIT

@@ -1,6 +1,13 @@
 # Add your own tasks in files placed in lib/tasks ending in .rake,
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
+module Clio
+  def self.under_rake!
+    @under_rake = true
+  end
+end
+Clio.under_rake!
+
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
@@ -56,7 +63,7 @@ Rake::Task['assets:precompile'].enhance do
     end
     system('mv tmp/search.alt/build/index.html tmp/search.alt/build/app.html') || abort("Couldn't rename index to app")
   end
-end
+end if (`which npm` && $?.success?)
 
 
 # Doing this lets us test by just typing "rake", but that also means
