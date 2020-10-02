@@ -1,11 +1,6 @@
-ARG SEARCH_VERSION=latest
-
-FROM bertrama/search:testing-1-${SEARCH_VERSION} as search
-
 FROM ruby:2.6
 RUN mkdir -p /app/public /app/config/foci /secrets
 WORKDIR /app
-COPY --from=search /app/build/* /app/public/
 
 COPY Gemfile* /app/
 
@@ -14,20 +9,20 @@ RUN bundle install
 
 COPY . /app
 
-ARG PROTO=http
-ARG HOST=localhost
-ARG PORT=3000
+ARG SEARCH_VERSION=master
+ARG PRIDE_VERSION=master
+ARG BASE_URL=http://localhost:3000
 ARG BIND_IP=0.0.0.0
 ARG BIND_PORT=3000
 
-ENV RAILS_RELATIVE_URL_ROOT=${PROTO}://${HOST}:${PORT}/spectrum \
+ENV RAILS_RELATIVE_URL_ROOT=${BASE_URL}/spectrum \
     SPECTRUM_INST_LOCATION_FILES_DIR=config \
     SPECTRUM_SEARCH_GIT_BRANCH=${SEARCH_VERSION} \
-    SPECTRUM_PRIDE_GIT_BRANCH=master \
-    REACT_APP_LOGIN_BASE_URL=${PROTO}://${HOST}:${PORT} \
-    REACT_APP_LOGIN_BASE_URL=${PROTO}://${HOST}:${PORT}/spectrum
-
-RUN bundle exec rake assets:precompile
+    SPECTRUM_PRIDE_GIT_BRANCH=${PRIDE_VERSION} \
+    REACT_APP_LOGIN_BASE_URL=${BASE_URL} \
+    REACT_APP_SPECTRUM_BASE_URL=${BASE_URL}/spectrum \
+    BIND_IP=${BIND_IP} \
+    BIND_PORT=${BIND_PORT}
 
 RUN ln -s /secrets/config--fields.yml config/fields.yml && \
   ln -s /secrets/config--aleph.yml config/aleph.yml && \
@@ -50,6 +45,4 @@ RUN ln -s /secrets/config--fields.yml config/fields.yml && \
   ln -s /secrets/config--floor_locations.yml config/floor_locations.yml && \
   ln -s /secrets/config--get_this.yml config/get_this.yml
 
-ENV BIND_IP ${BIND_IP}
-ENV BIND_PORT ${BIND_PORT}
 CMD bundle exec rails s -b ${BIND_IP} -p ${BIND_PORT}
