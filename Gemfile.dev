@@ -21,6 +21,9 @@ source 'https://rubygems.org' do
 
   gem 'spectrum-json', path: '../spectrum-json'
 
+  gem 'mlibrary_search_parser', path: '../../mlibrary_search_parser'
+  gem 'parslet'
+
   gem 'aleph',
     git: 'https://github.com/mlibrary/aleph',
     branch: 'master'
