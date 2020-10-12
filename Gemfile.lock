@@ -38,17 +38,18 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 8b485d858b32a9aa1f88d4c97659aef80425ee07
+  revision: cfdc4526e93e967441c67f02f95b2c909d7e89af
   branch: master
   specs:
     spectrum-json (0.1.0)
       activesupport
       execjs
       exlibris-aleph
+      httparty
       json-schema
       lru_redux
       marc
-      rails
+      rails (~> 4.2.0)
       rsolr
 
 GIT
