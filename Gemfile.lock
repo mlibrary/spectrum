@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/aleph
-  revision: 15b3f12445513bb3ccd724e79df46b0c385a01a1
+  revision: 4edb6d25dbff11de1a53b9d932819719cd4d209d
   branch: master
   specs:
     aleph (0.1.0)
