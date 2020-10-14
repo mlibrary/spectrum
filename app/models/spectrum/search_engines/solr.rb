@@ -186,7 +186,7 @@ module Spectrum
           extra_controller_params['tie'] = @params[:tie]
           @params[:facets] = @params[:f]
           extra_controller_params[:sort] = @params[:sort]
-          @params[:qt] = 'standard' unless @params[:qt] == 'edismax' || @params[:qt] == 'dismax'
+          @params[:qt] = 'standard' #unless @params[:qt] == 'edismax' || @params[:qt] == 'dismax'
           extra_controller_params['qq'] = '"' + RSolr.solr_escape(@params[:q]) + '"'
 
           if @params[:q] == '*:*'
