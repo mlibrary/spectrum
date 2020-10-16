@@ -34,7 +34,7 @@ source 'https://rubygems.org' do
   gem 'rails', '~> 4.2.0'
 
   #  ###  BLACKLIGHT (begin)  ###
-  gem 'blacklight', '~>5.3.0'
+  gem 'blacklight'
   gem 'blacklight-marc'
 
 
@@ -44,7 +44,7 @@ source 'https://rubygems.org' do
   # https://github.com/amatsuda/kaminari/commit/5e2e505cdd2ea2de20949d5cef261c247b3168b1
   # This isn't fixed in Blacklight until 5.5.0,
   # so pin kaminari to a pre-breakage release
-  gem 'kaminari', '0.15.0'
+  gem 'kaminari', '>= 1.2.1'
   gem 'json'
 
   platforms :mri do
