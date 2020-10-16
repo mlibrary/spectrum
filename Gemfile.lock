@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 036e0f6e4da347fcaa0383e3ce7c06a7c12d2b51
+  revision: d71bc258311a3f1f7b7a2dd8ac92295324b34617
   branch: master
   specs:
     spectrum-json (0.1.0)
@@ -50,6 +50,7 @@ GIT
       lru_redux
       marc
       rails (~> 4.2.0)
+      rake (>= 12.3.3)
       rsolr
 
 GIT
