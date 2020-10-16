@@ -9,7 +9,6 @@ source 'https://rubygems.org' do
   gem 'exlibris-aleph', '~>2.0.4'
   gem 'puma'
 
-
   gem 'ipresolver',
     git: 'https://github.com/mlibrary/ipresolver',
     branch: 'master'
@@ -36,14 +35,8 @@ source 'https://rubygems.org' do
   #  ###  BLACKLIGHT (begin)  ###
   gem 'blacklight'
   gem 'blacklight-marc'
-
-
   #  ###  BLACKLIGHT (end)  ###
 
-  # A recent Kaminari update broke blacklight facet pagination.
-  # https://github.com/amatsuda/kaminari/commit/5e2e505cdd2ea2de20949d5cef261c247b3168b1
-  # This isn't fixed in Blacklight until 5.5.0,
-  # so pin kaminari to a pre-breakage release
   gem 'kaminari', '>= 1.2.1'
   gem 'json'
 
@@ -100,18 +93,11 @@ source 'https://rubygems.org' do
     gem 'quiet_assets'
 
     platforms :mri do
-      # browser-based live debugger and REPL
-      # http://railscasts.com/episodes/402-better-errors-railspanel
-      #gem 'better_errors'
       gem 'binding_of_caller'
   
       # "A fist full of code metrics"
       gem 'metric_fu'
     end
-
-    # Profiling experiments
-    # https://www.coffeepowered.net/2013/08/02/ruby-prof-for-rails/
-    # gem 'request_profiler', :git => "git://github.com/justinweiss/request_profiler.git"
 
   end
 
