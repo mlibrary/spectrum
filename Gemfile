@@ -33,11 +33,10 @@ source 'https://rubygems.org' do
   gem 'rails', '~> 4.2.0'
 
   #  ###  BLACKLIGHT (begin)  ###
-  gem 'blacklight'
+  gem 'blacklight', '~>5.3.0'
   gem 'blacklight-marc'
   #  ###  BLACKLIGHT (end)  ###
 
-  gem 'kaminari', '>= 1.2.1'
   gem 'json'
 
   platforms :mri do

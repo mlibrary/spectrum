@@ -110,13 +110,13 @@ GEM
       execjs
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
-    blacklight (5.19.2)
-      bootstrap-sass (~> 3.2)
+    blacklight (5.3.0)
+      bootstrap-sass (~> 3.0)
       deprecation
-      kaminari (>= 0.15)
+      kaminari (~> 0.13)
       nokogiri (~> 1.6)
       rails (>= 3.2.6, < 5)
-      rsolr (~> 1.0, >= 1.0.11)
+      rsolr (~> 1.0.6)
     blacklight-marc (5.0.0)
       blacklight (~> 5.0)
       marc (>= 0.4.3, < 1.1)
@@ -240,18 +240,9 @@ GEM
       addressable (>= 2.4)
     json_pure (2.1.0)
     jwt (2.1.0)
-    kaminari (1.2.1)
-      activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.2.1)
-      kaminari-activerecord (= 1.2.1)
-      kaminari-core (= 1.2.1)
-    kaminari-actionview (1.2.1)
-      actionview
-      kaminari-core (= 1.2.1)
-    kaminari-activerecord (1.2.1)
-      activerecord
-      kaminari-core (= 1.2.1)
-    kaminari-core (1.2.1)
+    kaminari (0.17.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     libv8 (3.16.14.19)
@@ -387,7 +378,7 @@ GEM
       netrc (~> 0.8)
     roodi (3.3.1)
       ruby_parser (~> 3.2, >= 3.2.2)
-    rsolr (1.1.2)
+    rsolr (1.0.13)
       builder (>= 2.1.2)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
@@ -492,7 +483,7 @@ PLATFORMS
 DEPENDENCIES
   aleph!
   binding_of_caller!
-  blacklight!
+  blacklight (~> 5.3.0)!
   blacklight-marc!
   bootstrap-sass (>= 3.4.1)!
   cancan!
@@ -509,7 +500,6 @@ DEPENDENCIES
   ipresolver!
   jquery-rails!
   json!
-  kaminari (>= 1.2.1)!
   keycard!
   launchy!
   metric_fu!
