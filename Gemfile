@@ -20,7 +20,7 @@ source 'https://rubygems.org' do
 
   gem 'spectrum-config',
     git: 'https://github.com/mlibrary/spectrum-config',
-    branch: 'master'
+    branch: 'v0.9.14'
 
   gem 'spectrum-json',
     git: 'https://github.com/mlibrary/spectrum-json',
