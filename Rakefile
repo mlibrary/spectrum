@@ -1,6 +1,13 @@
 # Add your own tasks in files placed in lib/tasks ending in .rake,
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
+module Clio
+  def self.under_rake!
+    @under_rake = true
+  end
+end
+Clio.under_rake!
+
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
@@ -9,6 +16,20 @@ require 'dotenv'
 Dotenv.load
 
 Clio::Application.load_tasks
+
+desc "Install versioned/flavored Search UI"
+task :search, [:version, :flavor] do |t, args|
+  unless args.version && args.flavor
+    puts "Cowardly refusing to deploy Search UI without 'version' and 'flavor'"
+    next
+  end
+  url = Shellwords.escape("https://github.com/mlibrary/search/releases/download/#{args.version}/search-#{args.flavor}.tar.gz")
+  pub = Shellwords.escape(File.join(Rails.root, 'public'))
+  strip = '--strip-components=1'
+  xform = "'--transform=s%search/index.html%search/app.html%'"
+  puts "Deploying Search UI #{args.version} for #{args.flavor}"
+  system("wget -O - -q #{url} | tar -xzf - -C #{pub} #{xform} #{strip}")
+end
 
 Rake::Task['assets:precompile'].enhance do
 
@@ -42,7 +63,7 @@ Rake::Task['assets:precompile'].enhance do
     end
     system('mv tmp/search.alt/build/index.html tmp/search.alt/build/app.html') || abort("Couldn't rename index to app")
   end
-end
+end if (`which npm` && $?.success?)
 
 
 # Doing this lets us test by just typing "rake", but that also means

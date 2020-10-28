@@ -23,6 +23,14 @@ RELEASE_STAMP = IO.read('VERSION').strip
 require 'rack/utf8_sanitizer'
 
 module Clio
+  def self.under_rake?
+    @under_rake
+  end
+
+  def self.under_rake!
+    @under_rake = true
+  end
+
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -115,15 +123,15 @@ module Clio
 
     config.middleware.insert_after 'Ipresolver::Middleware',
       Keycard::Rack::InjectAttributes,
-      Keycard::Ldap::InstitutionFinder.new
+      Clio.under_rake? ? Keycard::Ldap::InstitutionFinder : Keycard::Ldap::InstitutionFinder.new
 
     config.middleware.insert_after 'Ipresolver::Middleware',
       Keycard::Rack::InjectAttributes,
-      Keycard::Cookie::InstitutionFinder.new
+      Clio.under_rake? ? Keycard::Cookie::InstitutionFinder : Keycard::Cookie::InstitutionFinder.new
 
     config.middleware.insert_after 'Ipresolver::Middleware',
       Keycard::Rack::InjectAttributes,
-      Keycard::Yaml::InstitutionFinder.new
+      Clio.under_rake? ? Keycard::Yaml::InstitutionFinder : Keycard::Yaml::InstitutionFinder.new
 
     # [deprecated] I18n.enforce_available_locales will default to true in the
     # future. If you really want to skip validation of your locale you can set
