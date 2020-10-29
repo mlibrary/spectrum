@@ -187,8 +187,8 @@ module Spectrum
           @params[:facets] = @params[:f]
           extra_controller_params[:sort] = @params[:sort]
           @params[:qt] = 'standard' #unless @params[:qt] == 'edismax' || @params[:qt] == 'dismax'
-          extra_controller_params['qq'] = '"' + RSolr.solr_escape(@params[:q]) + '"'
-          extra_controller_params['q1'] = @params[:q1]
+          # extra_controller_params['qq'] = '"' + RSolr.solr_escape(@params[:q]) + '"'
+          @params.keys.select {|k| k =~ /\Aq+\d+/}.each {|k| extra_controller_params[k] = @params[k]}
 
           if @params[:q] == '*:*'
             remove_null_search_extraneous_parameters
