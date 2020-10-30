@@ -3,6 +3,11 @@ source 'https://rubygems.org' do
   # Allow dotenv configuration
   gem 'dotenv-rails', require: 'dotenv/rails-now'
 
+  gem 'spectrum-config', path: '../spectrum-config'
+  gem 'spectrum-json', path: '../spectrum-json'
+  gem 'mlibrary_search_parser', path: '../mlibrary_search_parser'
+  gem 'parslet'
+
   gem 'skylight'
   gem 'net-ldap'
   gem 'twilio-ruby'
@@ -17,9 +22,7 @@ source 'https://rubygems.org' do
     branch: 'rack-yaml-institution-finder',
     require: ['keycard/rack', 'keycard/yaml/institution_finder']
 
-  gem 'spectrum-config', path: '../spectrum-config'
 
-  gem 'spectrum-json', path: '../spectrum-json'
 
   gem 'aleph',
     git: 'https://github.com/mlibrary/aleph',

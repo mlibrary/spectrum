@@ -2,7 +2,7 @@ Clio::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # less logging - turn on/off as needed for local development
-  config.log_level = :debug
+  config.log_level = :info
   # config.log_level = :warn
 
   # In the development environment your application's code is reloaded on

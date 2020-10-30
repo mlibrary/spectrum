@@ -189,6 +189,11 @@ module Spectrum
           @params[:qt] = 'standard' unless @params[:qt] == 'edismax' || @params[:qt] == 'dismax'
           extra_controller_params['qq'] = '"' + RSolr.solr_escape(@params[:q]) + '"'
 
+          # Add crap from the new parser that start with q, qq, or t
+          @params.keys.select {|k| k =~ /\A[qt]+\d+/}.each {|k| extra_controller_params[k] = @params[k]}
+
+          @params[:qt] = 'standard'
+
           if @params[:q] == '*:*'
             remove_null_search_extraneous_parameters
           end

@@ -33,10 +33,18 @@ GIT
       rack (>= 1.0, < 3.0)
 
 PATH
+  remote: ../mlibrary_search_parser
+  specs:
+    mlibrary_search_parser (0.1.0)
+      parslet
+
+PATH
   remote: ../spectrum-config
   specs:
     spectrum-config (0.0.1)
+      activesupport
       htmlentities
+      marc
       rails-html-sanitizer
 
 PATH
@@ -46,10 +54,12 @@ PATH
       activesupport
       execjs
       exlibris-aleph
+      httparty
       json-schema
       lru_redux
       marc
       rails (~> 4.2.0)
+      rake (>= 12.3.3)
       rsolr
 
 GEM
@@ -296,6 +306,7 @@ GEM
     parallel (1.19.1)
     parser (2.5.3.0)
       ast (~> 2.4.0)
+    parslet (2.0.0)
     path_expander (1.1.0)
     procto (0.0.3)
     pry (0.12.2)
@@ -498,8 +509,10 @@ DEPENDENCIES
   launchy!
   metric_fu!
   minitest!
+  mlibrary_search_parser!
   net-ldap!
   nokogiri (>= 1.8.5)!
+  parslet!
   pry!
   pry-byebug!
   pry-rails!
@@ -518,6 +531,7 @@ DEPENDENCIES
   skylight!
   spectrum-config!
   spectrum-json!
+  sprockets (~> 3.0)!
   stringex!
   summon!
   therubyracer!
