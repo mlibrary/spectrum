@@ -8,6 +8,7 @@ source 'https://rubygems.org' do
   gem 'twilio-ruby'
   gem 'exlibris-aleph', '~>2.0.4'
   gem 'puma'
+  gem 'parslet'
 
   gem 'ipresolver',
     git: 'https://github.com/mlibrary/ipresolver',
@@ -20,10 +21,14 @@ source 'https://rubygems.org' do
 
   gem 'spectrum-config',
     git: 'https://github.com/mlibrary/spectrum-config',
-    branch: 'v0.9.14'
+    branch: 'parser_test_1'
 
   gem 'spectrum-json',
     git: 'https://github.com/mlibrary/spectrum-json',
+    branch: 'parser_test_1'
+
+  gem 'mlibrary_search_parser',
+    git: 'https://github.com/mlibrary/mlibrary_search_parser',
     branch: 'master'
 
   gem 'aleph',

@@ -26,9 +26,17 @@ GIT
     ipresolver (0.1.0)
 
 GIT
+  remote: https://github.com/mlibrary/mlibrary_search_parser
+  revision: ece48f4d4d08f74c26998c7306c9dbafde84a790
+  branch: master
+  specs:
+    mlibrary_search_parser (0.1.0)
+      parslet
+
+GIT
   remote: https://github.com/mlibrary/spectrum-config
-  revision: bca4dad7f066d2956c0b1519649805955ae84b9f
-  branch: v0.9.14
+  revision: 3163789e355f9fdde010b9a69e92e912978d8ae6
+  branch: parser_test_1
   specs:
     spectrum-config (0.0.1)
       activesupport
@@ -38,8 +46,8 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: a333d16dd28aeb0ed3b6d9c8be22cd1069f99725
-  branch: master
+  revision: 8a5a9ca0012f44630ce01f1007f1047ed4c432af
+  branch: parser_test_1
   specs:
     spectrum-json (0.1.0)
       activesupport
@@ -303,6 +311,7 @@ GEM
     parallel (1.12.1)
     parser (2.4.0.2)
       ast (~> 2.3)
+    parslet (2.0.0)
     path_expander (1.0.2)
     procto (0.0.3)
     pry (0.11.3)
@@ -504,8 +513,10 @@ DEPENDENCIES
   launchy!
   metric_fu!
   minitest!
+  mlibrary_search_parser!
   net-ldap!
   nokogiri (>= 1.8.5)!
+  parslet!
   pry!
   pry-byebug!
   pry-rails!
