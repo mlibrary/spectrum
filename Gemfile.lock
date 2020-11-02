@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/mlibrary_search_parser
-  revision: ece48f4d4d08f74c26998c7306c9dbafde84a790
+  revision: 7f32db59571994083c5c3ec099de0217cebd8ca7
   branch: master
   specs:
     mlibrary_search_parser (0.1.0)
@@ -46,7 +46,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 8a5a9ca0012f44630ce01f1007f1047ed4c432af
+  revision: 2409bfd36b448bf86ba62222e360ae348d041254
   branch: parser_test_1
   specs:
     spectrum-json (0.1.0)
