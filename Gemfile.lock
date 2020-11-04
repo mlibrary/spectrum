@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/mlibrary_search_parser
-  revision: 7f32db59571994083c5c3ec099de0217cebd8ca7
+  revision: 55b269e7834572413d9e794fd184022bd3806af0
   branch: master
   specs:
     mlibrary_search_parser (0.1.0)
