@@ -179,24 +179,43 @@ module Spectrum
         else
           # use blacklight gem to run the actual search against Solr,
           # call Blacklight::SolrHelper::get_search_results()
-          extra_controller_params['fq']  = @params[:fq]
-          extra_controller_params['mm']  = @params[:mm]
-          extra_controller_params['qf']  = @params[:qf]
-          extra_controller_params['pf']  = @params[:pf]
-          extra_controller_params['tie'] = @params[:tie]
-          extra_controller_params['df']  = @params[:df]
+
+          # Somewhere -- I can't find where -- there's a whitelist of things that are passed
+          # along. I _think_ it related to [this discussion](https://github.com/projectblacklight/blacklight/pull/783)
+          # which references doing something in a :before filter.
+          #
+          # Everything in @params that is _not_ whitelisted in the config somehow is thrown away.
+          # Everything in extra_controller_params is passed through unmolested.
+          #
+          # So, because we're sending lots of stuff not configured in the normal blacklight way
+          # (i.e., pretty much everything in the foci) we'll just merge @params into
+          # extra_controller_params and call it a day.
+          #
+          # At this point I do _not_ understand why everything isn't passed through; I'm assuming it's
+          # for security, which is less of an issue for us since we're behind the firewall. I also
+          # can't think of anything too nasty one can do with GET parameters if you can't pick the
+          # target handler.
+          #
+          # Leaving this code here in case we decide it is, in fact, necessary to address extra
+          # fields one by one.
+
+          # extra_controller_params['fq']  = @params[:fq]
+          # extra_controller_params['mm']  = @params[:mm]
+          # extra_controller_params['qf']  = @params[:qf]
+          # extra_controller_params['pf']  = @params[:pf]
+          # extra_controller_params['tie'] = @params[:tie]
+          # extra_controller_params['df']  = @params[:df]
+          # @params[:facets] = @params[:f]
+          # @params[:qt] = 'standard' unless @params[:qt] == 'edismax' || @params[:qt] == 'dismax'
+
           @params[:facets] = @params[:f]
-          extra_controller_params[:sort] = @params[:sort]
           @params[:qt] = 'standard' unless @params[:qt] == 'edismax' || @params[:qt] == 'dismax'
-
-          # Add crap from the new parser that start with q, qq, or t
-          @params.keys.select {|k| k =~ /\A[qt]+\d+/}.each {|k| extra_controller_params[k] = @params[k]}
-          extra_controller_params['qq'] ||= '"' + RSolr.solr_escape(@params[:q]) + '"'
-
           if @params[:q] == '*:*'
             remove_null_search_extraneous_parameters
           end
 
+          extra_controller_params.merge!(@params)
+          extra_controller_params['qq'] ||= '"' + RSolr.solr_escape(@params[:q]) + '"'
 
           @search, @documents = get_search_results(@params, extra_controller_params)
         end
