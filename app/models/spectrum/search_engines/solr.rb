@@ -184,6 +184,7 @@ module Spectrum
           extra_controller_params['qf']  = @params[:qf]
           extra_controller_params['pf']  = @params[:pf]
           extra_controller_params['tie'] = @params[:tie]
+          extra_controller_params['df']  = @params[:df]
           @params[:facets] = @params[:f]
           extra_controller_params[:sort] = @params[:sort]
           @params[:qt] = 'standard' unless @params[:qt] == 'edismax' || @params[:qt] == 'dismax'
