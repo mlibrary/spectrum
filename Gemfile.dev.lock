@@ -26,20 +26,16 @@ GIT
     ipresolver (0.1.0)
 
 GIT
-  remote: https://github.com/whitequark/rack-utf8_sanitizer
-  revision: 643e6209a50db6cd4c7255124dcc5a8fb9c270de
-  specs:
-    rack-utf8_sanitizer (1.6.0)
-      rack (>= 1.0, < 3.0)
-
-PATH
-  remote: ../mlibrary_search_parser
+  remote: https://github.com/mlibrary/mlibrary_search_parser
+  revision: 55b269e7834572413d9e794fd184022bd3806af0
   specs:
     mlibrary_search_parser (0.1.0)
       parslet
 
-PATH
-  remote: ../spectrum-config
+GIT
+  remote: https://github.com/mlibrary/spectrum-config
+  revision: 3163789e355f9fdde010b9a69e92e912978d8ae6
+  branch: parser_test_1
   specs:
     spectrum-config (0.0.1)
       activesupport
@@ -47,8 +43,10 @@ PATH
       marc
       rails-html-sanitizer
 
-PATH
-  remote: ../spectrum-json
+GIT
+  remote: https://github.com/mlibrary/spectrum-json
+  revision: 570d0f62dc4d57c4200eedecfa30d58691352927
+  branch: parser_test_1
   specs:
     spectrum-json (0.1.0)
       activesupport
@@ -61,6 +59,13 @@ PATH
       rails (~> 4.2.0)
       rake (>= 12.3.3)
       rsolr
+
+GIT
+  remote: https://github.com/whitequark/rack-utf8_sanitizer
+  revision: 643e6209a50db6cd4c7255124dcc5a8fb9c270de
+  specs:
+    rack-utf8_sanitizer (1.6.0)
+      rack (>= 1.0, < 3.0)
 
 GEM
   remote: https://rubygems.org/
