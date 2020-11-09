@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-config
-  revision: 85f71addbdc3850b1e8de36efd2f299a29b2f772
+  revision: 69b81de9436801612ab5aa8b1290cddb0fec5b08
   branch: master
   specs:
     spectrum-config (0.0.1)
