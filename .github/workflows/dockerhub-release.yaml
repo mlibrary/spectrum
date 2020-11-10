@@ -1,7 +1,7 @@
 name: Build docker image
 on:
   push:
-    tags: [.*]
+    tags: ['*']
 jobs:
   docker:
     runs-on: ubuntu-latest
