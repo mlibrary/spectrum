@@ -1,7 +1,7 @@
 name: Build docker image
 on:
-  release:
-    types: [created,edited]
+  push:
+    tags: [.*]
 jobs:
   docker:
     runs-on: ubuntu-latest
