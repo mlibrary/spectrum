@@ -12,9 +12,9 @@ COPY . /app
 ARG SEARCH_VERSION=master
 ARG PRIDE_VERSION=master
 ARG BASE_URL=http://localhost:3000
-ARG RAILS_ENV=production
 ARG BIND_IP=0.0.0.0
 ARG BIND_PORT=3000
+ARG RAILS_ENV=production
 
 ENV RAILS_RELATIVE_URL_ROOT=${BASE_URL}/spectrum \
     RAILS_ENV=${RAILS_ENV} \
@@ -44,7 +44,7 @@ RUN ln -s /secrets/config--fields.yml config/fields.yml && \
   ln -s /secrets/config--skylight.yml config/skylight.yml && \
   ln -s /secrets/config--locColl.yaml config/locColl.yaml && \
   ln -s /secrets/config--specialists.yml config/specialists.yml && \
-  ln -s /secrets/config--floor_locations.yml config/floor_locations.yml && \
+  ln -s /secrets/config--floor_locations.json config/floor_locations.json && \
   ln -s /secrets/config--get_this.yml config/get_this.yml
 
 CMD bundle exec rails s -b ${BIND_IP} -p ${BIND_PORT}
