@@ -46,11 +46,12 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 621a02ed1c7c2ae9ea15770a17ef01a6ea480106
+  revision: 84371ab15e52d2ed3b15e077a1a7371159008626
   branch: parser_test_1
   specs:
     spectrum-json (0.1.0)
       activesupport
+      dotenv
       execjs
       exlibris-aleph
       httparty
