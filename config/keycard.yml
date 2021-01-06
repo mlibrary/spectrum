@@ -1,0 +1,107 @@
+---
+ldap:
+  cache:
+    driver: LruRedux::TTL::ThreadSafeCache
+    size: 2000
+    ttl: 86400
+  connection:
+    host: ldap.umich.edu
+    port: 636
+    encryption: simple_tls
+    method: simple
+    username: <%= ENV['SPECTRUM_KEYCARD_LDAP_USERNAME'] %>
+    password: <%= ENV['SPECTRUM_KEYCARD_LDAP_PASSWORD'] %>
+  institution_finder:
+    filter: uid=%s
+    base: ou=People,dc=umich,dc=edu
+    institutions:
+      - name: Ann Arbor
+        attribute: umichinstroles
+        method: intersect
+        value:
+          - StudentAA
+          - FacultyAA
+          - RegularStaffAA
+          - TemporaryStaffAA
+          - SponsoredAffiliateAA
+      - name: Flint
+        attribute: umichinstroles
+        method: intersect
+        value:
+          - StudentFLNT
+          - FacultyFLNT
+          - RegularStaffFLNT
+          - TemporaryStaffFLNT
+          - SponsoredAffiliateFLNT
+      - name: Dearborn
+        attribute: umichinstroles
+        method: intersect
+        value:
+          - StudentDBRN
+          - FacultyDBRN
+          - RegularStaffFDBRN
+          - TemporaryStaffDBRN
+          - SponsoredAffiliateDBRN
+cookie:
+  institution_finder:
+    institutions:
+      - name: Flint
+        key: affiliation
+        value: flint
+yaml:
+  institution_finder:
+    institutions:
+      - name: Ann Arbor
+        network: "35.1.0.0/16"
+        access: allow
+      - name: Ann Arbor
+        network: "35.2.0.0/16"
+        access: allow
+      - name: Ann Arbor
+        network: "35.3.0.0/16"
+        access: allow
+      - name: Ann Arbor
+        network: "67.194.0.0/16"
+        access: allow
+      - name: Ann Arbor
+        network: "141.211.0.0/16"
+        access: allow
+      - name: Ann Arbor
+        network: "141.212.0.0/16"
+        access: allow
+      - name: Ann Arbor
+        network: "141.213.0.0/16"
+        access: allow
+      - name: Ann Arbor
+        network: "141.214.0.0/16"
+        access: allow
+      - name: Dearborn
+        network: "141.215.0.0/16"
+        access: allow
+      - name: Flint
+        network: "141.216.0.0/16"
+        access: allow
+      - name: Ann Arbor
+        network: "198.108.200.0/22"
+        access: allow
+      - name: Ann Arbor
+        network: "198.110.84.0/24"
+        access: allow
+      - name: Ann Arbor
+        network: "198.111.181.0/25"
+        access: allow
+      - name: Ann Arbor
+        network: "207.75.144.0/20"
+        access: allow
+      - name: Ann Arbor
+        network: "10.0.0.0/8"
+        access: allow
+      - name: Ann Arbor
+        network: "172.16.0.0/16"
+        access: allow
+      - name: Ann Arbor
+        network: "192.168.0.0/16"
+        access: allow
+      - name: Ann Arbor
+        network: "127.0.0.0/8"
+        access: allow

@@ -1,0 +1,97 @@
+---
+id: databases
+metadata:
+  name: Databases
+  short_desc: "Search for databases"
+source: website
+highly_recommended:
+  field: academic_discipline
+  sort_uid: title_asc
+href:
+  field: path_alias
+  prefix: http://www.lib.umich.edu/node/
+solr_params:
+  # title
+  f.search_title.qf: sort_title^12 stitle^12 title_unstemmed^6 all_titles_unstemmed^3 title^2 alt^1
+  f.search_title.pf: title alt
+  f.search_title.mm: 75%
+
+  # title_starts_with
+  f.search_title_starts_with.qf: title_ngram
+  f.search_title_starts_with.pf: title_ngram
+  f.search_title_starts_with.mm: 100%
+
+  # academic_discipline
+  f.academic_discipline.qf: og_groups_both^5 tmfield_taxonomy_name
+  f.academic_discipline.pf: og_groups_both^5 tmfield_taxonomy_name
+  f.academic_discipline.mm: 50%
+  f.search_academic_discipline.qf: og_groups_both^5 tmfield_taxonomy_name
+  f.search_academic_discipline.pf: og_groups_both^5 tmfield_taxonomy_name
+  f.search_academic_discipline.mm: 50%
+
+  # isn
+  f.search_isn.qf: issn
+  f.search_isn.qf: ""
+  f.search_isn.mm: 100%
+
+  # publisher
+  f.search_publisher.qf: pvc_text
+  f.search_publisher.pf: pvc_text
+  f.search_publisher.mm: 50%
+
+  # default
+  qt: edismax
+  qf: title_unstemmed^10 title^7 all_titles_unstemmed^8 all_titles^6 issn^10 content^2
+  mm: 25%
+  pf: title all_titles content
+  tie: 0.1
+  defType: edismax
+  
+filters:
+  - "+source:searchtools-drupal"
+  - "+status:true"
+default_sort: relevance
+sorts:
+  relevance: relevance
+  title_asc: title_asc
+  title_desc: title_desc
+# mapping is "External Name: Internal UID"
+# i.e. solr_field_name => uid used in fields.yml
+fields:
+  - id
+  - title
+  - db_format
+  - special_message
+  - database_type
+  - access_type
+  - new
+  - trial
+  - db_brief_description_preview
+  - db_brief_description_medium
+  - permalink
+  - alt_title
+  - coverage
+  - more_information
+  - platform
+  - db_academic_discipline
+  - outage
+  - description
+  - help
+  - content
+  - permalink_links
+  - db_publisher
+  - title_starts_with
+  - highly_recommended
+  - database_resource_access
+  - z3988_rft_val_fmt
+  - z3988_rft_genre
+  - z3988_sid
+  - databases_rfr_id
+
+facets:
+  - db_academic_discipline
+  - access_type
+  - database_type
+  - title_initial
+  - mobile
+  - new

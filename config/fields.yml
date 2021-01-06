@@ -1,0 +1,3543 @@
+---
+- id: allfields
+  uid: all_fields
+  field: ''
+  metadata:
+    name: All Fields
+    short_desc: All fields
+  viewable: false
+
+- id: all_fields
+  field: ''
+  metadata:
+    name: All Fields
+    short_desc: All fields
+  viewable: false
+
+- id: content
+  uid: all_fields
+  query_field: ''
+  metadata:
+    name: All Fields
+    short_desc: All fields from the record
+
+- id: title
+  csl:
+    id: title
+  z3988:
+    id: rft.btitle
+  ris:
+    - T1
+    - TI
+  query_field: search_title
+  metadata:
+    name: Title
+    short_desc: Record title
+  filters:
+    - id: sanitize
+      method: sanitize
+    - id: trim
+      method: trim
+
+- id: summon_title
+  csl:
+    id: title
+  z3988:
+    id: rft.btitle
+  ris:
+  - T1
+  - TI
+  uid: title
+  field:
+  - title
+  - subtitle
+  join: ' : '
+  type: concat
+  query_field: title
+  metadata:
+    name: Title
+    short_desc: Record title
+  filters:
+    - id: sanitize
+      method: sanitize
+    - id: trim
+      method: trim
+
+- id: summon_openurl
+  uid: openurl
+  field: open_url
+  metadata:
+    name: OpenURL
+
+- id: alt_title
+  ris:
+    - J2
+  field: alt
+  metadata:
+    name: Alternative Title(s)
+    short_desc: Alternative title(s) for this record
+  metadata_component:
+    full:
+      type: plain
+
+- id: website_author
+  uid: author
+  field: ssfield_author
+  metadata:
+    name: Author
+  metadata_component:
+    medium:
+      type: plain
+
+- id: author
+  metadata:
+    name: Author
+    short_desc: Record author
+  query_field: search_author
+  facet_field: authorStr
+  facet:
+    expanded: false
+    sorts:
+      - count
+      - index
+  filters:
+    - id: trim
+      method: trim
+  has_html: true
+
+- id: ap_author
+  csl:
+    id: author
+    type: author
+  z3988:
+    id: rft.au
+  ris:
+    - AU
+  uid: author
+  field: authors
+  query_field: author
+  metadata:
+    name: Author
+    short_desc: Record author
+  filters:
+    - id: fullname
+      method: fullname
+    - id: trim
+      method: trim
+  facet:
+    sorts:
+      - count
+      - index
+  has_html: true
+  metadata_component:
+    preview:
+      type: search1
+      variant: fielded
+      scope: author
+    medium:
+      type: search1
+      variant: fielded
+      scope: author
+    full:
+      type: search1
+      variant: fielded
+      scope: author
+
+- id: fullrecord
+  metadata:
+    name: MARC-XML data
+    short_desc: The full record as stored in MARC-XML
+
+- id: academic_discipline
+  ris:
+    - KW
+  field: hlb3Delimited
+  facet_field: hlb3Str
+  query_field: search_academic_discipline
+  metadata:
+    name: Academic Discipline
+    short_desc:  Academic Discipline, aka HLB topic
+  facet:
+    sorts:
+      - count
+      - index
+  metadata_component:
+    full:
+      type: delimited_search1
+      variant: fielded
+      scope: academic_discipline
+      delimiter: ' | '
+
+- id: topic
+  metadata:
+    name: Topic
+    short_desc: Non-HLB Topic
+  facet:
+    sorts:
+      - count
+      - index
+
+- id: body
+  metadata:
+    name: Description
+    short_desc: Resource description
+
+- id: category
+  metadata:
+    name: Category
+    short_desc: Resource category
+  facet:
+    sorts:
+      - count
+      - index
+
+- id: institution
+  metadata:
+    name: Institution Name
+    short_desc: Institution name
+  facet:
+    type: hidden
+    sorts:
+      - count
+      - index
+
+- id: summon_date
+  uid: publication_date
+  type: summon_date
+  field: publication_date
+  query_field: PublicationDate
+  metadata:
+    name: Date
+    short_desc: Publication date
+  facet:
+    sorts:
+      - count
+      - index
+  metadata_component:
+    preview:
+      type: plain
+    medium:
+      type: plain
+    full:
+      type: plain
+
+- id: publish_date
+  csl:
+    id: issued
+    type: date
+  z3988:
+    id: rft.date
+  ris:
+    - DA
+    - PY
+  field: publishDate
+  uid: publication_date
+  metadata:
+    name: Date
+    short_desc: Publication date
+  facet:
+    sorts:
+      - count
+      - index
+
+- id: website_year
+  uid: published_year
+  type: solr_year
+  field: created
+  metadata:
+    name: Published Year
+
+- id: website_month
+  uid: published_month
+  type: solr_month
+  field: created
+  metadata:
+    name: Published Month
+
+- id: website_day
+  uid: published_day
+  type: solr_day
+  field: created
+  metadata:
+    name: Published Day
+
+- id: published
+  csl:
+    id: issued
+    type: date
+  z3988:
+    id: rft.date
+  ris:
+    - DA
+    - PY
+  uid: publication_date
+  metadata:
+    name: Date
+    short_desc: Published by, publish date
+
+- id: cat_date
+  metadata:
+    name: Catalog Date
+    short_desc: The most reasonable guess at when the thing was first available within the library
+
+- id: access_type
+  field: smfield_access_type
+  facet_field: smfield_access_type
+  metadata:
+    name: Access Type
+    short_desc: Access type
+  facet:
+    expanded: true
+  metadata_component:
+    medium:
+      type: plain
+    full:
+      type: plain
+
+- id: access
+  field: access_type
+  metadata:
+    name: Access Type
+    short_desc: Access type
+  facet:
+    sorts:
+      - count
+      - index
+  has_html: true
+
+- id: journal_coverage
+  field: access_856_3
+  uid: coverage
+  metadata:
+    name: Coverage
+    short_desc: Coverage
+  has_html: true
+
+- id: coverage
+  field: smfield_coverage
+  metadata:
+    name: Coverage
+    short_desc: Coverage
+  metadata_component:
+    medium:
+      type: plain
+    full:
+      type: plain
+
+- id: access_url
+  ris:
+    - L2
+    - UR
+  metadata:
+    name: Access Url
+    short_desc: Access url
+  has_html: true
+  filters:
+    - id: proxy_prefix
+      method: proxy_prefix
+
+- id: summon_access_url
+  csl:
+    id: URL
+  z3988:
+    id: rft_id
+  ris:
+    - L2
+    - UR
+  metadata:
+    name:  Access Url
+    short_desc: Access url
+  type: summon_access_url
+
+- id: issn
+  csl:
+    id: ISSN
+    type: array
+  z3988:
+    id: rft_id
+    namespace: "urn:ISSN:"
+  searchable: false
+  metadata:
+    name: ISSN
+    short_desc: ISSN
+  metadata_component:
+    medium:
+      type: plain
+    full:
+      type: plain
+
+- id: summon_isbn
+  csl:
+    id: ISBN
+    type: array
+  z3988:
+    id: rft_id
+    namespace: "urn:ISBN:"
+  ris:
+    - SN
+  uid: isbn
+  field: ISBN
+  searchable: false
+  metadata:
+    name: ISBN
+    short_desc: ISBN
+  metadata_component:
+    full:
+      type: plain
+
+- id: summon_eisbn
+  csl:
+    id: ISBN
+    type: array
+  ris:
+    - SN
+  z3988:
+    id: rft_id
+    namespace: "urn:ISBN:"
+  field: EISBN
+  uid: eisbn
+  searchable: false
+  metadata:
+    name: EISBN
+    short_desc: EISBN
+  metadata_component:
+    full:
+      type: plain
+
+- id: summon_issn
+  csl:
+    id: ISSN
+    type: array
+  z3988:
+    id: rft_id
+    namespace: "urn:ISSN:"
+  uid: issn
+  field: ISSN
+  searchable: false
+  metadata:
+    name: ISSN
+    short_desc: ISSN
+  metadata_component:
+    full:
+      type: plain
+
+- id: summon_eissn
+  csl:
+    id: ISSN
+    type: array
+  z3988:
+    id: rft_id
+    namespace: "urn:ISSN:"
+  field: EISSN
+  uid: eissn
+  searchable: false
+  metadata:
+    name: EISSN
+    short_desc: EISSN
+  metadata_component:
+    full:
+      type: plain
+
+- id: holdings
+  metadata:
+    name: Holdings
+    short_desc: Holdings
+  metadata_component:
+    medium:
+      type: plain
+    full:
+      type: plain
+
+- id: description
+  ris:
+    - N2
+  field:
+   - ssfield_special_message_markup
+   - ssfield_description
+  join: ' '
+  type: concat
+  metadata:
+    name: Description
+    short_desc: Description of this resource
+
+- id: platform
+  field: smfield_platform
+  metadata:
+    name: Platform
+    short_desc: Platform for this resource
+  metadata_component:
+    full:
+      type: plain
+
+- id: brief_description
+  ris:
+    - N2
+  field: teaser
+  metadata:
+    name: Brief Description
+    short_desc: Brief description of this resource
+  filters:
+    - id: sanitize
+      method: sanitize
+  metadata_component:
+    preview:
+      type: plain
+    medium:
+      type: plain
+
+- id: db_brief_description_preview
+  ris:
+    - N2
+  type: priority
+  field:
+    - ssfield_special_message_preview
+    - teaser
+  metadata:
+    name: Brief Description
+    short_desc: Brief description of this resource
+  filters:
+    - id: sanitize
+      method: sanitize
+  metadata_component:
+    preview:
+      type: plain
+
+- id: db_brief_description_medium
+  ris:
+    - N2
+  field: teaser
+  metadata:
+    name: Brief Description
+    short_desc: Brief description of this resource
+  filters:
+    - id: sanitize
+      method: sanitize
+  metadata_component:
+    medium:
+      type: plain
+
+- id: special_message
+  ris:
+    - N2
+  field: ssfield_special_message
+  metadata:
+    name: Special Message
+    short_desc: Special message for this resource
+  filters:
+    - id: sanitize
+      method: sanitize
+  metadata_component:
+    medium:
+      type: plain
+
+- id: summary
+  ris:
+    - N2
+  metadata:
+    name: Summary
+    short_desc: Summary of this resource
+  metadata_component:
+    full:
+      type: plain
+
+- id: name
+  field: title
+  metadata:
+    name: Name
+    short_desc: Name
+  facet:
+    type: hidden
+
+- id: email
+  metadata:
+    name: Email
+    short_desc: Email address
+  metadata_component:
+    preview:
+      type: mailto
+    medium:
+      type: mailto
+
+- id: picture
+  field: smfield_picture_url
+  metadata:
+    name: Picture
+    short_desc: Picture
+  searchable: false
+
+- id: database_type
+  uid: type
+  field: category
+  facet_field: category
+  metadata:
+    name: Database type
+    short_desc: Database type
+  searchable: false
+  facet:
+    expanded: true
+  metadata_component:
+    medium:
+      type: plain
+    full:
+      type: plain
+
+- id: type
+  metadata:
+    name: Type
+    short_desc: Type
+  searchable: false
+  metadata_component:
+    medium:
+      type: plain
+    full:
+      type: plain
+
+- id: department
+  field: ssfield_user_department
+  metadata:
+    name: Department
+    short_desc: Department
+  metadata_component:
+    preview:
+      type: plain
+    medium:
+      type: plain
+
+- id: permalink
+  ris:
+    - L2
+  field: ssfield_permalink
+  metadata:
+    name: Permalink
+    short_desc: Permalink
+  searchable: false
+  metadata_component:
+    medium:
+      type: plain
+    full:
+      type: plain
+
+- id: mobile_url
+  field: smfield_mobile_url
+  metadata:
+    name: Mobile url
+    short_desc: Mobile url
+
+- id: mobile_available
+  field: mobile
+  metadata:
+    name: Mobile site available
+    short_desc: Mobile available
+  facet:
+    type: hidden
+    sorts:
+      - count
+      - index
+
+- id: tags
+  searchable: false
+  metadata:
+    name: Tags
+    short_desc: Tags
+
+- id: new
+  metadata:
+    name: New
+    short_desc: New
+  searchable: false
+  facet:
+    type: hidden
+    sorts:
+      - count
+      - index
+  filters:
+    - id: boolean
+      method: boolean
+  metadata_component:
+    medium:
+      type: plain
+    full:
+      type: plain
+
+- id: id
+  csl:
+    id: id
+  z3988:
+    id: rft_id
+  ris:
+    - ID
+  metadata:
+    name: ID
+    short_desc: Record ID (Transient)
+  searchable: false
+  facet:
+    sorts:
+      - count
+      - index
+
+- id: z3988_sid
+  z3988:
+    id: sid
+    type: constant
+    constant: U-M Library Search
+  metadata:
+    name: Z3988 SID
+  field: id
+
+- id: catalog_rfr_id
+  z3988:
+    id: rfr_id
+    namespace: https://search.lib.umich.edu/catalog/record/
+  metadata:
+    name: Z3988 SID
+  field: id
+
+- id: journals_rfr_id
+  z3988:
+    id: rfr_id
+    namespace: https://search.lib.umich.edu/journals/record/
+  metadata:
+    name: Z3988 SID
+  field: id
+
+- id: databases_rfr_id
+  z3988:
+    id: rfr_id
+    namespace: https://search.lib.umich.edu/databases/record/
+  metadata:
+    name: Z3988 SID
+  field: id
+
+- id: entity_id
+  ris:
+    - ID
+  uid: id
+  metadata:
+    name: ID
+    short_desc: Record ID (Transient)
+  searchable: false
+  facet:
+    sorts:
+      - count
+      - index
+
+- id: subtitle
+  metadata:
+    name: Subtitle
+    short_desc: The subtitle for the record
+  facet:
+    sorts:
+      - count
+      - index
+
+- id: abstract
+  ris:
+    - AB
+    - N2
+  metadata:
+    name: Abstract
+    short_desc: Abstract for the record
+  facet:
+    sorts:
+      - count
+      - index
+  filters:
+    - id: sanitize
+      method: sanitize
+
+- id: subject
+  metadata:
+    name: Subject
+    short_desc: Subjects for the record
+  query_field: search_subject
+  facet_field: topicStr
+  facet:
+    expanded: true
+    sorts:
+      - count
+      - index
+
+- id: publication
+  metadata:
+    name: Publication
+    short_desc: The publication containing this article
+
+- id: pages
+  csl:
+    id: page
+  z3988:
+    id: rft.pages
+  searchable: false
+  metadata:
+    name: Pages
+    short_desc: The page numbers for this article
+
+- id: volume
+  csl:
+    id: volume
+    type: number
+  z3988:
+    id: rft.volume
+  ris:
+    - VL
+  searchable: false
+  metadata:
+    name: Volume
+    short_desc: The volume containing this article
+
+- id: issue
+  csl:
+    id: issue
+    type: number
+  z3988:
+    id: rft.issue
+  ris:
+    - IS
+  searchable: false
+  metadata:
+    name: Issue
+    short_desc: The issue containing this article
+
+- id: eissn
+  csl:
+    id: issn
+    type: array
+  z3988:
+    id: rft_id
+    namespace: "urn:ISSN:"
+  searchable: false
+  metadata:
+    name: Pages
+    short_desc: The page numbers for this article
+
+- id: volume
+  csl:
+    id: volume
+    type: number
+  z3988:
+    id: rft.volume
+  ris:
+    - VL
+  searchable: false
+  metadata:
+    name: Volume
+    short_desc: The volume containing this article
+
+- id: issue
+  csl:
+    id: issue
+    type: number
+  z3988:
+    id: rft.issue
+  ris:
+    - IS
+  searchable: false
+  metadata:
+    name: Issue
+    short_desc: The issue containing this article
+
+- id: eissn
+  csl:
+    id: issn
+    type: array
+  z3988:
+    id: rft_id
+    namespace: "urn:ISSN:"
+  searchable: false
+  metadata:
+    name: eISSN
+    short_desc: The eISSN for the publication containing this article
+
+- id: isbn
+  csl:
+    id: isbn
+    type: array
+  z3988:
+    id: rft_id
+    namespace: "urn:ISBN:"
+  ris:
+    - SN
+  searchable: false
+  metadata:
+    name: ISBN
+    short_desc: The ISBN
+
+- id: eisbn
+  csl:
+    id: isbn
+    type: array
+  z3988:
+    id: rft_id
+    namespace: "urn:ISBN:"
+  ris:
+    - SN
+  searchable: false
+  metadata:
+    name: eISBN
+    short_desc: The IeSBN
+
+- id: link
+  csl:
+    id: URL
+  z3988:
+    id: rft_id
+  searchable: false
+  metadata:
+    name: link
+    short_desc: The direct link
+
+- id: doi
+  csl:
+    id: DOI
+  z3988:
+    id: rft_id
+    namespace: "info:doi/"
+  ris:
+    - DO
+  searchable: false
+  metadata:
+    name: doi
+    short_desc: The doi for this article
+  metadata_component:
+    full:
+      type: plain
+
+- id: date
+  csl:
+    id: issued
+    type: date
+  z3988:
+    id: rft.date
+  ris:
+    - PY
+  searchable: false
+  field: ssfield_date
+  metadata:
+    name: Published
+    short_desc: The publication date
+  metadata_component:
+    preview:
+      type: plain
+    medium:
+      type: plain
+
+- id: language
+  ris:
+    - LA
+  searchable: false
+  facet:
+    expanded: true
+  metadata:
+    name: Language
+    short_desc: Language
+  metadata_component:
+    full:
+      type: plain
+
+- id: summon_language
+  ris:
+    - LA
+  uid: language
+  field: Language
+  searchable: false
+  metadata:
+    name: Language
+    short_desc: Language
+  facet:
+    expanded: true
+  metadata_component:
+    full:
+      type: plain
+
+- id: bookplate
+  metadata:
+    name: Bookplate
+    short_desc: Bookplate
+  type: bookplate
+  has_html: true
+  searchable: false
+  field: fund
+  metadata_component:
+    full:
+      type: image
+      text_prefix: 'This purchase made possible by the '
+      text_field: 'desc'
+      image_field: 'image'
+
+- id: ejournal_links
+  uid: links
+  metadata:
+    name: Links
+    short_desc: Links
+  type: parallel_merge
+  fields:
+    - uid: text
+      field: access_856_3
+      name: text
+    - uid: href
+      field: access_url
+      name: href
+  has_html: true
+  filters:
+    - id: proxy_prefix
+      method: proxy_prefix
+
+- id: website_links
+  uid: links
+  metadata:
+    name: Links
+  type: concatenate_merge
+  fields:
+    - uid: text
+      name: text
+      fields:
+        - title
+    - uid: href
+      name: href
+      preferred:
+        - url
+      fields:
+        - site
+        - path_alias
+
+- id: url_links
+  uid: links
+  metadata:
+    name: Links
+  type: concatenate_merge
+  fields:
+    - uid: text
+      name: text
+      fields:
+        - title
+    - uid: href
+      name: href
+      fields:
+        - url
+
+- id: permalink_links
+  uid: links
+  metadata:
+    name: Links
+  type: concatenate_merge
+  fields:
+    - uid: text
+      name: text
+      fields:
+        - title
+    - uid: href
+      name: href
+      fields:
+        - ssfield_permalink
+
+- id: summon_links
+  uid: links
+  metadata:
+    name: Links
+  type: conditional_merge
+  conditions:
+    - field: LinkModel
+      value: DirectLink
+      fields:
+        - uid: text
+          name: text
+          field: title
+        - uid: href
+          name: href
+          field: link
+    - field: LinkModel
+      value: OpenURL
+      fields:
+        - uid: text
+          name: text
+          field: title
+        - uid: href
+          name: href
+          field: openUrl
+          prepend: https://mgetit.lib.umich.edu/?
+
+- id: publisher
+  csl:
+    id: publisher
+  ris:
+    - PB
+  metadata:
+    name: Publisher
+    short_desc: Publisher
+  field: publisher
+  query_field: search_publisher
+  searchable: true
+  sortable: false
+  filters:
+    - id: trim
+      method: trim
+  metadata_component:
+    full:
+      type: plain
+
+- id: place_of_publication_filter
+  field: place_of_publication
+  metadata:
+    name: Place of Publication
+    short_desc: Place of publication
+
+- id: edition
+  csl:
+    id: edition
+  z3988:
+    id: rft.edition
+  metadata:
+    name: Edition
+    short_desc: Edition
+  field: edition
+  searchable: true
+  sortable: false
+
+- id: callnumber
+  csl:
+    id: call-number
+  ris:
+    - CN
+  z3988:
+    id: rft.callnumber
+  metadata:
+    name: Call Number
+    short_desc: Call Number
+  field: callnumber
+  searchable: true
+  sortable: false
+
+- id: building
+  metadata:
+    name: Location
+    short_desc: Location
+  facet:
+    type: hidden
+
+- id: location
+  uid: location
+  field: location
+  facet_field: location
+  metadata:
+    name: Location
+    short_desc: Location
+  searchable: true
+  sortable: false
+
+- id: summon_access_url
+  ris:
+    - L2
+    - UR
+  metadata:
+    name: Access URL
+    short_desc: Access URL
+  uid: access_url
+  type: summon_access_url
+  model_field: LinkModel
+  direct_link_field: link
+  openurl_field: open_url
+  openurl_root: https://mgetit.lib.umich.edu/resolve
+
+- id: publication_place
+  csl:
+    id: publisher-place
+  field: PublicationPlace
+  ris:
+    - CY
+  metadata:
+    name: Publication Place
+    short_desc: Publication Place
+
+- id: publication_title
+  csl:
+    id: container-title
+  z3988:
+    id: rft.jtitle
+  ris:
+    - JF
+    - JO
+  metadata:
+    name: Publication Title
+    short_desc: Publication Title
+  query_field: PublicationTitle
+  searchable: true
+  sortable: false
+  metadata_component:
+    preview:
+      type: plain
+
+- id: publication_title_abbrev
+  field: PublicationTitleAbbrev
+  ris:
+    - J2
+  metadata:
+    name: Publication Title Abbrev
+    short_desc: Publication Title Abbrev
+
+- id: publication_title_alternate
+  field: PublicationTitleAlternate
+  ris:
+    - JA
+  metadata:
+    name: Publication Title Alternate
+    short_desc: Publication Title Alternate
+
+- id: start_page
+  csl:
+    id: page-first
+  z3988:
+    id: rft.spage
+  ris:
+    - SP
+  metadata:
+    name: Start Page
+    short_desc: Start Page
+  searchable: false
+  sortable: false
+
+- id: end_page
+  ris:
+    - EP
+  metadata:
+    name: End Page
+    short_desc: End Page
+  searchable: false
+  sortable: false
+
+- id: mirlyn_format
+  csl:
+    id: medium
+  z3988:
+    id: rft.format
+  uid: format
+  field: format
+  metadata:
+    name: Format
+    short_desc: Format
+  has_html: true
+  facet:
+    expanded: true
+  filters:
+    - id: uniq
+      method: uniq
+  metadata_component:
+    preview:
+      type: icon
+    medium:
+      type: icon
+    full:
+      type: icon
+
+- id: format
+  field: ContentType
+  metadata:
+    name: Format
+    short_desc: Format
+  has_html: true
+  facet:
+    expanded: true
+  metadata_component:
+    preview:
+      type: icon
+    medium:
+      type: icon
+
+- id: mirlyn_csl_type
+  csl:
+    id: type
+    type: type
+  field: format
+  metadata:
+    name: CSL Type
+  filters:
+    - id: uniq
+      method: uniq
+
+- id: summon_csl_type
+  csl:
+    id: type
+    type: type
+  field: ContentType
+  metadata:
+    name: CSL Type
+
+- id: genre
+  csl:
+    id: genre
+  field: Genre
+  metadata:
+    name: Genre
+    short_desc: Genre
+  metadata_component:
+    full:
+      type: plain
+
+- id: scopus_cited
+  field: ScopusCitedReferencesCount
+  metadata:
+    name: Scopus Times Cited
+    short_desc: Scopus Times Cited
+  searchable: false
+
+- id: isi_cited
+  field: ISICitedReferencesCount
+  metadata:
+    name: ISI Times Cited
+    short_desc: ISI Times Cited
+  searchable: false
+
+- id: summon_subject
+  ris:
+    - KW
+  field: SubjectTerms
+  facet:
+    expanded: true
+  uid: subject
+  metadata:
+    name: Subject
+    short_desc: Subject
+  searchable: true
+  metadata_component:
+    full:
+      type: search1
+      scope: subject
+      variant: filtered
+
+- id: snippet
+  field: Snippet
+  metadata:
+    name: Snippet
+    short_desc: Snippet
+
+- id: trial
+  field: bsfield_trial
+  metadata:
+    name: Trial
+    short_desc: Trial
+  filters:
+    - id: boolean
+      method: boolean
+  metadata_component:
+    medium:
+      type: plain
+    full:
+      type: plain
+
+- id: mobile
+  metadata:
+    name: Mobile Version
+    short_desc: Mobile version
+  facet:
+    type: hidden
+
+- id: help
+  field: smfield_more_info
+  metadata:
+    name: Help
+    short_desc: Help
+
+- id: bookmark
+  ris:
+    - ID
+  field: BookMark
+  uid: id
+  metadata:
+    name: ID
+    short_desc: ID
+
+- id: oclc
+  metadata:
+    name: OCLC Number
+    short_desc: OCLC Number
+  metadata_component:
+    full:
+      type: plain
+
+- id: gov_doc_no
+  metadata:
+    name: Government Document Number
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '086'
+        sub: '[a-z]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: db_format
+  metadata:
+    name: Format
+  type: constant
+  constant: Database
+  metadata_component:
+    preview:
+      type: icon
+    medium:
+      type: icon
+
+- id: online_journal_format
+  metadata:
+    name: Format
+  type: constant
+  constant: Online Journal
+  metadata_component:
+    preview:
+      type: icon
+    medium:
+      type: icon
+
+- id: journal_academic_discipline
+  ris:
+    - KW
+  uid: academic_discipline
+  metadata:
+    name: Academic Discipline
+    short_desc: Academic Discipline
+  field: og_groups_both
+  query_field: search_academic_discipline
+  facet:
+    expanded: true
+  metadata_component:
+    medium:
+      type: search1
+      variant: filtered
+      scope: academic_discipline
+    full:
+      type: search1
+      variant: filtered
+      scope: academic_discipline
+
+- id: db_academic_discipline
+  ris:
+    - KW
+  uid: academic_discipline
+  metadata:
+    name: Academic Discipline
+    short_desc: Academic Discipline
+  field: og_groups_both
+  query_field: search_academic_discipline
+  facet:
+    expanded: true
+  metadata_component:
+    full:
+      type: search1
+      variant: filtered
+      scope: academic_discipline
+
+- id: job_title
+  field: job_title
+  uid: job_title
+  metadata:
+    name: Working Title
+    short_desc: Title
+  metadata_component:
+    preview:
+      type: plain
+    medium:
+      type: plain
+
+- id: phone
+  field: ssfield_phone
+  metadata:
+    name: Phone
+    short_desc: Phone
+  metadata_component:
+    medium:
+      type: plain
+
+- id: office
+  field: smfield_user_location
+  metadata:
+    name: Office
+    short_desc: Office
+  metadata_component:
+    medium:
+      type: plain
+
+- id: page_title
+  metadata:
+    name: Page Title
+    short_desc: Page Title
+  field: ssfield_page_title
+
+- id: page_description
+  ris:
+    - N2
+  field: tmfield_page_content
+  metadata:
+    name: Page Description
+    short_desc: Page description
+
+- id: lg_academic_discipline
+  ris:
+    - KW
+  field: smfield_academic_discipline
+  metadata:
+    name: Academic Discipline
+    short_desc: Academic discipline
+
+- id: url
+  csl:
+    id: URL
+  z3988:
+    id: rft_id
+  ris:
+    - L2
+    - UR
+  uid: access_url
+  metadata:
+    name: Access URL
+    short_desc: Access URL
+
+- id: merged_url
+  csl:
+    id: URL
+  z3988:
+    id: rft_id
+  ris:
+    - L2
+    - UR
+  uid: access_url
+  type: concat
+  metadata:
+    name: Access URL
+    short_desc: Access URL
+  field:
+    - site
+    - path_alias
+
+- id: outage
+  field: smfield_outage
+  metadata:
+    name: Outage
+    short_desc: Outage
+
+- id: date_of_publication
+  csl:
+    id: issued
+    type: date
+  z3988:
+    id: rft.date
+  ris:
+    - PY
+  metadata:
+    name: Date of Publication
+    short_desc: Date of Publication
+  facet_field: publishDateRange
+  facet:
+    expanded: true
+
+- id: availability
+  metadata:
+    name: Availability
+    short_desc: Available online
+  facet:
+    expanded: true
+
+- id: available_online
+  metadata:
+    name: Available online
+    short_desc: Available online
+  type: pseudo_facet
+  values:
+    - "true"
+    - 1
+    - "false"
+    - 1
+
+- id: region
+  metadata:
+    name: Region
+    short_desc: Region
+  facet_field: geographicStr
+
+- id: search_only
+  metadata:
+    name: Remove search-only HathiTrust materials
+    short_desc: Search Only
+  type: pseudo_facet
+  facet:
+    selected: true
+  values:
+    - "true"
+    - 1
+    - "false"
+    - 1
+  mapping:
+    "true": "searchonly"
+    "false": "not search only"
+
+- id: holdings_only
+  metadata:
+    name: U-M library materials only
+    short_desc: Holdings Only
+  type: pseudo_facet
+  facet:
+    selected: true
+  values:
+    - "true"
+    - 1
+    - "false"
+    - 1
+  mapping:
+    "true": "s.ho=true"
+    "false": "s.ho=true"
+
+- id: exclude_newspapers
+  metadata:
+    name: Exclude newspaper articles
+  type: pseudo_facet
+  values:
+    - "true"
+    - 1
+    - "false"
+    - 1
+  mapping:
+    "true": "s.fvf=ContentType,Newspaper,t"
+    "false": ""
+
+- id: is_scholarly
+  field: IsScholarly
+  metadata:
+    name: Articles from scholarly journals only
+    short_desc: The publication is scholarly
+  facet:
+    type: checkbox
+
+- id: is_open_access
+  field: IsOpenAccess
+  metadata:
+    name: Show open access only
+    short_desc: Open access articles only
+  facet:
+    type: checkbox
+
+- id: fulltext
+  metadata:
+    name: Full Text Available
+    short_desc: The library has access to full text of this item
+
+- id: publication_date
+  csl:
+    id: issued
+    type: date
+  z3988:
+    id: rft.date
+  field: PublicationDate
+  metadata:
+    name: Publication Date
+    short_desc: The publication date
+  facet:
+    expanded: true
+    type: range
+    ranges:
+      - value: 2020:2029
+        label: "2020 - present"
+        divisible:  true
+      - value: 2010:2019
+        label: "2010 - 2019"
+        divisible:  true
+      - value: 2000:2009
+        label: "2000 - 2009"
+        divisible:  true
+      - value: 1990:1999
+        label: "1990 - 1999"
+        divisible:  true
+      - value: 1980:1989
+        label: "1980 - 1989"
+        divisible:  true
+      - value: 1970:1979
+        label: "1970 - 1979"
+        divisible:  true
+      - value: 1960:1969
+        label: "1960 - 1969"
+        divisible:  true
+      - value: 1950:1959
+        label: "1950 - 1959"
+        divisible:  true
+      - value: 1000:1949
+        label: "past - 1949"
+  metadata_component:
+    medium:
+      type: plain
+    full:
+      type: plain
+
+- id: TBD
+  metadata:
+    name: TBD
+    short_desc: Field name TBD
+  searchable: false
+  facet:
+    sorts:
+      - count
+      - index
+
+# MARCXML fields
+- id: links
+  metadata:
+    name: Links
+    short_desc: Links
+  type: marcxml
+  field: fullrecord
+  marc:
+    aggregator: field
+    fields:
+      - label: link_text
+        tag: "856"
+        sub: "y"
+        default: Available online
+      - label: text
+        tag: "856"
+        sub: "z"
+      - label: href
+        tag: "856"
+        sub: "u"
+      - label: relationship
+        tag: "856"
+        sub: "3"
+  filters:
+    - id: proxy_prefix
+      method: proxy_prefix
+
+- id: place_of_publication
+  csl:
+    id: publisher-place
+  ris:
+    - CP
+    - CY
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: "260"
+        sub: a
+  metadata:
+    name: Place of Publication
+    short_desc: Place of publication
+
+- id: marc_300_a
+  ris:
+    - M1
+    - NV
+  metadata:
+    name: MARC 300$$a
+    short_desc: MARC 300$$a
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: "300"
+        sub: "a"
+
+- id: marc_264_b
+  ris:
+    - PB
+  metadata:
+    name: MARC 264$$a
+    short_desc: MARC 264$$a
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: "264"
+        sub: "b"
+
+- id: marc_856_u
+  type: marcxml
+  field: fullrecord
+  ris:
+    - L2
+  metadata:
+    name: MARC 856$$u
+    short_desc: MARC 856$$u
+  marc:
+    fields:
+      - tag: "856"
+        sub: u
+
+- id: extended_summary
+  ris:
+    - N2
+  metadata:
+    name: Summary
+    short_desc: Summary of this resource
+  type: marcxml
+  has_html: true
+  field: fullrecord
+  marc:
+    fields:
+      - tag: "520"
+        sub: '[abc3]'
+
+- id: marc_title
+  uid: title
+  metadata:
+    name: Title
+    short_desc: Title
+  type: marcxml
+  field: fullrecord
+  query_field: search_title
+  marc:
+    fields:
+      - tag: "245"
+        sub: "[a-gi-z]"
+  filters:
+    - id: sanitize
+      method: sanitize
+
+- id: marc_ris_title
+  csl:
+    id: title
+  z3988:
+    id: rft.btitle
+  ris:
+    - JF
+    - T1
+    - TI
+  metadata:
+    name: Title
+    short_desc: Title
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: "245"
+        sub: "[abnp]"
+  filters:
+    - id: sanitize
+      method: sanitize
+    - id: trim
+      method: trim
+
+- id: marc_csl_title
+  csl:
+    id: title
+  z3988:
+    id: rft.btitle
+  metadata:
+    name: Title
+    short_desc: Title
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: "245"
+        sub: "[abp]"
+  filters:
+    - id: trim
+      method: trim
+
+- id: z3988_rft_val_fmt
+  field: format
+  metadata:
+    name: rft_val_fmt
+    short_desc: rft_val_fmt
+  z3988:
+   id: rft_val_fmt
+   type: rft_val_fmt
+
+- id: z3988_rft_genre
+  field: format
+  metadata:
+    name: rft_val_genre
+    short_desc: rft_genre
+  z3988:
+   id: rft.genre
+   type: rft_genre
+
+- id: new_title
+  metadata:
+    name: New Title
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: 785
+        sub: "[ast]"
+  metadata_component:
+    full:
+      type: search1
+      variant: fielded
+      scope: title
+
+- id: new_title_issn
+  metadata:
+    name: New Title ISSN
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: 785
+        sub: "[x]"
+  metadata_component:
+    full:
+      type: plain
+
+- id: previous_title
+  metadata:
+    name: Previous Title
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: 780
+        sub: "[ast]"
+  metadata_component:
+    full:
+      type: search1
+      variant: fielded
+      scope: title
+
+- id: previous_title_issn
+  metadata:
+    name: Previous Title ISSN
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: 780
+        sub: "[x]"
+  metadata_component:
+    full:
+      type: plain
+
+- id: main_author
+  metadata:
+    name: Main Author
+  type: marcxml
+  field: fullrecord
+  marc:
+    aggregator: filtered_labeling
+    fields:
+      - tag: '1[01][01]'
+        sub: '[abcdefgjklnpqtu4]'
+        label: display
+        join: ' '
+        filters:
+          - sub: "[4]"
+            value_match: "https?://"
+          - sub: "[4]"
+            sub_exists: "[e]"
+      - tag: '1[01][01]'
+        sub: '[abcdgjkqu]'
+        label: search
+        join: ' '
+  metadata_component:
+    preview:
+      type: quoted_search2
+      variant: fielded
+      scope: author
+      text_field: display
+      value_field: search
+    medium:
+      type: quoted_search2
+      variant: fielded
+      scope: author
+      text_field: display
+      value_field: search
+    full:
+      type: quoted_search2
+      variant: fielded
+      scope: author
+      text_field: display
+      value_field: search
+
+- id: contributors
+  metadata:
+    name: Contributors
+  type: marcxml
+  field: fullrecord
+  marc:
+    aggregator: filtered_labeling
+    fields:
+      - tag: '700|710|711'
+        sub: '[abcdefgjklnpqu4]'
+        label: display
+        join: ' '
+        ind2: '[^2]'
+        where:
+          - sub: t
+            exists: false
+        filters:
+          - sub: "[4]"
+            value_match: "https?://"
+          - sub: "[4]"
+            sub_exists: "[e]"
+      - tag: '700|710|711'
+        sub: '[abcdgjkqu]'
+        label: search
+        join: ' '
+        ind2: '[^2]'
+        where:
+          - sub: t
+            exists: false
+  metadata_component:
+    medium:
+      type: search2
+      variant: filtered
+      scope: author
+      text_field: display
+      value_field: search
+    full:
+      type: search2
+      variant: filtered
+      scope: author
+      text_field: display
+      value_field: search
+
+- id: ris_contributors
+  z3988:
+    id: rft.au
+  ris:
+    - AU
+  metadata:
+    name: Contributors
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '700|710|711'
+        sub: '[abcdefgjklnpqtu4]'
+        join: ' '
+
+- id: ris_main_author
+  z3988:
+    id: rft.au
+  ris:
+    - AU
+  metadata:
+    name: Main Author
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '1[01][01]'
+        sub: '[abcdefgjklnpqtu4]'
+        join: ' '
+
+- id: csl_editor
+  metadata:
+    name: Editor
+  csl:
+    id: editor
+    type: author
+  ris:
+    - ED
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '700'
+        sub: 'a'
+        ind1: '1'
+        join: ' '
+        where:
+          - sub: e
+            is: ['ed', 'ed.', 'editor', 'editor.']
+      - tag: '700'
+        sub: '[ab]'
+        ind1: '0'
+        join: ' '
+        where:
+          - sub: e
+            is: ['ed', 'ed.', 'editor', 'editor.']
+  filters:
+    - id: trim
+      method: trim
+    - id: trim2
+      method: trim2
+
+- id: csl_translator
+  metadata:
+    name: Translator
+  csl:
+    id: translator
+    type: author
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '700'
+        sub: 'a'
+        ind1: '1'
+        join: ' '
+        where:
+          - sub: e
+            is: ['trans', 'translator','translator.']
+      - tag: '700'
+        sub: '[ab]'
+        ind1: '0'
+        join: ' '
+        where:
+          - sub: e
+            is: ['trans', 'translator','translator.']
+  filters:
+    - id: trim
+      method: trim
+    - id: trim2
+      method: trim2
+
+- id: csl_main_author
+  csl:
+    id: author
+    type: author
+  z3988:
+    id: rft.au
+  metadata:
+    name: Main Author
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '100'
+        sub: 'a'
+        ind1: '1'
+        join: ' '
+        where:
+          - sub: e
+            not: ['ed', 'ed.', 'editor', 'editor.', 'trans.', 'translator', 'translator.']
+      - tag: '100'
+        sub: '[ab]'
+        ind1: '0'
+        join: ' '
+        where:
+          - sub: e
+            not: ['ed', 'ed.', 'editor', 'editor.', 'trans.', 'translator', 'translator.']
+  filters:
+    - id: trim
+      method: trim
+    - id: trim2
+      method: trim2
+
+- id: csl_contributor
+  csl:
+    id: author
+    type: author
+  z3988:
+    id: rft.au
+  metadata:
+    name: Main Author
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '700'
+        sub: 'a'
+        ind1: '1'
+        join: ' '
+        where:
+          - sub: e
+            not: ['ed', 'ed.', 'editor', 'editor.', 'translator', 'trans.', 'translator.']
+      - tag: '700'
+        sub: '[ab]'
+        ind1: '0'
+        join: ' '
+        where:
+          - sub: e
+            not: ['ed', 'ed.', 'editor', 'editor.', 'translator', 'trans.', 'translator.']
+  filters:
+    - id: trim
+      method: trim
+    - id: trim2
+      method: trim2
+
+- id: mirlyn_summary
+  ris:
+    - N2
+  uid: summary
+  metadata:
+    name: Summary
+    short_desc: Summary of this resource
+  type: marcxml
+  has_html: true
+  field: fullrecord
+  marc:
+    fields:
+      - tag: "520"
+        sub: '[abc3]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: marc_published
+  metadata:
+    name: Published/Created
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '260'
+        sub: '[ab]'
+      - tag: '264'
+        ind2: '1'
+        sub: '[ab]'
+
+- id: marc_record
+  metadata:
+    name: Marc Metadata
+  type: marcjson
+  field: fullrecord
+
+- id: website_created
+  csl:
+    id: issued
+    type: date
+  z3988:
+    id: rft.date
+  field: created
+  uid: date
+  metadata:
+    name: Date
+
+- id: created
+  metadata:
+    name: Created
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '264'
+        ind2: '0'
+        sub: '[a-z]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: distributed
+  metadata:
+    name: Distributed
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '264'
+        ind2: '2'
+        sub: '[a-z]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: manufactured
+  metadata:
+    name: Manufactured
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '264'
+        ind2: '3'
+        sub: '[a-z]'
+      - tag: '260'
+        sub: '[efg]'
+        join: ' '
+  metadata_component:
+    full:
+      type: plain
+
+- id: edition
+  csl:
+    id: edition
+  z3988:
+    id: rft.edition
+  ris:
+    - ET
+  metadata:
+    name: Edition
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '250'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: series
+  csl:
+    id: collection-title
+  z3988:
+    id: rft.series
+  ris:
+    - T3
+  metadata:
+    name: Series (transcribed)
+  type: marcxml
+  field: fullrecord
+  query_field: search_series
+  marc:
+    fields:
+      - tag: '400|410|411|440|490'
+        sub: '[a-z]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: series_statement
+  metadata:
+    name: Series Statement
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '440|800|810|811|830'
+        sub: '[a-z]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: preferred_title
+  metadata:
+    name: Preferred Title
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '130|240|243'
+        sub: '[a-z]'
+      - tag: '730'
+        ind2: '2'
+        sub: '[a-hj-z]'
+  metadata_component:
+    full:
+      type: quoted_search1
+      variant: fielded
+      scope: title
+
+- id: related_title
+  metadata:
+    name: Related Title
+  type: marcxml
+  field: fullrecord
+  marc:
+    aggregator: labeling
+    fields:
+      - label: display
+        tag: 730
+        ind2: ' '
+        sub: '[a-hj-z]'
+        join: ' '
+      - label: search
+        tag: 730
+        ind2: ' '
+        sub: '[a-hj-z]'
+        join: ' '
+
+      - label: display
+        tag: '700|710'
+        ind2: '[^2]'
+        sub: '[abcdefgjklmnopqrst]'
+        join: ' '
+        where:
+          - sub: t
+            exists: true
+      - label: search
+        tag: '700|710'
+        ind2: '[^2]'
+        sub: '[fjklmnoprst]'
+        join: ' '
+        where:
+          - sub: t
+            exists: true
+
+      - label: display
+        tag: '711'
+        ind2: '[^2]'
+        sub: '[abcdefgjklmnopqrst]'
+        join: ' '
+        where:
+          - sub: t
+            exists: true
+      - label: search
+        tag: '711'
+        ind2: '[^2]'
+        sub: '[fklmnoprst]'
+        join: ' '
+        where:
+          - sub: t
+            exists: true
+  metadata_component:
+    full:
+      type: search2
+      variant: fielded
+      scope: title
+      text_field: display
+      value_field: search
+
+- id: other_titles
+  metadata:
+    name: Other Titles
+  type: marcxml
+  field: fullrecord
+  marc:
+    aggregator: labeling
+    fields:
+      - label: 'display'
+        tag: '246|247'
+        sub: '[a-z]'
+        join: ' '
+      - label: 'search'
+        tag: '246|247'
+        sub: '[a-eghj-z]'
+        join: ' '
+
+      - label: 'display'
+        tag: '740'
+        sub: '[a-z]'
+        join: ' '
+      - label: 'search'
+        tag: '740'
+        sub: '[a-z]'
+        join: ' '
+
+      - label: display
+        tag: '700'
+        ind2: '2'
+        sub: '[abcdefgjklmnopqrst]'
+        where:
+          - sub: t
+            exists: true
+        join: ' '
+      - label: search
+        tag: '700'
+        ind2: '2'
+        sub: '[fjklmnoprst]'
+        where:
+          - sub: t
+            exists: true
+        join: ' '
+
+      - label: display
+        tag: '710'
+        sub: '[abcdefgjklmnopqrst]'
+        ind2: '2'
+        where:
+          - sub: t
+            exists: true
+        join: ' '
+      - label: search
+        tag: '710'
+        sub: '[fjklmnoprst]'
+        ind2: '2'
+        where:
+          - sub: t
+            exists: true
+        join: ' '
+
+      - label: display
+        tag: '711'
+        sub: '[abcdefgjklmnopqrst]'
+        ind2: '2'
+        where:
+          - sub: t
+            exists: true
+        join: ' '
+      - label: search
+        tag: '711'
+        sub: '[fklmnoprst]'
+        ind2: '2'
+        where:
+          - sub: t
+            exists: true
+        join: ' '
+  metadata_component:
+    full:
+      type: search2
+      variant: fielded
+      scope: title
+      text_field: display
+      value_field: search
+
+- id: collection
+  uid: collection
+  metadata:
+    name: Collection
+  field: location
+  facet_field: location
+  facet:
+    expanded: false
+
+- id: in_collection
+  metadata:
+    name: In Collection
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '773'
+        sub: '[a-z]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: numbering_notes
+  metadata:
+    name: Numbering Peculiarities Note
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '515'
+        sub: '[a]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: marc_access
+  metadata:
+    name: Access
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '506'
+        sub: '[abc]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: performers
+  metadata:
+    name: Performers
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '511'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: date_place_of_event
+  metadata:
+    name: Date/Place of Event
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '518'
+        sub: '[adop23]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: related_items
+  metadata:
+    name: Related Items
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '580'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: full_previous_title
+  ris:
+    - T2
+  metadata:
+    name: Previous Title
+  type: formatted_full_title
+  fields:
+    title:
+      type: marcxml
+      field: fullrecord
+      marc:
+        aggregator: labeling
+        fields:
+          - tag: '780'
+            sub: '[st]'
+            label: first
+          - tag: '780'
+            sub: 'a'
+            label: last
+
+- id: full_new_title
+  metadata:
+    name: New Title
+  type: formatted_full_title
+  fields:
+    title:
+      type: marcxml
+      field: fullrecord
+      marc:
+        aggregator: labeling
+        fields:
+          - tag: '785'
+            sub: '[st]'
+            label: first
+            join: ' '
+          - tag: '785'
+            sub: 'a'
+            label: last
+            join: ' '
+
+- id: numbering
+  csl:
+    id: number
+  z3988:
+    id: rft.number
+  metadata:
+    name: Numbering
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '362'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: csl_publisher
+  csl:
+    id: publisher
+  z3988:
+    id: rft.publisher
+  ris:
+    - PB
+  metadata:
+    name: Publisher
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '260'
+        sub: 'b'
+      - tag: '264'
+        sub: 'b'
+        ind2: '1'
+  filters:
+    - id: trim
+      method: trim
+    - id: trim2
+      method: trim2
+
+- id: csl_publisher_place
+  csl:
+    id: publisher-place
+  z3988:
+    id: rft.place
+  metadata:
+    name: Place of Publication
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '260'
+        sub: 'a'
+      - tag: '264'
+        sub: 'a'
+        ind2: '1'
+  filters:
+    - id: trim
+      method: trim
+    - id: trim2
+      method: trim2
+
+- id: summon_source
+  field: Source
+  metadata:
+    name: Source
+
+- id: summon_source_type
+  field: SourceType
+  metadata:
+    name: Source Type
+
+- id: summon_database_xml
+  field: Database_xml
+  metadata:
+    name: Database Info
+
+- id: source_of_description_note
+  metadata:
+    name: Source of Description Note
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '588'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: copy_specific_note
+  metadata:
+    name: Copy-Specific Note
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '590'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: biography_history
+  metadata:
+    name: Biography/History
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '545'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: references
+  metadata:
+    name: References
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '510'
+        sub: '[a-z]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: language_note
+  metadata:
+    name: Language note
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '546'
+        sub: '[a-z]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: copyright_status_information
+  metadata:
+    name: Copyright status information
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '542'
+        sub: '[a-z]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: note
+  ris:
+    - N1
+  metadata:
+    name: Note
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '500|501|502|525|526|530|547|550|552|561|565|584|585'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: arrangement
+  metadata:
+    name: Arrangement
+    short_desc: Arrangement
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '351'
+        sub: '[3ab]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: copyright
+  metadata:
+    name: Copyright
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '264'
+        sub: '[a-z]'
+        ind2: 4
+  metadata_component:
+    full:
+      type: plain
+
+- id: physical_description
+  metadata:
+    name: Physical Description
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '300'
+        sub: '[a-z]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: reproduction_note
+  metadata:
+    name: Reproduction Note
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '533'
+        sub: '[a-z35]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: original_version_note
+  metadata:
+    name: Original Version Note
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '534'
+        sub: '[a-z35]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: current_publication_frequency
+  metadata:
+    name: Current Publication Frequency
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '310'
+        sub: '[ab]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: former_publication_frequency
+  metadata:
+    name: Former Publication Frequency
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '321'
+        sub: '[ab]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: playing_time
+  metadata:
+    name: Playing Time
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '306'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: media_format
+  metadata:
+    name: Media Format
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '538'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: audience
+  metadata:
+    name: Audience
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '521'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: awards
+  metadata:
+    name: Awards
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '586'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: production_credits
+  metadata:
+    name: Production Credits
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '508'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: bibliography
+  ris:
+    - AB
+  metadata:
+    name: Bibliography
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '504'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: isbn
+  csl:
+    id: ISBN
+    type: array
+  z3988:
+    id: rft_id
+    namespace: "urn:ISBN:"
+  ris:
+    - SN
+  metadata:
+    name: ISBN
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '020'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: marc_issn
+  csl:
+    id: ISSN
+    type: array
+  z3988:
+    id: rft_id
+    namespace: "urn:ISSN:"
+  metadata:
+    name: ISSN
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '022'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: publisher_number
+  metadata:
+    name: Publisher Number
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '028'
+        sub: '[ab]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: report_number
+  csl:
+    id: number
+  z3988:
+    id: rft.number
+  metadata:
+    name: Report Number
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '088'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: indexes
+  metadata:
+    name: Indexes/Finding Aids
+  type: marcxml
+  field: fullrecord
+  marc:
+    aggregator: field
+    fields:
+      - label: text
+        tag: '555'
+        sub: '[abcd3]'
+      - label: href
+        tag: '555'
+        sub: '[abcd3u]'
+  filters:
+    - id: marc555
+      method: marc555
+  metadata_component:
+    full:
+      type: href_linked
+      href_field: href
+      text_field: text
+
+- id: chronology
+  metadata:
+    name: Chronology
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '945'
+        sub: 'a'
+  filters:
+    - id: unless9
+      method: unless9
+  metadata_component:
+    full:
+      type: plain
+
+- id: place
+  metadata:
+    name: Place
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '946'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: printer
+  metadata:
+    name: Printer
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '947'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: association
+  metadata:
+    name: Association
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '948'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: marc_bookplate
+  metadata:
+    name: Bookplate
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '949'
+        sub: 'a'
+  metadata_component:
+    full:
+      type: plain
+
+- id: terms_of_use
+  metadata:
+    name: Terms of Use
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '540'
+        sub: '[a-z]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: lcsh_subjects
+  ris:
+    - KW
+  metadata:
+    name: Subjects (LCSH)
+  type: marcxml
+  field: fullrecord
+  marc:
+    aggregator: labeling
+    fields:
+      - tag: '600|610|630|650|651|655'
+        ind2: '0'
+        sub: '[a-z]'
+        label: 'display'
+        join: ' -- '
+      - tag: '600|610|630|650|651|655'
+        ind2: '0'
+        sub: '[a-z]'
+        label: 'search'
+        join: ' '
+  metadata_component:
+    full:
+      type: search2
+      variant: fielded
+      scope: subject
+      text_field: display
+      value_field: search
+
+- id: other_subjects
+  ris:
+    - KW
+  metadata:
+    name: Subjects (Other)
+  type: marcxml
+  field: fullrecord
+  marc:
+    aggregator: labeling
+    fields:
+      - tag: '600|610|630|650|651|655'
+        ind2: '[^0]'
+        sub: '[a-z]'
+        label: 'display'
+        join: ' -- '
+      - tag: '600|610|630|650|651|655'
+        ind2: '[^0]'
+        sub: '[a-z]'
+        label: 'search'
+        join: ' '
+  metadata_component:
+    full:
+      type: search2
+      variant: fielded
+      scope: subject
+      text_field: display
+      value_field: search
+
+- id: contents_listing
+  metadata:
+    name: Contents Listing
+  type: marcxml
+  field: fullrecord
+  query_field: toc
+  marc:
+    fields:
+      - tag: '505'
+        sub: '[a-z]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: summon_year
+  uid: published_year
+  csl:
+    id: issued
+    type: date
+  z3988:
+    id: rft.date
+  ris:
+    - DA
+    - PY
+  field: publication_date
+  type: summon_year
+  metadata:
+    name: Published Year
+
+- id: summon_month
+  uid: published_month
+  field: publication_date
+  type: summon_month
+  metadata:
+    name: Published Month
+
+- id: summon_day
+  uid: published_day
+  field: publication_date
+  type: summon_day
+  metadata:
+    name: Published Day
+
+- id: mirlyn_published_year
+  uid: published_year
+  field: publishDate
+  metadata:
+    name: Published Year
+
+- id: published_brief
+  metadata:
+    name: Published/Created
+  type: formatted_catalog_published
+  date:
+    field: display_date
+  groups:
+    - type: marcxml
+      field: fullrecord
+      marc:
+        aggregator: labeling
+        fields:
+          - label: ab
+            tag: "260"
+            sub: '[ab]'
+            join: ' '
+          - label: c
+            tag: "260"
+            sub: "c"
+    - type: marcxml
+      field: fullrecord
+      marc:
+        aggregator: labeling
+        fields:
+          - label: ab
+            tag: '264'
+            ind2: '1'
+            sub: [ab]
+            join: ' '
+          - label: c
+            tag: '264'
+            ind2: '1'
+            sub: c
+  metadata_component:
+    medium:
+      type: plain
+    full:
+      type: plain
+
+- id: article_published_brief
+  uid: published_brief
+  metadata:
+    name: Published
+  type: formatted_article_published
+  fields:
+    publication_title:
+      field: publication_title
+    volume:
+      field: volume
+    issue:
+      field: issue
+  metadata_component:
+    medium:
+      type: plain
+    full:
+      type: plain
+
+- id: page_range
+  csl:
+    id: page
+  z3988:
+    id: rft.pages
+  metadata:
+    name: Pages
+  type: formatted_page_range
+  fields:
+    start_page:
+      field: start_page
+    end_page:
+      field: end_page
+  metadata_component:
+    medium:
+      type: plain
+    full:
+      type: plain
+
+- id: page_type
+  field: ssfield_page_type
+  metadata:
+    name: Type
+  facet:
+    expanded: true
+  metadata_component:
+    preview:
+      type: icon
+    medium:
+      type: icon
+
+- id: source
+  metadata:
+    name: Source
+
+- id: journal_title
+  query_field: search_journal_title
+  metadata:
+    name: Journal/Serial Title
+
+- id: title_starts_with
+  query_field: search_title_starts_with
+  metadata:
+    name: Title starts with
+
+- id: call_number_starts_with
+  query_field: search_call_number_starts_with
+  metadata:
+    name: Call Number starts with
+
+- id: isn
+  query_field: search_isn
+  metadata:
+    name: ISBN/ISSN/OCLC/etc.
+
+- id: title_initial
+  metadata:
+    name: Title Initial
+  facet:
+    type: hidden
+
+- id: summon_isn
+  uid: isn
+  query_field:
+    - issn
+    - eissn
+    - isbn
+    - eisbn
+  metadata:
+    name: ISBN/ISSN
+
+- id: summon_series
+  csl:
+    id: collection-title
+  z3988:
+    id: rft.series
+  uid: series
+  field: PublicationSeriesTitle
+  query_field: PublicationSeriesTitle
+  metadata:
+    name: Series
+
+- id: year_of_publication
+  ris:
+    - PY
+    - Y1
+  uid: publication_date
+  query_field: search_publication_date
+  metadata:
+    name: Year of Publication
+
+- id: db_publisher
+  ris:
+    - PB
+  uid: publisher
+  query_field: search_publisher
+  metadata:
+    name: Publisher
+
+- id: isi_cited_references_uri
+  field:  ISICitedReferencesURI
+  metadata:
+    name: ISI Cited References URI
+
+- id: link_model
+  field: LinkModel
+  metadata:
+    name: Link Model
+
+- id: highly_recommended
+  field: isfield-order-
+  facet_field: academic_discipline
+  type: highly_recommended
+  metadata:
+    name: Highly Recommended
+
+- id: times_cited
+  type: times_cited
+  metadata:
+    name: Times Cited
+  fields:
+    - name: Web of Science
+      href: ISICitedReferencesURI
+      count: ISICitedReferencesCount
+    - name: Scopus
+      href: ScopusCitedReferencesURI
+      count: ScopusCitedReferencesCount
+
+- id: times_cited2
+  type: times_cited2
+  metadata:
+    name: Times Cited
+  fields:
+    - name: Web of Science
+      href: ISICitedReferencesURI
+      count: ISICitedReferencesCount
+    - name: Scopus
+      href: ScopusCitedReferencesURI
+      count: ScopusCitedReferencesCount
+  metadata_component:
+    medium:
+      type: href_linked
+      href_field: href
+      text_field: text
+    full:
+      type: href_linked
+      href_field: href
+      text_field: text
+
+- id: pmid
+  metadata:
+    name: PMID
+
+- id: display_date
+  csl:
+    id: issued
+    type: date
+  z3988:
+    id: rft.date
+  ris:
+    - DA
+    - PY
+  metadata:
+    name: Date
+
+- id: more_information
+  field: smfield_help_links
+  metadata:
+    name: More Information
+  type: more_information
+  filters:
+    - id: proxy_prefix
+      method: proxy_prefix
+  metadata_component:
+    full:
+      type: plain
+
+- id: journal_resource_access
+  uid: resource_access
+  metadata:
+    name: Resource Access
+    short_desc: Resource Access
+  type: resource_access
+  name: online journals
+  headings: [ 'Action', 'Description' ]
+  fields:
+    - uid: href
+      parallel: access_url
+    - uid: link_text
+      value: Go to online journal
+    - uid: relationship
+      parallel: access_856_3
+  has_html: true
+  filters:
+    - id: proxy_prefix
+      method: proxy_prefix
+
+- id: website_resource_access
+  uid: resource_access
+  metadata:
+    name: Resource Access
+  type: resource_access
+  headings: [ 'Action' ]
+  fields:
+    - uid: link_text
+      fields:
+        - title
+    - uid: href
+      preferred:
+        - url
+      fields:
+        - site
+        - path_alias
+
+- id: database_resource_access
+  uid: resource_access
+  metadata:
+    name: Resource Access
+  type: resource_access
+  name: databases
+  headings: [ 'Action' ]
+  fields:
+    - uid: link_text
+      value: Go to database
+    - uid: href
+      fields:
+        - ssfield_permalink
+    - uid: campus
+      fields:
+        - smfield_campus
+    - uid: outage
+      spaced: smfield_outage
+
+- id: summon_resource_access
+  metadata:
+    name: Resource Access
+    short_desc: Resource Access
+  uid: resource_access
+  type: summon_resource_access
+  headings: [ 'Action', 'Description' ]
+  model_field: LinkModel
+  direct_link_field: link
+  openurl_field: open_url
+  openurl_root: https://mgetit.lib.umich.edu/resolve
+
+- id: catalog_resource_access
+  uid: resource_access
+  metadata:
+    name: Resource Access
+    short_desc: Resource Access
+  type: marcxml
+  field: fullrecord
+  marc:
+    aggregator: online_resource
+    fields:
+      - label: link_text
+        tag: "856"
+        sub: "y"
+        default: Available online
+      - label: href
+        tag: "856"
+        sub: "u"
+      - label: source
+        tag: "856"
+        sub: "z"
+      - label: description
+        tag: "856"
+        sub: "3"
+      - label: id
+        tag: "001"
+      - label: "datastore"
+        tag: "856"
+        sub: "^"
+        default: "mirlyn"
+      - label: format
+        tag: "970"
+        sub: "b"
+      - label: location
+        tag: "852"
+        sub: "[bc]"
+  filters:
+    - id: proxy_prefix
+      method: proxy_prefix

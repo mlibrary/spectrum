@@ -1,0 +1,62 @@
+---
+id: website
+metadata:
+  name: Guides and more
+  short_desc: "Search the for Guides and more."
+source: website
+# https://stackoverflow.com/questions/20217686/multiple-boost-queries-in-solr
+solr_params:
+  # default
+  qt: edismax
+  qf: title_unstemmed^10 title^7 all_titles_unstemmed^8 all_titles^6 content^2 keywords^10
+  bq:
+    - _val_:"{!edismax pf=$pf qf=$qf mm=100% v=$q bq=}"^100
+    - "important:true^500"
+  mm: 25%
+  pf: title all_titles content
+  tie: 0.1
+  defType: edismax
+
+href:
+  field: path_alias
+  prefix: http://www.lib.umich.edu/
+filters:
+  - "+source:(drupal OR libguides-page OR libguides-guide OR drupal-blog-post)"
+  - "+status:true"
+default_sort: relevance
+sorts:
+  relevance: relevance
+  title_asc: title_asc
+  title_desc: title_desc
+  website_date_asc: website_date_asc
+  website_date_desc: website_date_desc
+# mapping is "External Name: Internal UID"
+# i.e. solr_field_name => uid used in fields.yml
+fields:
+  - id
+  - url
+  - content
+  - title
+  - page_type
+  - date
+  - brief_description
+  - website_author
+  - merged_url
+  - website_links
+  - picture
+  - job_title
+  - department
+  - email
+  - phone
+  - office
+  - website_created
+  - website_year
+  - website_month
+  - website_day
+  - website_resource_access
+  - z3988_rft_val_fmt
+  - z3988_rft_genre
+  - z3988_sid
+
+facets:
+  ssfield_page_type: page_type

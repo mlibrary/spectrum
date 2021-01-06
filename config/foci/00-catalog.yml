@@ -1,0 +1,424 @@
+---
+id: mirlyn
+metadata:
+  name: Catalog
+  short_descr: The Library Catalog.
+source: mirlyn
+solr_params:
+
+  f.search_series.pf: series^500 series2^50
+  f.search_series.qf: series^200 series2^50
+
+  f.search_serial_title.pf: serialTitle_common_exact^600 serialTitle_common_l^300 serialTitle_common^100 serialTitle_a_exact^200 serialTitle_equiv^250
+  f.search_serial_title.qf: serialTitle_common^30 serialTitle_equiv^15 serialTitle_rest^10
+
+  f.search_journal_title.pf: serialTitle_ab^25000 serialTitle_a^15000 serialTitleProper^1200 seialTitle_restProper^400
+  f.search_journal_title.qf: serialTitleProper^120 serialTitleRestProper^40 serialTitle^30 serialTitle_rest^10
+
+  f.search_title.pf: serialTitle_common_exact^600 title_common_exact^500 title_l^150 title_common^100 title_a_exact^50 title_top^30 title_rest^20 series^3 series2^2
+  f.search_title.qf: title_common_exact^1000 title_common^120 title_equiv^60 title_rest^30 series^10 series2^5
+
+  f.title.pf: serialTitle_common_exact^600 title_common_exact^500 title_l^150 title_common^100 title_a_exact^50 title_top^30 title_rest^20 series^3 series2^2
+  f.title.qf: title_common_exact^1000 title_common^120 title_equiv^60 title_rest^30 series^10 series2^5
+
+  f.search_subject2.pf: topicProper^5 topic^1
+  f.search_subject2.qf: topicProper^5 topic^1
+
+  f.search_subject.pf: topicProper^5 topic^1 fullgeographic^1 fullgenre^1 era^1
+  f.search_subject.qf: topicProper^5 topic^1 fullgeographic^1 fullgenre^1 era^1
+
+  f.search_academic_discipline.pf: hlb3^10
+  f.search_academic_discipline.qf: hlb3^1
+
+  f.search_realauth.pf: authorStr^10
+  f.search_realauth.qf: authorStr^1
+
+  f.search_isn.pf: issn isbn barcode lccn oclc sdrnum ctrlnum ht_id isn_related rptnum id id_int
+  f.search_isn.qf: issn isbn barcode lccn oclc sdrnum ctrlnum ht_id isn_related rptnum id id_int
+
+  f.search_publisher.pf: publisher
+  f.search_publisher.qf: publisher
+
+  f.search_publication_date.pf: publishDate
+  f.search_publication_date.qf: publishDate
+
+  f.search_title_starts_with.pf: serialTitle_common_l^10 title_l^5
+  f.search_title_starts_with.qf: title_l
+
+  f.search_call_number_starts_with.pf: callnosearch sudoc
+  f.search_call_number_starts_with.qf: callnosearch sudoc
+
+  f.search_author.pf: author^25000 author2^20000 author_top^5000 author_rest^1000
+  f.search_author.qf: author^10 author2^5 author_top^2 author_rest^1
+
+#  boost: max(query({!dismax qf="title_ab^80 title_a^20 title_l^5 mainauthor^10 allfields^3" v=$qq mm="1<-1"}), 1)
+
+#  boost: product(map(termfreq('title_ab', $q), 0, 1, 1, 1.1), if(termfreq('format', 'Journal'), 1.4, 1), query({!dismax qf="title author" pf="title_author^10 title_ab^10 title_a^5 title_l^2 titleProper^2" tie=0.1 ps=999 v=$q}, 1))
+#  boost: product(map(query({!dismax qf="title_ab^15 title_a^10" v=$q mm="100%"}), 0, 0, 1, 1.3), if(termfreq('format', 'Journal'), 1.4, 1), query({!dismax qf="title author" pf="title_author^10 title_ab^10 title_a^5 title_l^2 titleProper^2" tie=0.1 ps=999 v=$q mm="3<-1"}, 1))
+
+#  boost: >-
+#    product(query({!field f=title_ab v=$q }, 1),
+#            if(termfreq('format', 'Journal'), 1.4, 1),
+#            query({!dismax qf="title author" pf="title_author^10 title_l^2 titleProper^2" tie=0.1 ps=999 v=$q mm="3<-1"}, 1))
+#  boost: >-
+#    product(query({!field f=title_ab v=$q }, 1),
+#            if(termfreq('format', 'Journal'), 1.4, 1))
+
+#  boost: >-
+#    product(
+#      map(
+#        query({!field f=title_equiv_exact v=$q}, 1), 0, 1, 1, 100
+#      ),
+#      map(
+#        query({!field f=title_a_exact v=$q}, 1), 0, 1, 1, 10
+#      ),
+#      if(termfreq('format', 'Journal'), 1.4, 1)
+#    )
+
+#  boost: >-
+#    product(
+#      if(termfreq('format', 'Journal'), 1.4, 1),
+#      map(
+#        query({!field f=title_equiv_exact v=$q}, 1), 0, 1, 1, 100
+#      ),
+#      map(
+#        query({!field f=title_a_exact v=$q}, 1), 0, 1, 1, 30
+#      ),
+#      map(
+#          query({!dismax f=title_author v=$q mm="100%"}, 1), 0, 1, 1, 30
+#        ),
+#    )
+
+  boost: >-
+    product(
+      if(termfreq('format', 'Journal'), 1.4, 1),
+      max(
+        map(
+        query({!field f=title_common_exact v=$q}, 1), 0, 1, 1, 180
+      ),
+      map(
+        query({!field f=title_equiv_exact v=$q}, 1), 0, 1, 1, 50
+      ),
+      map(
+        query({!field f=title_a_exact v=$q}, 1), 0, 1, 1, 10
+      )),
+      map(
+          query({!dismax f=title_author v=$q mm="100%"}, 1), 0, 1, 1, 50
+        ),
+    )
+
+
+  qt: edismax
+  mm: "2<-1 5<67%"
+  mm.autoRelax: true
+  tie: 0.1
+
+  qf: >-
+    allfieldsProper^2
+    allfields^1
+    title_common^50
+    title_equiv^10
+    mainauthor^80
+    author^50
+    isbn
+    issn
+    oclc
+    lccn
+    barcode
+    htid
+    callnosearch
+
+  pf: >-
+    title_equiv^40
+    title_top^20
+    title_rest^10
+
+    author^80
+    author_top^30
+    author_rest^20
+
+
+  pf2: >-
+    title_author^500
+    title_equiv^80
+    title_l^50
+
+  ps2: 2
+
+
+
+
+
+    #  pf2: >-
+#    title_author^300
+#    title_ab^100
+#  ps2: 100
+#
+#  pf3: >-
+#    title_ab^300
+#    title_author^100
+#    title_l^200
+#  ps3: 0
+
+#  pf: >-
+#    titleProper^1500
+#    title_topProper^1000
+#    title_restProper^800
+#    title_l^1500
+#    series^100
+#    series2^100
+#    mainauthor^1200
+#    author^1000
+#    author2^800
+#    author_top^100
+#    author_rest^50
+#    fullgeographic^200
+#    topicProper^200
+#    fullgenre^200
+#    hlb3^200
+#    allfieldsProper^500
+#    callnosearch^100
+#  qf: >-
+#    title_ab^100
+#    allfieldsProper^2
+#    allfields^1
+#    titleProper^50
+#    title_topProper^30
+#    title_restProper^15
+#    title^10
+#    title_top^5
+#    title_rest^2
+#    series^5
+#    series2^5
+#    mainauthor^100
+#    author^80
+#    author2^50
+#    author_top^30
+#    author_rest^15
+#    issn^1
+#    isbn^1
+#    lccn^1
+#    oclc^1
+#    sdrnum^1
+#    ctrlnum^1
+#    ht_id^1
+#    isn_related^1
+#    rptnum^1
+#    topicProper^2
+#    topic^1
+#    hlb3^1
+#    fullgeographic^1
+#    fullgenre^1
+#    era^1
+
+#  pf: >-
+#    title_l: 1500
+#    author^500
+#    author_top^100
+#    author_rest^50
+#    title_topProper^400
+#    title_restProper^300
+#    title_top^390
+#    title_rest^290
+#    series^100
+#    series2^100
+#  qf: >-
+#    title_ab^100
+#    allfieldsProper^2
+#    allfields^1
+#    title^80
+#    title_top^40
+#    title_rest^10
+#    author^90
+#    author_top^40
+#    author_rest^20
+#    author2^10
+#    series^2
+#    series2^5
+#    fullgeographic^20
+#    topicProper^20
+#    fullgenre^20
+#    hlb3^200
+#    barcode^10
+#    callnosearch^10
+
+#  bq:
+    # - _query_:"{!lucene df=title_ab_exact v=$qq}"^1000
+    #- _query_:"{!lucene df=title_ab_exact v=${qq}~1}"^500
+    #- _query_:"{!lucene df=title_ab_exact v=${qq}~2}"^250
+#    - _query_:"{!lucene df=format v=Journal}"^2000
+#    - -publisher:"ERIC Clearinghouse"^1000
+qt: edismax
+has_holdings: true
+has_get_this: true
+href:
+  field: path_alias
+  prefix: http://mirlyn.lib.umich.edu/Record/
+
+default_sort: relevance
+sorts:
+  relevance: relevance
+  date_asc: date_asc
+  date_desc: date_desc
+  author_asc: author_asc
+  author_desc: author_desc
+  cat_date: date_added
+  mirlyn_title_asc: mirlyn_title_asc
+  mirlyn_title_desc: mirlyn_title_desc
+fields:
+  - id
+  - allfields
+  - mirlyn_format
+  - marc_title
+  - marc_ris_title
+  - main_author
+  - preferred_title
+  - related_title
+  - other_titles
+  - new_title
+  - new_title_issn
+  - previous_title
+  - previous_title_issn
+  - author
+  - contributors
+  - published_brief
+  - created
+  - distributed
+  - manufactured
+  - edition
+  - series
+  - series_statement
+  - biography_history
+  - mirlyn_summary
+  - in_collection
+  - marc_access
+  - terms_of_use
+  - language
+  - language_note
+  - performers
+  - date_place_of_event
+  - related_items
+  - numbering
+  - current_publication_frequency
+  - former_publication_frequency
+  - numbering_notes
+  - source_of_description_note
+  - copy_specific_note
+  - references
+  - copyright_status_information
+  - note
+  - arrangement
+  - copyright
+  - physical_description
+  - reproduction_note
+  - original_version_note
+  - playing_time
+  - media_format
+  - audience
+  - awards
+  - production_credits
+  - bibliography
+  - isbn
+  - marc_issn
+  - oclc
+  - gov_doc_no
+  - publisher_number
+  - report_number
+  - chronology
+  - place
+  - printer
+  - association
+  - marc_bookplate
+  - lcsh_subjects
+  - other_subjects
+  - academic_discipline
+  - contents_listing
+  - bookplate
+# Below this ??
+  - mirlyn_published_year
+  - links
+  - callnumber
+  - institution
+  - place_of_publication
+  - extended_summary
+  - marc_published
+  - full_previous_title
+  - full_new_title
+  - indexes
+  - institution
+  - journal_title
+  - year_of_publication
+  - marc_record
+  - display_date
+  - catalog_resource_access
+  - marc_300_a
+  - marc_264_b
+  - marc_856_u
+# Search specific fields
+  - title_starts_with
+  - call_number_starts_with
+  - subject
+  - isn
+# Citation specfic fields, not for display
+  - ris_main_author
+  - ris_contributors
+  - csl_main_author
+  - csl_contributor
+  - csl_editor
+  - csl_translator
+  - csl_publisher
+  - csl_publisher_place
+  - mirlyn_csl_type
+  - marc_csl_title
+  - z3988_rft_val_fmt
+  - z3988_rft_genre
+  - z3988_sid
+  - catalog_rfr_id
+
+facets:
+  - available_online
+  - search_only
+  - mirlyn_format
+  - subject
+  - date_of_publication
+  - language
+  - availability
+  - location
+  - academic_discipline
+  - author
+  - place_of_publication_filter
+  - region
+  - institution
+  - collection
+  - building
+
+hierarchy:
+  load_inst: <%= ENV['SPECTRUM_INST_LOCATION_FILES_DIR'] || "/www/vufind/web/mirlyn/web/conf" %>/instLocs.yaml
+  load_coll: <%= ENV['SPECTRUM_INST_LOCATION_FILES_DIR'] || "/www/vufind/web/mirlyn/web/conf" %>/locColl.yaml
+  field: Library
+  uid: institution
+  aliases:
+    top:
+      all: All libraries
+      aa: U-M Ann Arbor Libraries
+      flint: Flint Thompson Library
+      umtri: Transportation Research Institute Library (UMTRI)
+      bentley: Bentley Historical Library
+      clements: William L. Clements Library
+    tr:
+      institution:
+        "All Libraries": "*"
+        "All libraries": "*"
+        "U-M Ann Arbor Libraries": "UM Ann Arbor Libraries"
+      location:
+        "All Locations": "*"
+        "All locations": "*"
+      collection:
+        "All Collections": "*"
+        "All collections": "*"
+  children:
+    field: Location
+    uid: location
+    children:
+      field: Collection
+      uid: collection

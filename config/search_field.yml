@@ -1,0 +1,105 @@
+---
+- name: title
+  dropdown: true
+  local_parameters:
+    qf: $title_qf
+    pf: $title_pf
+
+- name: title_start
+  label: Title Begins With
+  dropdown: true
+  local_parameters:
+    qf: $title_start_qf
+    pf: $title_start_pf
+
+- name: title_starts_with
+  label: Title Begins With
+  dropdown: true
+  local_parameters:
+    qf: $title_start_qf
+    pf: $title_start_pf
+
+- name: journal_title
+  dropdown: true
+  parameters:
+    fq: ['format:Journal\/Periodical']
+  local_parameters:
+    qf: $title_qf,
+    pf: $title_pf
+    
+- name: series_title
+  dropdown: true
+  label: Series
+  local_parameters:
+    qf: title_series_txt
+    pf: title_series_txt
+
+- name: author
+  dropdown: true
+  local_parameters:
+    qf: $author_qf
+    pf: $author_pf
+
+- name: subject
+  dropdown: true
+  local_parameters:
+    qf: $subject_qf
+    pf: $subject_pf
+
+- name: form_genre
+  dropdown: true
+  local_parameters:
+    qf: subject_form_txt
+    pf: subject_form_txt
+
+- name: publication_place
+  dropdown: true
+  local_parameters:
+    qf: pub_place_txt
+    pf: pub_place_txt
+
+- name: publisher
+  dropdown: true
+  local_parameters:
+    qf: pub_name_txt
+    pf: pub_name_txt
+
+- name: publication_year
+  dropdown: true
+  local_parameters:
+    qf: pub_year_txt
+    pf: pub_year_txt
+
+- name: isbn
+  dropdown: true
+  label: ISBN
+  local_parameters:
+    qf: isbn_txt
+    pf: isbn_txt
+
+- name: issn
+  dropdown: true
+  label: ISSN
+  local_parameters:
+    qf: issn_txt
+    pf: issn_txt
+
+- name: call_number
+  dropdown: true
+  local_parameters:
+    qf: location_call_number_txt
+    pf: location_call_number_txt
+
+- name: location
+  dropdown: true
+  local_parameters:
+    qf: location_txt
+    pf: location_txt
+
+- name: all_fields
+  label: All Fields
+  dropdown: true
+
+- name: content
+  label: All Fields
+  dropdown: true

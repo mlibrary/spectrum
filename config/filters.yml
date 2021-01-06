@@ -1,0 +1,5 @@
+---
+- id: fullname
+  method: fullname
+- id: uniq
+  method: uniq
