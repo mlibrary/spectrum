@@ -220,7 +220,7 @@
       - flint?
     holding:
       - not_etas?
-      - not_flint_or_checkout?
+      - checkout?
 
 # Request a digital copy:
 - label: Request a digital copy (Interlibrary Loan (I.L.L.))
@@ -492,9 +492,10 @@
     patron:
       - active?
       - can_ill?
+      - ann_arbor?
     holding:
       - not_etas?
-      - unavailable?
+      - flint?
     bib:
       - can_scan?
   form:
@@ -554,6 +555,54 @@
         value: "{$barcode}"
       - type: submit
         value: "Place a request"
+
+# Contactless Pickup @Flint with item from AA
+- label: Pick it up at the library
+  service_type: Library pick up
+  duration: Expected availabiltiy 10 days
+  description:
+    heading: Policies and additional details
+    content:
+      - Standard loan and renewal policies apply
+      - Curbside pick up is available. See <a href="https://umflint.libwizard.com/f/curbside">Thompson Library - Curbside Pick Up</a> for details.
+  form:
+    type: ajax
+    method: post
+    action: "/spectrum/mirlyn/hold"
+    fields:
+      - type: hidden
+        name: record
+        value: "{$record_id}"
+      - type: hidden
+        name: item
+        value: "{$full_item_key}"
+      - type: select
+        label: "Pickup location"
+        name: pickup_location
+        value: 'select-a-pickup-location'
+        options:
+          - name: Select a pickup location
+            value: 'select-a-pickup-location'
+            disabled: true
+          - value: FLINT
+            name: "UM-Flint"
+      - type: date
+        label: "Cancel this hold if item is not available before"
+        name: not_needed_after
+        value: "{$two_months_from_today}"
+      - type: submit
+        name: submit
+        value: Get me this item
+  grants:
+    patron:
+      - active?
+      - flint?
+    holding:
+      - not_checked_out?
+      - not_missing?
+      - reopened?
+    bib:
+      - not_etas?
 
 # Contactless Pickup @Flint
 - label: Pick it up at the library
@@ -656,7 +705,57 @@
     bib:
       - not_etas?
 
-# Contactless Pickup @Shapiro
+# Contactless Pickup @Shapiro From Flint Campus
+- label: Contactless pickup at the library
+  service_type: Contactless pickup
+  description:
+    heading: Policies and additional details
+    content:
+      - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
+      - Learn more about <a href="https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup">contactless pickup</a>.
+  duration: Expected availability within 10 days
+  weight: 72
+  form:
+    type: ajax
+    method: post
+    action: "/spectrum/mirlyn/hold"
+    fields:
+      - type: hidden
+        name: record
+        value: "{$record_id}"
+      - type: hidden
+        name: item
+        value: "{$full_item_key}"
+      - type: select
+        label: "Pickup location"
+        name: pickup_location
+        value: 'select-a-pickup-location'
+        options:
+          - name: Select a pickup location
+            value: 'select-a-pickup-location'
+            disabled: true
+          - value: UGL
+            name: "Shapiro Undergraduate Library"
+      - type: date
+        label: "Cancel this hold if item is not available before"
+        name: not_needed_after
+        value: "{$two_months_from_today}"
+      - type: submit
+        name: submit
+        value: Get me this item
+  grants:
+    patron:
+      - active?
+      - ann_arbor?
+    holding:
+      - can_request?
+      - flint_pickup?
+      - not_missing?
+      - not_checked_out?
+    bib:
+      - not_etas?
+
+# Contactless Pickup @Shapiro with item from Flint Campus
 - label: Contactless pickup at the library
   service_type: Contactless pickup
   description:
@@ -801,6 +900,106 @@
     holding:
       - can_request?
       - music_pickup?
+      - not_missing?
+      - not_checked_out?
+    bib:
+      - not_etas?
+
+# Pickup @Mardigan
+- label: Pick it up at the library
+  service_type: Library to Library
+  description:
+    heading: Policies and additional details
+    content:
+      - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
+      - Pick up is available by appointment. See <a href="https://library.umd.umich.edu/pickup/">Mardigan Library - Schedule Pick-Up / Return</a> for details.
+  duration: Expected availability within 10 days
+  weight: 72
+  form:
+    type: ajax
+    method: post
+    action: "/spectrum/mirlyn/hold"
+    fields:
+      - type: hidden
+        name: record
+        value: "{$record_id}"
+      - type: hidden
+        name: item
+        value: "{$full_item_key}"
+      - type: select
+        label: "Pickup location"
+        name: pickup_location
+        value: 'select-a-pickup-location'
+        options:
+          - name: Select a pickup location
+            value: 'select-a-pickup-location'
+            disabled: true
+          - value: MARDIGAN
+            name: "Mardigan Library"
+      - type: date
+        label: "Cancel this hold if item is not available before"
+        name: not_needed_after
+        value: "{$two_months_from_today}"
+      - type: submit
+        name: submit
+        value: Get me this item
+  grants:
+    patron:
+      - active?
+      - dearborn?
+    holding:
+      - can_request?
+      - reopened?
+      - not_missing?
+      - not_checked_out?
+    bib:
+      - not_etas?
+
+# Contactless Pickup @Music
+- label: Pick it up at the library
+  service_type: Library to Library
+  description:
+    heading: Policies and additional details
+    content:
+      - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
+      - Pick up is available by appointment. See <a href="https://library.umd.umich.edu/pickup/">Mardigan Library - Schedule Pick-Up / Return</a> for details.
+  duration: Expected availability within 7 days
+  weight: 72
+  form:
+    type: ajax
+    method: post
+    action: "/spectrum/mirlyn/hold"
+    fields:
+      - type: hidden
+        name: record
+        value: "{$record_id}"
+      - type: hidden
+        name: item
+        value: "{$full_item_key}"
+      - type: select
+        label: "Pickup location"
+        name: pickup_location
+        value: 'select-a-pickup-location'
+        options:
+          - name: Select a pickup location
+            value: 'select-a-pickup-location'
+            disabled: true
+          - value: MARDIGAN
+            name: "Mardigan Library"
+      - type: date
+        label: "Cancel this hold if item is not available before"
+        name: not_needed_after
+        value: "{$two_months_from_today}"
+      - type: submit
+        name: submit
+        value: Get me this item
+  grants:
+    patron:
+      - active?
+      - dearborn?
+    holding:
+      - can_request?
+      - flint_pickup?
       - not_missing?
       - not_checked_out?
     bib:
