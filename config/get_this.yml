@@ -220,7 +220,7 @@
       - flint?
     holding:
       - not_etas?
-      - checkout?
+      - checked_out?
 
 # Request a digital copy:
 - label: Request a digital copy (Interlibrary Loan (I.L.L.))
@@ -557,7 +557,7 @@
         value: "Place a request"
 
 # Contactless Pickup @Flint with item from AA
-- label: Pick it up at the library
+- label: Pick it up at the library (Library to Library)
   service_type: Library pick up
   duration: Expected availabiltiy 10 days
   description:
@@ -648,7 +648,6 @@
     holding:
       - not_checked_out?
       - not_missing?
-#      - can_request?
       - standard_pickup?
     bib:
       - not_etas?
@@ -748,7 +747,6 @@
       - active?
       - ann_arbor?
     holding:
-      - can_request?
       - flint_pickup?
       - not_missing?
       - not_checked_out?
@@ -906,8 +904,8 @@
       - not_etas?
 
 # Pickup @Mardigan
-- label: Pick it up at the library
-  service_type: Library to Library
+- label: Pick it up at the library (Library to Library)
+  service_type: Library pick up
   description:
     heading: Policies and additional details
     content:
@@ -934,7 +932,7 @@
           - name: Select a pickup location
             value: 'select-a-pickup-location'
             disabled: true
-          - value: MARDIGAN
+          - value: DRBN
             name: "Mardigan Library"
       - type: date
         label: "Cancel this hold if item is not available before"
@@ -955,15 +953,15 @@
     bib:
       - not_etas?
 
-# Contactless Pickup @Music
-- label: Pick it up at the library
-  service_type: Library to Library
+# Contactless Pickup @Mardigan
+- label: Pick it up at the library (Library to Library)
+  service_type: Library pick up
   description:
     heading: Policies and additional details
     content:
       - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
       - Pick up is available by appointment. See <a href="https://library.umd.umich.edu/pickup/">Mardigan Library - Schedule Pick-Up / Return</a> for details.
-  duration: Expected availability within 7 days
+  duration: Expected availability within 10 days
   weight: 72
   form:
     type: ajax
@@ -984,7 +982,7 @@
           - name: Select a pickup location
             value: 'select-a-pickup-location'
             disabled: true
-          - value: MARDIGAN
+          - value: DRBN
             name: "Mardigan Library"
       - type: date
         label: "Cancel this hold if item is not available before"
@@ -998,7 +996,6 @@
       - active?
       - dearborn?
     holding:
-      - can_request?
       - flint_pickup?
       - not_missing?
       - not_checked_out?
