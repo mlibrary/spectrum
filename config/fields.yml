@@ -38,6 +38,13 @@
       method: sanitize
     - id: trim
       method: trim
+  header_component:
+    preview:
+      type: plain 
+    medium:
+      type: plain
+    full:
+      type: plain
 
 - id: summon_title
   csl:
@@ -62,6 +69,13 @@
       method: sanitize
     - id: trim
       method: trim
+  header_component:
+    preview:
+      type: plain 
+    medium:
+      type: plain 
+    full:
+      type: plain
 
 - id: summon_openurl
   uid: openurl
@@ -1787,6 +1801,13 @@
   filters:
     - id: sanitize
       method: sanitize
+  header_component:
+    preview:
+      type: plain 
+    medium:
+      type: plain 
+    full:
+      type: plain
 
 - id: marc_ris_title
   csl:
