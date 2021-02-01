@@ -1,7 +1,7 @@
 ---
-id: journals2
+id: onlinejournals
 metadata:
-  name: Journals
+  name: Online Journals
   short_desc: Journals from the library catalog.
 source: mirlyn
 solr_params:
