@@ -863,7 +863,7 @@
 # On Order @Shapiro From Flint Campus
 - label: Contactless pickup at the library
   service_type: Contactless pickup
-  duration:  Click to see additional details
+  duration: Click to see additional details
   description:
     heading: Policies and additional details
     content:
@@ -968,8 +968,8 @@
   duration: Click to see additional details
   description:
     heading: Policies and additional details
-      - Delivery time varies for items with status ON ORDER and notification will be sent when this item is available. <a href="https://ill.lib.umich.edu/illiad/illiad.dll?">Please make an interlibrary loan request if you need this item quickly</a>.
     content:
+      - Delivery time varies for items with status ON ORDER and notification will be sent when this item is available. <a href="https://ill.lib.umich.edu/illiad/illiad.dll?">Please make an interlibrary loan request if you need this item quickly</a>.
       - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
       - Learn more about <a href="https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup">contactless pickup</a>.
   weight: 72
