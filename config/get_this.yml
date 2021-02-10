@@ -417,6 +417,7 @@
       - not_checked_out?
       - not_missing?
       - not_etas?
+      - not_on_order?
     bib:
       - can_scan?
   form:
@@ -477,7 +478,87 @@
       - type: submit
         value: "Place a request"
 
-# Have a small portion scanned -- remote
+# Have a small portion scanned -- remote / On Order
+- label: Request to have a small portion scanned (Document Delivery)
+  service_type: I.L.L./Document Delivery
+  duration: Expected availability 1-10 days*
+  description:
+    heading: Policies and additional details
+    content:
+      - Requests to scan a portion are individually evaluated for copyright compliance.
+      - Your requested portion will be available to you on a secure website for 2 weeks.
+      - If the requested portion cannot be scanned because doing so would violate copyright law, a hold request for contactless pickup will be made on your behalf unless you specify otherwise in the notes field.
+      - "* Availability depends on copyright and other factors."
+  grants:
+    patron:
+      - active?
+      - can_ill?
+      - ann_arbor?
+    holding:
+      - not_etas?
+      - reopened?
+      - on_order?
+    bib:
+      - can_scan?
+  form:
+    method: get
+    action: "https://ill.lib.umich.edu/illiad/illiad.dll"
+    fields:
+      - type: hidden
+        name: action
+        value: "10"
+      - type: hidden
+        name: form
+        value: "30"
+      - type: hidden
+        name: sid
+        value: mirlyn
+      - type: hidden
+        name: genre
+        value: docdelarticle
+      - type: hidden
+        name: rft_dat
+        value: "{$accession_number}"
+      - type: hidden
+        name: isbn
+        value: "{$isbn}"
+      - type: hidden
+        name: title
+        value: "{$title}"
+      - type: hidden
+        name: rft.au
+        value: "{$rft.au}"
+      - type: hidden
+        name: date
+        value: "{$date}"
+      - type: hidden
+        name: rft.pub
+        value: "{$rft.pub}"
+      - type: hidden
+        name: rft.place
+        value: "{$rft.place}"
+      - type: hidden
+        name: callnumber
+        value: "{$callnumber}"
+      - type: hidden
+        name: rft.edition
+        value: "{$rft.edition}"
+      - type: hidden
+        name: rft.issue
+        value: "{$rft.issue}"
+      - type: hidden
+        name: aleph_location
+        value: "{$aleph_location}"
+      - type: hidden
+        name: aleph_item_status
+        value: "{$aleph_item_status}"
+      - type: hidden
+        name: barcode
+        value: "{$barcode}"
+      - type: submit
+        value: "Place a request"
+
+# Have a small portion scanned -- remote / Flint
 - label: Request to have a small portion scanned (Document Delivery)
   service_type: I.L.L./Document Delivery
   duration: Expected availability 1-10 days*
