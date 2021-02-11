@@ -40,8 +40,11 @@
       method: trim
   header_component:
     preview:
-      main-left-margin:
-       text: plain 
+      type: plain 
+    medium:
+      type: plain
+    full:
+      type: plain
 
 - id: summon_title
   csl:
@@ -68,8 +71,11 @@
       method: trim
   header_component:
     preview:
-      main-left-margin:
-       text: plain 
+      type: plain 
+    medium:
+      type: plain 
+    full:
+      type: plain
 
 - id: summon_openurl
   uid: openurl
@@ -1797,8 +1803,11 @@
       method: sanitize
   header_component:
     preview:
-      main-left-margin:
-       text: plain 
+      type: plain 
+    medium:
+      type: plain 
+    full:
+      type: plain
 
 - id: marc_ris_title
   csl:
