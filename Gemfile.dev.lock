@@ -27,14 +27,16 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/mlibrary_search_parser
-  revision: 55b269e7834572413d9e794fd184022bd3806af0
+  revision: a73f7476c1e6f276735714dee4067b7d4aabace7
   specs:
     mlibrary_search_parser (0.1.0)
+      dotenv
+      erb
       parslet
 
 GIT
   remote: https://github.com/mlibrary/spectrum-config
-  revision: 3163789e355f9fdde010b9a69e92e912978d8ae6
+  revision: 8f498b587c534f9fa62cb40eb1946b21b3db0f61
   branch: parser_test_1
   specs:
     spectrum-config (0.0.1)
@@ -45,11 +47,12 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 570d0f62dc4d57c4200eedecfa30d58691352927
+  revision: 516d9b74ff9801920811705ddfd0098b70aea6f1
   branch: parser_test_1
   specs:
     spectrum-json (0.1.0)
       activesupport
+      dotenv
       execjs
       exlibris-aleph
       httparty
@@ -144,6 +147,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.2)
       xpath (~> 3.2)
+    cgi (0.2.0)
     chronic (0.10.2)
     churn (0.0.35)
       chronic (>= 0.2.3)
@@ -184,6 +188,8 @@ GEM
       railties (>= 3.2, < 6.1)
     ensure_valid_encoding (0.5.3)
     equalizer (0.0.11)
+    erb (2.2.2)
+      cgi
     erubis (2.7.0)
     exception_notification (4.4.0)
       actionmailer (>= 4.0, < 7)
