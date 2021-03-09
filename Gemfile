@@ -25,11 +25,11 @@ source 'https://rubygems.org' do
 
   gem 'spectrum-json',
     git: 'https://github.com/mlibrary/spectrum-json',
-    branch: 'parser_test_1'
+    branch: 'SEARCH-1295-query-parser-error-messages'
 
   gem 'mlibrary_search_parser',
     git: 'https://github.com/mlibrary/mlibrary_search_parser',
-    branch: 'master'
+    branch: 'SEARCH-1295-query-parser-error-messages'
 
   gem 'aleph',
     git: 'https://github.com/mlibrary/aleph',

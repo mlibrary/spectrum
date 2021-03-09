@@ -27,8 +27,8 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/mlibrary_search_parser
-  revision: a73f7476c1e6f276735714dee4067b7d4aabace7
-  branch: master
+  revision: 93bfb36f1c24b478c28477733a3cc458f0b8a1f5
+  branch: SEARCH-1295-query-parser-error-messages
   specs:
     mlibrary_search_parser (0.1.0)
       dotenv
@@ -48,8 +48,8 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 1a9443c4296d1d3fc5cc3510054e4b37b5bff154
-  branch: parser_test_1
+  revision: 4c82847e99b518914b7d33538a0501f3883fad7c
+  branch: SEARCH-1295-query-parser-error-messages
   specs:
     spectrum-json (0.1.0)
       activesupport
