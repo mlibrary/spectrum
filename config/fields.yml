@@ -38,13 +38,16 @@
       method: sanitize
     - id: trim
       method: trim
-  header_component:
+  header_region:
     preview:
-      type: plain 
+      main-left-margin:
+        type: plain 
     medium:
-      type: plain
+      main-left-aligned:
+        type: plain 
     full:
-      type: plain
+      main-left-aligned:
+        type: plain 
 
 - id: summon_title
   csl:
@@ -69,13 +72,16 @@
       method: sanitize
     - id: trim
       method: trim
-  header_component:
+  header_region:
     preview:
-      type: plain 
+      main-left-margin:
+        type: plain 
     medium:
-      type: plain 
+      main-left-aligned:
+        type: plain 
     full:
-      type: plain
+      main-left-aligned:
+        type: plain 
 
 - id: summon_openurl
   uid: openurl
@@ -1801,13 +1807,16 @@
   filters:
     - id: sanitize
       method: sanitize
-  header_component:
+  header_region:
     preview:
-      type: plain 
+      main-left-margin:
+        type: plain 
     medium:
-      type: plain 
+      main-left-aligned:
+       type: plain 
     full:
-      type: plain
+      main-left-aligned:
+        type: plain 
 
 - id: marc_ris_title
   csl:
