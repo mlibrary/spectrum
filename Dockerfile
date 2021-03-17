@@ -27,7 +27,6 @@ ENV RAILS_RELATIVE_URL_ROOT=${BASE_URL}/spectrum \
     BIND_PORT=${BIND_PORT}
 
 RUN ln -s /secrets/config--fields.yml config/fields.yml && \
-  ln -s /secrets/config--aleph.yml config/aleph.yml && \
   ln -s /secrets/config--filters.yml config/filters.yml && \
   ln -s /secrets/config--instLocs.yaml config/instLocs.yaml && \
   ln -s /secrets/config--source.yml config/source.yml && \
@@ -45,7 +44,6 @@ RUN ln -s /secrets/config--fields.yml config/fields.yml && \
   ln -s /secrets/config--locColl.yaml config/locColl.yaml && \
   ln -s /secrets/config--specialists.yml config/specialists.yml && \
   ln -s /secrets/config--floor_locations.json config/floor_locations.json && \
-  ln -s /secrets/config--get_this.yml config/get_this.yml && \
-  ln -s /secrets/config--puma.rb config/puma.rb
+  ln -s /secrets/config--get_this.yml config/get_this.yml
 
 CMD bundle exec rails s -b ${BIND_IP} -p ${BIND_PORT}
