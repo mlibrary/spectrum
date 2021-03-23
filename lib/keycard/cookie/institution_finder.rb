@@ -31,7 +31,7 @@ module Keycard
       DEFAULT_KEY = 'dlpsInstitutionId'
 
       def initialize(config: 'config/keycard.yml')
-        @config = configure(YAML.load_file(config)['cookie'])
+        @config = configure(YAML.load(ERB.new(File.read(config)).result)['cookie'])
       end
 
       def attributes_for(request)

@@ -1,0 +1,115 @@
+---
+- id: relevance
+  metadata:
+    name: Relevance
+    short_desc: Relevance.
+  group: relevance
+  value: score desc
+
+- id: summon_relevance
+  uid: relevance
+  metadata:
+    name: Relevance
+    short_desc: Relevance.
+  group: relevance
+  value: ''
+
+- id: count
+  metadata:
+    name: Count
+    short_desc: Document count
+
+- id: index
+  metadata:
+    name: Index
+    short_desc: Sort by index. Probably alphabetical.
+
+- id: date_asc
+  metadata:
+    name: Published/Created Date (oldest first)
+    short_desc: Date Ascending.
+  group: date
+  value: publishDateTrie asc
+
+- id: date_desc
+  metadata:
+    name: Published/Created Date (newest first)
+    short_desc: Date Descending.
+  group: date
+  value: publishDateTrie desc
+
+- id: title_asc
+  metadata:
+    name: Title (A-Z)
+    short_desc: Title Ascending.
+  group: title
+  value: sort_title asc
+
+- id: title_desc
+  metadata:
+    name: Title (Z-A)
+    short_desc: Title Descending.
+  group: title
+  value: sort_title desc
+
+- id: mirlyn_title_asc
+  uid: title_asc
+  metadata:
+    name: Title (A-Z)
+    short_desc: Title Ascending.
+  group: title
+  value: titleSort asc
+
+- id: mirlyn_title_desc
+  uid: title_desc
+  metadata:
+    name: Title (Z-A)
+    short_desc: Title Descending.
+  group: title
+  value: titleSort desc
+
+- id: date_added
+  metadata:
+    name: Date added (Newest First)
+  group: date_added
+  value: cat_date desc
+
+- id: author_asc
+  metadata:
+    name: Author (A-Z)
+  group: author
+  value: authorSort asc
+
+- id: author_desc
+  metadata:
+    name: Author (Z-A)
+  group: author
+  value: authorSort desc
+
+- id: summon_date_asc
+  uid: date_asc
+  metadata:
+    name: Creation Date (Oldest First)
+  group: date
+  value: PublicationDate:asc
+
+- id: summon_date_desc
+  uid: date_desc
+  metadata:
+    name: Creation Date (Newest First)
+  group: date
+  value: PublicationDate:desc
+
+- id: website_date_asc
+  uid: date_asc
+  metadata:
+    name: Creation Date (Oldest First)
+  group: date
+  value: created asc
+
+- id: website_date_desc
+  uid: date_desc
+  metadata:
+    name: Creation Date (Newest First)
+  group: date
+  value: created desc

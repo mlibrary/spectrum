@@ -1,0 +1,30 @@
+---
+logger: https://www.lib.umich.edu/log/experts
+
+cache:
+  driver: LruRedux::TTL::ThreadSafeCache
+  size: 2000
+  ttl: 86400
+
+academic_discipline:
+  focus:
+    - mirlyn
+    - website
+  fields:
+    - hlb3Str
+    - taxonomy_name
+  rows:
+    - 100
+  type: two-step
+  term_threshold: 25
+  keys:
+    terms: hlb
+    specialists: hlb_expert
+  
+library_expertise:
+  focus: website
+  type: direct
+  fields: tmfield_expertise_term_name^10 tmfield_expertise_keywords^5 tmfield_expertise_files tmfield_expertise_lc
+  keys:
+    terms: expertise
+    specialists: expertise_expert

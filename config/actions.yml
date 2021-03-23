@@ -1,0 +1,29 @@
+---
+- id: text
+  type: text
+  driver: Spectrum::Json::Twilio
+  credentials:
+    type: twilio
+    account: <%= ENV['SPECTRUM_TWILIO_ACCOUNT'] %>
+    token: <%= ENV['SPECTRUM_TWILIO_TOKEN'] %>
+    service: <%= ENV['SPECTRUM_TWILIO_SERVICE'] %>
+- id: file
+  type: file
+  driver: Spectrum::Json::Ris
+- id: email
+  type: email
+  driver: Spectrum::Json::Email
+  credentials:
+    subject: Items sent from U-M Library Search
+    text_header: Items sent from U-M Library Search
+    text_footer: >-
+      If you have questions about accessing these resources, please Ask a Librarian: https://www.lib.umich.edu/research-and-scholarship/help-research/how-we-can-help or askus@umich.edu.
+    html_header: >-
+      <header>Items sent from U-M Library search</header>
+    html_footer: >-
+      <footer>If you have questions about accessing these resources, please <a href="https://www.lib.umich.edu/research-and-scholarship/help-research/how-we-can-help">Ask a Librarian</a> or email <a href="mailto:askus@umich.edu">askus@umich.edu</a>.</footer>
+- id: favorites
+  type: favorites
+  driver: Spectrum::Json::Favorites
+  credentials:
+    service: https://apps.lib.umich.edu/favorites/api

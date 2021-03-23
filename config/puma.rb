@@ -26,4 +26,4 @@ worker_timeout 120
   #ActiveRecord::Base.connection_pool.disconnect!
 #end
 
-activate_control_app "unix:///tmp/search.sock", {no_token: true}
+activate_control_app ENV['PUMA_CONTROL_APP'], {no_token: true} if ENV['PUMA_CONTROL_APP']

@@ -36,7 +36,7 @@ module Keycard
       attr_reader :config, :connection, :cache
 
       def initialize(config: 'config/keycard.yml')
-        @config = configure(YAML.load_file(config)['ldap'])
+        @config = configure(YAML.load(ERB.new(File.read(config)).result)['ldap'])
 
         #initialize cache and ldap connection.
         @cache      = init_cache
