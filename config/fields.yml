@@ -48,7 +48,11 @@
   - T1
   - TI
   uid: title
-  field: title
+  field:
+  - title
+  - subtitle
+  join: ' : '
+  type: concat
   query_field: title
   metadata:
     name: Title
@@ -198,14 +202,6 @@
       - index
 
 - id: summon_date
-  csl:
-    id: issued
-    type: date
-  z3988:
-    id: rft.date
-  ris:
-    - DA
-    - PY
   uid: publication_date
   type: summon_date
   field: publication_date
@@ -455,7 +451,11 @@
 - id: description
   ris:
     - N2
-  field: ssfield_description
+  field:
+   - ssfield_special_message_markup
+   - ssfield_description
+  join: ' '
+  type: concat
   metadata:
     name: Description
     short_desc: Description of this resource
@@ -482,6 +482,51 @@
   metadata_component:
     preview:
       type: plain
+    medium:
+      type: plain
+
+- id: db_brief_description_preview
+  ris:
+    - N2
+  type: priority
+  field:
+    - ssfield_special_message_preview
+    - teaser
+  metadata:
+    name: Brief Description
+    short_desc: Brief description of this resource
+  filters:
+    - id: sanitize
+      method: sanitize
+  metadata_component:
+    preview:
+      type: plain
+
+- id: db_brief_description_medium
+  ris:
+    - N2
+  field: teaser
+  metadata:
+    name: Brief Description
+    short_desc: Brief description of this resource
+  filters:
+    - id: sanitize
+      method: sanitize
+  metadata_component:
+    medium:
+      type: plain
+
+- id: special_message
+  ris:
+    - N2
+  field: ssfield_special_message
+  metadata:
+    name: Alert
+    short_desc: Special message for this resource
+  filters:
+    - id: sanitize
+      method: sanitize
+  metadata_component:
     medium:
       type: plain
 
@@ -1588,8 +1633,11 @@
     expanded: true
     type: range
     ranges:
+      - value: 2020:2029
+        label: "2020 - present"
+        divisible:  true
       - value: 2010:2019
-        label: "2010 - present"
+        label: "2010 - 2019"
         divisible:  true
       - value: 2000:2009
         label: "2000 - 2009"
@@ -1996,7 +2044,41 @@
         where:
           - sub: e
             is: ['ed', 'ed.', 'editor', 'editor.']
+  filters:
+    - id: trim
+      method: trim
+    - id: trim2
+      method: trim2
 
+- id: csl_translator
+  metadata:
+    name: Translator
+  csl:
+    id: translator
+    type: author
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '700'
+        sub: 'a'
+        ind1: '1'
+        join: ' '
+        where:
+          - sub: e
+            is: ['trans', 'translator','translator.']
+      - tag: '700'
+        sub: '[ab]'
+        ind1: '0'
+        join: ' '
+        where:
+          - sub: e
+            is: ['trans', 'translator','translator.']
+  filters:
+    - id: trim
+      method: trim
+    - id: trim2
+      method: trim2
 
 - id: csl_main_author
   csl:
@@ -2016,14 +2098,19 @@
         join: ' '
         where:
           - sub: e
-            not: ['ed', 'ed.', 'editor', 'editor.']
+            not: ['ed', 'ed.', 'editor', 'editor.', 'trans.', 'translator', 'translator.']
       - tag: '100'
         sub: '[ab]'
         ind1: '0'
         join: ' '
         where:
           - sub: e
-            not: ['ed', 'ed.', 'editor', 'editor.']
+            not: ['ed', 'ed.', 'editor', 'editor.', 'trans.', 'translator', 'translator.']
+  filters:
+    - id: trim
+      method: trim
+    - id: trim2
+      method: trim2
 
 - id: csl_contributor
   csl:
@@ -2043,14 +2130,19 @@
         join: ' '
         where:
           - sub: e
-            not: ['ed', 'ed.', 'editor', 'editor.']
+            not: ['ed', 'ed.', 'editor', 'editor.', 'translator', 'trans.', 'translator.']
       - tag: '700'
         sub: '[ab]'
         ind1: '0'
         join: ' '
         where:
           - sub: e
-            not: ['ed', 'ed.', 'editor', 'editor.']
+            not: ['ed', 'ed.', 'editor', 'editor.', 'translator', 'trans.', 'translator.']
+  filters:
+    - id: trim
+      method: trim
+    - id: trim2
+      method: trim2
 
 - id: mirlyn_summary
   ris:
@@ -2524,6 +2616,8 @@
   filters:
     - id: trim
       method: trim
+    - id: trim2
+      method: trim2
 
 - id: csl_publisher_place
   csl:
@@ -2544,6 +2638,8 @@
   filters:
     - id: trim
       method: trim
+    - id: trim2
+      method: trim2
 
 - id: summon_source
   field: Source
@@ -2906,10 +3002,18 @@
     fields:
       - label: text
         tag: '555'
-        sub: 'a'
+        sub: '[abcd3]'
       - label: href
         tag: '555'
-        sub: 'u'
+        sub: '[abcd3u]'
+  filters:
+    - id: marc555
+      method: marc555
+  metadata_component:
+    full:
+      type: href_linked
+      href_field: href
+      text_field: text
 
 - id: chronology
   metadata:
@@ -3064,6 +3168,14 @@
 
 - id: summon_year
   uid: published_year
+  csl:
+    id: issued
+    type: date
+  z3988:
+    id: rft.date
+  ris:
+    - DA
+    - PY
   field: publication_date
   type: summon_year
   metadata:

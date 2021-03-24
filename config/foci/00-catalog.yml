@@ -245,6 +245,7 @@ fields:
   - csl_main_author
   - csl_contributor
   - csl_editor
+  - csl_translator
   - csl_publisher
   - csl_publisher_place
   - mirlyn_csl_type
