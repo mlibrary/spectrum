@@ -21,11 +21,11 @@ source 'https://rubygems.org' do
 
   gem 'spectrum-config',
     git: 'https://github.com/mlibrary/spectrum-config',
-    branch: 'parser_test_1'
+    branch: 'master'
 
   gem 'spectrum-json',
     git: 'https://github.com/mlibrary/spectrum-json',
-    branch: 'parser_test_1'
+    branch: 'master'
 
   gem 'mlibrary_search_parser',
     git: 'https://github.com/mlibrary/mlibrary_search_parser',
