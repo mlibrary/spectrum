@@ -38,6 +38,7 @@
       method: sanitize
     - id: trim
       method: trim
+<<<<<<< HEAD
   header_region:
     preview:
       main-left-margin:
@@ -48,6 +49,15 @@
     full:
       main-left-aligned:
         type: plain 
+=======
+  header_component:
+    preview:
+      type: plain 
+    medium:
+      type: plain
+    full:
+      type: plain
+>>>>>>> bf03c81e09156ebd667f73e26097034e77b87d17
 
 - id: summon_title
   csl:
@@ -72,6 +82,7 @@
       method: sanitize
     - id: trim
       method: trim
+<<<<<<< HEAD
   header_region:
     preview:
       main-left-margin:
@@ -82,6 +93,15 @@
     full:
       main-left-aligned:
         type: plain 
+=======
+  header_component:
+    preview:
+      type: plain 
+    medium:
+      type: plain 
+    full:
+      type: plain
+>>>>>>> bf03c81e09156ebd667f73e26097034e77b87d17
 
 - id: summon_openurl
   uid: openurl
@@ -1807,6 +1827,7 @@
   filters:
     - id: sanitize
       method: sanitize
+<<<<<<< HEAD
   header_region:
     preview:
       main-left-margin:
@@ -1817,6 +1838,15 @@
     full:
       main-left-aligned:
         type: plain 
+=======
+  header_component:
+    preview:
+      type: plain 
+    medium:
+      type: plain 
+    full:
+      type: plain
+>>>>>>> bf03c81e09156ebd667f73e26097034e77b87d17
 
 - id: marc_ris_title
   csl:
