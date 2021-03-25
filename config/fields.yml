@@ -3230,6 +3230,10 @@
   field: publishDate
   metadata:
     name: Published Year
+  header_region:
+    preview:
+      main-left-margin:
+        type: plain
 
 - id: published_brief
   metadata:
