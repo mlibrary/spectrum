@@ -2,9 +2,21 @@ ENV['RAILS_RELATIVE_URL_ROOT'] ||= 'http://localhost:3000'
 
 environment 'production'
 threads 4, 32
-# Bind to the private network address
+
 # Use tcp as the http server (apache) is on a different host.
-bind 'tcp://127.0.0.1:3000' if ENV['RAILS_RELATIVE_URL_ROOT'] == 'http://localhost:3000'
+if ENV['PUMA_BIND']
+  # If the bind string is in the environment.
+  bind ENV['PUMA_BIND']
+elsif  ENV['RAILS_RELATIVE_URL_ROOT'] == 'http://localhost:3000'
+  # If it's more of a development environment
+  bind 'tcp://127.0.0.1:3000'
+elsif ENV['PUMA_PRIVATE_IP'] && ENV['PUMA_PORT']
+  # Bind to the private network address
+  private_ip = Socket.ip_address_list.find do |ip|
+    ip.ip_address.start_with?("10.")
+  end.ip_address
+  bind "tcp://#{private_ip}:#{ENV['PUMA_PORT']}"
+end
 
 pidfile File.expand_path('../../log/search-puma.pid', __FILE__)
 
