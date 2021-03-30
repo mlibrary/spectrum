@@ -1,7 +1,6 @@
 /config/ui-version.txt
 /config/draft-foci/
 /config/facet_field.yml
-/config/puma.rb
 /config/reload.txt
 /config/focus.yml
 /config/database.yml
