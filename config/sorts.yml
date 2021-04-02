@@ -113,3 +113,17 @@
     name: Creation Date (Newest First)
   group: date
   value: created desc
+
+- id: call_number_asc
+  uid: call_number_asc
+  metadata:
+    name: Call Number (Ascending)
+  group: call_number
+  value: callnosort asc
+
+- id: call_number_desc
+  uid: call_number_desc
+  metadata:
+    name: Call Number (Descending)
+  group: call_number
+  value: callnosort desc

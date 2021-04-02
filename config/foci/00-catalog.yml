@@ -149,6 +149,8 @@ sorts:
   cat_date: date_added
   mirlyn_title_asc: mirlyn_title_asc
   mirlyn_title_desc: mirlyn_title_desc
+  call_number_asc: call_number_asc
+  call_number_desc: call_number_desc
 fields:
   - id
   - allfields
