@@ -218,6 +218,7 @@ fields:
   - academic_discipline
   - contents_listing
   - bookplate
+  - hol
 # Below this ??
   - mirlyn_published_year
   - links

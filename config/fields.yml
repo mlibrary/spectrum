@@ -902,6 +902,14 @@
     full:
       type: plain
 
+
+- id: hol
+  metadata:
+    name: Holdings JSON
+    short_desc: Holdings JSON
+  field: hol
+  type: json
+
 - id: date
   csl:
     id: issued
