@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/mlibrary_search_parser
-  revision: 393998105db6d668a63b6d58b5d85c20f357d6a7
+  revision: 3ed337d0284ca634421398b5c1c17bb07cc8a3c4
   specs:
     mlibrary_search_parser (0.1.0)
       dotenv
@@ -36,8 +36,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-config
-  revision: d003854b7ae19a581c41c67707a67f8655ab2ae9
-  branch: parser_test_1
+  revision: 71a1954faf70fe969b564b54f037ba2c5c3b7c3e
   specs:
     spectrum-config (0.0.1)
       activesupport
@@ -47,8 +46,8 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 183911acd703c67dc18d2fef8786fd418f898e52
-  branch: parser_test_1
+  revision: 18086d3d6e781a3542bd4742f92cea1d1c4819ce
+  branch: alma
   specs:
     spectrum-json (0.1.0)
       activesupport
@@ -176,7 +175,7 @@ GEM
       dotenv (= 2.7.6)
       railties (>= 3.2)
     ensure_valid_encoding (0.5.3)
-    erb (2.2.2)
+    erb (2.2.3)
       cgi
     erubis (2.7.0)
     exception_notification (4.4.3)
