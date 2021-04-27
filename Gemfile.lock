@@ -48,10 +48,10 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: b4540d8216132f5c555f40bb3ea233510c0399f6
+  revision: 4082a7212de249f985463968bcbded58d2abc87c
   branch: master
   specs:
-    spectrum-json (0.1.0)
+    spectrum-json (1.0.0)
       activesupport
       dotenv
       execjs
