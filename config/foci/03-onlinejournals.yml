@@ -236,21 +236,10 @@ fields:
   - catalog_rfr_id
 
 facets:
-  - available_online
-  - search_only
-  - mirlyn_format
   - subject
-  - date_of_publication
   - language
-  - availability
-  - location
-  - academic_discipline
-  - author
   - place_of_publication_filter
-  - region
-  - institution
-  - collection
-  - building
+  - academic_discipline
 
 hierarchy:
   load_inst: <%= ENV['SPECTRUM_INST_LOCATION_FILES_DIR'] || "/www/vufind/web/mirlyn/web/conf" %>/instLocs.yaml
