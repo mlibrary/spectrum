@@ -417,6 +417,7 @@
       - not_checked_out?
       - not_missing?
       - not_etas?
+      - not_on_order?
     bib:
       - can_scan?
   form:
@@ -477,7 +478,87 @@
       - type: submit
         value: "Place a request"
 
-# Have a small portion scanned -- remote
+# Have a small portion scanned -- remote / On Order
+- label: Request to have a small portion scanned (Document Delivery)
+  service_type: I.L.L./Document Delivery
+  duration: Expected availability 1-10 days*
+  description:
+    heading: Policies and additional details
+    content:
+      - Requests to scan a portion are individually evaluated for copyright compliance.
+      - Your requested portion will be available to you on a secure website for 2 weeks.
+      - If the requested portion cannot be scanned because doing so would violate copyright law, a hold request for contactless pickup will be made on your behalf unless you specify otherwise in the notes field.
+      - "* Availability depends on copyright and other factors."
+  grants:
+    patron:
+      - active?
+      - can_ill?
+      - ann_arbor?
+    holding:
+      - not_etas?
+      - reopened?
+      - on_order?
+    bib:
+      - can_scan?
+  form:
+    method: get
+    action: "https://ill.lib.umich.edu/illiad/illiad.dll"
+    fields:
+      - type: hidden
+        name: action
+        value: "10"
+      - type: hidden
+        name: form
+        value: "30"
+      - type: hidden
+        name: sid
+        value: mirlyn
+      - type: hidden
+        name: genre
+        value: docdelarticle
+      - type: hidden
+        name: rft_dat
+        value: "{$accession_number}"
+      - type: hidden
+        name: isbn
+        value: "{$isbn}"
+      - type: hidden
+        name: title
+        value: "{$title}"
+      - type: hidden
+        name: rft.au
+        value: "{$rft.au}"
+      - type: hidden
+        name: date
+        value: "{$date}"
+      - type: hidden
+        name: rft.pub
+        value: "{$rft.pub}"
+      - type: hidden
+        name: rft.place
+        value: "{$rft.place}"
+      - type: hidden
+        name: callnumber
+        value: "{$callnumber}"
+      - type: hidden
+        name: rft.edition
+        value: "{$rft.edition}"
+      - type: hidden
+        name: rft.issue
+        value: "{$rft.issue}"
+      - type: hidden
+        name: aleph_location
+        value: "{$aleph_location}"
+      - type: hidden
+        name: aleph_item_status
+        value: "{$aleph_item_status}"
+      - type: hidden
+        name: barcode
+        value: "{$barcode}"
+      - type: submit
+        value: "Place a request"
+
+# Have a small portion scanned -- remote / Flint
 - label: Request to have a small portion scanned (Document Delivery)
   service_type: I.L.L./Document Delivery
   duration: Expected availability 1-10 days*
@@ -598,6 +679,7 @@
       - active?
       - flint?
     holding:
+      - not_on_order?
       - not_checked_out?
       - not_missing?
       - reopened?
@@ -648,7 +730,57 @@
     holding:
       - not_checked_out?
       - not_missing?
+      - not_on_order?
       - standard_pickup?
+    bib:
+      - not_etas?
+
+# On Order @Flint
+- label: Contactless Pickup at the library
+  service_type: Contactless pickup
+  duration: Click to see additional details
+  description:
+    heading: Policies and additional details
+    content:
+      - Delivery time varies for items with status ON ORDER and notification will be sent when this item is available. <a href="https://ill.lib.umich.edu/illiad/illiad.dll?">Please make an interlibrary loan request if you need this item quickly</a>.
+      - Standard loan and renewal policies apply
+      - Curbside pick up is available. See <a href="https://umflint.libwizard.com/f/curbside">Thompson Library - Curbside Pick Up</a> for details.
+  form:
+    type: ajax
+    method: post
+    action: "/spectrum/mirlyn/hold"
+    fields:
+      - type: hidden
+        name: record
+        value: "{$record_id}"
+      - type: hidden
+        name: item
+        value: "{$full_item_key}"
+      - type: select
+        label: "Pickup location"
+        name: pickup_location
+        value: 'select-a-pickup-location'
+        options:
+          - name: Select a pickup location
+            value: 'select-a-pickup-location'
+            disabled: true
+          - value: FLINT
+            name: "UM-Flint"
+      - type: date
+        label: "Cancel this hold if item is not available before"
+        name: not_needed_after
+        value: "{$two_months_from_today}"
+      - type: submit
+        name: submit
+        value: Get me this item
+  grants:
+    patron:
+      - active?
+      - flint?
+    holding:
+      - on_order?
+      - not_checked_out?
+      - not_missing?
     bib:
       - not_etas?
 
@@ -701,18 +833,73 @@
       - shapiro_and_aael_pickup?
       - not_missing?
       - not_checked_out?
+      - not_on_order?
+    bib:
+      - not_etas?
+
+# On Order @Shapiro or @AAEL
+- label: Contactless Pickup at the library
+  service_type: Contactless pickup
+  duration: Click to see additional details
+  description:
+    heading: Policies and additional details
+    content:
+      - Delivery time varies for items with status ON ORDER and notification will be sent when this item is available. <a href="https://ill.lib.umich.edu/illiad/illiad.dll?">Please make an interlibrary loan request if you need this item quickly</a>.
+      - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
+      - Learn more about <a href="https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup">contactless pickup</a>.
+  weight: 72
+  form:
+    type: ajax
+    method: post
+    action: "/spectrum/mirlyn/hold"
+    fields:
+      - type: hidden
+        name: record
+        value: "{$record_id}"
+      - type: hidden
+        name: item
+        value: "{$full_item_key}"
+      - type: select
+        label: "Pickup location"
+        name: pickup_location
+        value: 'select-a-pickup-location'
+        options:
+          - name: Select a pickup location
+            value: 'select-a-pickup-location'
+            disabled: true
+          - value: AAEL
+            name: "Art, Architecture, & Engineering Library"
+          - value: UGL
+            name: "Shapiro Undergraduate Library"
+      - type: date
+        label: "Cancel this hold if item is not available before"
+        name: not_needed_after
+        value: "{$two_months_from_today}"
+      - type: submit
+        name: submit
+        value: Get me this item
+  grants:
+    patron:
+      - active?
+      - ann_arbor?
+    holding:
+      - can_request?
+      - shapiro_and_aael_pickup?
+      - not_missing?
+      - not_checked_out?
+      - on_order?
     bib:
       - not_etas?
 
 # Contactless Pickup @Shapiro From Flint Campus
 - label: Contactless pickup at the library
   service_type: Contactless pickup
+  duration: Expected availability within 10 days
   description:
     heading: Policies and additional details
     content:
       - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
       - Learn more about <a href="https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup">contactless pickup</a>.
-  duration: Expected availability within 10 days
   weight: 72
   form:
     type: ajax
@@ -750,10 +937,62 @@
       - flint_pickup?
       - not_missing?
       - not_checked_out?
+      - not_on_order?
     bib:
       - not_etas?
 
-# Contactless Pickup @Shapiro with item from Flint Campus
+# On Order @Shapiro From Flint Campus
+- label: Contactless pickup at the library
+  service_type: Contactless pickup
+  duration: Click to see additional details
+  description:
+    heading: Policies and additional details
+    content:
+      - Delivery time varies for items with status ON ORDER and notification will be sent when this item is available. <a href="https://ill.lib.umich.edu/illiad/illiad.dll?">Please make an interlibrary loan request if you need this item quickly</a>.
+      - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
+      - Learn more about <a href="https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup">contactless pickup</a>.
+  weight: 72
+  form:
+    type: ajax
+    method: post
+    action: "/spectrum/mirlyn/hold"
+    fields:
+      - type: hidden
+        name: record
+        value: "{$record_id}"
+      - type: hidden
+        name: item
+        value: "{$full_item_key}"
+      - type: select
+        label: "Pickup location"
+        name: pickup_location
+        value: 'select-a-pickup-location'
+        options:
+          - name: Select a pickup location
+            value: 'select-a-pickup-location'
+            disabled: true
+          - value: UGL
+            name: "Shapiro Undergraduate Library"
+      - type: date
+        label: "Cancel this hold if item is not available before"
+        name: not_needed_after
+        value: "{$two_months_from_today}"
+      - type: submit
+        name: submit
+        value: Get me this item
+  grants:
+    patron:
+      - active?
+      - ann_arbor?
+    holding:
+      - flint_pickup?
+      - not_missing?
+      - not_checked_out?
+      - on_order?
+    bib:
+      - not_etas?
+
+# Contactless Pickup @Shapiro from AA
 - label: Contactless pickup at the library
   service_type: Contactless pickup
   description:
@@ -800,6 +1039,59 @@
       - shapiro_pickup?
       - not_missing?
       - not_checked_out?
+      - not_on_order?
+    bib:
+      - not_etas?
+
+# On Order @Shapiro from AA
+- label: Contactless pickup at the library
+  service_type: Contactless pickup
+  duration: Click to see additional details
+  description:
+    heading: Policies and additional details
+    content:
+      - Delivery time varies for items with status ON ORDER and notification will be sent when this item is available. <a href="https://ill.lib.umich.edu/illiad/illiad.dll?">Please make an interlibrary loan request if you need this item quickly</a>.
+      - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
+      - Learn more about <a href="https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup">contactless pickup</a>.
+  weight: 72
+  form:
+    type: ajax
+    method: post
+    action: "/spectrum/mirlyn/hold"
+    fields:
+      - type: hidden
+        name: record
+        value: "{$record_id}"
+      - type: hidden
+        name: item
+        value: "{$full_item_key}"
+      - type: select
+        label: "Pickup location"
+        name: pickup_location
+        value: 'select-a-pickup-location'
+        options:
+          - name: Select a pickup location
+            value: 'select-a-pickup-location'
+            disabled: true
+          - value: UGL
+            name: "Shapiro Undergraduate Library"
+      - type: date
+        label: "Cancel this hold if item is not available before"
+        name: not_needed_after
+        value: "{$two_months_from_today}"
+      - type: submit
+        name: submit
+        value: Get me this item
+  grants:
+    patron:
+      - active?
+      - ann_arbor?
+    holding:
+      - can_request?
+      - shapiro_pickup?
+      - not_missing?
+      - not_checked_out?
+      - on_order?
     bib:
       - not_etas?
 
@@ -850,18 +1142,71 @@
       - aael_pickup?
       - not_missing?
       - not_checked_out?
+      - not_on_order?
+    bib:
+      - not_etas?
+
+# On Order @AAEL
+- label: Contactless pickup at the library
+  service_type: Contactless pickup
+  duration: Click to see additional details
+  description:
+    heading: Policies and additional details
+    content:
+      - Delivery time varies for items with status ON ORDER and notification will be sent when this item is available. <a href="https://ill.lib.umich.edu/illiad/illiad.dll?">Please make an interlibrary loan request if you need this item quickly</a>.
+      - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
+      - Learn more about <a href="https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup">contactless pickup</a>.
+  weight: 72
+  form:
+    type: ajax
+    method: post
+    action: "/spectrum/mirlyn/hold"
+    fields:
+      - type: hidden
+        name: record
+        value: "{$record_id}"
+      - type: hidden
+        name: item
+        value: "{$full_item_key}"
+      - type: select
+        label: "Pickup location"
+        name: pickup_location
+        value: 'select-a-pickup-location'
+        options:
+          - name: Select a pickup location
+            value: 'select-a-pickup-location'
+            disabled: true
+          - value: AAEL
+            name: "Art, Architecture, & Engineering Library"
+      - type: date
+        label: "Cancel this hold if item is not available before"
+        name: not_needed_after
+        value: "{$two_months_from_today}"
+      - type: submit
+        name: submit
+        value: Get me this item
+  grants:
+    patron:
+      - active?
+      - ann_arbor?
+    holding:
+      - can_request?
+      - aael_pickup?
+      - not_missing?
+      - not_checked_out?
+      - on_order?
     bib:
       - not_etas?
 
 # Contactless Pickup @Music
 - label: Contactless pickup at the library
   service_type: Contactless pickup
+  duration: Expected availability within 7 days
   description:
     heading: Policies and additional details
     content:
       - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
       - Learn more about <a href="https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup">contactless pickup</a>.
-  duration: Expected availability within 7 days
   weight: 72
   form:
     type: ajax
@@ -900,6 +1245,59 @@
       - music_pickup?
       - not_missing?
       - not_checked_out?
+      - not_on_order?
+    bib:
+      - not_etas?
+
+# On Order @Music
+- label: Contactless pickup at the library
+  service_type: Contactless pickup
+  duration: Click to see additional details
+  description:
+    heading: Policies and additional details
+    content:
+      - Delivery time varies for items with status ON ORDER and notification will be sent when this item is available. <a href="https://ill.lib.umich.edu/illiad/illiad.dll?">Please make an interlibrary loan request if you need this item quickly</a>.
+      - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
+      - Learn more about <a href="https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup">contactless pickup</a>.
+  weight: 72
+  form:
+    type: ajax
+    method: post
+    action: "/spectrum/mirlyn/hold"
+    fields:
+      - type: hidden
+        name: record
+        value: "{$record_id}"
+      - type: hidden
+        name: item
+        value: "{$full_item_key}"
+      - type: select
+        label: "Pickup location"
+        name: pickup_location
+        value: 'select-a-pickup-location'
+        options:
+          - name: Select a pickup location
+            value: 'select-a-pickup-location'
+            disabled: true
+          - value: MUSIC
+            name: "Music Library"
+      - type: date
+        label: "Cancel this hold if item is not available before"
+        name: not_needed_after
+        value: "{$two_months_from_today}"
+      - type: submit
+        name: submit
+        value: Get me this item
+  grants:
+    patron:
+      - active?
+      - ann_arbor?
+    holding:
+      - can_request?
+      - music_pickup?
+      - not_missing?
+      - not_checked_out?
+      - on_order?
     bib:
       - not_etas?
 
@@ -950,6 +1348,7 @@
       - reopened?
       - not_missing?
       - not_checked_out?
+      - not_on_order?
     bib:
       - not_etas?
 
@@ -997,6 +1396,57 @@
       - dearborn?
     holding:
       - flint_pickup?
+      - not_missing?
+      - not_checked_out?
+      - not_on_order?
+    bib:
+      - not_etas?
+
+# On Order @Mardigan
+- label: Pick it up at the library (Library to Library)
+  service_type: Library pick up
+  duration: Click to see additional details
+  description:
+    heading: Policies and additional details
+    content:
+      - Delivery time varies for items with status ON ORDER and notification will be sent when this item is available. <a href="https://ill.lib.umich.edu/illiad/illiad.dll?">Please make an interlibrary loan request if you need this item quickly</a>.
+      - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
+      - Pick up is available by appointment. See <a href="https://library.umd.umich.edu/pickup/">Mardigan Library - Schedule Pick-Up / Return</a> for details.
+  weight: 72
+  form:
+    type: ajax
+    method: post
+    action: "/spectrum/mirlyn/hold"
+    fields:
+      - type: hidden
+        name: record
+        value: "{$record_id}"
+      - type: hidden
+        name: item
+        value: "{$full_item_key}"
+      - type: select
+        label: "Pickup location"
+        name: pickup_location
+        value: 'select-a-pickup-location'
+        options:
+          - name: Select a pickup location
+            value: 'select-a-pickup-location'
+            disabled: true
+          - value: DRBN
+            name: "Mardigan Library"
+      - type: date
+        label: "Cancel this hold if item is not available before"
+        name: not_needed_after
+        value: "{$two_months_from_today}"
+      - type: submit
+        name: submit
+        value: Get me this item
+  grants:
+    patron:
+      - active?
+      - dearborn?
+    holding:
+      - on_order?
       - not_missing?
       - not_checked_out?
     bib:

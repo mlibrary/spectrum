@@ -1,0 +1,67 @@
+---
+clements:
+  sublibs:
+    CLEM: William L. Clements
+bentley:
+  sublibs:
+    BENT: Bentley Historical
+#umtri:
+#  sublibs:
+#    UMTRI: Transportation Research Institute Library
+flint:
+  sublibs:
+    FLINT: Flint Thompson Library
+aa:
+  sublibs:
+    ALL: All locations
+    AAEL: Art Architecture & Engineering
+    FVL: Askwith Media Library
+    BSTA: Biological Station
+    BUHR: Buhr Shelving Facility
+    CSCAR: CSCAR - Rackham Building
+    DHCL: Donald Hall Collection
+    FINE: Fine Arts
+    HATCH: Hatcher Graduate
+    HERB: Herbarium
+#    HSRS: Health Sciences Remote Shelvng
+    CHES: Mark Chesler Library
+    MUSM: Research Museums Center
+    MUSIC: Music
+#    PUB: Public Health
+    SCI: Shapiro Science
+    UGL: Shapiro Undergraduate
+#    SOC: Social Work
+    SPEC: Special Collections
+#    TOY: Spectrum/Jim Toy Library
+#    UNION: Spectrum/IGR Libraries
+#    STATE: State Circle Remote Shelving
+    TAUB: Taubman Health Sciences
+all:
+  sublibs:
+    ALL: All locations
+    AAEL: Art Architecture & Engineering
+    FVL: Askwith Media Library
+    BENT: Bentley Historical
+    BSTA: Biological Station
+    BUHR: Buhr Shelving Facility
+    CSCAR: CSCAR - Rackham Building
+    DHCL: Donald Hall Collection
+    FINE: Fine Arts
+    FLINT: Flint Thompson Library
+    HATCH: Hatcher Graduate
+    HERB: Herbarium
+    HSRS: Health Sciences Remote Shelvng
+    CHES: Mark Chesler Library
+    MUSM: Museums
+    MUSIC: Music
+    PUB: Public Health
+    SCI: Shapiro Science
+    UGL: Shapiro Undergraduate
+#    SOC: Social Work
+    SPEC: Special Collections
+#    TOY: Spectrum/Jim Toy Library
+#    UNION: Spectrum/IGR Libraries
+    STATE: State Circle Remote Shelving
+    TAUB: Taubman Health Sciences
+#    UMTRI: Transportation Research Institute Library
+    CLEM: William L. Clements

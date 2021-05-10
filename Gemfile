@@ -1,5 +1,8 @@
 source 'https://rubygems.org' do
 
+  # I'm getting deployment errors with capistrano about trying to load pry
+  gem 'pry'
+
   # Allow dotenv configuration
   gem 'dotenv-rails', require: 'dotenv/rails-now'
 
@@ -8,6 +11,7 @@ source 'https://rubygems.org' do
   gem 'twilio-ruby'
   gem 'exlibris-aleph', '~>2.0.4'
   gem 'puma'
+  gem 'parslet'
 
   gem 'ipresolver',
     git: 'https://github.com/mlibrary/ipresolver',
@@ -24,6 +28,10 @@ source 'https://rubygems.org' do
 
   gem 'spectrum-json',
     git: 'https://github.com/mlibrary/spectrum-json',
+    branch: 'master'
+
+  gem 'mlibrary_search_parser',
+    git: 'https://github.com/mlibrary/mlibrary_search_parser',
     branch: 'master'
 
   gem 'aleph',

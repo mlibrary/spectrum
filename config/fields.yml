@@ -541,7 +541,7 @@
     - N2
   field: ssfield_special_message
   metadata:
-    name: Special Message
+    name: Alert
     short_desc: Special message for this resource
   filters:
     - id: sanitize
