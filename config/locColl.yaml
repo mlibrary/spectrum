@@ -39,6 +39,7 @@ FVL:
     FVL H1: 'Room 2002 Shapiro'
     FVL BUH: 'Offsite Shelving'
     FVL ELL: 'Offsite Shelving'
+    FVL RESC: 'University Reserves - 2002 Shapiro'
 BENT:
   desc: 'Bentley Historical'
   collections:
@@ -273,37 +274,25 @@ PUB:
     PUB RREF: 'Ready Reference'
     PUB REF: 'Reference'
     PUB SOFT: 'Software'
-SCI:
-  desc: 'Shapiro Science'
-  collections:
-    ALL: All collections
-    SCI ATL: 'Atlases & Maps - 4th floor'
-    SCI BKS: 'Book Stacks - 4th floor'
-    SCI RESC: 'Course Reserves - 3rd floor'
-    SCI DIS: 'Dissertations/Masters - 4th floor'
-    SCI IND: 'Indexes & Abstracts - 3rd floor'
-    SCI SER: 'Journals - 3rd floor'
-    SCI MAS: 'Masters Theses - 3rd floor'
-    SCI OVR: 'Oversize Stacks - 4th floor'
-    SCI RESP: 'Permanent Reserves - 3rd floor'
-    SCI REFU: 'Reference - The Wu Reading Room - 3rd floor'
-    SCI INDT: 'Reference Tables - 3rd floor'
-    SCI ERES: 'Reserves - Electronic Resource'
-UGL:
-  desc: 'Shapiro Undergraduate'
-  collections:
-    ALL: All collections
-    UGL PRON: '2nd floor Browsing Collection - Shelved by author'
-    UGL COLSC: 'College and Career Success Collection - 1st Floor'
-    UGL DLAB: 'Design Lab'
-    UGL OVR: 'Oversize - basement'
-    UGL PER: 'Periodical Shelves'
-    UGL RESC: 'Reserves'
 SHAP:
-  desc: 'Shapiro Library'
+  desc: 'Shapiro'
   collections:
     ALL: All collections
-    SHAP SBCS: 'Shapiro Basement Compact Shelving'
+    SHAP SBCS: 'Basement Compact Shelving'
+    SHAP ATL: 'Atlases & Maps - 4th floor'
+    SHAP DIS: 'Dissertations/Masters - 4th floor'
+    SHAP SCI: 'Science Book Stacks - 4th floor'
+    SHAP MAS: 'Masters Theses Archival Collection'
+    SHAP SOVR: 'Science Oversize Stacks - 4th floor'
+    SHAP REFU: 'Reference - The Wu Reading Room - 3rd floor'
+    SHAP RESP: 'Science Media Cabinet - 3rd floor'
+    SHAP SER: 'Science Journals - 3rd floor'
+    SHAP UGL: 'Undergraduate stacks'
+    SHAP COLSC: 'College and Career Success Collection - 1st Floor'
+    SHAP DLAB: 'Design Lab'
+    SHAP OVR: 'Undergrad Oversize - basement'
+    SHAP PER: 'Undergrad Periodical Shelves - 2nd Floor'
+    SHAP PRON: '2nd floor Browsing Collection - Shelved by author'
 SPEC: 
   desc: 'Special Collections' 
   collections: 
@@ -347,12 +336,6 @@ TAUB:
     TAUB RESC: 'Reserves'
     TAUB ERES: 'Reserves - Electronic Resource'
     TAUB STOR: 'Storage'
-#UMTRI:
-#  desc: 'Transportation Research Institute Library'
-#  collections:
-#    ALL: All collections
-#    UMTRI INTER: 'International Data Collection'
-#    UMTRI STAPP: 'Stapp Car Crash Collection'
 CLEM:
   desc: 'William L. Clements'
   collections:
