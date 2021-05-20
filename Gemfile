@@ -30,6 +30,11 @@ source 'https://rubygems.org' do
     git: 'https://github.com/mlibrary/spectrum-json',
     branch: 'alma_holdings'
 
+  gem 'alma_rest_client',
+    git: 'https://github.com/mlibrary/alma_rest_client',
+    branch: 'main'
+
+
   gem 'mlibrary_search_parser',
     git: 'https://github.com/mlibrary/mlibrary_search_parser',
     branch: 'master'
@@ -93,7 +98,6 @@ source 'https://rubygems.org' do
 
   group :development do
     gem 'rbtrace'
-    gem 'pry'
     gem 'pry-byebug', platforms: :mri
     gem 'pry-rails'
     gem 'rerun'
