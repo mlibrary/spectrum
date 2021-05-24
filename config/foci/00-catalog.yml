@@ -155,7 +155,6 @@ fields:
   - mirlyn_format
   - marc_title
   - marc_ris_title
-  - favorites_icon
   - main_author
   - preferred_title
   - related_title
@@ -244,6 +243,10 @@ fields:
   - call_number_starts_with
   - subject
   - isn
+# Header Components
+  - favorites_tags
+  - favorites_icon
+  - select_box
 # Citation specfic fields, not for display
   - ris_main_author
   - ris_contributors
