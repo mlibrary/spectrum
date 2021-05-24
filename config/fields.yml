@@ -1397,6 +1397,20 @@
     medium:
       type: icon
 
+- id: favorites_icon
+  metadata:
+    name: placeholder
+  type: constant
+  constant: favorites-icon
+  header_region:
+    medium:
+      main-right-aligned:
+        type: plain
+    full:
+      main-right-aligned:
+        type: plain
+
+
 - id: online_journal_format
   metadata:
     name: Format

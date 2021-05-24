@@ -155,6 +155,7 @@ fields:
   - mirlyn_format
   - marc_title
   - marc_ris_title
+  - favorites_icon
   - main_author
   - preferred_title
   - related_title
