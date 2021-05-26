@@ -57,7 +57,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: f5c8435f9c099cb02eb0f44693feca3b745650ec
+  revision: 61393538b86aabecbb2c91dc8ed6d390902139ac
   branch: alma_holdings
   specs:
     spectrum-json (1.0.0)
