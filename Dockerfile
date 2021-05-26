@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY Gemfile* /app/
 
-RUN gem install bundler
+RUN gem install bundler:1.17.3
 RUN bundle install
 
 COPY . /app
