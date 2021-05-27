@@ -10,7 +10,7 @@ ENV BUNDLE_PATH /bundle
 #Create the group for the user
 RUN groupadd -g ${GID} -o ${UNAME}
 
-#Create the User and assign /app as its home directory
+#Create the User and assign ${APP_HOME} as its home directory
 RUN useradd -m -d ${APP_HOME} -u ${UID} -g ${GID} -o -s /bin/bash ${UNAME}
 
 WORKDIR $APP_HOME
@@ -19,12 +19,12 @@ RUN mkdir -p ${BUNDLE_PATH} ${APP_HOME}/public /secrets && chown -R ${UID}:${GID
 
 USER $UNAME
 
-COPY --chown=${UID}:${GID} Gemfile* /app/
+COPY --chown=${UID}:${GID} Gemfile* ${APP_HOME}/
 
 RUN gem install bundler
 RUN bundle install
 
-COPY --chown=${UID}:${GID} . /app
+COPY --chown=${UID}:${GID} . ${APP_HOME}
 
 ARG SEARCH_VERSION=master
 ARG PRIDE_VERSION=master
