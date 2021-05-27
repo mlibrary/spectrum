@@ -10,11 +10,12 @@ git clone git@github.com:mlibrary/spectrum.git spectrum
 git clone git@github.com:mlibrary/spectrum-config.git spectrum/gems/spectrum-config
 git clone git@github.com:mlibrary/spectrum-json.git spectrum/gems/spectrum-json
 cd spectrum
+cp /path/to/env-file .env
 docker-compose build
 docker-compose run web bundle install
 docker-compose run web bundle exec rake 'search[v1.14.21,local]'
-docker-compose start web
-docker-compose attach web
+docker-compose up
+docker attach spectrum_web_1
 ```
 
 ## Getting Started for development
