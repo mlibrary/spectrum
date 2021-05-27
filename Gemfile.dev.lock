@@ -27,7 +27,8 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/mlibrary_search_parser
-  revision: 393998105db6d668a63b6d58b5d85c20f357d6a7
+  revision: 3ed337d0284ca634421398b5c1c17bb07cc8a3c4
+  branch: master
   specs:
     mlibrary_search_parser (0.1.0)
       dotenv
@@ -35,22 +36,25 @@ GIT
       parslet
 
 GIT
-  remote: https://github.com/mlibrary/spectrum-config
-  revision: d003854b7ae19a581c41c67707a67f8655ab2ae9
-  branch: parser_test_1
+  remote: https://github.com/whitequark/rack-utf8_sanitizer
+  revision: b0c6d378278f28c1851ee1ffb4d9bd1eb1c5a6bb
   specs:
-    spectrum-config (0.0.1)
+    rack-utf8_sanitizer (1.7.0)
+      rack (>= 1.0, < 3.0)
+
+PATH
+  remote: gems/spectrum-config
+  specs:
+    spectrum-config (1.0.0)
       activesupport
       htmlentities
       marc
       rails-html-sanitizer
 
-GIT
-  remote: https://github.com/mlibrary/spectrum-json
-  revision: 183911acd703c67dc18d2fef8786fd418f898e52
-  branch: parser_test_1
+PATH
+  remote: gems/spectrum-json
   specs:
-    spectrum-json (0.1.0)
+    spectrum-json (1.0.0)
       activesupport
       dotenv
       execjs
@@ -62,13 +66,6 @@ GIT
       rails (~> 4.2.0)
       rake (>= 12.3.3)
       rsolr
-
-GIT
-  remote: https://github.com/whitequark/rack-utf8_sanitizer
-  revision: b0c6d378278f28c1851ee1ffb4d9bd1eb1c5a6bb
-  specs:
-    rack-utf8_sanitizer (1.7.0)
-      rack (>= 1.0, < 3.0)
 
 GEM
   remote: https://rubygems.org/
@@ -176,7 +173,7 @@ GEM
       dotenv (= 2.7.6)
       railties (>= 3.2)
     ensure_valid_encoding (0.5.3)
-    erb (2.2.2)
+    erb (2.2.3)
       cgi
     erubis (2.7.0)
     exception_notification (4.4.3)
@@ -486,7 +483,6 @@ DEPENDENCIES
   ipresolver!
   jquery-rails!
   json!
-  kaminari (= 0.15.0)!
   keycard!
   launchy!
   metric_fu!

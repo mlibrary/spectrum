@@ -39,4 +39,6 @@ spec/reports
 token.txt
 /.idea
 /.env
+/.ssh
 /public
+/gems

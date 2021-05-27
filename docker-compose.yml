@@ -1,10 +1,17 @@
-version: '3'
-
+---
+version: "3.7"
 services:
   web:
+    stdin_open: true
+    tty: true
     build: .
+    command: bundle exec rails s -p ${PUMA_PORT} -b ${PUMA_BIND}
+    env_file:
+      - .env
     volumes:
-      - .:/app
-      - gem_cache:/gems
+    - .:/app
+    - bundle:/bundle
+    ports:
+    - "3000:3000"
 volumes:
-  gem_cache:
+  bundle:
