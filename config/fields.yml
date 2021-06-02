@@ -1247,6 +1247,10 @@
       type: icon
     full:
       type: icon
+  header_region:
+    full:
+      upper-left-aligned:
+        type: plain
 
 - id: format
   field: ContentType
