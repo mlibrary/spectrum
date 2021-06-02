@@ -247,6 +247,7 @@ fields:
   - favorites_tags
   - favorites_icon
   - select_box
+  - result_number
 # Citation specfic fields, not for display
   - ris_main_author
   - ris_contributors

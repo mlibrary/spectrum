@@ -1397,11 +1397,21 @@
     medium:
       type: icon
 
+- id: result_number
+  metadata:
+    name: placeholder
+  type: constant
+  constant: result_number
+  header_region:
+    medium:
+      main-left-aligned:
+        type: plain
+
 - id: favorites_icon
   metadata:
-    name: favorites-icon
+    name: placeholder
   type: constant
-  constant: placeholder
+  constant: favorites_icon
   header_region:
     medium:
       main-right-aligned:
@@ -1412,9 +1422,9 @@
 
 - id: favorites_tags
   metadata:
-    name: favorites-tags
+    name: placeholder
   type: constant
-  constant: placeholder
+  constant: favorites_tags
   header_region:
     medium:
       lower-left-aligned:
@@ -1425,9 +1435,9 @@
 
 - id: select_box
   metadata:
-    name: select-box
+    name: placeholder
   type: constant
-  constant: placeholder
+  constant: select_box
   header_region:
     medium:
       main-left-margin:
