@@ -153,6 +153,7 @@ fields:
   - id
   - allfields
   - mirlyn_format
+  - result_number
   - marc_title
   - marc_ris_title
   - main_author
@@ -244,10 +245,9 @@ fields:
   - subject
   - isn
 # Header Components
-  - favorites_tags
-  - favorites_icon
   - select_box
-  - result_number
+  - favorites_icon
+  - favorites_tags
 # Citation specfic fields, not for display
   - ris_main_author
   - ris_contributors
