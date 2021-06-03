@@ -13,6 +13,7 @@ sorts:
   date_asc: summon_date_asc
   date_desc: summon_date_desc
 fields:
+  - result_number
   - summon_title
   - subtitle
   - format
@@ -66,6 +67,12 @@ fields:
 # For searching
   - all_fields
   - pmid
+# Header Components
+  - select_box
+  - favorites_icon
+  - favorites_tags
+  - peer_reviewed
+  - open_access
 
 facets:
   IsScholarly: is_scholarly

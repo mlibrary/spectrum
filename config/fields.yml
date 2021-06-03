@@ -764,6 +764,10 @@
   filters:
     - id: sanitize
       method: sanitize
+  header_region:
+    full:
+      lower_left_aligned:
+        type: plain
 
 - id: subject
   metadata:
@@ -1408,6 +1412,32 @@
   constant: result_number
   header_region:
     medium:
+      main-left-aligned:
+        type: plain
+
+- id: peer_reviewed
+  metadata:
+    name: placeholder
+  type: constant
+  constant: peer_reviewed
+  header_region:
+    medium:
+      main-left-aligned:
+        type: plain
+    full:
+      main-left-aligned:
+        type: plain
+
+- id: open_access
+  metadata:
+    name: placeholder
+  type: constant
+  constant: open_access
+  header_region:
+    medium:
+      main-left-aligned:
+        type: plain
+    full:
       main-left-aligned:
         type: plain
 
