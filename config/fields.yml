@@ -504,6 +504,10 @@
       type: plain
     medium:
       type: plain
+  header_region:
+    full:
+      lower-left-aligned:
+        type: plain
 
 - id: db_brief_description_preview
   ris:
@@ -766,7 +770,7 @@
       method: sanitize
   header_region:
     full:
-      lower_left_aligned:
+      lower-left-aligned:
         type: plain
 
 - id: subject
@@ -1269,6 +1273,10 @@
       type: icon
     medium:
       type: icon
+  header_region:
+    full:
+      upper-left-aligned:
+        type: plain
 
 - id: mirlyn_csl_type
   csl:
@@ -1414,6 +1422,20 @@
     medium:
       main-left-aligned:
         type: plain
+
+- id: recommended
+  metadata:
+    name: placeholder
+  type: constant
+  constant: recommended
+  header_region:
+    medium:
+      main-left-aligned:
+        type: plain
+    full:
+      main-left-aligned:
+        type: plain
+
 
 - id: peer_reviewed
   metadata:
