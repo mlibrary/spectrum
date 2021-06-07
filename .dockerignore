@@ -6,3 +6,7 @@
 /.ssh
 **/*.swp
 **/*.swo
+/.bundle
+/.bash_history
+/.local
+/.wget-hsts

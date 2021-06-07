@@ -2,6 +2,7 @@ source 'https://rubygems.org' do
 
   # I'm getting deployment errors with capistrano about trying to load pry
   gem 'pry'
+  gem 'lograge'
 
   # Allow dotenv configuration
   gem 'dotenv-rails', require: 'dotenv/rails-now'
