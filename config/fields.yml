@@ -74,7 +74,7 @@
       method: trim
   header_region:
     preview:
-      main-left-margin:
+      main-left-aligned:
         type: plain 
     medium:
       main-left-aligned:
@@ -1892,7 +1892,7 @@
       method: sanitize
   header_region:
     preview:
-      main-left-margin:
+      main-left-aligned:
         type: plain 
     medium:
       main-left-aligned:
@@ -3315,7 +3315,7 @@
     name: Published Year
   header_region:
     preview:
-      main-left-margin:
+      main-left-aligned:
         type: plain
 
 - id: published_brief
