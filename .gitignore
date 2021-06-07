@@ -42,3 +42,6 @@ token.txt
 /.ssh
 /public
 /gems
+/.bash_history
+/.local
+/.wget-hsts
