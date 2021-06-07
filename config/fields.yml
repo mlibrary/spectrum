@@ -1148,6 +1148,21 @@
     name: Publication Place
     short_desc: Publication Place
 
+- id: jtitle
+  csl:
+    id: container-title
+  z3988:
+    id: rft.jtitle
+  ris:
+    - JF
+    - JO
+  metadata:
+    name: Publication Title
+    short_desc: Publication Title
+  metadata_component:
+    preview:
+      type: plain
+
 - id: publication_title
   csl:
     id: container-title
@@ -1340,6 +1355,13 @@
   ris:
     - ID
   field: BookMark
+  uid: id
+  metadata:
+    name: ID
+    short_desc: ID
+
+- id: addsrcrecordid
+  field: addsrcrecordid
   uid: id
   metadata:
     name: ID

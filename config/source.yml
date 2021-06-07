@@ -27,3 +27,11 @@
   driver: Summon
   access_id: <%= ENV['SPECTRUM_SUMMON_ID'] %>
   secret_key: <%= ENV['SPECTRUM_SUMMON_SECRET_KEY'] %>
+- id: primo
+  name: Primo
+  type: primo
+  key: <%= ENV['SPECTRUM_PRIMO_KEY'] %>
+  host: <%= ENV['SPECTRUM_PRIMO_HOST'] %>
+  tab: <%= ENV['SPECTRUM_PRIMO_TAB'] %>
+  scope: <%= ENV['SPECTRUM_PRIMO_SCOPE'] %>
+  view: <%= ENV['SPECTRUM_PRIMO_VIEW'] %>

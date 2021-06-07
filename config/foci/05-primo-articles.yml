@@ -1,0 +1,16 @@
+---
+id: articles
+metadata:
+  name: Articles
+  short_desc: "Search for articles, books, journals, and more"
+source: primo
+sorts:
+  relevance: summon_relevance
+  date_asc: summon_date_asc
+  date_desc: summon_date_desc
+fields:
+- addsrcrecordid
+- title
+- author
+facets:
+  - jtitle
