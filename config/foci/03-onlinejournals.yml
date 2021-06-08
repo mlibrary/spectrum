@@ -234,6 +234,14 @@ fields:
   - z3988_rft_genre
   - z3988_sid
   - catalog_rfr_id
+# Header Components
+  - recommended
+  - select_box
+  - result_number
+  - favorites_icon
+  - favorites_tags
+  - open_access
+  - format
 
 facets:
   - subject
