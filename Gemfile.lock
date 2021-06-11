@@ -57,7 +57,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: fa5c271aade8862c9c30c61fcc663850b0058dbc
+  revision: 5441b8d5355a9d1fac2264f15af5f1e50a89ccbe
   branch: alma_holdings
   specs:
     spectrum-json (1.0.0)
@@ -180,7 +180,7 @@ GEM
     concord (0.1.5)
       adamantium (~> 0.2.0)
       equalizer (~> 0.0.9)
-    concurrent-ruby (1.1.8)
+    concurrent-ruby (1.1.9)
     crass (1.0.6)
     database_cleaner (1.6.2)
     debug_inspector (0.0.3)
@@ -203,7 +203,7 @@ GEM
     exception_notification (4.2.2)
       actionmailer (>= 4.0, < 6)
       activesupport (>= 4.0, < 6)
-    execjs (2.7.0)
+    execjs (2.8.1)
     exlibris-aleph (2.0.4)
       faraday (~> 0.9.0)
       marc (~> 0.8.0)
@@ -273,7 +273,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.9.0)
+    loofah (2.10.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     lru_redux (1.1.0)
@@ -310,8 +310,8 @@ GEM
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0225)
-    mini_mime (1.0.2)
-    mini_portile2 (2.5.1)
+    mini_mime (1.1.0)
+    mini_portile2 (2.5.3)
     minitest (5.14.4)
     msgpack (1.2.2)
     multi_json (1.13.1)
@@ -321,7 +321,7 @@ GEM
     net-ldap (0.16.1)
     netrc (0.11.0)
     nio4r (2.5.7)
-    nokogiri (1.11.4)
+    nokogiri (1.11.7)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     ox (2.14.4)
