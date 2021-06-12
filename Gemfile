@@ -12,6 +12,7 @@ source 'https://rubygems.org' do
   gem 'exlibris-aleph', '~>2.0.4'
   gem 'puma'
   gem 'parslet'
+  gem 'execjs', '~> 2.7.0'
 
   gem 'ipresolver',
     git: 'https://github.com/mlibrary/ipresolver',
