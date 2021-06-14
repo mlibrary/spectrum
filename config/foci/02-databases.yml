@@ -90,7 +90,7 @@ fields:
   - databases_rfr_id
 # Header Components
   - recommended
-  - open_access
+  - open_access_const
   - select_box
   - result_number
   - favorites_icon

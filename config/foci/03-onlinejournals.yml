@@ -240,7 +240,7 @@ fields:
   - result_number
   - favorites_icon
   - favorites_tags
-  - open_access
+  - open_access_const
   - format
 
 facets:

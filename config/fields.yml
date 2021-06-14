@@ -1455,7 +1455,7 @@
       main-left-aligned:
         type: plain
 
-- id: open_access
+- id: open_access_const
   metadata:
     name: placeholder
   type: constant

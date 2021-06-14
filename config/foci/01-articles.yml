@@ -13,10 +13,10 @@ sorts:
   date_asc: summon_date_asc
   date_desc: summon_date_desc
 fields:
-  - result_number
   - summon_title
   - subtitle
   - format
+  - favorites_tags
   - abstract
   - ap_author
   - summon_date
@@ -60,6 +60,12 @@ fields:
   - times_cited
   - times_cited2
   - summon_openurl
+# Header Components
+  - result_number
+  - select_box
+  - favorites_icon
+  - peer_reviewed
+  - open_access_const
 # Not rendered
   - id
 # For citation generation
@@ -67,12 +73,6 @@ fields:
 # For searching
   - all_fields
   - pmid
-# Header Components
-  - select_box
-  - favorites_icon
-  - favorites_tags
-  - peer_reviewed
-  - open_access
 
 facets:
   IsScholarly: is_scholarly
