@@ -64,6 +64,7 @@ has_holdings: false
 fields:
   - entity_id
   - content
+  - result_number
   - title
   - online_journal_format
   - issn
@@ -85,6 +86,13 @@ fields:
   - z3988_rft_genre
   - z3988_sid
   - journals_rfr_id
+# Header Components
+  - recommended
+  - select_box
+  - favorites_icon
+  - favorites_tags
+  - open_access_const
+  - format
 
 facets:
   - db_academic_discipline
