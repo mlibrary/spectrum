@@ -40,7 +40,7 @@
       method: trim
   header_region:
     preview:
-      main-left-margin:
+      main-left-aligned:
         type: plain 
     medium:
       main-left-aligned:
@@ -1507,6 +1507,19 @@
       main-left-margin:
         type: plain
 
+- id: outbound_link_graphic
+  metadata:
+    name: placeholder
+  type: constant
+  constant: outbound_link_graphic
+  header_region:
+    preview:
+      main-left-aligned:
+        type: plain
+    medium:
+      main-left-aligned:
+        type: plain
+
 - id: online_journal_format
   metadata:
     name: Format
@@ -1517,6 +1530,10 @@
       type: icon
     medium:
       type: icon
+  header_region:
+    full:
+      upper-left-aligned:
+        type: plain
 
 - id: journal_academic_discipline
   ris:
