@@ -1412,6 +1412,11 @@
       type: icon
     medium:
       type: icon
+  header_region:
+    full:
+      upper-left-aligned:
+        type: plain
+
 
 - id: result_number
   metadata:
