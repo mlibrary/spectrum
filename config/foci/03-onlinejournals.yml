@@ -127,6 +127,7 @@ sorts:
   mirlyn_title_desc: mirlyn_title_desc
 fields:
   - id
+  - result_number
   - allfields
   - mirlyn_format
   - marc_title
@@ -237,7 +238,6 @@ fields:
 # Header Components
   - recommended
   - select_box
-  - result_number
   - favorites_icon
   - favorites_tags
   - open_access_const
