@@ -38,6 +38,16 @@
       method: sanitize
     - id: trim
       method: trim
+  header_region:
+    preview:
+      main-left-margin:
+        type: plain 
+    medium:
+      main-left-aligned:
+        type: plain 
+    full:
+      main-left-aligned:
+        type: plain 
 
 - id: summon_title
   csl:
@@ -62,6 +72,16 @@
       method: sanitize
     - id: trim
       method: trim
+  header_region:
+    preview:
+      main-left-aligned:
+        type: plain 
+    medium:
+      main-left-aligned:
+        type: plain 
+    full:
+      main-left-aligned:
+        type: plain 
 
 - id: summon_openurl
   uid: openurl
@@ -484,6 +504,10 @@
       type: plain
     medium:
       type: plain
+  header_region:
+    full:
+      lower-left-aligned:
+        type: plain
 
 - id: db_brief_description_preview
   ris:
@@ -744,6 +768,10 @@
   filters:
     - id: sanitize
       method: sanitize
+  header_region:
+    full:
+      lower-left-aligned:
+        type: plain
 
 - id: subject
   metadata:
@@ -1227,6 +1255,10 @@
       type: icon
     full:
       type: icon
+  header_region:
+    full:
+      upper-left-aligned:
+        type: plain
 
 - id: format
   field: ContentType
@@ -1241,6 +1273,10 @@
       type: icon
     medium:
       type: icon
+  header_region:
+    full:
+      upper-left-aligned:
+        type: plain
 
 - id: mirlyn_csl_type
   csl:
@@ -1376,6 +1412,100 @@
       type: icon
     medium:
       type: icon
+  header_region:
+    full:
+      upper-left-aligned:
+        type: plain
+
+
+- id: result_number
+  metadata:
+    name: placeholder
+  type: constant
+  constant: result_number
+  header_region:
+    medium:
+      main-left-aligned:
+        type: plain
+
+- id: recommended
+  metadata:
+    name: placeholder
+  type: constant
+  constant: recommended
+  header_region:
+    medium:
+      main-left-aligned:
+        type: plain
+    full:
+      main-left-aligned:
+        type: plain
+
+
+- id: peer_reviewed
+  metadata:
+    name: placeholder
+  type: constant
+  constant: peer_reviewed
+  header_region:
+    medium:
+      main-left-aligned:
+        type: plain
+    full:
+      main-left-aligned:
+        type: plain
+
+- id: open_access_const
+  metadata:
+    name: placeholder
+  type: constant
+  constant: open_access
+  header_region:
+    medium:
+      main-left-aligned:
+        type: plain
+    full:
+      main-left-aligned:
+        type: plain
+
+- id: favorites_icon
+  metadata:
+    name: placeholder
+  type: constant
+  constant: favorites_icon
+  header_region:
+    medium:
+      main-right-aligned:
+        type: plain
+    full:
+      main-right-aligned:
+        type: plain
+
+- id: favorites_tags
+  metadata:
+    name: placeholder
+  type: constant
+  constant: favorites_tags
+  header_region:
+    medium:
+      lower-left-aligned:
+        type: plain
+    full:
+      lower-left-aligned:
+        type: plain
+
+- id: select_box
+  metadata:
+    name: placeholder
+  type: constant
+  constant: select_box
+  header_region:
+    medium:
+      main-left-margin:
+        type: plain
+    full:
+      main-left-margin:
+        type: plain
 
 - id: online_journal_format
   metadata:
@@ -1787,6 +1917,16 @@
   filters:
     - id: sanitize
       method: sanitize
+  header_region:
+    preview:
+      main-left-aligned:
+        type: plain 
+    medium:
+      main-left-aligned:
+       type: plain 
+    full:
+      main-left-aligned:
+        type: plain 
 
 - id: marc_ris_title
   csl:
@@ -3200,6 +3340,10 @@
   field: publishDate
   metadata:
     name: Published Year
+  header_region:
+    preview:
+      main-left-aligned:
+        type: plain
 
 - id: published_brief
   metadata:
