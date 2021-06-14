@@ -11,6 +11,32 @@ sorts:
 fields:
 - addsrcrecordid
 - title
+- format
 - author
+- abstract
+- creationdate
+- pages
+- publisher
+- jtitle
+- volume
+- issue 
+- genre
+- issn
+- summon_isbn
+- eissn
+- eisbn
+- doi
+- pmid
+- oclcid
+
 facets:
-  - jtitle
+- jtitle
+- lang
+- topic
+- rtype
+- domain
+- tlevel
+- newrecords
+- creationdate
+#- creatorcontrib
+#- collection

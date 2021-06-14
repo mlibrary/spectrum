@@ -874,7 +874,7 @@
   searchable: false
   metadata:
     name: eISBN
-    short_desc: The IeSBN
+    short_desc: The eISBN
 
 - id: link
   csl:
@@ -3563,3 +3563,47 @@
   filters:
     - id: proxy_prefix
       method: proxy_prefix
+
+- id: lang
+  metadata:
+    name: Language
+    short_desc: Language
+
+#- id: topic
+#  metadata:
+#    name: Topic
+#    short_desc: Topic
+#
+- id: rtype
+  metadata:
+    name: Resource Type
+    short_desc: Type
+
+- id: domain
+  metadata:
+    name: Domain
+    short_desc: Name
+
+- id: tlevel
+  metadata:
+    name: Top Level
+    short_desc: Top Level
+
+- id: newrecords
+  metadata:
+    name: New Records
+    short_desc: New Records
+
+- id: creationdate
+  metadata:
+    name: Creation Date
+    short_desc: Creation Date
+
+- id: oclcid
+  metadata:
+    name: OCLC Number
+    short_desc: OCLC Number
+  metadata_component:
+    full:
+      type: plain
+
