@@ -23,18 +23,12 @@ aa:
     FINE: Fine Arts
     HATCH: Hatcher Graduate
     HERB: Herbarium
-#    HSRS: Health Sciences Remote Shelvng
+    HSRS: Health Sciences Remote Shelvng
     CHES: Mark Chesler Library
     MUSM: Research Museums Center
     MUSIC: Music
-#    PUB: Public Health
-    SCI: Shapiro Science
-    UGL: Shapiro Undergraduate
-#    SOC: Social Work
+    SHAP: Shapiro
     SPEC: Special Collections
-#    TOY: Spectrum/Jim Toy Library
-#    UNION: Spectrum/IGR Libraries
-#    STATE: State Circle Remote Shelving
     TAUB: Taubman Health Sciences
 all:
   sublibs:
@@ -54,14 +48,7 @@ all:
     CHES: Mark Chesler Library
     MUSM: Museums
     MUSIC: Music
-    PUB: Public Health
-    SCI: Shapiro Science
-    UGL: Shapiro Undergraduate
-#    SOC: Social Work
+    SHAP: Shapiro
     SPEC: Special Collections
-#    TOY: Spectrum/Jim Toy Library
-#    UNION: Spectrum/IGR Libraries
-    STATE: State Circle Remote Shelving
     TAUB: Taubman Health Sciences
-#    UMTRI: Transportation Research Institute Library
     CLEM: William L. Clements

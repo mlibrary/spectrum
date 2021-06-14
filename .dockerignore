@@ -1,5 +1,12 @@
 /.git
 /build.sh
 /Dockerfile
+/gems
+/.env
+/.ssh
 **/*.swp
 **/*.swo
+/.bundle
+/.bash_history
+/.local
+/.wget-hsts

@@ -1,18 +1,17 @@
 source 'https://rubygems.org' do
 
+  # I'm getting deployment errors with capistrano about trying to load pry
+  gem 'pry'
+  gem 'lograge'
+
   # Allow dotenv configuration
   gem 'dotenv-rails', require: 'dotenv/rails-now'
-
-  gem 'mlibrary_search_parser', git: 'https://github.com/mlibrary/mlibrary_search_parser'
-  gem 'spectrum-config', path: '../spectrum-config'
-  gem 'spectrum-json', path: '../spectrum-json'
-  #gem 'mlibrary_search_parser', path: '../mlibrary_search_parser'
-  gem 'parslet'
 
   gem 'skylight'
   gem 'net-ldap'
   gem 'twilio-ruby'
   gem 'exlibris-aleph', '~>2.0.4'
+  gem 'parslet'
 
   gem 'ipresolver',
     git: 'https://github.com/mlibrary/ipresolver',
@@ -23,7 +22,15 @@ source 'https://rubygems.org' do
     branch: 'rack-yaml-institution-finder',
     require: ['keycard/rack', 'keycard/yaml/institution_finder']
 
+  gem 'spectrum-config',
+    path: 'gems/spectrum-config'
 
+  gem 'spectrum-json',
+    path: 'gems/spectrum-json'
+
+  gem 'mlibrary_search_parser',
+    git: 'https://github.com/mlibrary/mlibrary_search_parser',
+    branch: 'master'
 
   gem 'aleph',
     git: 'https://github.com/mlibrary/aleph',
@@ -34,15 +41,8 @@ source 'https://rubygems.org' do
   #  ###  BLACKLIGHT (begin)  ###
   gem 'blacklight', '~>5.3.0'
   gem 'blacklight-marc'
-
-
   #  ###  BLACKLIGHT (end)  ###
 
-  # A recent Kaminari update broke blacklight facet pagination.
-  # https://github.com/amatsuda/kaminari/commit/5e2e505cdd2ea2de20949d5cef261c247b3168b1
-  # This isn't fixed in Blacklight until 5.5.0,
-  # so pin kaminari to a pre-breakage release
-  gem 'kaminari', '0.15.0'
   gem 'json'
 
   platforms :mri do
@@ -98,18 +98,11 @@ source 'https://rubygems.org' do
     gem 'quiet_assets'
 
     platforms :mri do
-      # browser-based live debugger and REPL
-      # http://railscasts.com/episodes/402-better-errors-railspanel
-      #gem 'better_errors'
       gem 'binding_of_caller'
   
       # "A fist full of code metrics"
       gem 'metric_fu'
     end
-
-    # Profiling experiments
-    # https://www.coffeepowered.net/2013/08/02/ruby-prof-for-rails/
-    # gem 'request_profiler', :git => "git://github.com/justinweiss/request_profiler.git"
 
   end
 

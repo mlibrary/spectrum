@@ -39,4 +39,9 @@ spec/reports
 token.txt
 /.idea
 /.env
+/.ssh
 /public
+/gems
+/.bash_history
+/.local
+/.wget-hsts

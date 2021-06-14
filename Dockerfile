@@ -1,13 +1,29 @@
 FROM ruby:2.6
-RUN mkdir -p /app/public /app/config/foci /secrets
-WORKDIR /app
 
-COPY Gemfile* /app/
+#Set up variables for creating a user to run the app in the container
+ARG UNAME=app
+ENV APP_HOME /app
+ENV BUNDLE_PATH /bundle
+
+#Create the group for the user
+RUN groupadd ${UNAME}
+
+#Create the User and assign ${APP_HOME} as its home directory
+RUN useradd -m -d ${APP_HOME} -g ${UNAME} -s /bin/bash ${UNAME}
+
+WORKDIR $APP_HOME
+
+RUN mkdir -p ${BUNDLE_PATH} ${APP_HOME}/public ${APP_HOME}/tmp && chown -R ${UNAME} ${APP_HOME}/public ${APP_HOME}/tmp
+
+
+COPY Gemfile* ${APP_HOME}/
 
 RUN gem install bundler
 RUN bundle install
 
-COPY . /app
+COPY . ${APP_HOME}
+
+USER $UNAME
 
 ARG SEARCH_VERSION=master
 ARG PRIDE_VERSION=master
