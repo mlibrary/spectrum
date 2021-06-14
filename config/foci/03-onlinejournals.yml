@@ -198,7 +198,6 @@ fields:
 # Header Components
   - recommended
   - select_box
-  - result_number
   - favorites_icon
   - favorites_tags
   - open_access_const
