@@ -194,6 +194,15 @@ fields:
   - academic_discipline
   - contents_listing
   - bookplate
+# Header Components
+  - recommended
+  - select_box
+  - result_number
+  - favorites_icon
+  - favorites_tags
+  - open_access_const
+  - format
+
 # Below this ??
   - mirlyn_published_year
   - links
@@ -234,15 +243,6 @@ fields:
   - z3988_rft_genre
   - z3988_sid
   - catalog_rfr_id
-# Header Components
-  - recommended
-  - select_box
-  - result_number
-  - favorites_icon
-  - favorites_tags
-  - open_access_const
-  - format
-
 facets:
   - subject
   - language

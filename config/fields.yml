@@ -1517,6 +1517,10 @@
       type: icon
     medium:
       type: icon
+  header_region:
+    full:
+      upper-left-aligned:
+        type: plain
 
 - id: journal_academic_discipline
   ris:
