@@ -36,6 +36,7 @@ fields:
   - id
   - url
   - content
+  - result_number
   - title
   - page_type
   - date
@@ -57,6 +58,11 @@ fields:
   - z3988_rft_val_fmt
   - z3988_rft_genre
   - z3988_sid
+# Header Components
+  - outbound_link_graphic
+  - select_box
+  - favorites_icon
+  - favorites_tags
 
 facets:
   ssfield_page_type: page_type

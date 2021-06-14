@@ -1507,6 +1507,19 @@
       main-left-margin:
         type: plain
 
+- id: outbound_link_graphic
+  metadata:
+    name: placeholder
+  type: constant
+  constant: outbound_link_graphic
+  header_region:
+    preview:
+      main-left-aligned:
+        type: plain
+    medium:
+      main-left-aligned:
+        type: plain
+
 - id: online_journal_format
   metadata:
     name: Format
