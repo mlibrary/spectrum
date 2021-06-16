@@ -10,6 +10,13 @@ GIT
       sequel
 
 GIT
+  remote: https://github.com/billdueber/callnumber_collation
+  revision: a72b080154a9f0a49ea971b253ff5fe3ad4f6260
+  branch: main
+  specs:
+    callnumber_collation (0.1.0)
+
+GIT
   remote: https://github.com/mlibrary/aleph
   revision: c02fa3716652c54e4f60b67ec024a4984cde455c
   branch: master
@@ -48,7 +55,6 @@ PATH
     spectrum-config (1.0.0)
       activesupport
       htmlentities
-      httparty
       marc
       rails-html-sanitizer
 
@@ -477,6 +483,7 @@ DEPENDENCIES
   blacklight (~> 5.3.0)!
   blacklight-marc!
   bootstrap-sass (>= 3.4.1)!
+  callnumber_collation!
   cancan!
   capybara!
   coffee-rails!
