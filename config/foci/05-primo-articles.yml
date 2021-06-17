@@ -8,6 +8,28 @@ sorts:
   relevance: summon_relevance
   date_asc: summon_date_asc
   date_desc: summon_date_desc
+new_parser: true
+search_fields:
+  title:
+    pf: .
+    qf: .
+  contributor:
+    pf: .
+    qf: .
+  any:
+    pf: .
+    qf: .
+search_field_default: any
+search_attr_defaults:
+  mm: $default_mm
+  mm.autoRelax: $mm.autoRelax
+  tie: $tie
+solr_params:
+  default_mm: "2<-1 5<67%"
+  mm.autoRelax: true
+  tie: 0.1
+
+
 fields:
 - addsrcrecordid
 - title

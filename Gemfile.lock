@@ -37,19 +37,20 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-config
-  revision: 1384e5456089f5964da1fcbeec3557996dd0e177
-  branch: master
+  revision: bd3d0707b5659ab3d4201eaeef2b23312eb274a8
+  branch: primo
   specs:
     spectrum-config (1.0.0)
       activesupport
       htmlentities
+      httparty
       marc
       rails-html-sanitizer
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 4082a7212de249f985463968bcbded58d2abc87c
-  branch: master
+  revision: 1840f8c681e324c3cfcd8e619273b51e8fd83c8a
+  branch: primo
   specs:
     spectrum-json (1.0.0)
       activesupport
