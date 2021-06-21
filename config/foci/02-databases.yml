@@ -59,6 +59,7 @@ sorts:
 # i.e. solr_field_name => uid used in fields.yml
 fields:
   - id
+  - result_number
   - title
   - db_format
   - special_message
@@ -66,6 +67,7 @@ fields:
   - access_type
   - new
   - trial
+  - brief_description
   - db_brief_description_preview
   - db_brief_description_medium
   - permalink
@@ -87,6 +89,12 @@ fields:
   - z3988_rft_genre
   - z3988_sid
   - databases_rfr_id
+# Header Components
+  - recommended
+  - open_access_const
+  - select_box
+  - favorites_icon
+  - favorites_tags
 
 facets:
   - db_academic_discipline
