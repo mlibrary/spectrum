@@ -1,5 +1,7 @@
 ---
 id: primo
+href:
+  field: id
 metadata:
   name: Articles
   short_desc: "Search for articles, books, journals, and more"
@@ -31,7 +33,7 @@ solr_params:
 
 
 fields:
-- addsrcrecordid
+- recordid
 - title
 - format
 - author

@@ -1360,8 +1360,8 @@
     name: ID
     short_desc: ID
 
-- id: addsrcrecordid
-  field: addsrcrecordid
+- id: recordid
+  field: recordid
   uid: id
   metadata:
     name: ID
