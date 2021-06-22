@@ -218,6 +218,11 @@ module Spectrum
           extra_controller_params['qq'] ||= '"' + RSolr.solr_escape(@params[:q]) + '"'
 
           @search, @documents = get_search_results(@params, extra_controller_params)
+
+          # Inject the 1-offset position into each document in the results.
+          @documents.each.with_index(@search.start + 1) do |doc, index|
+            doc['position'] = index
+          end
         end
 
         self

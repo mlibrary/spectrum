@@ -13,7 +13,7 @@ sorts:
   date_asc: summon_date_asc
   date_desc: summon_date_desc
 fields:
-  - result_number
+  - position
   - summon_title
   - subtitle
   - format

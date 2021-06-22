@@ -127,7 +127,7 @@ sorts:
   mirlyn_title_desc: mirlyn_title_desc
 fields:
   - id
-  - result_number
+  - position
   - allfields
   - mirlyn_format
   - marc_title
