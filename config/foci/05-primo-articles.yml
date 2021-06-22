@@ -34,6 +34,7 @@ solr_params:
 
 fields:
 - recordid
+- position
 - title
 - format
 - author
