@@ -1258,7 +1258,7 @@
   header_region:
     full:
       upper-left-aligned:
-        type: plain
+        type: icon
 
 - id: format
   field: ContentType
@@ -1276,7 +1276,7 @@
   header_region:
     full:
       upper-left-aligned:
-        type: plain
+        type: icon
 
 - id: mirlyn_csl_type
   csl:
@@ -1415,22 +1415,22 @@
   header_region:
     full:
       upper-left-aligned:
-        type: plain
+        type: icon
 
 
-- id: result_number
+- id: position
   metadata:
-    name: placeholder
-  type: constant
-  constant: result_number
+    name:  Position
   header_region:
     medium:
       main-left-aligned:
         type: plain
+        append: .
+        modifier: diminished
 
 - id: recommended
   metadata:
-    name: placeholder
+    name: Highly Recommended
   type: constant
   constant: recommended
   header_region:
@@ -1476,10 +1476,10 @@
   header_region:
     medium:
       main-right-aligned:
-        type: plain
+        type: placeholder
     full:
       main-right-aligned:
-        type: plain
+        type: placeholder
 
 - id: favorites_tags
   metadata:
@@ -1489,10 +1489,10 @@
   header_region:
     medium:
       lower-left-aligned:
-        type: plain
+        type: placeholder
     full:
       lower-left-aligned:
-        type: plain
+        type: placeholder
 
 - id: select_box
   metadata:
@@ -1502,10 +1502,10 @@
   header_region:
     medium:
       main-left-margin:
-        type: plain
+        type: placeholder
     full:
       main-left-margin:
-        type: plain
+        type: placeholder
 
 - id: outbound_link_graphic
   metadata:
@@ -1515,10 +1515,10 @@
   header_region:
     preview:
       main-left-aligned:
-        type: plain
+        type: icon
     medium:
       main-left-aligned:
-        type: plain
+        type: icon
 
 - id: online_journal_format
   metadata:
@@ -1533,7 +1533,7 @@
   header_region:
     full:
       upper-left-aligned:
-        type: plain
+        type: icon
 
 - id: journal_academic_discipline
   ris:

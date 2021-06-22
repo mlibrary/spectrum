@@ -153,7 +153,7 @@ fields:
   - id
   - allfields
   - mirlyn_format
-  - result_number
+  - position
   - marc_title
   - marc_ris_title
   - main_author

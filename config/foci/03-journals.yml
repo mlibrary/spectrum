@@ -64,7 +64,7 @@ has_holdings: false
 fields:
   - entity_id
   - content
-  - result_number
+  - position
   - title
   - online_journal_format
   - issn
