@@ -1072,7 +1072,8 @@
           field: title
         - uid: href
           name: href
-          field: link
+          field: openUrl
+          prepend: https://testing.mgetit.kubernetes.lib.umich.edu/?
     - field: LinkModel
       value: OpenURL
       fields:
@@ -1082,7 +1083,7 @@
         - uid: href
           name: href
           field: openUrl
-          prepend: https://mgetit.lib.umich.edu/?
+          prepend: https://testing.mgetit.kubernetes.lib.umich.edu/?
 
 - id: publisher
   csl:
@@ -1161,10 +1162,10 @@
     short_desc: Access URL
   uid: access_url
   type: summon_access_url
-  model_field: LinkModel
+  model_field: open_url
   direct_link_field: link
   openurl_field: open_url
-  openurl_root: https://mgetit.lib.umich.edu/resolve
+  openurl_root: https://testing.mgetit.kubernetes.lib.umich.edu/resolve
 
 - id: publication_place
   csl:
@@ -3681,10 +3682,10 @@
   uid: resource_access
   type: summon_resource_access
   headings: [ 'Action', 'Description' ]
-  model_field: LinkModel
+  model_field: open_url
   direct_link_field: link
   openurl_field: open_url
-  openurl_root: https://mgetit.lib.umich.edu/resolve
+  openurl_root: https://testing.mgetit.kubernetes.lib.umich.edu/resolve
 
 - id: catalog_resource_access
   uid: resource_access

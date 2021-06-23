@@ -219,7 +219,7 @@ fields:
   - year_of_publication
   - marc_record
   - display_date
-  - catalog_resource_access
+#  - catalog_resource_access
   - marc_300_a
   - marc_264_b
   - marc_856_u
