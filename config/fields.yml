@@ -3675,22 +3675,22 @@
     aggregator: online_resource
     fields:
       - label: link_text
-        tag: "856"
+        tag: "E56|856"
         sub: "y"
         default: Available online
       - label: href
-        tag: "856"
+        tag: "E56|856"
         sub: "u"
       - label: source
-        tag: "856"
+        tag: "E56|856"
         sub: "z"
       - label: description
-        tag: "856"
+        tag: "E56|856"
         sub: "3"
       - label: id
         tag: "001"
       - label: "datastore"
-        tag: "856"
+        tag: "E56|856"
         sub: "^"
         default: "mirlyn"
       - label: format
