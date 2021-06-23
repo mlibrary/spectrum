@@ -58,7 +58,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 62392a697dfb33eeacbea9cf9b299bf8bd62c024
+  revision: a2005e171961d7a15e22ab6ff5b69b7b75850016
   branch: primo
   specs:
     spectrum-json (1.0.0)
@@ -330,7 +330,7 @@ GEM
     nokogiri (1.11.7)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
-    ox (2.14.4)
+    ox (2.14.5)
     parallel (1.12.1)
     parser (2.4.0.2)
       ast (~> 2.3)
