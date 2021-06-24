@@ -3686,6 +3686,16 @@
     - uid: outage
       spaced: smfield_outage
 
+- id: primo_resource_access
+  metadata:
+    name: Resource Access
+    short_desc: Resource Access
+  uid: resource_access
+  type: primo_resource_access
+  headings: [ 'Action', 'Description' ]
+  link_text: Go to item
+  openurl_root: https://testing.mgetit.kubernetes.lib.umich.edu/resolve
+
 - id: summon_resource_access
   metadata:
     name: Resource Access

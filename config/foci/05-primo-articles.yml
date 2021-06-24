@@ -53,6 +53,7 @@ fields:
 - doi
 - pmid
 - oclcid
+- primo_resource_access
 
 facets:
 - jtitle
