@@ -3619,6 +3619,17 @@
     full:
       type: plain
 
+- id: holdings_resource_access
+  uid: resource_access
+  metadata:
+    name: Resource Access
+    short_desc: Resource Access
+  name: online journals
+  type: holdings_resource_access
+  link_text: Go to online journal
+  field: hol
+  headings: [ 'Action', 'Description' ]
+
 - id: journal_resource_access
   uid: resource_access
   metadata:
