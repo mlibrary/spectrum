@@ -11,8 +11,8 @@ git clone git@github.com:mlibrary/spectrum-config.git spectrum/gems/spectrum-con
 git clone git@github.com:mlibrary/spectrum-json.git spectrum/gems/spectrum-json
 cd spectrum
 cp /path/to/env-file .env
-docker-compose build
-docker-compose run --rm -u 0 web bash -c 'chown -R "${RUNTIME_UID_GID}" "${BUNDLE_PATH}"'
+docker-compose up --build --no-start
+docker-compose run --rm -u 0 web bash -c 'chown -R "${UID}:${GID}" "${BUNDLE_PATH}"'
 docker-compose run --rm web bundle install
 docker-compose run --rm web bundle exec rake 'search[v1.14.21,local]'
 docker-compose start web && docker attach "$(docker-compose ps -q web)"
