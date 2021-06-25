@@ -1,15 +1,23 @@
 FROM ruby:2.6
 
 #Set up variables for creating a user to run the app in the container
+ARG UID
+ARG GID
 ARG UNAME=app
 ENV APP_HOME /app
 ENV BUNDLE_PATH /bundle
 
 #Create the group for the user
-RUN groupadd ${UNAME}
+RUN if [ x"${GID}" != x"" ] ; \
+    then groupadd ${UNAME} -g ${GID} -o ; \
+    else groupadd ${UNAME} ; \
+    fi
 
 #Create the User and assign ${APP_HOME} as its home directory
-RUN useradd -m -d ${APP_HOME} -g ${UNAME} -s /bin/bash ${UNAME}
+RUN if [ x"${UID}" != x"" ] ; \
+    then  useradd -m -d ${APP_HOME} -u ${UID} -o -g ${UNAME} -s /bin/bash ${UNAME} ; \
+    else useradd -m -d ${APP_HOME} -g ${UNAME} -s /bin/bash ${UNAME} ; \
+    fi
 
 WORKDIR $APP_HOME
 
