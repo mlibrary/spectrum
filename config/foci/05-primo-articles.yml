@@ -36,8 +36,9 @@ fields:
 - id
 - position
 - title
-- format
-- author
+- primo_format
+- creator
+- primo_published_brief
 - abstract
 - creationdate
 - pages
@@ -46,14 +47,17 @@ fields:
 - volume
 - issue 
 - genre
-- issn
-- summon_isbn
-- eissn
-- eisbn
+- primo_issn
+- primo_eissn
+- primo_isbn
+- primo_eisbn
 - doi
-- pmid
 - oclcid
+- pmid
+- language
+- primo_subject
 - primo_resource_access
+- primo_times_cited
 
 facets:
 - jtitle
@@ -64,5 +68,6 @@ facets:
 - tlevel
 - newrecords
 - creationdate
+- format
 #- creatorcontrib
 #- collection

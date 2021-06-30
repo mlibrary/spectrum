@@ -41,13 +41,13 @@
   header_region:
     preview:
       main-left-aligned:
-        type: plain 
+        type: plain
     medium:
       main-left-aligned:
-        type: plain 
+        type: plain
     full:
       main-left-aligned:
-        type: plain 
+        type: plain
 
 - id: summon_title
   csl:
@@ -75,13 +75,13 @@
   header_region:
     preview:
       main-left-aligned:
-        type: plain 
+        type: plain
     medium:
       main-left-aligned:
-        type: plain 
+        type: plain
     full:
       main-left-aligned:
-        type: plain 
+        type: plain
 
 - id: summon_openurl
   uid: openurl
@@ -386,6 +386,25 @@
     full:
       type: plain
 
+- id: primo_isbn
+  csl:
+    id: ISBN
+    type: array
+  z3988:
+    id: rft_id
+    namespace: "urn:ISBN:"
+  ris:
+    - SN
+  uid: isbn
+  field: ISBN
+  searchable: false
+  metadata:
+    name: ISBN
+    short_desc: ISBN
+  metadata_component:
+    full:
+      type: plain
+
 - id: summon_isbn
   csl:
     id: ISBN
@@ -424,6 +443,25 @@
     full:
       type: plain
 
+- id: primo_eisbn
+  csl:
+    id: ISBN
+    type: array
+  ris:
+    - SN
+  z3988:
+    id: rft_id
+    namespace: "urn:ISBN:"
+  field: eisbn
+  uid: eisbn
+  searchable: false
+  metadata:
+    name: EISBN
+    short_desc: EISBN
+  metadata_component:
+    full:
+      type: plain
+
 - id: summon_issn
   csl:
     id: ISSN
@@ -441,7 +479,41 @@
     full:
       type: plain
 
+- id: primo_issn
+  csl:
+    id: ISSN
+    type: array
+  z3988:
+    id: rft_id
+    namespace: "urn:ISSN:"
+  uid: issn
+  field: issn
+  searchable: false
+  metadata:
+    name: ISSN
+    short_desc: ISSN
+  metadata_component:
+    full:
+      type: plain
+
 - id: summon_eissn
+  csl:
+    id: ISSN
+    type: array
+  z3988:
+    id: rft_id
+    namespace: "urn:ISSN:"
+  field: EISSN
+  uid: eissn
+  searchable: false
+  metadata:
+    name: EISSN
+    short_desc: EISSN
+  metadata_component:
+    full:
+      type: plain
+
+- id: primo_eissn
   csl:
     id: ISSN
     type: array
@@ -1294,6 +1366,25 @@
       upper-left-aligned:
         type: icon
 
+- id: primo_format
+  field: format
+  metadata:
+    name: Format
+    short_desc: Format
+  has_html: true
+  facet:
+    expanded: true
+  metadata_component:
+    preview:
+      type: icon
+    medium:
+      type: icon
+  header_region:
+    full:
+      upper-left-aligned:
+        type: icon
+
+
 - id: mirlyn_csl_type
   csl:
     id: type
@@ -1342,6 +1433,23 @@
   ris:
     - KW
   field: SubjectTerms
+  facet:
+    expanded: true
+  uid: subject
+  metadata:
+    name: Subject
+    short_desc: Subject
+  searchable: true
+  metadata_component:
+    full:
+      type: search1
+      scope: subject
+      variant: filtered
+
+- id: primo_subject
+  ris:
+    - KW
+  field: topic
   facet:
     expanded: true
   uid: subject
@@ -1960,13 +2068,13 @@
   header_region:
     preview:
       main-left-aligned:
-        type: plain 
+        type: plain
     medium:
       main-left-aligned:
-       type: plain 
+       type: plain
     full:
       main-left-aligned:
-        type: plain 
+        type: plain
 
 - id: marc_ris_title
   csl:
@@ -3594,6 +3702,9 @@
 - id: pmid
   metadata:
     name: PMID
+  metadata_component:
+    full:
+      type: plain
 
 - id: display_date
   csl:
@@ -3777,10 +3888,44 @@
     name: New Records
     short_desc: New Records
 
+- id: creator
+  uid: author
+  field: creator
+  metadata:
+    name: Author
+    short_desc: Creator
+  metadata_component:
+    preview:
+      type: plain
+    medium:
+      type: plain
+    full:
+      type: plain
+
+- id: primo_published_brief
+  type: primo_published_brief
+  metadata:
+    name: Published
+    short_desc: Published
+  metadata_component:
+    preview:
+      type: plain
+    medium:
+      type: plain
+    full:
+      type: plain
+
 - id: creationdate
   metadata:
     name: Creation Date
     short_desc: Creation Date
+  metadata_component:
+    preview:
+      type: plain
+    medium:
+      type: plain
+    full:
+      type: plain
 
 - id: oclcid
   metadata:
@@ -3790,3 +3935,57 @@
     full:
       type: plain
 
+- id: primo_published_brief
+  uid: published_brief
+  metadata:
+    name: Published
+  type: formatted_article_published
+  pub_title_field: jtitle
+  fields:
+    jtitle:
+      field: jtitle
+    volume:
+      field: volume
+    issue:
+      field: issue
+  metadata_component:
+    medium:
+      type: plain
+    full:
+      type: plain
+
+- id: primo_pages
+  uid: pages
+  field: pages
+  csl:
+    id: page
+  z3988:
+    id: rft.pages
+  metadata:
+    name: Pages
+  metadata_component:
+    medium:
+      type: plain
+    full:
+      type: plain
+
+- id: primo_times_cited
+  type: primo_times_cited
+  metadata:
+    name: Times Cited
+  fields:
+    - name: Web of Science
+      href: ISICitedReferencesURI
+      count: ISICitedReferencesCount
+    - name: Scopus
+      href: ScopusCitedReferencesURI
+      count: ScopusCitedReferencesCount
+  metadata_component:
+    medium:
+      type: href_linked
+      href_field: href
+      text_field: text
+    full:
+      type: href_linked
+      href_field: href
+      text_field: text
