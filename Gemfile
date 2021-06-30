@@ -25,11 +25,11 @@ source 'https://rubygems.org' do
 
   gem 'spectrum-config',
     git: 'https://github.com/mlibrary/spectrum-config',
-    branch: 'master'
+    branch: 'callnumber_browse'
 
   gem 'spectrum-json',
     git: 'https://github.com/mlibrary/spectrum-json',
-    branch: 'master'
+    branch: 'callnumber_browse'
 
   gem 'mlibrary_search_parser',
     git: 'https://github.com/mlibrary/mlibrary_search_parser',
