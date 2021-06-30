@@ -3890,17 +3890,23 @@
 
 - id: creator
   uid: author
-  field: creator
+  field: creatorcontrib
   metadata:
     name: Author
     short_desc: Creator
   metadata_component:
     preview:
-      type: plain
+      type: search1
+      variant: fielded
+      scope: author
     medium:
-      type: plain
+      type: search1
+      variant: fielded
+      scope: author
     full:
-      type: plain
+      type: search1
+      variant: fielded
+      scope: author
 
 - id: primo_published_brief
   type: primo_published_brief
