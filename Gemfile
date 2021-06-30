@@ -35,6 +35,10 @@ source 'https://rubygems.org' do
     git: 'https://github.com/mlibrary/mlibrary_search_parser',
     branch: 'master'
 
+  gem "callnumber_collation",
+      git: "https://github.com/billdueber/callnumber_collation",
+      branch: 'main'
+
   gem 'aleph',
     git: 'https://github.com/mlibrary/aleph',
     branch: 'master'
