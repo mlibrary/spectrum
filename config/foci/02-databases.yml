@@ -59,7 +59,7 @@ sorts:
 # i.e. solr_field_name => uid used in fields.yml
 fields:
   - id
-  - result_number
+  - position
   - title
   - db_format
   - special_message

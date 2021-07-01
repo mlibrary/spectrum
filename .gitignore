@@ -42,6 +42,7 @@ token.txt
 /.ssh
 /public
 /gems
-/.bash_history
 /.local
 /.wget-hsts
+.bash_history
+.byebug_history

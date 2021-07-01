@@ -4,7 +4,11 @@ services:
   web:
     stdin_open: true
     tty: true
-    build: .
+    build:
+      context: .
+      args:
+        - UID=${UID}
+        - GID=${GID}
     command: bash -c 'rm -f tmp/pids/server.pid && bundle exec rails s -p ${RAILS_PORT} -b ${RAILS_BIND}'
     env_file:
       - .env
@@ -13,6 +17,6 @@ services:
     - bundle:/bundle
     ports:
     - "3000:3000"
-    user: ${RUNTIME_UID_GID}
+    user: ${UID}:${GID}
 volumes:
   bundle:

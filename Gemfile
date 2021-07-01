@@ -13,6 +13,7 @@ source 'https://rubygems.org' do
   gem 'exlibris-aleph', '~>2.0.4'
   gem 'puma'
   gem 'parslet'
+  gem 'execjs', '~> 2.7.0'
 
   gem 'ipresolver',
     git: 'https://github.com/mlibrary/ipresolver',
@@ -25,11 +26,15 @@ source 'https://rubygems.org' do
 
   gem 'spectrum-config',
     git: 'https://github.com/mlibrary/spectrum-config',
-    branch: 'callnumber_browse'
+    branch: 'callnumber_browse_bertrama'
 
   gem 'spectrum-json',
     git: 'https://github.com/mlibrary/spectrum-json',
-    branch: 'callnumber_browse'
+    branch: 'callnumber_browse_bertrama'
+
+  gem 'alma_rest_client',
+    git: 'https://github.com/mlibrary/alma_rest_client',
+    branch: 'main'
 
   gem 'mlibrary_search_parser',
     git: 'https://github.com/mlibrary/mlibrary_search_parser',
@@ -98,7 +103,6 @@ source 'https://rubygems.org' do
 
   group :development do
     gem 'rbtrace'
-    gem 'pry'
     gem 'pry-byebug', platforms: :mri
     gem 'pry-rails'
     gem 'rerun'

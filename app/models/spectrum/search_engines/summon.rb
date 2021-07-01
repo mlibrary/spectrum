@@ -147,6 +147,12 @@ module Spectrum
           ### THIS is the actual call to the Summon service to do the search
           @search = @service.search(@params)
 
+          # Inject the 1-offset position into each document in the results.
+          starting_position = (@search.query.page_number - 1) * @search.query.page_size + 1
+          @search.documents.each.with_index(starting_position) do |doc, index|
+            doc.src['position'] = index
+          end
+
           # if do_benchmarking
           #   bench.output
           # end
