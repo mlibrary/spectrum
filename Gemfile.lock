@@ -65,7 +65,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: f36449d55a7da037cbd0ef8e17db31dbab671eec
+  revision: 18c657f090fd327c333287a80770ad7d42cd3399
   branch: callnumber_browse_bertrama
   specs:
     spectrum-json (1.0.0)
