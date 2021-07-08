@@ -683,6 +683,7 @@
       - not_checked_out?
       - not_missing?
       - reopened?
+      - nil?
     bib:
       - not_etas?
 
@@ -732,6 +733,7 @@
       - not_missing?
       - not_on_order?
       - standard_pickup?
+      - nil?
     bib:
       - not_etas?
 
@@ -781,6 +783,7 @@
       - on_order?
       - not_checked_out?
       - not_missing?
+      - nil?
     bib:
       - not_etas?
 
@@ -834,6 +837,7 @@
       - not_missing?
       - not_checked_out?
       - not_on_order?
+      - nil?
     bib:
       - not_etas?
 
@@ -888,6 +892,7 @@
       - not_missing?
       - not_checked_out?
       - on_order?
+      - nil?
     bib:
       - not_etas?
 
@@ -938,6 +943,7 @@
       - not_missing?
       - not_checked_out?
       - not_on_order?
+      - nil?
     bib:
       - not_etas?
 
@@ -989,6 +995,7 @@
       - not_missing?
       - not_checked_out?
       - on_order?
+      - nil?
     bib:
       - not_etas?
 
@@ -1040,6 +1047,7 @@
       - not_missing?
       - not_checked_out?
       - not_on_order?
+      - nil?
     bib:
       - not_etas?
 
@@ -1092,6 +1100,7 @@
       - not_missing?
       - not_checked_out?
       - on_order?
+      - nil?
     bib:
       - not_etas?
 
@@ -1143,6 +1152,7 @@
       - not_missing?
       - not_checked_out?
       - not_on_order?
+      - nil?
     bib:
       - not_etas?
 
@@ -1195,6 +1205,7 @@
       - not_missing?
       - not_checked_out?
       - on_order?
+      - nil?
     bib:
       - not_etas?
 
@@ -1246,6 +1257,7 @@
       - not_missing?
       - not_checked_out?
       - not_on_order?
+      - nil?
     bib:
       - not_etas?
 
@@ -1298,6 +1310,7 @@
       - not_missing?
       - not_checked_out?
       - on_order?
+      - nil?
     bib:
       - not_etas?
 
@@ -1349,6 +1362,7 @@
       - not_missing?
       - not_checked_out?
       - not_on_order?
+      - nil?
     bib:
       - not_etas?
 
@@ -1399,6 +1413,7 @@
       - not_missing?
       - not_checked_out?
       - not_on_order?
+      - nil?
     bib:
       - not_etas?
 
@@ -1449,5 +1464,6 @@
       - on_order?
       - not_missing?
       - not_checked_out?
+      - nil?
     bib:
       - not_etas?
