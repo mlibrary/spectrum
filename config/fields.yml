@@ -1919,6 +1919,23 @@
       - tag: "520"
         sub: '[abc3]'
 
+- id: title_display
+  uid: title
+  metadata:
+    name: Title
+    short_desc: Title
+  query_field: search_title
+  header_region:
+    preview:
+      main-left-aligned:
+        type: plain
+    medium:
+      main-left-aligned:
+       type: plain
+    full:
+      main-left-aligned:
+        type: plain
+
 - id: marc_title
   uid: title
   metadata:
