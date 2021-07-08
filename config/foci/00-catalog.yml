@@ -154,7 +154,7 @@ fields:
   - allfields
   - mirlyn_format
   - position
-  - marc_title
+  - title_display
   - marc_ris_title
   - main_author
   - preferred_title
