@@ -26,11 +26,11 @@ source 'https://rubygems.org' do
 
   gem 'spectrum-config',
     git: 'https://github.com/mlibrary/spectrum-config',
-    branch: 'primo'
+    branch: 'callnumber_browse_bertrama'
 
   gem 'spectrum-json',
     git: 'https://github.com/mlibrary/spectrum-json',
-    branch: 'primo'
+    branch: 'callnumber_browse_bertrama'
 
   gem 'alma_rest_client',
     git: 'https://github.com/mlibrary/alma_rest_client',
@@ -39,6 +39,10 @@ source 'https://rubygems.org' do
   gem 'mlibrary_search_parser',
     git: 'https://github.com/mlibrary/mlibrary_search_parser',
     branch: 'master'
+
+  gem "callnumber_collation",
+      git: "https://github.com/billdueber/callnumber_collation",
+      branch: 'main'
 
   gem 'aleph',
     git: 'https://github.com/mlibrary/aleph',

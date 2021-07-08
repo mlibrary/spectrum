@@ -10,6 +10,13 @@ GIT
       sequel
 
 GIT
+  remote: https://github.com/billdueber/callnumber_collation
+  revision: a72b080154a9f0a49ea971b253ff5fe3ad4f6260
+  branch: main
+  specs:
+    callnumber_collation (0.1.0)
+
+GIT
   remote: https://github.com/mlibrary/aleph
   revision: c02fa3716652c54e4f60b67ec024a4984cde455c
   branch: master
@@ -46,8 +53,8 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-config
-  revision: 70d502856a25867ef99c52904b5cc225230f7aa5
-  branch: primo
+  revision: d661b93122c5f666869b64efd32e83547c2f2c22
+  branch: callnumber_browse_bertrama
   specs:
     spectrum-config (1.0.0)
       activesupport
@@ -58,8 +65,8 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 010429edbace61b0c9fddfb18a58414ac18f6440
-  branch: primo
+  revision: 18c657f090fd327c333287a80770ad7d42cd3399
+  branch: callnumber_browse_bertrama
   specs:
     spectrum-json (1.0.0)
       activesupport
@@ -522,6 +529,7 @@ DEPENDENCIES
   blacklight (~> 5.3.0)!
   blacklight-marc!
   bootstrap-sass (>= 3.4.1)!
+  callnumber_collation!
   cancan!
   capybara!
   coffee-rails!
