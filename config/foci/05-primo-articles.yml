@@ -37,10 +37,9 @@ fields:
 - position
 - title
 - primo_format
-- creator
-- primo_published_brief
-- abstract
+- primo_author
 - creationdate
+- primo_published_brief
 - pages
 - publisher
 - jtitle
@@ -58,16 +57,18 @@ fields:
 - primo_subject
 - primo_resource_access
 - primo_times_cited
+- abstract
 
 facets:
-- jtitle
-- lang
-- topic
-- rtype
-- domain
-- tlevel
-- newrecords
+- primo_scholarly_articles
+- primo_exclude_newspaper_articles
+- primo_available_online
+- primo_open_access
+- primo_library_materials
+- primo_format
+- primo_subject
 - creationdate
-- format
+- primo_language
+
 #- creatorcontrib
 #- collection
