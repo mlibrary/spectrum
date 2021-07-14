@@ -1120,6 +1120,11 @@
   field: edition
   searchable: true
   sortable: false
+  header_region:
+    callno_browse:
+      main-right:
+        type: plain
+
 
 - id: callnumber
   csl:
@@ -1134,6 +1139,10 @@
   field: callnumber
   searchable: true
   sortable: false
+  header_region:
+    callno_browse:
+      main-left:
+        type: plain
 
 - id: building
   metadata:
@@ -1935,6 +1944,16 @@
     full:
       main-left-aligned:
         type: plain
+    callno_browse:
+      main-right:
+        type: plain
+    subject_browse:
+      main-right:
+        type: plain
+    author_browse:
+      main-right:
+        type: plain
+
 
 - id: marc_title
   uid: title
@@ -3378,6 +3397,10 @@
     preview:
       main-left-aligned:
         type: plain
+    callno_browse:
+      main-right:
+        type: plain
+
 
 - id: published_brief
   metadata:
