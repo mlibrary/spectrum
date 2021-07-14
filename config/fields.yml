@@ -3875,20 +3875,26 @@
     - id: proxy_prefix
       method: proxy_prefix
 
-- id: lang
+- id: primo_language
+  uid: language
+  field: lang
   metadata:
     name: Language
     short_desc: Language
 
-#- id: topic
-#  metadata:
-#    name: Topic
-#    short_desc: Topic
-#
-- id: rtype
+- id: primo_subject
+  uid: subject
+  field: topic
   metadata:
-    name: Resource Type
-    short_desc: Type
+    name: Subject
+    short_desc: Subject
+
+- id: primo_format
+  uid: format
+  field: rtype
+  metadata:
+    name: Format
+    short_desc: Format
 
 - id: domain
   metadata:
@@ -3905,7 +3911,7 @@
     name: New Records
     short_desc: New Records
 
-- id: creator
+- id: primo_author
   uid: author
   field: creatorcontrib
   metadata:
@@ -3939,9 +3945,10 @@
       type: plain
 
 - id: creationdate
+  facet_field: creationdate
   metadata:
-    name: Creation Date
-    short_desc: Creation Date
+    name: Date
+    short_desc: Date
   metadata_component:
     preview:
       type: plain
@@ -4012,3 +4019,80 @@
       type: href_linked
       href_field: href
       text_field: text
+
+- id: primo_scholarly_articles
+  uid: scholarly_articles
+  metadata:
+    name: Articles from scholarly journals only
+    short_desc: Holdings Only
+  type: mapped_pseudo_facet
+  values:
+    - "true"
+    - 1
+    - "false"
+    - 1
+  mapping:
+    "true": "qInclude=facet_tlevel,exact,peer_reviewed"
+    "false": ""
+
+- id: primo_exclude_newspaper_articles
+  uid: exclude_newspaper_articles
+  metadata:
+    name: Exclude newspaper articles
+    short_desc: Holdings Only
+  type: mapped_pseudo_facet
+  values:
+    - "true"
+    - 1
+    - "false"
+    - 1
+  mapping:
+    "true": "qExclude=facet_rtype,exact,newspaper_articles"
+    "false": ""
+
+- id: primo_available_online
+  uid: available_online
+  metadata:
+    name: Available online
+    short_desc: Holdings Only
+  type: mapped_pseudo_facet
+  values:
+    - "true"
+    - 1
+    - "false"
+    - 1
+  mapping:
+    "true": "qInclude=facet_tlevel,exact,online_resources"
+    "false": ""
+
+- id: primo_open_access
+  uid: open_access
+  metadata:
+    name: Show open access only
+    short_desc: Holdings Only
+  type: mapped_pseudo_facet
+  values:
+    - "true"
+    - 1
+    - "false"
+    - 1
+  mapping:
+    "true": "qInclude=facet_tlevel,exact,open_access"
+    "false": ""
+
+- id: primo_library_materials
+  uid: library_materials
+  type: mapped_pseudo_facet
+  metadata:
+    name: U-M library materials only
+    short_desc: Holdings Only
+  facet:
+    selected: true
+  values:
+    - "true"
+    - 1
+    - "false"
+    - 1
+  mapping:
+    "true": "pcAvailability=true"
+    "false": "pcAvailability=false"
