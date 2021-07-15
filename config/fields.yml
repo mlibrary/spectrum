@@ -1514,6 +1514,7 @@
       variant: filtered
 
 - id: primo_subject
+  uid: subject
   ris:
     - KW
   field: topic
@@ -3957,12 +3958,12 @@
       method: proxy_prefix
 
 
-- id: primo_subject
-  uid: subject
-  field: topic
-  metadata:
-    name: Subject
-    short_desc: Subject
+#- id: primo_subject
+#  uid: subject
+#  field: topic
+#  metadata:
+#    name: Subject
+#    short_desc: Subject
 
 #- id: primo_format
 #  uid: format
@@ -4025,6 +4026,7 @@
   facet_field: creationdate
   reverse_facets: true
   facet:
+    expanded: true
     transform: date_range
   metadata:
     name: Date
@@ -4181,6 +4183,8 @@
   uid: language
   field: language
   facet_field: lang
+  facet:
+    expanded: true
   ris:
     - LA
   metadata:
