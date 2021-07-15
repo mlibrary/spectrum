@@ -40,7 +40,7 @@ fields:
 - primo_author
 - creationdate
 - primo_published_brief
-- pages
+- primo_pages
 - publisher
 - jtitle
 - volume
@@ -53,7 +53,7 @@ fields:
 - doi
 - oclcid
 - pmid
-- language
+- primo_language
 - primo_subject
 - primo_resource_access
 - primo_times_cited
