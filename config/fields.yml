@@ -4024,6 +4024,8 @@
   field: creationdate
   facet_field: creationdate
   reverse_facets: true
+  facet:
+    transform: date_range
   metadata:
     name: Date
     short_desc: Date

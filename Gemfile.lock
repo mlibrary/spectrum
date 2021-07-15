@@ -46,7 +46,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-config
-  revision: fba8dcc184de12cea13502f49c81d97637f0aec5
+  revision: 8b25e648299ee4028295dfc3fc864f96315d3ec1
   branch: primo
   specs:
     spectrum-config (1.0.0)
