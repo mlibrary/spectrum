@@ -4019,8 +4019,8 @@
     full:
       type: plain
 
-- id: creationdate
-  uid: date
+- id: primo_publication_date
+  uid: publication_date
   field: creationdate
   facets_field: creationdate
   reverse_facets: true
@@ -4098,8 +4098,8 @@
       href_field: href
       text_field: text
 
-- id: primo_scholarly_articles
-  uid: scholarly_articles
+- id: primo_is_scholarly
+  uid: is_scholarly
   metadata:
     name: Articles from scholarly journals only
     short_desc: Holdings Only
@@ -4113,8 +4113,8 @@
     "true": "qInclude=facet_tlevel,exact,peer_reviewed"
     "false": ""
 
-- id: primo_exclude_newspaper_articles
-  uid: exclude_newspaper_articles
+- id: primo_exclude_newspapers
+  uid: exclude_newspapers
   metadata:
     name: Exclude newspaper articles
     short_desc: Holdings Only
@@ -4143,8 +4143,8 @@
     "true": "qInclude=facet_tlevel,exact,online_resources"
     "false": ""
 
-- id: primo_open_access
-  uid: open_access
+- id: primo_is_open_access
+  uid: is_open_access
   metadata:
     name: Show open access only
     short_desc: Holdings Only
@@ -4158,8 +4158,8 @@
     "true": "qInclude=facet_tlevel,exact,open_access"
     "false": ""
 
-- id: primo_library_materials
-  uid: library_materials
+- id: primo_holdings_only
+  uid: holdings_only
   type: mapped_pseudo_facet
   metadata:
     name: U-M library materials only
