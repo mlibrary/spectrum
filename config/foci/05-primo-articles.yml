@@ -59,6 +59,9 @@ fields:
 - primo_times_cited
 - abstract
 
+# Searching
+- all_fields
+
 facets:
 - primo_is_scholarly
 - primo_exclude_newspapers

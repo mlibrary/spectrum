@@ -397,7 +397,6 @@
     - SN
   uid: isbn
   field: ISBN
-  searchable: false
   metadata:
     name: ISBN
     short_desc: ISBN
@@ -488,7 +487,6 @@
     namespace: "urn:ISSN:"
   uid: issn
   field: issn
-  searchable: false
   metadata:
     name: ISSN
     short_desc: ISSN
