@@ -4022,7 +4022,7 @@
 - id: primo_publication_date
   uid: publication_date
   field: creationdate
-  facets_field: creationdate
+  facet_field: creationdate
   reverse_facets: true
   metadata:
     name: Date
