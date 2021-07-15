@@ -38,9 +38,9 @@ fields:
 - title
 - primo_format
 - primo_author
-- creationdate
+- primo_publication_date
 - primo_published_brief
-- pages
+- primo_pages
 - publisher
 - jtitle
 - volume
@@ -53,21 +53,21 @@ fields:
 - doi
 - oclcid
 - pmid
-- language
+- primo_language
 - primo_subject
 - primo_resource_access
 - primo_times_cited
 - abstract
 
 facets:
-- primo_scholarly_articles
-- primo_exclude_newspaper_articles
+- primo_is_scholarly
+- primo_exclude_newspapers
 - primo_available_online
-- primo_open_access
-- primo_library_materials
+- primo_is_open_access
+- primo_holdings_only
 - primo_format
 - primo_subject
-- creationdate
+- primo_publication_date
 - primo_language
 
 #- creatorcontrib

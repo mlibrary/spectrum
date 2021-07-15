@@ -53,7 +53,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-config
-  revision: 187a13d7cc350e13bd3ac6f193aea454d320728f
+  revision: 232aba750fdd9816c70c0b3d4432882ea4b34480
   branch: callnumber_browse_bertrama
   specs:
     spectrum-config (1.0.0)
