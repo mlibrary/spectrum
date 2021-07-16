@@ -1885,6 +1885,8 @@
     name: Available online
     short_desc: Available online
   type: pseudo_facet
+  facet:
+    type: checkbox
   values:
     - "true"
     - 1
@@ -1904,6 +1906,7 @@
   type: pseudo_facet
   facet:
     selected: true
+    type: checkbox
   values:
     - "true"
     - 1
@@ -1920,6 +1923,7 @@
   type: pseudo_facet
   facet:
     selected: true
+    type: checkbox
   values:
     - "true"
     - 1
@@ -1941,6 +1945,8 @@
   mapping:
     "true": "s.fvf=ContentType,Newspaper,t"
     "false": ""
+  facet:
+    type: checkbox
 
 - id: is_scholarly
   field: IsScholarly
@@ -4106,6 +4112,8 @@
     name: Articles from scholarly journals only
     short_desc: Holdings Only
   type: mapped_pseudo_facet
+  facet:
+    type: checkbox
   values:
     - "true"
     - 1
@@ -4121,6 +4129,8 @@
     name: Exclude newspaper articles
     short_desc: Holdings Only
   type: mapped_pseudo_facet
+  facet:
+    type: checkbox
   values:
     - "true"
     - 1
@@ -4136,6 +4146,8 @@
     name: Available online
     short_desc: Holdings Only
   type: mapped_pseudo_facet
+  facet:
+    type: checkbox
   values:
     - "true"
     - 1
@@ -4151,6 +4163,8 @@
     name: Show open access only
     short_desc: Holdings Only
   type: mapped_pseudo_facet
+  facet:
+    type: checkbox
   values:
     - "true"
     - 1
@@ -4168,6 +4182,7 @@
     short_desc: Holdings Only
   facet:
     selected: true
+    type: checkbox
   values:
     - "true"
     - 1

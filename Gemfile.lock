@@ -58,14 +58,13 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 010429edbace61b0c9fddfb18a58414ac18f6440
+  revision: f7b9f1ee97e962e5b8e6d88001c9d0896baf16f5
   branch: primo
   specs:
     spectrum-json (1.0.0)
       activesupport
       dotenv
       execjs
-      exlibris-aleph
       httparty
       json-schema
       lru_redux

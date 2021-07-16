@@ -68,7 +68,6 @@ PATH
       activesupport
       dotenv
       execjs
-      exlibris-aleph
       httparty
       json-schema
       lru_redux
