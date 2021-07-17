@@ -113,6 +113,17 @@ search_fields:
     pf: publishDate
     qf: publishDate
 
+  # NOTE that title_starts_with is hard-coded to always be sent as a phrase (by manually
+  # adding double-quotes around it) in catalog_controller. This is ancient spectrum code
+  # not written by us. The title_l field by itself will *not* work as expected when in the 
+  # qf, so q=one two qf=title_l in the solr admin console will find everything where "one"
+  # is the first word and "two" is the second. 
+  #
+  # This should be fixed with a change to the query parser with some sort of a 
+  # "force phrase" configuration, but how to do that well in the presence of 
+  # field-typed booleans, e.g., title_l:(huck finn OR tom sawyer), will need some
+  # work.
+
   title_starts_with:
     pf: serialTitle_common_l^10 title_l^5
     qf: title_l
