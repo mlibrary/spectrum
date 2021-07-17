@@ -1885,8 +1885,6 @@
     name: Available online
     short_desc: Available online
   type: pseudo_facet
-  facet:
-    type: checkbox
   values:
     - "true"
     - 1
@@ -1906,7 +1904,6 @@
   type: pseudo_facet
   facet:
     selected: true
-    type: checkbox
   values:
     - "true"
     - 1
