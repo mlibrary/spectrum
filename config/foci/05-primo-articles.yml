@@ -12,10 +12,28 @@ sorts:
   date_desc: summon_date_desc
 new_parser: true
 search_fields:
+  all_fields:
+    pf: .
+    qf: .
+  author:
+    pf: .
+    qf: .
   title:
     pf: .
     qf: .
   contributor:
+    pf: .
+    qf: .
+  subject:
+    pf: .
+    qf: .
+  isbn:
+    pf: .
+    qf: .
+  issn:
+    pf: .
+    qf: .
+  date:
     pf: .
     qf: .
   any:
@@ -60,7 +78,7 @@ fields:
 - abstract
 
 # Searching
-- all_fields
+- primo_all_fields
 
 facets:
 - primo_is_scholarly

@@ -656,7 +656,7 @@
         value: "{$record_id}"
       - type: hidden
         name: item
-        value: "{$full_item_key}"
+        value: "{$holding_id}/{$item_id}"
       - type: select
         label: "Pickup location"
         name: pickup_location
@@ -705,7 +705,7 @@
         value: "{$record_id}"
       - type: hidden
         name: item
-        value: "{$full_item_key}"
+        value: "{$holding_id}/{$item_id}"
       - type: select
         label: "Pickup location"
         name: pickup_location
@@ -755,7 +755,7 @@
         value: "{$record_id}"
       - type: hidden
         name: item
-        value: "{$full_item_key}"
+        value: "{$holding_id}/{$item_id}"
       - type: select
         label: "Pickup location"
         name: pickup_location
@@ -804,7 +804,7 @@
         value: "{$record_id}"
       - type: hidden
         name: item
-        value: "{$full_item_key}"
+        value: "{$holding_id}/{$item_id}"
       - type: select
         label: "Pickup location"
         name: pickup_location
@@ -858,7 +858,7 @@
         value: "{$record_id}"
       - type: hidden
         name: item
-        value: "{$full_item_key}"
+        value: "{$holding_id}/{$item_id}"
       - type: select
         label: "Pickup location"
         name: pickup_location
@@ -911,7 +911,7 @@
         value: "{$record_id}"
       - type: hidden
         name: item
-        value: "{$full_item_key}"
+        value: "{$holding_id}/{$item_id}"
       - type: select
         label: "Pickup location"
         name: pickup_location
@@ -962,7 +962,7 @@
         value: "{$record_id}"
       - type: hidden
         name: item
-        value: "{$full_item_key}"
+        value: "{$holding_id}/{$item_id}"
       - type: select
         label: "Pickup location"
         name: pickup_location
@@ -1012,7 +1012,7 @@
         value: "{$record_id}"
       - type: hidden
         name: item
-        value: "{$full_item_key}"
+        value: "{$holding_id}/{$item_id}"
       - type: select
         label: "Pickup location"
         name: pickup_location
@@ -1064,7 +1064,7 @@
         value: "{$record_id}"
       - type: hidden
         name: item
-        value: "{$full_item_key}"
+        value: "{$holding_id}/{$item_id}"
       - type: select
         label: "Pickup location"
         name: pickup_location
@@ -1115,7 +1115,7 @@
         value: "{$record_id}"
       - type: hidden
         name: item
-        value: "{$full_item_key}"
+        value: "{$holding_id}/{$item_id}"
       - type: select
         label: "Pickup location"
         name: pickup_location
@@ -1167,7 +1167,7 @@
         value: "{$record_id}"
       - type: hidden
         name: item
-        value: "{$full_item_key}"
+        value: "{$holding_id}/{$item_id}"
       - type: select
         label: "Pickup location"
         name: pickup_location
@@ -1218,7 +1218,7 @@
         value: "{$record_id}"
       - type: hidden
         name: item
-        value: "{$full_item_key}"
+        value: "{$holding_id}/{$item_id}"
       - type: select
         label: "Pickup location"
         name: pickup_location
@@ -1270,7 +1270,7 @@
         value: "{$record_id}"
       - type: hidden
         name: item
-        value: "{$full_item_key}"
+        value: "{$holding_id}/{$item_id}"
       - type: select
         label: "Pickup location"
         name: pickup_location
@@ -1321,7 +1321,7 @@
         value: "{$record_id}"
       - type: hidden
         name: item
-        value: "{$full_item_key}"
+        value: "{$holding_id}/{$item_id}"
       - type: select
         label: "Pickup location"
         name: pickup_location
@@ -1372,7 +1372,7 @@
         value: "{$record_id}"
       - type: hidden
         name: item
-        value: "{$full_item_key}"
+        value: "{$holding_id}/{$item_id}"
       - type: select
         label: "Pickup location"
         name: pickup_location
@@ -1423,7 +1423,7 @@
         value: "{$record_id}"
       - type: hidden
         name: item
-        value: "{$full_item_key}"
+        value: "{$holding_id}/{$item_id}"
       - type: select
         label: "Pickup location"
         name: pickup_location

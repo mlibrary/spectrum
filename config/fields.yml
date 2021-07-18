@@ -4103,6 +4103,14 @@
       href_field: href
       text_field: text
 
+- id: primo_all_fields
+  uid: all_fields
+  field: any
+  metadata:
+    name: All Fields
+    short_desc: All fields
+  viewable: false
+
 - id: primo_is_scholarly
   uid: is_scholarly
   metadata:
