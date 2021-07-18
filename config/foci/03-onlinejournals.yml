@@ -226,6 +226,7 @@ fields:
   - marc_856_u
 # Search specific fields
   - title_starts_with
+  - browse_starts_with
   - call_number_starts_with
   - subject
   - isn
