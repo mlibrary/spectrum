@@ -202,6 +202,7 @@ fields:
   - favorites_tags
   - open_access_const
   - format
+  - keyword
 
 # Below this ??
   - mirlyn_published_year

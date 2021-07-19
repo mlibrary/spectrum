@@ -63,6 +63,7 @@ fields:
   - select_box
   - favorites_icon
   - favorites_tags
+  - keyword
 
 facets:
   ssfield_page_type: page_type

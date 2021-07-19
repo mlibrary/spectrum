@@ -21,6 +21,20 @@
     name: All Fields
     short_desc: All fields from the record
 
+- id: keyword
+  uid: keyword
+  query_field: ''
+  metadata:
+    name: Keyword
+  viewable: false
+
+- id: primo_keyword
+  uid: keyword
+  query_field: any
+  metadata:
+    name: Keyword
+  viewable: false
+
 - id: title
   csl:
     id: title

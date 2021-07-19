@@ -79,6 +79,7 @@ fields:
 
 # Searching
 - primo_all_fields
+- primo_keyword
 
 facets:
 - primo_is_scholarly
