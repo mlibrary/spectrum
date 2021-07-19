@@ -30,11 +30,11 @@ source 'https://rubygems.org' do
 
   gem 'spectrum-json',
     git: 'https://github.com/mlibrary/spectrum-json',
-    branch: 'primo'
+    branch: 'updating-alma_rest_client-api'
 
   gem 'alma_rest_client',
     git: 'https://github.com/mlibrary/alma_rest_client',
-    branch: 'main'
+    branch: 'post-with-body'
 
   gem 'mlibrary_search_parser',
     git: 'https://github.com/mlibrary/mlibrary_search_parser',

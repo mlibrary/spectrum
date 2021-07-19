@@ -57,7 +57,6 @@ PATH
     spectrum-config (1.0.0)
       activesupport
       htmlentities
-      httparty
       marc
       rails-html-sanitizer
 
