@@ -20,10 +20,10 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/alma_rest_client
-  revision: c73016c8466525c4cde647765cdc97eac01dd714
-  branch: main
+  revision: 39968fed3be48fa64812e59e6592ce43f704daad
+  tag: 1.0.1
   specs:
-    alma_rest_client (0.2.1)
+    alma_rest_client (1.0.1)
       httparty
       ox
 
@@ -58,11 +58,12 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 1d9feecb002c05aff92648afc5b7d8f772ac73d7
+  revision: 8bb2795ead5f9e544a78460fa7b70559cc9892b7
   branch: primo
   specs:
     spectrum-json (1.0.0)
       activesupport
+      alma_rest_client (~> 1.0.1)
       dotenv
       execjs
       httparty
