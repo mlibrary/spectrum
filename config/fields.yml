@@ -63,6 +63,36 @@
       main-left-aligned:
         type: plain
 
+- id: primo_title
+  uid: title
+  field: title
+  query_field: title
+  csl:
+    id: title
+  z3988:
+    id: rft.btitle
+  ris:
+    - T1
+    - TI
+  metadata:
+    name: Title
+    short_desc: Record title
+  filters:
+    - id: sanitize
+      method: sanitize
+    - id: trim
+      method: trim
+  header_region:
+    preview:
+      main-left-aligned:
+        type: plain
+    medium:
+      main-left-aligned:
+        type: plain
+    full:
+      main-left-aligned:
+        type: plain
+
 - id: summon_title
   csl:
     id: title
@@ -4009,7 +4039,7 @@
 
 - id: primo_author
   uid: author
-  field: creatorcontrib
+  field: creator
   metadata:
     name: Author
     short_desc: Creator
