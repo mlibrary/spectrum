@@ -26,11 +26,11 @@ source 'https://rubygems.org' do
 
   gem 'spectrum-config',
     git: 'https://github.com/mlibrary/spectrum-config',
-    branch: 'primo'
+    branch: 'master'
 
   gem 'spectrum-json',
     git: 'https://github.com/mlibrary/spectrum-json',
-    branch: 'primo'
+    branch: 'master'
 
   gem 'alma_rest_client',
     git: 'https://github.com/mlibrary/alma_rest_client',
