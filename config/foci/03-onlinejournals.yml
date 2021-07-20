@@ -202,6 +202,7 @@ fields:
   - favorites_tags
   - open_access_const
   - format
+  - keyword
 
 # Below this ??
   - mirlyn_published_year
@@ -219,12 +220,14 @@ fields:
   - year_of_publication
   - marc_record
   - display_date
-  - catalog_resource_access
+#  - catalog_resource_access
+  - holdings_resource_access
   - marc_300_a
   - marc_264_b
   - marc_856_u
 # Search specific fields
   - title_starts_with
+  - browse_starts_with
   - call_number_starts_with
   - subject
   - isn

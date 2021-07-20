@@ -83,6 +83,7 @@ fields:
   - permalink_links
   - db_publisher
   - title_starts_with
+  - browse_starts_with
   - highly_recommended
   - database_resource_access
   - z3988_rft_val_fmt
@@ -95,6 +96,7 @@ fields:
   - select_box
   - favorites_icon
   - favorites_tags
+  - keyword
 
 facets:
   - db_academic_discipline

@@ -26,7 +26,7 @@ RUN mkdir -p ${BUNDLE_PATH} ${APP_HOME}/public ${APP_HOME}/tmp && chown -R ${UNA
 
 COPY Gemfile* ${APP_HOME}/
 
-RUN gem install bundler
+RUN gem install bundler:1.17.3
 RUN bundle install
 
 COPY . ${APP_HOME}

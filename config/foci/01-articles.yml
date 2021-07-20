@@ -72,6 +72,7 @@ fields:
   - summon_csl_type
 # For searching
   - all_fields
+  - keyword
   - pmid
 
 facets:

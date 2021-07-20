@@ -19,7 +19,7 @@ search_fields:
   author:
     qf: mainauthor^20 author^10 author2^5 author_top^2 author_rest^1
     pf: mainauthor^100 author^50 author2^20 author_top^5 author_rest^2
-  all_fields:
+  all_fields: &ALL_FIELDS
     qf: >-
       allfieldsProper^2
       allfields^1
@@ -68,6 +68,7 @@ search_fields:
             query({!dismax f=title_author v=$q mm="100%"}, 1), 0, 1, 1, 50
           ),
       )
+  keyword: *ALL_FIELDS
 
   series:
     pf: series^500 series2^50
@@ -113,6 +114,17 @@ search_fields:
     pf: publishDate
     qf: publishDate
 
+  # NOTE that title_starts_with is hard-coded to always be sent as a phrase (by manually
+  # adding double-quotes around it) in catalog_controller. This is ancient spectrum code
+  # not written by us. The title_l field by itself will *not* work as expected when in the 
+  # qf, so q=one two qf=title_l in the solr admin console will find everything where "one"
+  # is the first word and "two" is the second. 
+  #
+  # This should be fixed with a change to the query parser with some sort of a 
+  # "force phrase" configuration, but how to do that well in the presence of 
+  # field-typed booleans, e.g., title_l:(huck finn OR tom sawyer), will need some
+  # work.
+
   title_starts_with:
     pf: serialTitle_common_l^10 title_l^5
     qf: title_l
@@ -152,6 +164,7 @@ sorts:
 fields:
   - id
   - allfields
+  - keyword
   - mirlyn_format
   - position
   - title_display
@@ -235,7 +248,7 @@ fields:
   - year_of_publication
   - marc_record
   - display_date
-  - catalog_resource_access
+#  - catalog_resource_access
   - marc_300_a
   - marc_264_b
   - marc_856_u

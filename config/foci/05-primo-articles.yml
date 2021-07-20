@@ -1,0 +1,96 @@
+---
+id: primo
+href:
+  field: id
+metadata:
+  name: Articles
+  short_desc: "Search for articles, books, journals, and more"
+source: primo
+sorts:
+  relevance: summon_relevance
+  date_asc: summon_date_asc
+  date_desc: summon_date_desc
+new_parser: true
+search_fields:
+  all_fields:
+    pf: .
+    qf: .
+  author:
+    pf: .
+    qf: .
+  title:
+    pf: .
+    qf: .
+  contributor:
+    pf: .
+    qf: .
+  subject:
+    pf: .
+    qf: .
+  isbn:
+    pf: .
+    qf: .
+  issn:
+    pf: .
+    qf: .
+  date:
+    pf: .
+    qf: .
+  any:
+    pf: .
+    qf: .
+search_field_default: any
+search_attr_defaults:
+  mm: $default_mm
+  mm.autoRelax: $mm.autoRelax
+  tie: $tie
+solr_params:
+  default_mm: "2<-1 5<67%"
+  mm.autoRelax: true
+  tie: 0.1
+
+
+fields:
+- id
+- position
+- title
+- primo_format
+- primo_author
+- primo_publication_date
+- primo_published_brief
+- primo_pages
+- publisher
+- jtitle
+- volume
+- issue 
+- genre
+- primo_issn
+- primo_eissn
+- primo_isbn
+- primo_eisbn
+- doi
+- oclcid
+- pmid
+- primo_language
+- primo_subject
+- primo_resource_access
+- primo_times_cited
+- abstract
+
+# Searching
+- primo_all_fields
+- primo_keyword
+
+facets:
+- primo_is_scholarly
+- primo_exclude_newspapers
+- primo_available_online
+- primo_is_open_access
+- primo_holdings_only
+- primo_format
+- primo_subject
+- primo_publication_date
+- primo_language
+
+#- creatorcontrib
+#- collection

@@ -19,6 +19,15 @@ GIT
       nokogiri
 
 GIT
+  remote: https://github.com/mlibrary/alma_rest_client
+  revision: 39968fed3be48fa64812e59e6592ce43f704daad
+  tag: 1.0.1
+  specs:
+    alma_rest_client (1.0.1)
+      httparty
+      ox
+
+GIT
   remote: https://github.com/mlibrary/ipresolver
   revision: b374ae7307508b33db173b1b712e890be7412565
   branch: master
@@ -37,25 +46,26 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-config
-  revision: c739760714d6d76f2cba6e0e99d3d2a473598df2
+  revision: ca2a620b580026e8108e94ba4b9fb87cb160e43d
   branch: master
   specs:
     spectrum-config (1.0.0)
       activesupport
       htmlentities
+      httparty
       marc
       rails-html-sanitizer
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: ffc89fdfef9ea3097fd0e6ea6779965036c9d9a9
+  revision: 1441eb5040b1417bc2ddee8e83ad3e98e5b33902
   branch: master
   specs:
     spectrum-json (1.0.0)
       activesupport
+      alma_rest_client (~> 1.0.1)
       dotenv
       execjs
-      exlibris-aleph
       httparty
       json-schema
       lru_redux
@@ -171,7 +181,7 @@ GEM
     concord (0.1.5)
       adamantium (~> 0.2.0)
       equalizer (~> 0.0.9)
-    concurrent-ruby (1.1.8)
+    concurrent-ruby (1.1.9)
     crass (1.0.6)
     database_cleaner (1.6.2)
     debug_inspector (0.0.3)
@@ -269,7 +279,7 @@ GEM
       activesupport (>= 4)
       railties (>= 4)
       request_store (~> 1.0)
-    loofah (2.9.0)
+    loofah (2.10.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     lru_redux (1.1.0)
@@ -306,8 +316,8 @@ GEM
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0225)
-    mini_mime (1.0.2)
-    mini_portile2 (2.5.1)
+    mini_mime (1.1.0)
+    mini_portile2 (2.5.3)
     minitest (5.14.4)
     msgpack (1.2.2)
     multi_json (1.13.1)
@@ -317,9 +327,10 @@ GEM
     net-ldap (0.16.1)
     netrc (0.11.0)
     nio4r (2.5.7)
-    nokogiri (1.11.4)
+    nokogiri (1.11.7)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
+    ox (2.14.5)
     parallel (1.12.1)
     parser (2.4.0.2)
       ast (~> 2.3)
@@ -506,6 +517,7 @@ PLATFORMS
 
 DEPENDENCIES
   aleph!
+  alma_rest_client!
   binding_of_caller!
   blacklight (~> 5.3.0)!
   blacklight-marc!
@@ -516,6 +528,7 @@ DEPENDENCIES
   database_cleaner!
   dotenv-rails!
   exception_notification!
+  execjs (~> 2.7.0)!
   exlibris-aleph (~> 2.0.4)!
   factory_girl_rails!
   haml!
