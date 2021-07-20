@@ -36,6 +36,9 @@ search_fields:
   date:
     pf: .
     qf: .
+  keyword:
+    pf: .
+    qf: .
   any:
     pf: .
     qf: .
