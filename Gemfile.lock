@@ -36,8 +36,8 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/mlibrary_search_parser
-  revision: 54d815ad2713d19c1dcbd6bfa8c898a065478b26
-  branch: master
+  revision: dab019fc59763e9989f140f94ec8496c72dfcd0c
+  branch: wildcard_fix
   specs:
     mlibrary_search_parser (0.1.0)
       dotenv
