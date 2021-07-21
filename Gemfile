@@ -38,7 +38,7 @@ source 'https://rubygems.org' do
 
   gem 'mlibrary_search_parser',
     git: 'https://github.com/mlibrary/mlibrary_search_parser',
-    branch: 'wildcard_fix'
+    branch: 'master'
 
   gem 'aleph',
     git: 'https://github.com/mlibrary/aleph',
