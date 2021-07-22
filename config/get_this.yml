@@ -815,7 +815,7 @@
             disabled: true
           - value: AAEL
             name: "Art, Architecture, & Engineering Library"
-          - value: UGL
+          - value: SHAP
             name: "Shapiro Undergraduate Library"
       - type: date
         label: "Cancel this hold if item is not available before"
@@ -869,7 +869,7 @@
             disabled: true
           - value: AAEL
             name: "Art, Architecture, & Engineering Library"
-          - value: UGL
+          - value: SHAP
             name: "Shapiro Undergraduate Library"
       - type: date
         label: "Cancel this hold if item is not available before"
@@ -920,7 +920,7 @@
           - name: Select a pickup location
             value: 'select-a-pickup-location'
             disabled: true
-          - value: UGL
+          - value: SHAP
             name: "Shapiro Undergraduate Library"
       - type: date
         label: "Cancel this hold if item is not available before"
@@ -971,7 +971,7 @@
           - name: Select a pickup location
             value: 'select-a-pickup-location'
             disabled: true
-          - value: UGL
+          - value: SHAP
             name: "Shapiro Undergraduate Library"
       - type: date
         label: "Cancel this hold if item is not available before"
@@ -1021,7 +1021,7 @@
           - name: Select a pickup location
             value: 'select-a-pickup-location'
             disabled: true
-          - value: UGL
+          - value: SHAP
             name: "Shapiro Undergraduate Library"
       - type: date
         label: "Cancel this hold if item is not available before"
@@ -1073,7 +1073,7 @@
           - name: Select a pickup location
             value: 'select-a-pickup-location'
             disabled: true
-          - value: UGL
+          - value: SHAP
             name: "Shapiro Undergraduate Library"
       - type: date
         label: "Cancel this hold if item is not available before"
