@@ -4132,6 +4132,10 @@
     full:
       type: plain
 
+- id: alt_ids
+  metadata:
+    name: Alternative IDs
+
 - id: primo_times_cited
   type: primo_times_cited
   metadata:
