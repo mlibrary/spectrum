@@ -623,7 +623,7 @@
       lower-left-aligned:
         type: plain
 
-- id: db_brief_description_preview
+- id: db_brief_description_with_special_message
   ris:
     - N2
   type: priority
@@ -640,7 +640,7 @@
     preview:
       type: plain
 
-- id: db_brief_description_medium
+- id: db_brief_description_without_special_message
   ris:
     - N2
   field: teaser
@@ -653,6 +653,10 @@
   metadata_component:
     medium:
       type: plain
+  header_region:
+    full:
+      lower-left-aligned:
+        type: plain
 
 - id: special_message
   ris:
@@ -1455,6 +1459,8 @@
     video: Video
     archival_material_manuscript: Archival Material Manuscript
     dataset: Dataset
+    report: Report
+    standard: Standard
 
     articles: Articles
     newspaper_articles: Newspaper Articles
@@ -1463,7 +1469,7 @@
     dissertations: Dissertations
     patents: Patents
     journals: Journals
-    reference_entrys: Reference Entrys
+    reference_entrys: Reference Entries
     web_resources: Web Resources
     books: Books
     government_documents: Government Documents
@@ -1474,6 +1480,8 @@
     videos: Videos
     archival_material_manuscripts: Archival Material Manuscripts
     datasets: Datasets
+    reports: Reports
+    standards: Standards
 
     Articles: articles
     Newspaper Articles: newspaper_articles
@@ -1482,7 +1490,7 @@
     Dissertations: dissertations
     Patents: patents
     Journals: journals
-    Reference Entrys: reference_entrys
+    Reference Entries: reference_entrys
     Web Resources: web_resources
     Books: books
     Government Documents: government_documents
@@ -1493,6 +1501,8 @@
     Videos: videos
     Archival Material Manuscripts: archival_material_manuscripts
     Datasets: datasets
+    Reports: reports
+    Standards: standards
 
 - id: mirlyn_csl_type
   csl:

@@ -67,9 +67,8 @@ fields:
   - access_type
   - new
   - trial
-  - brief_description
-  - db_brief_description_preview
-  - db_brief_description_medium
+  - db_brief_description_with_special_message
+  - db_brief_description_without_special_message
   - permalink
   - alt_title
   - coverage
