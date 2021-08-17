@@ -62,6 +62,9 @@
     full:
       main-left-aligned:
         type: plain
+    callno_browse:
+      title:
+        type: plain
 
 - id: primo_title
   uid: title
@@ -91,6 +94,9 @@
         type: plain
     full:
       main-left-aligned:
+        type: plain
+    callno_browse:
+      title:
         type: plain
 
 - id: summon_title
@@ -125,6 +131,9 @@
         type: plain
     full:
       main-left-aligned:
+        type: plain
+    callno_browse:
+      title:
         type: plain
 
 - id: summon_openurl
@@ -338,6 +347,10 @@
   metadata:
     name: Date
     short_desc: Published by, publish date
+  header_region:
+    callno_browse:
+      published:
+        type: plain
 
 - id: cat_date
   metadata:
@@ -1241,7 +1254,7 @@
   sortable: false
   header_region:
     callno_browse:
-      main-right:
+      edition:
         type: plain
 
 
@@ -1260,7 +1273,7 @@
   sortable: false
   header_region:
     callno_browse:
-      main-left:
+      callnumber:
         type: plain
 
 - id: building
@@ -2190,15 +2203,8 @@
       main-left-aligned:
         type: plain
     callno_browse:
-      main-right:
+      title:
         type: plain
-    subject_browse:
-      main-right:
-        type: plain
-    author_browse:
-      main-right:
-        type: plain
-
 
 - id: marc_title
   uid: title
@@ -2224,6 +2230,9 @@
        type: plain
     full:
       main-left-aligned:
+        type: plain
+    callno_browse:
+      title:
         type: plain
 
 - id: marc_ris_title
@@ -2549,6 +2558,10 @@
       method: trim
     - id: trim2
       method: trim2
+  header_region:
+    callno_browse:
+      author:
+        type: plain
 
 - id: csl_contributor
   csl:
@@ -2693,6 +2706,10 @@
   metadata_component:
     full:
       type: plain
+  header_region:
+    callno_browse:
+      edition:
+        type: plain
 
 - id: series
   csl:
@@ -3643,7 +3660,7 @@
       main-left-aligned:
         type: plain
     callno_browse:
-      main-right:
+      published:
         type: plain
 
 
