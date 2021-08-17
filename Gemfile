@@ -30,7 +30,7 @@ source 'https://rubygems.org' do
 
   gem 'spectrum-json',
     git: 'https://github.com/mlibrary/spectrum-json',
-    branch: 'fix-ye-bugs'
+    branch: 'master'
 
   gem 'alma_rest_client',
     git: 'https://github.com/mlibrary/alma_rest_client',
