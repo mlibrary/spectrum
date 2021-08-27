@@ -50,10 +50,10 @@
     holding:
     - open_stacks?
     - on_shelf?
-    - can_request?  
+    - can_request?
 
-# Contactless Pickup (1 of 3)
-- label: Contactless Pickup
+# Contactless Pickup (1 of 4)
+- label: Contactless pickup at the library
   service_type: Library pick up
   duration: Expected availability 1-5 days
   description:
@@ -80,8 +80,8 @@
       - on_shelf?
       - can_request?
 
-# Contactless Pickup (2 of 3)
-- label: Contactless Pickup
+# Contactless Pickup (2 of 4)
+- label: Contactless pickup at the library
   service_type: Library pick up
   duration: Expected availability 1-10 days
   description:
@@ -110,8 +110,8 @@
       - on_shelf?
       - can_request?
 
-# Contactless Pickup (3 of 3)
-- label: Contactless Pickup
+# Contactless Pickup (3 of 4)
+- label: Contactless pickup at the library
   service_type: Library pick up
   duration: Expected availability 1-2 days
   description:
@@ -140,8 +140,37 @@
       - on_shelf?
       - can_request?
 
+# Contactless Pickup (4 of 4)
+- label: Contactless pickup at the library
+  service_type: Library pick up
+  duration: Click to see additional details
+  description:
+    heading: Policies and additional details
+    content:
+      - Delivery time varies for items with status ON ORDER and notification will be sent when this item is available. <a href="https://ill.lib.umich.edu/illiad/illiad.dll?">Please make an interlibrary loan request if you need this item quickly</a>.
+      - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
+      - Learn more about <a href="https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup">contactless pickup</a>.
+  form:
+    type: alma_hold
+    pickup_locations:
+      - value: AAEL
+        name: "Art, Architecture, & Engineering Library"
+      - value: SHAP
+        name: "Shapiro Undergraduate Library"
+      - value: MUSIC
+        name: "Music Library"
+      - value: DRBN
+        name: "Mardigan Library"
+      - value: FLINT
+        name: "Thompson Library"
+  grants:
+    holding:
+      - ann_arbor?
+      - on_order?
+      - can_request?
+
 # Departmental Delivery (1 of 2)
-- label: Have it Delivered
+- label: Have it delivered
   service_type: Document Delivery
   duration: Expected availability 1-7 days
   description:
@@ -164,7 +193,7 @@
       - can_request?
 
 # Departmental Delivery (2 of 2)
-- label: Have it Delivered
+- label: Have it delivered
   service_type: Document Delivery
   duration: Expected availability 3-10 days
   description:
@@ -209,7 +238,7 @@
     - can_scan?
     holding:
     - on_shelf?
-    
+
 
 # Interlibrary Loan (1 of 2)
 - label: Request a copy from another library (Interlibrary Loan (I.L.L.))
@@ -257,4 +286,4 @@
     - flint_dearborn?
     holding:
     - not_on_shelf?
-  
+
