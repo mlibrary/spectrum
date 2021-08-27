@@ -763,6 +763,7 @@
       - not_missing?
       - reopened?
       - not_building_use_only?
+      - not_in_reserves?
     bib:
       - not_etas?
 
@@ -813,6 +814,7 @@
       - not_on_order?
       - standard_pickup?
       - not_building_use_only?
+      - not_in_reserves?
     bib:
       - not_etas?
 
@@ -863,6 +865,7 @@
       - not_checked_out?
       - not_missing?
       - not_building_use_only?
+      - not_in_reserves?
     bib:
       - not_etas?
 
@@ -917,6 +920,7 @@
       - not_checked_out?
       - not_on_order?
       - not_building_use_only?
+      - not_in_reserves?
     bib:
       - not_etas?
 
@@ -972,6 +976,7 @@
       - not_checked_out?
       - on_order?
       - not_building_use_only?
+      - not_in_reserves?
     bib:
       - not_etas?
 
@@ -1023,6 +1028,7 @@
       - not_checked_out?
       - not_on_order?
       - not_building_use_only?
+      - not_in_reserves?
     bib:
       - not_etas?
 
@@ -1075,6 +1081,7 @@
       - not_checked_out?
       - on_order?
       - not_building_use_only?
+      - not_in_reserves?
     bib:
       - not_etas?
 
@@ -1127,6 +1134,7 @@
       - not_checked_out?
       - not_on_order?
       - not_building_use_only?
+      - not_in_reserves?
     bib:
       - not_etas?
 
@@ -1180,6 +1188,7 @@
       - not_checked_out?
       - on_order?
       - not_building_use_only?
+      - not_in_reserves?
     bib:
       - not_etas?
 
@@ -1232,6 +1241,7 @@
       - not_checked_out?
       - not_on_order?
       - not_building_use_only?
+      - not_in_reserves?
     bib:
       - not_etas?
 
@@ -1285,6 +1295,7 @@
       - not_checked_out?
       - on_order?
       - not_building_use_only?
+      - not_in_reserves?
     bib:
       - not_etas?
 
@@ -1337,6 +1348,7 @@
       - not_checked_out?
       - not_on_order?
       - not_building_use_only?
+      - not_in_reserves?
     bib:
       - not_etas?
 
@@ -1390,6 +1402,7 @@
       - not_checked_out?
       - on_order?
       - not_building_use_only?
+      - not_in_reserves?
     bib:
       - not_etas?
 
@@ -1441,6 +1454,7 @@
       - not_missing?
       - not_checked_out?
       - not_on_order?
+      - not_in_reserves?
     bib:
       - not_etas?
 
@@ -1492,6 +1506,7 @@
       - not_checked_out?
       - not_on_order?
       - not_building_use_only?
+      - not_in_reserves?
     bib:
       - not_etas?
 
@@ -1543,5 +1558,6 @@
       - not_missing?
       - not_checked_out?
       - not_building_use_only?
+      - not_in_reserves?
     bib:
       - not_etas?
