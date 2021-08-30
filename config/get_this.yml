@@ -50,6 +50,8 @@
     holding:
     - open_stacks?
     - on_shelf?
+    - not_missing?
+    - not_checked_out?
     - can_request?
 
 # Contactless Pickup (1 of 4)
@@ -75,10 +77,16 @@
       - value: FLINT
         name: "Thompson Library"
   grants:
+    patron:
+      - active?
     holding:
       - ann_arbor?
       - on_shelf?
       - can_request?
+      - not_missing?
+      - not_checked_out?
+      - not_building_use_only?
+      - not_in_reserves?
 
 # Contactless Pickup (2 of 4)
 - label: Contactless pickup at the library
@@ -109,6 +117,11 @@
       - flint?
       - on_shelf?
       - can_request?
+      - not_missing?
+      - not_checked_out?
+      - not_building_use_only?
+      - not_in_reserves?
+
 
 # Contactless Pickup (3 of 4)
 - label: Contactless pickup at the library
@@ -139,6 +152,10 @@
       - flint?
       - on_shelf?
       - can_request?
+      - not_missing?
+      - not_checked_out?
+      - not_building_use_only?
+      - not_in_reserves?
 
 # Contactless Pickup (4 of 4)
 - label: Contactless pickup at the library
@@ -168,6 +185,10 @@
       - ann_arbor?
       - on_order?
       - can_request?
+      - not_missing?
+      - not_checked_out?
+      - not_building_use_only?
+      - not_in_reserves?
 
 # Departmental Delivery (1 of 2)
 - label: Have it delivered
@@ -191,6 +212,10 @@
       - ann_arbor?
       - on_shelf?
       - can_request?
+      - not_missing?
+      - not_checked_out?
+      - not_building_use_only?
+      - not_in_reserves?
 
 # Departmental Delivery (2 of 2)
 - label: Have it delivered
@@ -214,6 +239,10 @@
       - flint?
       - on_shelf?
       - can_request?
+      - not_missing?
+      - not_checked_out?
+      - not_building_use_only?
+      - not_in_reserves?
 
 # Scan a portion (1 of 1)
 - label: Request to have a small portion scanned (Document Delivery)
@@ -233,11 +262,15 @@
         value: docdelarticle
   grants:
     patron:
-    - faculty_student_staff?
+      - faculty_student_staff?
     bib:
-    - can_scan?
+      - can_scan?
     holding:
-    - on_shelf?
+      - on_shelf?
+      - not_missing?
+      - not_checked_out?
+      - not_building_use_only?
+      - not_in_reserves?
 
 
 # Interlibrary Loan (1 of 2)
@@ -247,12 +280,12 @@
   description:
     heading: Policies and additional details
     content:
-    - By default, items are delivered to Shapiro Library for contactless pickup.
-    - Please note in your request if a physical copy cannot be used.
-    - Requests may be filled via equivalent electronic resources.
-    - Short-term loans
-    - Limited renewals
-    - "* Availability, checkout periods, and renewals depend on the lending institution."
+      - By default, items are delivered to Shapiro Library for contactless pickup.
+      - Please note in your request if a physical copy cannot be used.
+      - Requests may be filled via equivalent electronic resources.
+      - Short-term loans
+      - Limited renewals
+      - "* Availability, checkout periods, and renewals depend on the lending institution."
   form:
     type: illiad_request
     fields:
@@ -260,9 +293,9 @@
         value: docdelbook
   grants:
     patron:
-    - ann_arbor?
+      - ann_arbor?
     holding:
-    - not_on_shelf?
+      - not_on_shelf?
 
 # Interlibrary Loan (2 of 2)
 - label: Request a copy from another library (Interlibrary Loan (I.L.L.))
@@ -271,11 +304,11 @@
   description:
     heading: Policies and additional details
     content:
-    - Please note in your request if a physical copy cannot be used.
-    - Requests may be filled via equivalent electronic resources.
-    - Short-term loans
-    - Limited renewals
-    - "* Availability, checkout periods, and renewals depend on the lending institution."
+      - Please note in your request if a physical copy cannot be used.
+      - Requests may be filled via equivalent electronic resources.
+      - Short-term loans
+      - Limited renewals
+      - "* Availability, checkout periods, and renewals depend on the lending institution."
   form:
     type: illiad_request
     fields:
@@ -283,7 +316,7 @@
         value: docdelbook
   grants:
     patron:
-    - flint_dearborn?
+      - flint_dearborn?
     holding:
-    - not_on_shelf?
+      - not_on_shelf?
 
