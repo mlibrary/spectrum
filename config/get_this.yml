@@ -283,9 +283,8 @@
   description:
     heading: Policies and additional details
     content:
-      - Requests to scan a portion are individually evaluated for copyright compliance.
       - Your requested portion will be available to you on a secure website for 2 weeks.
-      - If the requested portion cannot be scanned because doing so would violate copyright law, a hold request for contactless pickup will be made on your behalf unless you specify otherwise in the notes field.
+      - Requests to scan a portion are individually evaluated for copyright compliance. Requests that can't be scanned due to copyright law may be offered as physical loans.
       - Microform scanning is limited.
   form:
     type: illiad_request
@@ -297,12 +296,6 @@
       - faculty_student_staff?
     bib:
       - can_scan?
-    holding:
-      - on_shelf?
-      - not_missing?
-      - not_checked_out?
-      - not_building_use_only?
-      - not_in_reserves?
 
 
 # Interlibrary Loan (1 of 2)
@@ -312,12 +305,9 @@
   description:
     heading: Policies and additional details
     content:
-      - By default, items are delivered to Shapiro Library for contactless pickup.
-      - Please note in your request if a physical copy cannot be used.
       - Requests may be filled via equivalent electronic resources.
-      - Short-term loans
       - Limited renewals
-      - "* Availability, checkout periods, and renewals depend on the lending institution."
+      - Availability, checkout periods, and renewals depend on the lending institution.
   form:
     type: illiad_request
     fields:
@@ -336,11 +326,9 @@
   description:
     heading: Policies and additional details
     content:
-      - Please note in your request if a physical copy cannot be used.
       - Requests may be filled via equivalent electronic resources.
-      - Short-term loans
       - Limited renewals
-      - "* Availability, checkout periods, and renewals depend on the lending institution."
+      - Availability, checkout periods, and renewals depend on the lending institution.
   form:
     type: illiad_request
     fields:
