@@ -83,7 +83,7 @@
       - value: FLINT
         name: "Thompson Library"
       - value: DRBN
-        name: "Mardigan Library"
+        name: "Mardigian Library"
   grants:
     patron:
       - active?
@@ -125,7 +125,7 @@
       - value: FLINT
         name: "Thompson Library"
       - value: DRBN
-        name: "Mardigan Library"
+        name: "Mardigian Library"
   grants:
     patron:
       - ann_arbor_dearborn?
@@ -168,7 +168,7 @@
       - value: FLINT
         name: "Thompson Library"
       - value: DRBN
-        name: "Mardigan Library"
+        name: "Mardigian Library"
   grants:
     patron:
       - flint?
@@ -211,7 +211,7 @@
       - value: FLINT
         name: "Thompson Library"
       - value: DRBN
-        name: "Mardigan Library"
+        name: "Mardigian Library"
   grants:
     holding:
       - ann_arbor?
