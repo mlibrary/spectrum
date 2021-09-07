@@ -8,10 +8,10 @@ metadata:
 source: primo
 sorts:
   relevance: primo_relevance
-  date_desc: primo_date_desc
   date_asc: primo_date_asc
-  title: primo_title
-  author: primo_author
+  date_desc: primo_date_desc
+#  title: primo_title
+#  author: primo_author
 new_parser: true
 search_fields:
   all_fields:
