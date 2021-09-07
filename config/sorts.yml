@@ -14,6 +14,14 @@
   group: relevance
   value: ''
 
+- id: primo_relevance
+  uid: relevance
+  metadata:
+    name: Relevance
+    short_desc: Relevance.
+  group: relevance
+  value: rank
+
 - id: count
   metadata:
     name: Count
@@ -99,6 +107,39 @@
     name: Creation Date (Newest First)
   group: date
   value: PublicationDate:desc
+
+# Primo doesn't support title descending.
+- id: primo_title
+  uid: title
+  metadata:
+    name: Title (A-Z)
+    short_desc: Title Ascending.
+  group: title
+  value: title
+
+# Primo doesn't support author descending.
+- id: primo_author
+  uid: author
+  metadata:
+    name: Author (A-Z)
+  group: author
+  value: author
+
+- id: primo_date_asc
+  uid: date_asc
+  metadata:
+    name: Published/Created Date (oldest first)
+    short_desc: Date Ascending.
+  group: date
+  value: date_a
+
+- id: primo_date_desc
+  uid: date_desc
+  metadata:
+    name: Published/Created Date (newest first)
+    short_desc: Date Descending.
+  group: date
+  value: date_d
 
 - id: website_date_asc
   uid: date_asc

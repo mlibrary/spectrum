@@ -7,9 +7,11 @@ metadata:
   short_desc: "Search for articles, books, journals, and more"
 source: primo
 sorts:
-  relevance: summon_relevance
-  date_asc: summon_date_asc
-  date_desc: summon_date_desc
+  relevance: primo_relevance
+  date_desc: primo_date_desc
+  date_asc: primo_date_asc
+  title: primo_title
+  author: primo_author
 new_parser: true
 search_fields:
   all_fields:
