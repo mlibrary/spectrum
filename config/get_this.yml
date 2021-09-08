@@ -50,8 +50,6 @@
     holding:
     - open_stacks?
     - on_shelf?
-    - not_missing?
-    - not_checked_out?
     - can_request?
 
 # Contactless Pickup (1 of 4)
@@ -91,10 +89,7 @@
       - ann_arbor?
       - on_shelf?
       - can_request?
-      - not_missing?
-      - not_checked_out?
       - not_building_use_only?
-      - not_in_reserves?
       - not_reservable_library?
 
 # Contactless Pickup (2 of 4)
@@ -134,10 +129,7 @@
       - flint?
       - on_shelf?
       - can_request?
-      - not_missing?
-      - not_checked_out?
       - not_building_use_only?
-      - not_in_reserves?
       - not_reservable_library?
 
 
@@ -178,10 +170,7 @@
       - flint?
       - on_shelf?
       - can_request?
-      - not_missing?
-      - not_checked_out?
       - not_building_use_only?
-      - not_in_reserves?
       - not_reservable_library?
 
 # Contactless Pickup (4 of 4)
@@ -220,10 +209,7 @@
       - ann_arbor?
       - on_order?
       - can_request?
-      - not_missing?
-      - not_checked_out?
       - not_building_use_only?
-      - not_in_reserves?
       - not_reservable_library?
 
 # Departmental Delivery (1 of 2)
@@ -248,10 +234,7 @@
       - ann_arbor?
       - on_shelf?
       - can_request?
-      - not_missing?
-      - not_checked_out?
       - not_building_use_only?
-      - not_in_reserves?
       - not_reservable_library?
 
 # Departmental Delivery (2 of 2)
@@ -276,10 +259,7 @@
       - flint?
       - on_shelf?
       - can_request?
-      - not_missing?
-      - not_checked_out?
       - not_building_use_only?
-      - not_in_reserves?
       - not_reservable_library?
 
 # Scan a portion (1 of 1)
