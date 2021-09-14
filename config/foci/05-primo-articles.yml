@@ -7,15 +7,38 @@ metadata:
   short_desc: "Search for articles, books, journals, and more"
 source: primo
 sorts:
-  relevance: summon_relevance
-  date_asc: summon_date_asc
-  date_desc: summon_date_desc
+  relevance: primo_relevance
+  date_asc: primo_date_asc
+  date_desc: primo_date_desc
+#  title: primo_title
+#  author: primo_author
 new_parser: true
 search_fields:
+  all_fields:
+    pf: .
+    qf: .
+  author:
+    pf: .
+    qf: .
   title:
     pf: .
     qf: .
   contributor:
+    pf: .
+    qf: .
+  subject:
+    pf: .
+    qf: .
+  isbn:
+    pf: .
+    qf: .
+  issn:
+    pf: .
+    qf: .
+  date:
+    pf: .
+    qf: .
+  keyword:
     pf: .
     qf: .
   any:
@@ -34,8 +57,9 @@ solr_params:
 
 fields:
 - id
+- alt_ids
 - position
-- title
+- primo_title
 - primo_format
 - primo_author
 - primo_publication_date
@@ -58,6 +82,10 @@ fields:
 - primo_resource_access
 - primo_times_cited
 - abstract
+
+# Searching
+- primo_all_fields
+- primo_keyword
 
 facets:
 - primo_is_scholarly

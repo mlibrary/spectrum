@@ -30,7 +30,7 @@ source 'https://rubygems.org' do
 
   gem 'alma_rest_client',
     git: 'https://github.com/mlibrary/alma_rest_client',
-    branch: 'main'
+    tag: '1.0.1'
 
   gem 'mlibrary_search_parser',
     git: 'https://github.com/mlibrary/mlibrary_search_parser',

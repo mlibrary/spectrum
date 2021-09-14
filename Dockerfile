@@ -21,17 +21,17 @@ RUN if [ x"${UID}" != x"" ] ; \
 
 WORKDIR $APP_HOME
 
-RUN mkdir -p ${BUNDLE_PATH} ${APP_HOME}/public ${APP_HOME}/tmp && chown -R ${UNAME} ${APP_HOME}/public ${APP_HOME}/tmp
+RUN mkdir -p ${BUNDLE_PATH} ${APP_HOME}/public ${APP_HOME}/tmp && chown -R ${UNAME} ${BUNDLE_PATH} ${APP_HOME}/public ${APP_HOME}/tmp
 
 
 COPY Gemfile* ${APP_HOME}/
 
 RUN gem install bundler:1.17.3
+USER $UNAME
 RUN bundle install
 
 COPY . ${APP_HOME}
 
-USER $UNAME
 
 ARG SEARCH_VERSION=master
 ARG PRIDE_VERSION=master

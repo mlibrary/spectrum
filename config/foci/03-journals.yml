@@ -93,6 +93,7 @@ fields:
   - favorites_tags
   - open_access_const
   - format
+  - keyword
 
 facets:
   - db_academic_discipline

@@ -21,6 +21,20 @@
     name: All Fields
     short_desc: All fields from the record
 
+- id: keyword
+  uid: keyword
+  query_field: ''
+  metadata:
+    name: Keyword
+  viewable: false
+
+- id: primo_keyword
+  uid: keyword
+  query_field: any
+  metadata:
+    name: Keyword
+  viewable: false
+
 - id: title
   csl:
     id: title
@@ -47,6 +61,42 @@
         type: plain
     full:
       main-left-aligned:
+        type: plain
+    callno_browse:
+      title:
+        type: plain
+
+- id: primo_title
+  uid: title
+  field: title
+  query_field: title
+  csl:
+    id: title
+  z3988:
+    id: rft.btitle
+  ris:
+    - T1
+    - TI
+  metadata:
+    name: Title
+    short_desc: Record title
+  filters:
+    - id: sanitize
+      method: sanitize
+    - id: trim
+      method: trim
+  header_region:
+    preview:
+      main-left-aligned:
+        type: plain
+    medium:
+      main-left-aligned:
+        type: plain
+    full:
+      main-left-aligned:
+        type: plain
+    callno_browse:
+      title:
         type: plain
 
 - id: summon_title
@@ -81,6 +131,9 @@
         type: plain
     full:
       main-left-aligned:
+        type: plain
+    callno_browse:
+      title:
         type: plain
 
 - id: summon_openurl
@@ -294,6 +347,10 @@
   metadata:
     name: Date
     short_desc: Published by, publish date
+  header_region:
+    callno_browse:
+      published:
+        type: plain
 
 - id: cat_date
   metadata:
@@ -397,7 +454,6 @@
     - SN
   uid: isbn
   field: ISBN
-  searchable: false
   metadata:
     name: ISBN
     short_desc: ISBN
@@ -488,7 +544,6 @@
     namespace: "urn:ISSN:"
   uid: issn
   field: issn
-  searchable: false
   metadata:
     name: ISSN
     short_desc: ISSN
@@ -581,7 +636,7 @@
       lower-left-aligned:
         type: plain
 
-- id: db_brief_description_preview
+- id: db_brief_description_with_special_message
   ris:
     - N2
   type: priority
@@ -598,7 +653,7 @@
     preview:
       type: plain
 
-- id: db_brief_description_medium
+- id: db_brief_description_without_special_message
   ris:
     - N2
   field: teaser
@@ -611,6 +666,10 @@
   metadata_component:
     medium:
       type: plain
+  header_region:
+    full:
+      lower-left-aligned:
+        type: plain
 
 - id: special_message
   ris:
@@ -1145,7 +1204,7 @@
         - uid: href
           name: href
           field: openUrl
-          prepend: https://testing.mgetit.kubernetes.lib.umich.edu/?
+          prepend: https://mgetit.lib.umich.edu/?
     - field: LinkModel
       value: OpenURL
       fields:
@@ -1155,7 +1214,7 @@
         - uid: href
           name: href
           field: openUrl
-          prepend: https://testing.mgetit.kubernetes.lib.umich.edu/?
+          prepend: https://mgetit.lib.umich.edu/?
 
 - id: publisher
   csl:
@@ -1195,7 +1254,7 @@
   sortable: false
   header_region:
     callno_browse:
-      main-right:
+      edition:
         type: plain
 
 
@@ -1214,7 +1273,7 @@
   sortable: false
   header_region:
     callno_browse:
-      main-left:
+      callnumber:
         type: plain
 
 - id: building
@@ -1246,7 +1305,7 @@
   model_field: open_url
   direct_link_field: link
   openurl_field: open_url
-  openurl_root: https://testing.mgetit.kubernetes.lib.umich.edu/resolve
+  openurl_root: https://mgetit.lib.umich.edu/resolve
 
 - id: publication_place
   csl:
@@ -1413,6 +1472,8 @@
     video: Video
     archival_material_manuscript: Archival Material Manuscript
     dataset: Dataset
+    report: Report
+    standard: Standard
 
     articles: Articles
     newspaper_articles: Newspaper Articles
@@ -1421,7 +1482,7 @@
     dissertations: Dissertations
     patents: Patents
     journals: Journals
-    reference_entrys: Reference Entrys
+    reference_entrys: Reference Entries
     web_resources: Web Resources
     books: Books
     government_documents: Government Documents
@@ -1432,6 +1493,8 @@
     videos: Videos
     archival_material_manuscripts: Archival Material Manuscripts
     datasets: Datasets
+    reports: Reports
+    standards: Standards
 
     Articles: articles
     Newspaper Articles: newspaper_articles
@@ -1440,7 +1503,7 @@
     Dissertations: dissertations
     Patents: patents
     Journals: journals
-    Reference Entrys: reference_entrys
+    Reference Entries: reference_entrys
     Web Resources: web_resources
     Books: books
     Government Documents: government_documents
@@ -1451,6 +1514,8 @@
     Videos: videos
     Archival Material Manuscripts: archival_material_manuscripts
     Datasets: datasets
+    Reports: reports
+    Standards: standards
 
 - id: mirlyn_csl_type
   csl:
@@ -1514,6 +1579,7 @@
       variant: filtered
 
 - id: primo_subject
+  uid: subject
   ris:
     - KW
   field: topic
@@ -1921,6 +1987,7 @@
   type: pseudo_facet
   facet:
     selected: true
+    type: checkbox
   values:
     - "true"
     - 1
@@ -1942,6 +2009,8 @@
   mapping:
     "true": "s.fvf=ContentType,Newspaper,t"
     "false": ""
+  facet:
+    type: checkbox
 
 - id: is_scholarly
   field: IsScholarly
@@ -2134,15 +2203,8 @@
       main-left-aligned:
         type: plain
     callno_browse:
-      main-right:
+      title:
         type: plain
-    subject_browse:
-      main-right:
-        type: plain
-    author_browse:
-      main-right:
-        type: plain
-
 
 - id: marc_title
   uid: title
@@ -2168,6 +2230,9 @@
        type: plain
     full:
       main-left-aligned:
+        type: plain
+    callno_browse:
+      title:
         type: plain
 
 - id: marc_ris_title
@@ -2493,6 +2558,10 @@
       method: trim
     - id: trim2
       method: trim2
+  header_region:
+    callno_browse:
+      author:
+        type: plain
 
 - id: csl_contributor
   csl:
@@ -2637,6 +2706,10 @@
   metadata_component:
     full:
       type: plain
+  header_region:
+    callno_browse:
+      edition:
+        type: plain
 
 - id: series
   csl:
@@ -3587,7 +3660,7 @@
       main-left-aligned:
         type: plain
     callno_browse:
-      main-right:
+      published:
         type: plain
 
 
@@ -3692,6 +3765,11 @@
   query_field: search_title_starts_with
   metadata:
     name: Title starts with
+
+- id: browse_starts_with
+  query_field: title_initial
+  metadata:
+    name: Browse title starts with
 
 - id: call_number_starts_with
   query_field: search_call_number_starts_with
@@ -3903,7 +3981,8 @@
   type: primo_resource_access
   headings: [ 'Action', 'Description' ]
   link_text: Go to item
-  openurl_root: https://testing.mgetit.kubernetes.lib.umich.edu/resolve
+  openurl_root: https://mgetit.lib.umich.edu/resolve
+  proxy_prefix: https://proxy.lib.umich.edu/login?url=
 
 - id: summon_resource_access
   metadata:
@@ -3915,7 +3994,7 @@
   model_field: open_url
   direct_link_field: link
   openurl_field: open_url
-  openurl_root: https://testing.mgetit.kubernetes.lib.umich.edu/resolve
+  openurl_root: https://mgetit.lib.umich.edu/resolve
 
 - id: catalog_resource_access
   uid: resource_access
@@ -3957,12 +4036,12 @@
       method: proxy_prefix
 
 
-- id: primo_subject
-  uid: subject
-  field: topic
-  metadata:
-    name: Subject
-    short_desc: Subject
+#- id: primo_subject
+#  uid: subject
+#  field: topic
+#  metadata:
+#    name: Subject
+#    short_desc: Subject
 
 #- id: primo_format
 #  uid: format
@@ -3988,7 +4067,7 @@
 
 - id: primo_author
   uid: author
-  field: creatorcontrib
+  field: creator
   metadata:
     name: Author
     short_desc: Creator
@@ -4024,6 +4103,9 @@
   field: creationdate
   facet_field: creationdate
   reverse_facets: true
+  facet:
+    expanded: true
+    transform: date_range
   metadata:
     name: Date
     short_desc: Date
@@ -4077,6 +4159,10 @@
     full:
       type: plain
 
+- id: alt_ids
+  metadata:
+    name: Alternative IDs
+
 - id: primo_times_cited
   type: primo_times_cited
   metadata:
@@ -4098,12 +4184,22 @@
       href_field: href
       text_field: text
 
+- id: primo_all_fields
+  uid: all_fields
+  field: any
+  metadata:
+    name: All Fields
+    short_desc: All fields
+  viewable: false
+
 - id: primo_is_scholarly
   uid: is_scholarly
   metadata:
     name: Articles from scholarly journals only
     short_desc: Holdings Only
   type: mapped_pseudo_facet
+  facet:
+    type: checkbox
   values:
     - "true"
     - 1
@@ -4119,6 +4215,8 @@
     name: Exclude newspaper articles
     short_desc: Holdings Only
   type: mapped_pseudo_facet
+  facet:
+    type: checkbox
   values:
     - "true"
     - 1
@@ -4134,6 +4232,8 @@
     name: Available online
     short_desc: Holdings Only
   type: mapped_pseudo_facet
+  facet:
+    type: checkbox
   values:
     - "true"
     - 1
@@ -4149,6 +4249,8 @@
     name: Show open access only
     short_desc: Holdings Only
   type: mapped_pseudo_facet
+  facet:
+    type: checkbox
   values:
     - "true"
     - 1
@@ -4166,6 +4268,7 @@
     short_desc: Holdings Only
   facet:
     selected: true
+    type: checkbox
   values:
     - "true"
     - 1
@@ -4179,6 +4282,8 @@
   uid: language
   field: language
   facet_field: lang
+  facet:
+    expanded: true
   ris:
     - LA
   metadata:

@@ -27,10 +27,10 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/alma_rest_client
-  revision: c73016c8466525c4cde647765cdc97eac01dd714
-  branch: main
+  revision: 39968fed3be48fa64812e59e6592ce43f704daad
+  tag: 1.0.1
   specs:
-    alma_rest_client (0.2.1)
+    alma_rest_client (1.0.1)
       httparty
       ox
 
@@ -43,7 +43,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/mlibrary_search_parser
-  revision: 54d815ad2713d19c1dcbd6bfa8c898a065478b26
+  revision: 4a996fe1ca4b9caee85b052178a658149480561c
   branch: master
   specs:
     mlibrary_search_parser (0.1.0)
@@ -53,7 +53,7 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-config
-  revision: fb48d26c2b3147012ccee6d8900131ecb5586dcf
+  revision: 5c5227e2c46150c52c82be213e42e374b541f740
   branch: callnumber_browse_bertrama
   specs:
     spectrum-config (1.0.0)
@@ -65,14 +65,14 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: 18c657f090fd327c333287a80770ad7d42cd3399
+  revision: 96f5431c9eeba3dc1575efd59397858db86f4444
   branch: callnumber_browse_bertrama
   specs:
     spectrum-json (1.0.0)
       activesupport
+      alma_rest_client (~> 1.0.1)
       dotenv
       execjs
-      exlibris-aleph
       httparty
       json-schema
       lru_redux
@@ -129,7 +129,7 @@ GEM
     adamantium (0.2.0)
       ice_nine (~> 0.11.0)
       memoizable (~> 0.4.0)
-    addressable (2.7.0)
+    addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     arel (6.0.4)
     arrayfields (4.9.2)
