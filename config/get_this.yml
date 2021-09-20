@@ -64,24 +64,15 @@
   form:
     type: alma_hold
     pickup_locations:
-      - value: AAEL
-        name: "Art, Architecture, & Engineering Library"
-      - value: DHCL
-        name: "Donald Hall Collection"
-      - value: FINE
-        name: "Fine Arts"
-      - value: MUSM
-        name: "Museums"
-      - value: MUSIC
-        name: "Music Library"
-      - value: SHAP
-        name: "Shapiro Undergraduate Library"
-      - value: TAUB
-        name: "Taubman Health Sciences"
-      - value: FLINT
-        name: "Thompson Library"
-      - value: DRBN
-        name: "Mardigian Library"
+      -  AAEL
+      -  DHCL
+      -  FINE
+      -  MUSM
+      -  MUSIC
+      -  SHAP
+      -  TAUB
+      -  FLINT
+      -  DRBN
   grants:
     patron:
       - active?
@@ -104,24 +95,15 @@
   form:
     type: alma_hold
     pickup_locations:
-      - value: AAEL
-        name: "Art, Architecture, & Engineering Library"
-      - value: DHCL
-        name: "Donald Hall Collection"
-      - value: FINE
-        name: "Fine Arts"
-      - value: MUSM
-        name: "Museums"
-      - value: MUSIC
-        name: "Music Library"
-      - value: SHAP
-        name: "Shapiro Undergraduate Library"
-      - value: TAUB
-        name: "Taubman Health Sciences"
-      - value: FLINT
-        name: "Thompson Library"
-      - value: DRBN
-        name: "Mardigian Library"
+      -  AAEL
+      -  DHCL
+      -  FINE
+      -  MUSM
+      -  MUSIC
+      -  SHAP
+      -  TAUB
+      -  FLINT
+      -  DRBN
   grants:
     patron:
       - ann_arbor_dearborn?
@@ -145,24 +127,15 @@
   form:
     type: alma_hold
     pickup_locations:
-      - value: AAEL
-        name: "Art, Architecture, & Engineering Library"
-      - value: DHCL
-        name: "Donald Hall Collection"
-      - value: FINE
-        name: "Fine Arts"
-      - value: MUSM
-        name: "Museums"
-      - value: MUSIC
-        name: "Music Library"
-      - value: SHAP
-        name: "Shapiro Undergraduate Library"
-      - value: TAUB
-        name: "Taubman Health Sciences"
-      - value: FLINT
-        name: "Thompson Library"
-      - value: DRBN
-        name: "Mardigian Library"
+      -  AAEL
+      -  DHCL
+      -  FINE
+      -  MUSM
+      -  MUSIC
+      -  SHAP
+      -  TAUB
+      -  FLINT
+      -  DRBN
   grants:
     patron:
       - flint?
@@ -186,24 +159,15 @@
   form:
     type: alma_hold
     pickup_locations:
-      - value: AAEL
-        name: "Art, Architecture, & Engineering Library"
-      - value: DHCL
-        name: "Donald Hall Collection"
-      - value: FINE
-        name: "Fine Arts"
-      - value: MUSM
-        name: "Museums"
-      - value: MUSIC
-        name: "Music Library"
-      - value: SHAP
-        name: "Shapiro Undergraduate Library"
-      - value: TAUB
-        name: "Taubman Health Sciences"
-      - value: FLINT
-        name: "Thompson Library"
-      - value: DRBN
-        name: "Mardigian Library"
+      -  AAEL
+      -  DHCL
+      -  FINE
+      -  MUSM
+      -  MUSIC
+      -  SHAP
+      -  TAUB
+      -  FLINT
+      -  DRBN
   grants:
     holding:
       - ann_arbor?
