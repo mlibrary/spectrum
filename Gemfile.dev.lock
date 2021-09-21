@@ -64,7 +64,7 @@ PATH
 PATH
   remote: gems/spectrum-json
   specs:
-    spectrum-json (1.0.0)
+    spectrum-json (1.0.1)
       activesupport
       alma_rest_client (~> 1.0.1)
       dotenv
