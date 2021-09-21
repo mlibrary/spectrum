@@ -176,69 +176,6 @@
       - not_building_use_only?
       - not_reservable_library?
         
-# Recall (1 of 2)
-- label: Request that this copy be returned
-  service_type: Library pick up
-  duration: Expected availability 1-3 weeks*
-  description:
-    heading: Policies and additional details
-    content:
-      - Standard loan and renewal policies apply. 
-      - Learn more about <a href="https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup">contactless pickup</a>.
-      - "* A new due date will be given for this item"
-  form:
-    type: alma_recall
-    pickup_locations:
-      -  AAEL
-      -  DHCL
-      -  FINE
-      -  MUSM
-      -  MUSIC
-      -  SHAP
-      -  TAUB
-      -  FLINT
-      -  DRBN
-  grants:
-    patron:
-      - active?
-    holding:
-      - ann_arbor?
-      - recallable?
-      - can_request?
-      - not_building_use_only?
-      - not_reservable_library?
-
-# Recall (2 of 2)
-- label: Request that this copy be returned
-  service_type: Library pick up
-  duration: Expected availability 1-3 weeks*
-  description:
-    heading: Policies and additional details
-    content:
-      - Standard loan and renewal policies apply. 
-      - Curbside pick up is available at the Thompson Library. See <a href="https://umflint.libwizard.com/f/curbside">Thompson Library - Curbside Pick Up</a> for details.
-      - "* A new due date will be given for this item"
-  form:
-    type: alma_recall
-    pickup_locations:
-      -  AAEL
-      -  DHCL
-      -  FINE
-      -  MUSM
-      -  MUSIC
-      -  SHAP
-      -  TAUB
-      -  FLINT
-      -  DRBN
-  grants:
-    patron:
-      - flint?
-    holding:
-      - flint?
-      - recallable?
-      - can_request?
-      - not_building_use_only?
-      - not_reservable_library?
 
 # Departmental Delivery (1 of 2)
 - label: Have it delivered
@@ -373,3 +310,67 @@
       - reservable_format?
     holding:
       - reservable_library?
+
+# Recall (1 of 2)
+- label: Request that this copy be returned
+  service_type: Library pick up
+  duration: Expected availability 1-3 weeks*
+  description:
+    heading: Policies and additional details
+    content:
+      - Standard loan and renewal policies apply. 
+      - Learn more about <a href="https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup">contactless pickup</a>.
+      - "* A new due date will be given for this item"
+  form:
+    type: alma_recall
+    pickup_locations:
+      -  AAEL
+      -  DHCL
+      -  FINE
+      -  MUSM
+      -  MUSIC
+      -  SHAP
+      -  TAUB
+      -  FLINT
+      -  DRBN
+  grants:
+    patron:
+      - active?
+    holding:
+      - ann_arbor?
+      - recallable?
+      - can_request?
+      - not_building_use_only?
+      - not_reservable_library?
+
+# Recall (2 of 2)
+- label: Request that this copy be returned
+  service_type: Library pick up
+  duration: Expected availability 1-3 weeks*
+  description:
+    heading: Policies and additional details
+    content:
+      - Standard loan and renewal policies apply. 
+      - Curbside pick up is available at the Thompson Library. See <a href="https://umflint.libwizard.com/f/curbside">Thompson Library - Curbside Pick Up</a> for details.
+      - "* A new due date will be given for this item"
+  form:
+    type: alma_recall
+    pickup_locations:
+      -  AAEL
+      -  DHCL
+      -  FINE
+      -  MUSM
+      -  MUSIC
+      -  SHAP
+      -  TAUB
+      -  FLINT
+      -  DRBN
+  grants:
+    patron:
+      - flint?
+    holding:
+      - flint?
+      - recallable?
+      - can_request?
+      - not_building_use_only?
+      - not_reservable_library?
