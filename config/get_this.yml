@@ -59,29 +59,20 @@
   description:
     heading: Policies and additional details
     content:
-      - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
+      - Standard loan and renewal policies apply. Once checked-out, your item can be recalled by another user.
       - Learn more about <a href="https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup">contactless pickup</a>.
   form:
     type: alma_hold
     pickup_locations:
-      - value: AAEL
-        name: "Art, Architecture, & Engineering Library"
-      - value: DHCL
-        name: "Donald Hall Collection"
-      - value: FINE
-        name: "Fine Arts"
-      - value: MUSM
-        name: "Museums"
-      - value: MUSIC
-        name: "Music Library"
-      - value: SHAP
-        name: "Shapiro Undergraduate Library"
-      - value: TAUB
-        name: "Taubman Health Sciences"
-      - value: FLINT
-        name: "Thompson Library"
-      - value: DRBN
-        name: "Mardigian Library"
+      -  AAEL
+      -  DHCL
+      -  FINE
+      -  MUSM
+      -  MUSIC
+      -  SHAP
+      -  TAUB
+      -  FLINT
+      -  DRBN
   grants:
     patron:
       - active?
@@ -99,29 +90,20 @@
   description:
     heading: Policies and additional details
     content:
-      - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
+      - Standard loan and renewal policies apply. Once checked-out, your item can be recalled by another user.
       - Learn more about <a href="https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup">contactless pickup</a>.
   form:
     type: alma_hold
     pickup_locations:
-      - value: AAEL
-        name: "Art, Architecture, & Engineering Library"
-      - value: DHCL
-        name: "Donald Hall Collection"
-      - value: FINE
-        name: "Fine Arts"
-      - value: MUSM
-        name: "Museums"
-      - value: MUSIC
-        name: "Music Library"
-      - value: SHAP
-        name: "Shapiro Undergraduate Library"
-      - value: TAUB
-        name: "Taubman Health Sciences"
-      - value: FLINT
-        name: "Thompson Library"
-      - value: DRBN
-        name: "Mardigian Library"
+      -  AAEL
+      -  DHCL
+      -  FINE
+      -  MUSM
+      -  MUSIC
+      -  SHAP
+      -  TAUB
+      -  FLINT
+      -  DRBN
   grants:
     patron:
       - ann_arbor_dearborn?
@@ -140,29 +122,20 @@
   description:
     heading: Policies and additional details
     content:
-      - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
+      - Standard loan and renewal policies apply. Once checked-out, your item can be recalled by another user.
       - Curbside pick up is available at the Thompson Library. See <a href="https://umflint.libwizard.com/f/curbside">Thompson Library - Curbside Pick Up</a> for details.
   form:
     type: alma_hold
     pickup_locations:
-      - value: AAEL
-        name: "Art, Architecture, & Engineering Library"
-      - value: DHCL
-        name: "Donald Hall Collection"
-      - value: FINE
-        name: "Fine Arts"
-      - value: MUSM
-        name: "Museums"
-      - value: MUSIC
-        name: "Music Library"
-      - value: SHAP
-        name: "Shapiro Undergraduate Library"
-      - value: TAUB
-        name: "Taubman Health Sciences"
-      - value: FLINT
-        name: "Thompson Library"
-      - value: DRBN
-        name: "Mardigian Library"
+      -  AAEL
+      -  DHCL
+      -  FINE
+      -  MUSM
+      -  MUSIC
+      -  SHAP
+      -  TAUB
+      -  FLINT
+      -  DRBN
   grants:
     patron:
       - flint?
@@ -181,29 +154,20 @@
     heading: Policies and additional details
     content:
       - Delivery time varies for items with status ON ORDER and notification will be sent when this item is available. <a href="https://ill.lib.umich.edu/illiad/illiad.dll?">Please make an interlibrary loan request if you need this item quickly</a>.
-      - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
+      - Standard loan and renewal policies apply. Once checked-out, your item can be recalled by another user.
       - Learn more about <a href="https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup">contactless pickup</a>.
   form:
     type: alma_hold
     pickup_locations:
-      - value: AAEL
-        name: "Art, Architecture, & Engineering Library"
-      - value: DHCL
-        name: "Donald Hall Collection"
-      - value: FINE
-        name: "Fine Arts"
-      - value: MUSM
-        name: "Museums"
-      - value: MUSIC
-        name: "Music Library"
-      - value: SHAP
-        name: "Shapiro Undergraduate Library"
-      - value: TAUB
-        name: "Taubman Health Sciences"
-      - value: FLINT
-        name: "Thompson Library"
-      - value: DRBN
-        name: "Mardigian Library"
+      -  AAEL
+      -  DHCL
+      -  FINE
+      -  MUSM
+      -  MUSIC
+      -  SHAP
+      -  TAUB
+      -  FLINT
+      -  DRBN
   grants:
     holding:
       - ann_arbor?
@@ -211,6 +175,7 @@
       - can_request?
       - not_building_use_only?
       - not_reservable_library?
+        
 
 # Departmental Delivery (1 of 2)
 - label: Have it delivered
@@ -345,3 +310,67 @@
       - reservable_format?
     holding:
       - reservable_library?
+
+# Recall (1 of 2)
+- label: Request that this copy be returned
+  service_type: Library pick up
+  duration: Expected availability 1-3 weeks*
+  description:
+    heading: Policies and additional details
+    content:
+      - Standard loan and renewal policies apply. 
+      - Learn more about <a href="https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup">contactless pickup</a>.
+      - "* A new due date will be given for this item"
+  form:
+    type: alma_recall
+    pickup_locations:
+      -  AAEL
+      -  DHCL
+      -  FINE
+      -  MUSM
+      -  MUSIC
+      -  SHAP
+      -  TAUB
+      -  FLINT
+      -  DRBN
+  grants:
+    patron:
+      - active?
+    holding:
+      - ann_arbor?
+      - recallable?
+      - can_request?
+      - not_building_use_only?
+      - not_reservable_library?
+
+# Recall (2 of 2)
+- label: Request that this copy be returned
+  service_type: Library pick up
+  duration: Expected availability 1-3 weeks*
+  description:
+    heading: Policies and additional details
+    content:
+      - Standard loan and renewal policies apply. 
+      - Curbside pick up is available at the Thompson Library. See <a href="https://umflint.libwizard.com/f/curbside">Thompson Library - Curbside Pick Up</a> for details.
+      - "* A new due date will be given for this item"
+  form:
+    type: alma_recall
+    pickup_locations:
+      -  AAEL
+      -  DHCL
+      -  FINE
+      -  MUSM
+      -  MUSIC
+      -  SHAP
+      -  TAUB
+      -  FLINT
+      -  DRBN
+  grants:
+    patron:
+      - flint?
+    holding:
+      - flint?
+      - recallable?
+      - can_request?
+      - not_building_use_only?
+      - not_reservable_library?
