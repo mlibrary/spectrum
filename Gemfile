@@ -28,7 +28,7 @@ source 'https://rubygems.org' do
     git: 'https://github.com/mlibrary/spectrum-config',
     branch: 'master'
 
-  gem 'spectrum-json', '>= 1.0.1',
+  gem 'spectrum-json', '>= 1.0.2',
     git: 'https://github.com/mlibrary/spectrum-json'
 
   gem 'alma_rest_client',

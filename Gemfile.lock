@@ -58,9 +58,9 @@ GIT
 
 GIT
   remote: https://github.com/mlibrary/spectrum-json
-  revision: ff7136d54531badcd5ae4540cd693458d345162f
+  revision: 84a656a8e7076bfce0c2e19e2c97bcd995d60909
   specs:
-    spectrum-json (1.0.1)
+    spectrum-json (1.0.2)
       activesupport
       alma_rest_client (~> 1.0.1)
       dotenv
@@ -563,7 +563,7 @@ DEPENDENCIES
   simplecov!
   skylight!
   spectrum-config!
-  spectrum-json (>= 1.0.1)!
+  spectrum-json (>= 1.0.2)!
   sprockets (~> 3.0)!
   stringex!
   summon!
