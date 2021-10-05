@@ -1,0 +1,2382 @@
+[
+    {
+        "text": "HathiTrust Digital Library",
+        "id": "HATHI",
+        "link": null
+    },
+    {
+        "text": "Art Architecture & Engineering",
+        "id": "AAEL",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Book Arts 2nd floor - ask at service desk",
+        "id": "AAEL BKART",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Book Collection",
+        "id": "AAEL BKS",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Basement - B484",
+        "id": "AAEL BSMT",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Career Collection - 2nd Floor",
+        "id": "AAEL CAR",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Dissertation - Basement",
+        "id": "AAEL DISS",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Reserves - Electronic Resource",
+        "id": "AAEL ERES",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Recreational Reading - 2nd Floor - shelved by author",
+        "id": "AAEL FUN",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Video Games - Basement",
+        "id": "AAEL GAME",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering IEEE - see current location",
+        "id": "AAEL IEEE",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Microfiche - Basement",
+        "id": "AAEL MICE",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Microfilm - Basement",
+        "id": "AAEL MICM",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering",
+        "id": "AAEL NONE",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Open Reserves - No Loan",
+        "id": "AAEL OPEN",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Book Collection - Oversize",
+        "id": "AAEL OVR",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Journal Collection",
+        "id": "AAEL PER",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Current Journals - 2nd floor",
+        "id": "AAEL PERU",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Special Coll. - By appt. only",
+        "id": "AAEL RAR",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Reference - 2nd Floor",
+        "id": "AAEL REF",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Course Reserve - 2nd Floor",
+        "id": "AAEL RESC",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Ask at 2nd Floor Desk",
+        "id": "AAEL RESI",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Reserves - 2nd Floor",
+        "id": "AAEL RESP",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering 2nd Floor - 2321 M",
+        "id": "AAEL SECD",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering 2nd Floor Service Desk",
+        "id": "AAEL SLD",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Closed shelving - Ask at Circ",
+        "id": "AAEL STO",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Folio closed shelving - Ask at Circ",
+        "id": "AAEL STOF",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Art Architecture & Engineering Book Collection - Oversize - 2nd Floor",
+        "id": "AAEL XOVR",
+        "link": "http://www.lib.umich.edu/location/art-architecture-engineering-library/unit/37"
+    },
+    {
+        "text": "Bentley Historical",
+        "id": "BENT",
+        "link": "http://www.lib.umich.edu/location/bentley-historical-library/unit/41"
+    },
+    {
+        "text": "Bentley Historical Electronic resources",
+        "id": "BENT ELEC",
+        "link": "http://www.lib.umich.edu/location/bentley-historical-library/unit/41"
+    },
+    {
+        "text": "Bentley Historical",
+        "id": "BENT NONE",
+        "link": "http://www.lib.umich.edu/location/bentley-historical-library/unit/41"
+    },
+    {
+        "text": "Bentley Historical Reading Room",
+        "id": "BENT RR",
+        "link": "http://www.lib.umich.edu/location/bentley-historical-library/unit/41"
+    },
+    {
+        "text": "Bentley Historical Security File",
+        "id": "BENT SF",
+        "link": "http://www.lib.umich.edu/location/bentley-historical-library/unit/41"
+    },
+    {
+        "text": "Bentley Historical Storage - Ask at library",
+        "id": "BENT STOR",
+        "link": "http://www.lib.umich.edu/location/bentley-historical-library/unit/41"
+    },
+    {
+        "text": "Biological Station",
+        "id": "BSTA",
+        "link": "http://www.lib.umich.edu/location/biological-station-library--pellston-/unit/47"
+    },
+    {
+        "text": "Biological Station Cage - Ask Staff",
+        "id": "BSTA CAGE",
+        "link": "http://www.lib.umich.edu/location/biological-station-library--pellston-/unit/47"
+    },
+    {
+        "text": "Biological Station Reserves - Electronic Resource",
+        "id": "BSTA ERES",
+        "link": "http://www.lib.umich.edu/location/biological-station-library--pellston-/unit/47"
+    },
+    {
+        "text": "Biological Station",
+        "id": "BSTA NONE",
+        "link": "http://www.lib.umich.edu/location/biological-station-library--pellston-/unit/47"
+    },
+    {
+        "text": "Biological Station Oversize",
+        "id": "BSTA OVR",
+        "link": "http://www.lib.umich.edu/location/biological-station-library--pellston-/unit/47"
+    },
+    {
+        "text": "Biological Station Reference",
+        "id": "BSTA REF",
+        "link": "http://www.lib.umich.edu/location/biological-station-library--pellston-/unit/47"
+    },
+    {
+        "text": "Biological Station Course Reserve",
+        "id": "BSTA RESC",
+        "link": "http://www.lib.umich.edu/location/biological-station-library--pellston-/unit/47"
+    },
+    {
+        "text": "Buhr Shelving Facility",
+        "id": "BUHR",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Buhr Shelving Facility Ask at any library",
+        "id": "BUHR AAEL",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Buhr Shelving Facility Ask at any library",
+        "id": "BUHR ASIA",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Buhr Shelving Facility Ask at any library",
+        "id": "BUHR CHEM",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Buhr Shelving Facility Ask at any library",
+        "id": "BUHR DENT",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Buhr Shelving Facility Ask at any library",
+        "id": "BUHR FINE",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Buhr Shelving Facility Ask at any library",
+        "id": "BUHR FVL",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Buhr Shelving Facility Ask at any library",
+        "id": "BUHR GLMR",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Buhr Shelving Facility Ask at any library",
+        "id": "BUHR GRAD",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Buhr Shelving Facility Ask at any library",
+        "id": "BUHR JUV",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Buhr Shelving Facility Ask at any library",
+        "id": "BUHR MAP",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Buhr Shelving Facility Ask at any library",
+        "id": "BUHR MUSI",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Buhr Shelving Facility Ask at any library",
+        "id": "BUHR MUSM",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Buhr Shelving Facility",
+        "id": "BUHR NONE",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Buhr Shelving Facility Ask at any library",
+        "id": "BUHR PAPY",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Buhr Shelving Facility Ask at any library",
+        "id": "BUHR PUB",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Buhr Shelving Facility Ask at any library",
+        "id": "BUHR SCI",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Buhr Shelving Facility Ask at any library",
+        "id": "BUHR SOC",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Buhr Shelving Facility Serials Set - Ask at any library",
+        "id": "BUHR SSBU",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Buhr Shelving Facility Ask at any library",
+        "id": "BUHR TAUB",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Buhr Shelving Facility Ask at any library",
+        "id": "BUHR WARE",
+        "link": "http://www.lib.umich.edu/location/buhr-remote-shelving-facility/unit/45"
+    },
+    {
+        "text": "Mark Chesler Library",
+        "id": "CHES",
+        "link": "http://www.lib.umich.edu/location/mark-chesler-library/unit/40977"
+    },
+    {
+        "text": "Mark Chesler Library",
+        "id": "CHES NONE",
+        "link": "http://www.lib.umich.edu/location/mark-chesler-library/unit/40977"
+    },
+    {
+        "text": "William L. Clements",
+        "id": "CLEM",
+        "link": "http://www.lib.umich.edu/location/clements-library/unit/21"
+    },
+    {
+        "text": "William L. Clements",
+        "id": "CLEM NONE",
+        "link": "http://www.lib.umich.edu/location/clements-library/unit/21"
+    },
+    {
+        "text": "William L. Clements Overflow",
+        "id": "CLEM OVFL",
+        "link": "http://www.lib.umich.edu/location/clements-library/unit/21"
+    },
+    {
+        "text": "William L. Clements RBR",
+        "id": "CLEM RBR",
+        "link": "http://www.lib.umich.edu/location/clements-library/unit/21"
+    },
+    {
+        "text": "William L. Clements Remote Storage - Ask in advance",
+        "id": "CLEM RSTO",
+        "link": "http://www.lib.umich.edu/location/clements-library/unit/21"
+    },
+    {
+        "text": "CSCAR - Rackham Building",
+        "id": "CSCAR",
+        "link": null
+    },
+    {
+        "text": "CSCAR - Rackham Building",
+        "id": "CSCAR NONE",
+        "link": null
+    },
+    {
+        "text": "Dentistry",
+        "id": "DENT",
+        "link": null
+    },
+    {
+        "text": "Donald Hall Collection",
+        "id": "DHCL",
+        "link": "https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html"
+    },
+    {
+        "text": "Donald Hall Collection Monographs",
+        "id": "DHCL BOOK",
+        "link": "https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html"
+    },
+    {
+        "text": "Donald Hall Collection Blu-ray Disc",
+        "id": "DHCL BRD",
+        "link": "https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html"
+    },
+    {
+        "text": "Donald Hall Collection Blu-ray ROM",
+        "id": "DHCL BRR",
+        "link": "https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html"
+    },
+    {
+        "text": "Donald Hall Collection CD-ROM",
+        "id": "DHCL CDROM",
+        "link": "https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html"
+    },
+    {
+        "text": "Donald Hall Collection Audio Disc",
+        "id": "DHCL DISC",
+        "link": "https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html"
+    },
+    {
+        "text": "Donald Hall Collection DVDs",
+        "id": "DHCL DVD",
+        "link": "https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html"
+    },
+    {
+        "text": "Donald Hall Collection DVD-ROM",
+        "id": "DHCL DVROM",
+        "link": "https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html"
+    },
+    {
+        "text": "Donald Hall Collection Video Games",
+        "id": "DHCL GAME",
+        "link": "https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html"
+    },
+    {
+        "text": "Donald Hall Collection Laserdiscs",
+        "id": "DHCL LASER",
+        "link": "https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html"
+    },
+    {
+        "text": "Donald Hall Collection Oversize",
+        "id": "DHCL OVR",
+        "link": "https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html"
+    },
+    {
+        "text": "Donald Hall Collection Screenplays",
+        "id": "DHCL SCRN",
+        "link": "https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html"
+    },
+    {
+        "text": "Donald Hall Collection Sound Cassette",
+        "id": "DHCL TAPEC",
+        "link": "https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html"
+    },
+    {
+        "text": "Donald Hall Collection VHS Tapes",
+        "id": "DHCL VHS",
+        "link": "https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html"
+    },
+    {
+        "text": "UM-Dearborn Mardigian Library",
+        "id": "DRBN",
+        "link": null
+    },
+    {
+        "text": "Electronic Resources",
+        "id": "ELEC",
+        "link": null
+    },
+    {
+        "text": "Fine Arts",
+        "id": "FINE",
+        "link": "http://www.lib.umich.edu/location/fine-arts-library/unit/23"
+    },
+    {
+        "text": "Fine Arts Staff Offices",
+        "id": "FINE ADM",
+        "link": "http://www.lib.umich.edu/location/fine-arts-library/unit/23"
+    },
+    {
+        "text": "Fine Arts Reserves - Electronic Resource",
+        "id": "FINE ERES",
+        "link": "http://www.lib.umich.edu/location/fine-arts-library/unit/23"
+    },
+    {
+        "text": "Fine Arts Flat Folio Collection",
+        "id": "FINE FOL",
+        "link": "http://www.lib.umich.edu/location/fine-arts-library/unit/23"
+    },
+    {
+        "text": "Fine Arts",
+        "id": "FINE NONE",
+        "link": "http://www.lib.umich.edu/location/fine-arts-library/unit/23"
+    },
+    {
+        "text": "Fine Arts Oriental Seminar Rm. Flat Folios",
+        "id": "FINE OSFF",
+        "link": "http://www.lib.umich.edu/location/fine-arts-library/unit/23"
+    },
+    {
+        "text": "Fine Arts Oriental Seminar Rm.",
+        "id": "FINE OSR",
+        "link": "http://www.lib.umich.edu/location/fine-arts-library/unit/23"
+    },
+    {
+        "text": "Fine Arts Oriental Seminar Rm. Folios",
+        "id": "FINE OSRF",
+        "link": "http://www.lib.umich.edu/location/fine-arts-library/unit/23"
+    },
+    {
+        "text": "Fine Arts Oriental Seminar Rm. Journals",
+        "id": "FINE OSRJ",
+        "link": "http://www.lib.umich.edu/location/fine-arts-library/unit/23"
+    },
+    {
+        "text": "Fine Arts Oriental Seminar Rm. Reference",
+        "id": "FINE OSRR",
+        "link": "http://www.lib.umich.edu/location/fine-arts-library/unit/23"
+    },
+    {
+        "text": "Fine Arts Oversize - 1st floor",
+        "id": "FINE OVR",
+        "link": "http://www.lib.umich.edu/location/fine-arts-library/unit/23"
+    },
+    {
+        "text": "Fine Arts Oversize - 2nd floor",
+        "id": "FINE OVR2",
+        "link": "http://www.lib.umich.edu/location/fine-arts-library/unit/23"
+    },
+    {
+        "text": "Fine Arts Journals",
+        "id": "FINE PER",
+        "link": "http://www.lib.umich.edu/location/fine-arts-library/unit/23"
+    },
+    {
+        "text": "Fine Arts Current Journals",
+        "id": "FINE PERC",
+        "link": "http://www.lib.umich.edu/location/fine-arts-library/unit/23"
+    },
+    {
+        "text": "Fine Arts Reference",
+        "id": "FINE REF",
+        "link": "http://www.lib.umich.edu/location/fine-arts-library/unit/23"
+    },
+    {
+        "text": "Fine Arts Reserves - Circulation Desk",
+        "id": "FINE RESC",
+        "link": "http://www.lib.umich.edu/location/fine-arts-library/unit/23"
+    },
+    {
+        "text": "Fine Arts Open Reserves Shelving Area",
+        "id": "FINE RESP",
+        "link": "http://www.lib.umich.edu/location/fine-arts-library/unit/23"
+    },
+    {
+        "text": "Fine Arts Special Collections",
+        "id": "FINE SPE",
+        "link": "http://www.lib.umich.edu/location/fine-arts-library/unit/23"
+    },
+    {
+        "text": "Fine Arts Special Collections Oversize",
+        "id": "FINE SPO",
+        "link": "http://www.lib.umich.edu/location/fine-arts-library/unit/23"
+    },
+    {
+        "text": "UM-Flint",
+        "id": "FLINT",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Indexes & Abstracts",
+        "id": "FLINT ABST",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Archives",
+        "id": "FLINT ARCH",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Atlas Collection",
+        "id": "FLINT ATLAS",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Browsing Collection",
+        "id": "FLINT BROWS",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint UM-Flint Kresge Books, 1st floor",
+        "id": "FLINT BUSB",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint UM-Flint Kresge Periodicals, 2nd floor",
+        "id": "FLINT BUSP",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Children's Literature",
+        "id": "FLINT CHILD",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Electronic resources",
+        "id": "FLINT ELEC",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint English Language Program 1",
+        "id": "FLINT ELP1",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint English Language Program 2",
+        "id": "FLINT ELP2",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint English Language Program 3",
+        "id": "FLINT ELP3",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Reserves - Electronic Resource",
+        "id": "FLINT ERES",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Pamphlets",
+        "id": "FLINT FSPAM",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Main Collection",
+        "id": "FLINT MAIN",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Microcard",
+        "id": "FLINT MCARD",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Media Collection",
+        "id": "FLINT MEDIA",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Microfiche",
+        "id": "FLINT MFICH",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Microfilm",
+        "id": "FLINT MFILM",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Anatomical Models",
+        "id": "FLINT MODEL",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Media- OVERSIZED",
+        "id": "FLINT MOVRZ",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Masters Theses",
+        "id": "FLINT MSTR",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint",
+        "id": "FLINT NONE",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Oversized Collection",
+        "id": "FLINT OVERZ",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Periodicals",
+        "id": "FLINT PERI",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Reference Collection",
+        "id": "FLINT REF",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Reference, Ready",
+        "id": "FLINT REFD",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Reserved Readings",
+        "id": "FLINT RESV",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Archives - Special Collections",
+        "id": "FLINT SPEC",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Technical Services Department",
+        "id": "FLINT TECH",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "UM-Flint Time Capsule",
+        "id": "FLINT TIME",
+        "link": "http://www.lib.umich.edu/location/thompson-library--flint-/unit/49"
+    },
+    {
+        "text": "Askwith Media Library",
+        "id": "FVL",
+        "link": "http://www.lib.umich.edu/location/askwith-media-library/unit/59"
+    },
+    {
+        "text": "Askwith Media Library Offsite Shelving - please allow 3 days for delivery",
+        "id": "FVL BUH",
+        "link": "http://www.lib.umich.edu/location/askwith-media-library/unit/59"
+    },
+    {
+        "text": "Askwith Media Library Offsite Shelving - please allow 3 days for delivery",
+        "id": "FVL ELL",
+        "link": "http://www.lib.umich.edu/location/askwith-media-library/unit/59"
+    },
+    {
+        "text": "Askwith Media Library Room 2002 Shapiro - Non-circulating",
+        "id": "FVL F2",
+        "link": "http://www.lib.umich.edu/location/askwith-media-library/unit/59"
+    },
+    {
+        "text": "Askwith Media Library Room 2002 Shapiro",
+        "id": "FVL H1",
+        "link": "http://www.lib.umich.edu/location/askwith-media-library/unit/59"
+    },
+    {
+        "text": "Askwith Media Library Library staff loaners",
+        "id": "FVL LOA",
+        "link": "http://www.lib.umich.edu/location/askwith-media-library/unit/59"
+    },
+    {
+        "text": "Askwith Media Library",
+        "id": "FVL NONE",
+        "link": "http://www.lib.umich.edu/location/askwith-media-library/unit/59"
+    },
+    {
+        "text": "Hatcher Graduate",
+        "id": "HATCH",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Acquisitions",
+        "id": "HATCH ACQ",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate The Azad and Margaret Hogikyan Armenian Studies Collection - 100 Hatcher North",
+        "id": "HATCH AMHC",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Asia Library Microforms - Ask at Office - Rm. 418 N",
+        "id": "HATCH AMIC",
+        "link": "http://www.lib.umich.edu/location/asia-library/unit/75"
+    },
+    {
+        "text": "Hatcher Graduate Asia Library Office - Rm. 418 N",
+        "id": "HATCH AOFF",
+        "link": "http://www.lib.umich.edu/location/asia-library/unit/75"
+    },
+    {
+        "text": "Hatcher Graduate Asia Library Oversized - East Attic",
+        "id": "HATCH AOVR",
+        "link": "http://www.lib.umich.edu/location/asia-library/unit/75"
+    },
+    {
+        "text": "Hatcher Graduate Asia Library Reference - Rm. 421 N",
+        "id": "HATCH AREF",
+        "link": "http://www.lib.umich.edu/location/asia-library/unit/75"
+    },
+    {
+        "text": "Hatcher Graduate Argus - MoA",
+        "id": "HATCH ARGM",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Asia Library Stacks",
+        "id": "HATCH ASIA",
+        "link": "http://www.lib.umich.edu/location/asia-library/unit/75"
+    },
+    {
+        "text": "Hatcher Graduate Asia Library Special Collections",
+        "id": "HATCH ASPEC",
+        "link": "http://www.lib.umich.edu/location/asia-library/unit/75"
+    },
+    {
+        "text": "Hatcher Graduate In process",
+        "id": "HATCH BACK",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Clark Library Book Shelves - 2nd floor S",
+        "id": "HATCH CLARK",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Clark Library Atlas Shelves - 2nd floor S",
+        "id": "HATCH CLATL",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Clark Library Book Shelves - 2nd floor S",
+        "id": "HATCH CLBKS",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Children's Literature Collection - 3rd floor S",
+        "id": "HATCH CLC",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Clark Library File Cabinets - 2nd floor S",
+        "id": "HATCH CLFIL",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Clark Library Rare File - Ask at Clark Library - 2nd floor S",
+        "id": "HATCH CLFIR",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Clark Library Folio - Ask at Clark Library - 2nd floor S",
+        "id": "HATCH CLFOL",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Clark Library Lab - Ask at Clark Library - 2nd floor S",
+        "id": "HATCH CLLAB",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Clark Library Map Cases - Ask at Clark Library - 2nd floor S",
+        "id": "HATCH CLMAP",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Clark Library Office - Ask at Clark Library - 2nd floor S",
+        "id": "HATCH CLOFF",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Clark Library Oversize Drawer - Ask at Clark Library - 2nd floor S",
+        "id": "HATCH CLOVD",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Clark Library Oversize - Ask at Clark Library - 2nd floor S",
+        "id": "HATCH CLOVR",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Clark Library Rare Cases - Ask at Clark Library - 2nd floor S",
+        "id": "HATCH CLRAR",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Clark Library Software - Ask at Clark Library - 2nd floor S",
+        "id": "HATCH CLSOF",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Clark Library Storage - Ask at Clark Library - 2nd floor S",
+        "id": "HATCH CLSTR",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate 2nd Floor U-M Faculty Authors - Shelved by author",
+        "id": "HATCH FAC",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Reference Desk - 2nd floor N",
+        "id": "HATCH GDESK",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Folio - Ask at Circ, Rm. 104 N",
+        "id": "HATCH GFOL",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Serials and Microforms - 203 N. Hatcher",
+        "id": "HATCH GLMR",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Reference Rm. - 2nd floor N",
+        "id": "HATCH GLRF",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate",
+        "id": "HATCH GRAD",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Reference - Grants collection - 2nd floor N",
+        "id": "HATCH GRNT",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Juvenile Collection - 3rd floor N",
+        "id": "HATCH JUV",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Graduate Library Mixed Media - 203 N. Hatcher",
+        "id": "HATCH MIXM",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate MonoCat",
+        "id": "HATCH MONO",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Middle East Reference - 1 West",
+        "id": "HATCH NER",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate",
+        "id": "HATCH NONE",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Papyrology Collection (807 S. Hatcher)",
+        "id": "HATCH PAPY",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate South Asia Reference - 1 West",
+        "id": "HATCH SAR",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Southeast Asia Reference - 1 West",
+        "id": "HATCH SEAR",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Near East Seminar - Rm. 3020 Thayer Academic Bldg (Dept of Middle East Studies)",
+        "id": "HATCH SEM",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Slavic Reference - 1 West",
+        "id": "HATCH SLVR",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Slavic Reference - Holtzman - Restricted - Ask at Rm. 110F for access",
+        "id": "HATCH SLVRH",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Serials Set - 1 East",
+        "id": "HATCH SSBU",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Hatcher Graduate Technical Services Backlog",
+        "id": "HATCH TECH",
+        "link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+    },
+    {
+        "text": "Herbarium",
+        "id": "HERB",
+        "link": "http://www.lib.umich.edu/location/museums-library-herbarium-division/unit/28945"
+    },
+    {
+        "text": "Herbarium Cage - By appointment only",
+        "id": "HERB HEBC",
+        "link": "http://www.lib.umich.edu/location/museums-library-herbarium-division/unit/28945"
+    },
+    {
+        "text": "Herbarium Oversize",
+        "id": "HERB HEBO",
+        "link": "http://www.lib.umich.edu/location/museums-library-herbarium-division/unit/28945"
+    },
+    {
+        "text": "Herbarium Reference",
+        "id": "HERB HEBR",
+        "link": "http://www.lib.umich.edu/location/museums-library-herbarium-division/unit/28945"
+    },
+    {
+        "text": "Herbarium",
+        "id": "HERB NONE",
+        "link": "http://www.lib.umich.edu/location/museums-library-herbarium-division/unit/28945"
+    },
+    {
+        "text": "Offsite Shelving H",
+        "id": "HSRS",
+        "link": null
+    },
+    {
+        "text": "Offsite Shelving H",
+        "id": "HSRS IND",
+        "link": null
+    },
+    {
+        "text": "Offsite Shelving H",
+        "id": "HSRS MUSM",
+        "link": null
+    },
+    {
+        "text": "Offsite Shelving H",
+        "id": "HSRS MUSMR",
+        "link": null
+    },
+    {
+        "text": "Offsite Shelving H",
+        "id": "HSRS NONE",
+        "link": null
+    },
+    {
+        "text": "Offsite Shelving H",
+        "id": "HSRS OVR",
+        "link": null
+    },
+    {
+        "text": "Offsite Shelving H",
+        "id": "HSRS PER",
+        "link": null
+    },
+    {
+        "text": "Offsite Shelving H",
+        "id": "HSRS STOR",
+        "link": null
+    },
+    {
+        "text": "Music",
+        "id": "MUSIC",
+        "link": "http://www.lib.umich.edu/location/music-library/unit/39"
+    },
+    {
+        "text": "Music Staff Offices",
+        "id": "MUSIC ADM",
+        "link": "http://www.lib.umich.edu/location/music-library/unit/39"
+    },
+    {
+        "text": "Music Dissertations - 4th floor",
+        "id": "MUSIC DIS",
+        "link": "http://www.lib.umich.edu/location/music-library/unit/39"
+    },
+    {
+        "text": "Music DVD Collection",
+        "id": "MUSIC DVD",
+        "link": "http://www.lib.umich.edu/location/music-library/unit/39"
+    },
+    {
+        "text": "Music American Sheet Music",
+        "id": "MUSIC EDIS",
+        "link": "http://www.lib.umich.edu/location/music-library/unit/39"
+    },
+    {
+        "text": "Music Reserves - Electronic Resource",
+        "id": "MUSIC ERES",
+        "link": "http://www.lib.umich.edu/location/music-library/unit/39"
+    },
+    {
+        "text": "Music Folio Collection - 3rd floor",
+        "id": "MUSIC FOLIO",
+        "link": "http://www.lib.umich.edu/location/music-library/unit/39"
+    },
+    {
+        "text": "Music Miniatures - 4th floor",
+        "id": "MUSIC MINI",
+        "link": "http://www.lib.umich.edu/location/music-library/unit/39"
+    },
+    {
+        "text": "Music",
+        "id": "MUSIC NONE",
+        "link": "http://www.lib.umich.edu/location/music-library/unit/39"
+    },
+    {
+        "text": "Music Oversize Recordings - Circulation Desk",
+        "id": "MUSIC OVCD",
+        "link": "http://www.lib.umich.edu/location/music-library/unit/39"
+    },
+    {
+        "text": "Music Oversize Shelves - 4th floor",
+        "id": "MUSIC OVR",
+        "link": "http://www.lib.umich.edu/location/music-library/unit/39"
+    },
+    {
+        "text": "Music Periodicals Rack - 3rd floor",
+        "id": "MUSIC PER",
+        "link": "http://www.lib.umich.edu/location/music-library/unit/39"
+    },
+    {
+        "text": "Music Rare Book Rm.",
+        "id": "MUSIC RAR",
+        "link": "http://www.lib.umich.edu/location/music-library/unit/39"
+    },
+    {
+        "text": "Music Sheet Music Collection",
+        "id": "MUSIC RARS",
+        "link": "http://www.lib.umich.edu/location/music-library/unit/39"
+    },
+    {
+        "text": "Music Women Composers Collection",
+        "id": "MUSIC RARW",
+        "link": "http://www.lib.umich.edu/location/music-library/unit/39"
+    },
+    {
+        "text": "Music Recordings - Circulation Desk",
+        "id": "MUSIC REC",
+        "link": "http://www.lib.umich.edu/location/music-library/unit/39"
+    },
+    {
+        "text": "Music Reference - 3rd floor",
+        "id": "MUSIC REF",
+        "link": "http://www.lib.umich.edu/location/music-library/unit/39"
+    },
+    {
+        "text": "Music Reserves - Circulation Desk",
+        "id": "MUSIC RESC",
+        "link": "http://www.lib.umich.edu/location/music-library/unit/39"
+    },
+    {
+        "text": "Music Software - Circulation Desk",
+        "id": "MUSIC SOFT",
+        "link": "http://www.lib.umich.edu/location/music-library/unit/39"
+    },
+    {
+        "text": "Music Videos- Circulation Desk",
+        "id": "MUSIC VID",
+        "link": "http://www.lib.umich.edu/location/music-library/unit/39"
+    },
+    {
+        "text": "Research Museums Center",
+        "id": "MUSM",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Anthropology Division",
+        "id": "MUSM ANT",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Anthro. Div. - Ethnobotany",
+        "id": "MUSM ANTE",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Anthro. Div. - Oversize",
+        "id": "MUSM ANTO",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Birds Division",
+        "id": "MUSM BIR",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Birds Division - Case",
+        "id": "MUSM BIRC",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Cage - by appointment only",
+        "id": "MUSM CAGE",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Reserves - Electronic Resource",
+        "id": "MUSM ERES",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Fish Division",
+        "id": "MUSM FIS",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Fish Division - Oversize",
+        "id": "MUSM FISO",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Herpetology Division",
+        "id": "MUSM HEP",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Herpetology Division - Oversize",
+        "id": "MUSM HEPO",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Insect Division",
+        "id": "MUSM INS",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Insect Division - Oversize",
+        "id": "MUSM INSO",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Insect Division - Orthoptera",
+        "id": "MUSM INST",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Room 2500",
+        "id": "MUSM MAIN",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Mammals Division",
+        "id": "MUSM MAM",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Mammals Division - Oversize",
+        "id": "MUSM MAMO",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Microform Collection - Rm. 2500",
+        "id": "MUSM MIC",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Mollusks Division",
+        "id": "MUSM MOL",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Mollusks Division - Oversize",
+        "id": "MUSM MOLO",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center",
+        "id": "MUSM NONE",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Room 2500 - Oversize",
+        "id": "MUSM OVR",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Paleontology Division",
+        "id": "MUSM PAL",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Paleontology - Oversize",
+        "id": "MUSM PALO",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Paleontology - Reference",
+        "id": "MUSM PALR",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Journals",
+        "id": "MUSM PER",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Reference - Rm. 2500",
+        "id": "MUSM REF",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Course Reserves - Rm. 2500",
+        "id": "MUSM RESC",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Permanent Reserves - Rm. 2500",
+        "id": "MUSM RESP",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "Research Museums Center Special Formats - Ask Staff",
+        "id": "MUSM SPE",
+        "link": "http://www.lib.umich.edu/location/museums-library/unit/31"
+    },
+    {
+        "text": "MLibrary@NCRC",
+        "id": "NCRC",
+        "link": null
+    },
+    {
+        "text": "Offsite Shelving",
+        "id": "OFFS",
+        "link": null
+    },
+    {
+        "text": "Offsite Shelving",
+        "id": "OFFS ELLS",
+        "link": null
+    },
+    {
+        "text": "Offsite Shelving",
+        "id": "OFFS STATE",
+        "link": null
+    },
+    {
+        "text": "Request via Get This or 7FAST",
+        "id": "PUB",
+        "link": null
+    },
+    {
+        "text": "Shapiro Science",
+        "id": "SCI",
+        "link": "http://www.lib.umich.edu/location/shapiro-science-library/unit/57"
+    },
+    {
+        "text": "Shapiro Science Atlases & Maps - 4th floor",
+        "id": "SCI ATL",
+        "link": "http://www.lib.umich.edu/location/shapiro-science-library/unit/57"
+    },
+    {
+        "text": "Shapiro Science Book Stacks - 4th floor",
+        "id": "SCI BKS",
+        "link": "http://www.lib.umich.edu/location/shapiro-science-library/unit/57"
+    },
+    {
+        "text": "Shapiro Science Dissertations/Masters - 4th floor",
+        "id": "SCI DIS",
+        "link": "http://www.lib.umich.edu/location/shapiro-science-library/unit/57"
+    },
+    {
+        "text": "Shapiro Science Reserves - Electronic Resource",
+        "id": "SCI ERES",
+        "link": "http://www.lib.umich.edu/location/shapiro-science-library/unit/57"
+    },
+    {
+        "text": "Shapiro Science Indexes & Abstracts - 3rd floor",
+        "id": "SCI IND",
+        "link": "http://www.lib.umich.edu/location/shapiro-science-library/unit/57"
+    },
+    {
+        "text": "Shapiro Science Reference Tables - 3rd floor",
+        "id": "SCI INDT",
+        "link": "http://www.lib.umich.edu/location/shapiro-science-library/unit/57"
+    },
+    {
+        "text": "Shapiro Science Masters Theses Archival Collection",
+        "id": "SCI MAS",
+        "link": "http://www.lib.umich.edu/location/shapiro-science-library/unit/57"
+    },
+    {
+        "text": "Shapiro Science",
+        "id": "SCI NONE",
+        "link": "http://www.lib.umich.edu/location/shapiro-science-library/unit/57"
+    },
+    {
+        "text": "Shapiro Science Oversize Stacks - 4th floor",
+        "id": "SCI OVR",
+        "link": "http://www.lib.umich.edu/location/shapiro-science-library/unit/57"
+    },
+    {
+        "text": "Shapiro Science Reference - The Wu Reading Room - 3rd floor",
+        "id": "SCI REFU",
+        "link": "http://www.lib.umich.edu/location/shapiro-science-library/unit/57"
+    },
+    {
+        "text": "Shapiro Science Course Reserves - 3rd floor - Ask at Desk",
+        "id": "SCI RESC",
+        "link": "http://www.lib.umich.edu/location/shapiro-science-library/unit/57"
+    },
+    {
+        "text": "Shapiro Science Science Media Cabinet - 3rd floor",
+        "id": "SCI RESP",
+        "link": "http://www.lib.umich.edu/location/shapiro-science-library/unit/57"
+    },
+    {
+        "text": "Shapiro Science Shapiro Basement Compact Shelving",
+        "id": "SCI SBCS",
+        "link": "http://www.lib.umich.edu/location/shapiro-science-library/unit/57"
+    },
+    {
+        "text": "Shapiro Science Journals",
+        "id": "SCI SER",
+        "link": "http://www.lib.umich.edu/location/shapiro-science-library/unit/57"
+    },
+    {
+        "text": "HathiTrust",
+        "id": "SDR",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Alberta",
+        "id": "SDR AEU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust The University of Queensland",
+        "id": "SDR AUBRU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Chicago",
+        "id": "SDR CHI",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Cornell University",
+        "id": "SDR COO",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Connecticut",
+        "id": "SDR CTU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Millennium Project",
+        "id": "SDR DCMP",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Delaware",
+        "id": "SDR DEU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Miami",
+        "id": "SDR FMU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Emory University",
+        "id": "SDR GEU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust The Getty Research Institute",
+        "id": "SDR GRI",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Technical Report Archive & Image Library",
+        "id": "SDR GWLA",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Harvard University",
+        "id": "SDR HVD",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Iowa",
+        "id": "SDR IAU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Boston College",
+        "id": "SDR IBC",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Duke University",
+        "id": "SDR IDUKE",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Library of Congress",
+        "id": "SDR ILOC",
+        "link": null
+    },
+    {
+        "text": "HathiTrust North Carolina State University",
+        "id": "SDR INCSU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Columbia University",
+        "id": "SDR INNC",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Notre Dame",
+        "id": "SDR INND",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of California",
+        "id": "SDR INRLF",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Indiana University",
+        "id": "SDR INU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Pennsylvania State University",
+        "id": "SDR IPST",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of California",
+        "id": "SDR ISRLF",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of California",
+        "id": "SDR IUCD",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of California",
+        "id": "SDR IUCLA",
+        "link": null
+    },
+    {
+        "text": "HathiTrust State University System of Florida",
+        "id": "SDR IUFL",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Illinois at Urbana-Champaign",
+        "id": "SDR IUIUC",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of North Carolina at Chapel Hill",
+        "id": "SDR IUNC",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Keio University",
+        "id": "SDR KEIO",
+        "link": null
+    },
+    {
+        "text": "HathiTrust American University of Beirut",
+        "id": "SDR LEBAU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Minnesota Digital Library",
+        "id": "SDR MDL",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Maryland, College Park",
+        "id": "SDR MDU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Michigan State University",
+        "id": "SDR MIEM",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Michigan",
+        "id": "SDR MIU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Tufts University",
+        "id": "SDR MMET",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Missouri - Columbia",
+        "id": "SDR MOU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Michigan State University",
+        "id": "SDR MSU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Massachusetts Amherst",
+        "id": "SDR MU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Clark Art Institute Library",
+        "id": "SDR MWICA",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Brooklyn Museum",
+        "id": "SDR NBB",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Wake Forest University",
+        "id": "SDR NCWSW",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Princeton University",
+        "id": "SDR NJP",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Columbia University",
+        "id": "SDR NNC",
+        "link": null
+    },
+    {
+        "text": "HathiTrust The Frick Collection",
+        "id": "SDR NNFR",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of California",
+        "id": "SDR NRLF",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Northwestern University",
+        "id": "SDR NWU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust New York Public Library",
+        "id": "SDR NYP",
+        "link": null
+    },
+    {
+        "text": "HathiTrust The Ohio State University",
+        "id": "SDR OSU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Private Donor",
+        "id": "SDR PRIV",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Pennsylvania State University",
+        "id": "SDR PST",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Pennsylvania",
+        "id": "SDR PU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Purdue University",
+        "id": "SDR PUR",
+        "link": null
+    },
+    {
+        "text": "HathiTrust McGill University",
+        "id": "SDR QMM",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of California",
+        "id": "SDR SRLF",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Texas A&M University",
+        "id": "SDR TXCM",
+        "link": null
+    },
+    {
+        "text": "HathiTrust The University of Texas",
+        "id": "SDR TXU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of California",
+        "id": "SDR UCBK",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of California",
+        "id": "SDR UCD",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of California",
+        "id": "SDR UCI",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of California",
+        "id": "SDR UCLA",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Universidad Complutense de Madrid",
+        "id": "SDR UCM",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of California",
+        "id": "SDR UCMR",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of California",
+        "id": "SDR UCR",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of California",
+        "id": "SDR UCSC",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of California",
+        "id": "SDR UCSD",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of California",
+        "id": "SDR UCSF",
+        "link": null
+    },
+    {
+        "text": "HathiTrust State University System of Florida",
+        "id": "SDR UFDC",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Illinois at Urbana-Champaign",
+        "id": "SDR UIUC",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Illinois at Urbana-Champaign",
+        "id": "SDR UIUCL",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Knowledge Unlatched",
+        "id": "SDR UKLOK",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Michigan",
+        "id": "SDR UMBUS",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Michigan",
+        "id": "SDR UMDB",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Michigan",
+        "id": "SDR UMLAW",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Minnesota",
+        "id": "SDR UMN",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Utah State University Press",
+        "id": "SDR USU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Unitarian Universalist History and Heritage Society",
+        "id": "SDR UUHHS",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Virginia",
+        "id": "SDR UVA",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Virginia Commonwealth University",
+        "id": "SDR VIRCU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Washington",
+        "id": "SDR WAU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust University of Wisconsin - Madison",
+        "id": "SDR WU",
+        "link": null
+    },
+    {
+        "text": "HathiTrust Yale University",
+        "id": "SDR YALE",
+        "link": null
+    },
+    {
+        "text": "Shapiro",
+        "id": "SHAP",
+        "link": "http://www.lib.umich.edu/location/shapiro-undergraduate-library/unit/35"
+    },
+    {
+        "text": "Shapiro Basement Compact Shelving",
+        "id": "SHAP SBCS",
+        "link": "http://www.lib.umich.edu/location/shapiro-undergraduate-library/unit/35"
+    },
+    {
+        "text": "Social Work",
+        "id": "SOC",
+        "link": null
+    },
+    {
+        "text": "Special Collections",
+        "id": "SPEC",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Archival and Manuscript Collections",
+        "id": "SPEC AMSBN",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Archival and Manuscript Collections",
+        "id": "SPEC AMSHE",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Archival and Manuscript Collections",
+        "id": "SPEC AMSHW",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Archival and Manuscript Collections",
+        "id": "SPEC AMSNB",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Archival and Manuscript Collections",
+        "id": "SPEC AMSNC",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Asa Gray Collection",
+        "id": "SPEC ASG",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Publishers' Bindings",
+        "id": "SPEC BIND",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections General and Rare",
+        "id": "SPEC BUHR",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Children's Literature",
+        "id": "SPEC CHIL",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Children's Literature",
+        "id": "SPEC CHIL1",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Children's Literature",
+        "id": "SPEC CHIL2",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Children's Literature",
+        "id": "SPEC CHIL3",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Children's Literature",
+        "id": "SPEC CHIL4",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Children's Literature",
+        "id": "SPEC CHILO",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Janice Bluestein Longone Culinary Archive",
+        "id": "SPEC CULHN",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Janice Bluestein Longone Culinary Archive",
+        "id": "SPEC CULHS",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Janice Bluestein Longone Culinary Archive",
+        "id": "SPEC CULNB",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Faulkner Collection",
+        "id": "SPEC FAUL",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Faulkner Collection",
+        "id": "SPEC FAULX",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Pop-Up and Movable Books",
+        "id": "SPEC GOSL",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Hubbard Imaginary Voyages",
+        "id": "SPEC HUB",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Hubbard Imaginary Voyages",
+        "id": "SPEC HUBO",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Islamic Manuscripts",
+        "id": "SPEC ISLM",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Jewish Heritage Collection",
+        "id": "SPEC JHC",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Jewish Heritage Collection",
+        "id": "SPEC JHCO",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Labadie Collection",
+        "id": "SPEC LABD",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Labadie Collection",
+        "id": "SPEC LABH1",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Labadie Collection",
+        "id": "SPEC LABH2",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Labadie Collection",
+        "id": "SPEC LABHC",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Labadie Collection",
+        "id": "SPEC LABHE",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Labadie Collection",
+        "id": "SPEC LABHF",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Labadie Collection",
+        "id": "SPEC LABHV",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Labadie Collection",
+        "id": "SPEC LABS1",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Labadie Collection",
+        "id": "SPEC LABS2",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Labadie Collection",
+        "id": "SPEC LABSF",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Labadie Collection",
+        "id": "SPEC LAFO",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Labadie Collection",
+        "id": "SPEC LAMS",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Labadie Collection",
+        "id": "SPEC LAOV",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Labadie Collection",
+        "id": "SPEC LAPA",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Labadie Collection",
+        "id": "SPEC LASTR",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Labadie Collection",
+        "id": "SPEC LASVF",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Michigan Manuscripts",
+        "id": "SPEC MICH",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Manuscripts",
+        "id": "SPEC MSS",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Myers Collection",
+        "id": "SPEC MYRSO",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Myers Collection",
+        "id": "SPEC MYRSR",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections",
+        "id": "SPEC NONE",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Parsons-Rau Collection",
+        "id": "SPEC PARS",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections General and Rare",
+        "id": "SPEC RARE",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections General and Rare",
+        "id": "SPEC RAREO",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections General and Rare",
+        "id": "SPEC RAREX",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Children's Literature",
+        "id": "SPEC RCLC",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Reference Collection",
+        "id": "SPEC REF",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Reference Collection",
+        "id": "SPEC REFH",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Reference Collection",
+        "id": "SPEC REFO",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Science Fiction Collection",
+        "id": "SPEC SCFI",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections General and Rare",
+        "id": "SPEC SCI",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Shakespeare Collection",
+        "id": "SPEC SHA",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Shorthand Collection",
+        "id": "SPEC SHORT",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections History of Medicine - Crummer Collection",
+        "id": "SPEC TAUBC",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections History of Medicine - Dock Collection",
+        "id": "SPEC TAUBD",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections History of Medicine",
+        "id": "SPEC TAUBF",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections History of Medicine - Huntley Collection",
+        "id": "SPEC TAUBH",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections History of Medicine",
+        "id": "SPEC TAUBI",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections History of Medicine - Weller Collection",
+        "id": "SPEC TAUBL",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections History of Medicine",
+        "id": "SPEC TAUBM",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections History of Medicine",
+        "id": "SPEC TAUBO",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections History of Medicine - Pilcher Collection",
+        "id": "SPEC TAUBP",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections History of Medicine",
+        "id": "SPEC TAUBR",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections History of Medicine",
+        "id": "SPEC TAUBS",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections History of Medicine - Warthin Collection",
+        "id": "SPEC TAUBW",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Transportation History Collection",
+        "id": "SPEC THC",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Transportation History Collection",
+        "id": "SPEC THCO",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Walp Family Juvenile Collection",
+        "id": "SPEC WALP",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Walp Family Juvenile Collection",
+        "id": "SPEC WALP1",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Walp Family Juvenile Collection",
+        "id": "SPEC WALP2",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Walp Family Juvenile Collection",
+        "id": "SPEC WALP3",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Walp Family Juvenile Collection",
+        "id": "SPEC WALP4",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Walp Family Juvenile Collection",
+        "id": "SPEC WALPO",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Walp Family Juvenile Collection",
+        "id": "SPEC WLPR",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Worcester Philippine History Collection",
+        "id": "SPEC WOR",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Special Collections Philippine History Collection",
+        "id": "SPEC WORO",
+        "link": "http://www.lib.umich.edu/location/special-collections-library/unit/77"
+    },
+    {
+        "text": "Offsite Shelving",
+        "id": "STATE",
+        "link": null
+    },
+    {
+        "text": "Offsite Shelving",
+        "id": "STATE BUS",
+        "link": null
+    },
+    {
+        "text": "Offsite Shelving",
+        "id": "STATE GRAD",
+        "link": null
+    },
+    {
+        "text": "Offsite Shelving",
+        "id": "STATE UMTRI",
+        "link": null
+    },
+    {
+        "text": "Taubman Health Sciences",
+        "id": "TAUB",
+        "link": "http://www.lib.umich.edu/location/taubman-health-sciences-library/unit/33"
+    },
+    {
+        "text": "Taubman Health Sciences Reserves - Electronic Resource",
+        "id": "TAUB ERES",
+        "link": "http://www.lib.umich.edu/location/taubman-health-sciences-library/unit/33"
+    },
+    {
+        "text": "Taubman Health Sciences Interlibrary Loan",
+        "id": "TAUB ILL",
+        "link": "http://www.lib.umich.edu/location/taubman-health-sciences-library/unit/33"
+    },
+    {
+        "text": "Taubman Health Sciences Indexes - Reference Rm.",
+        "id": "TAUB IND",
+        "link": "http://www.lib.umich.edu/location/taubman-health-sciences-library/unit/33"
+    },
+    {
+        "text": "Taubman Health Sciences Indexes - 5th floor alcove",
+        "id": "TAUB INDA",
+        "link": "http://www.lib.umich.edu/location/taubman-health-sciences-library/unit/33"
+    },
+    {
+        "text": "Taubman Health Sciences Microforms - Reference Rm.",
+        "id": "TAUB MIC",
+        "link": "http://www.lib.umich.edu/location/taubman-health-sciences-library/unit/33"
+    },
+    {
+        "text": "Taubman Health Sciences",
+        "id": "TAUB NONE",
+        "link": "http://www.lib.umich.edu/location/taubman-health-sciences-library/unit/33"
+    },
+    {
+        "text": "Taubman Health Sciences Oversize - 6th floor",
+        "id": "TAUB OVR",
+        "link": "http://www.lib.umich.edu/location/taubman-health-sciences-library/unit/33"
+    },
+    {
+        "text": "Taubman Health Sciences Journals",
+        "id": "TAUB PER",
+        "link": "http://www.lib.umich.edu/location/taubman-health-sciences-library/unit/33"
+    },
+    {
+        "text": "Taubman Health Sciences Reference",
+        "id": "TAUB REF",
+        "link": "http://www.lib.umich.edu/location/taubman-health-sciences-library/unit/33"
+    },
+    {
+        "text": "Taubman Health Sciences Reserves - Ask at the Circulation Desk",
+        "id": "TAUB RESC",
+        "link": "http://www.lib.umich.edu/location/taubman-health-sciences-library/unit/33"
+    },
+    {
+        "text": "Taubman Health Sciences Storage - Ask at the Circulation Desk",
+        "id": "TAUB STOR",
+        "link": "http://www.lib.umich.edu/location/taubman-health-sciences-library/unit/33"
+    },
+    {
+        "text": "Spectrum/Jim Toy Library",
+        "id": "TOY",
+        "link": "http://www.lib.umich.edu/location/jim-toy-library/unit/177"
+    },
+    {
+        "text": "Spectrum/Jim Toy Library",
+        "id": "TOY NONE",
+        "link": "http://www.lib.umich.edu/location/jim-toy-library/unit/177"
+    },
+    {
+        "text": "Shapiro Undergraduate",
+        "id": "UGL",
+        "link": "http://www.lib.umich.edu/location/shapiro-undergraduate-library/unit/35"
+    },
+    {
+        "text": "Shapiro Undergraduate Atlas Cases - 1st Floor",
+        "id": "UGL ATL",
+        "link": "http://www.lib.umich.edu/location/shapiro-undergraduate-library/unit/35"
+    },
+    {
+        "text": "Shapiro Undergraduate College and Career Success Collection - 1st Floor",
+        "id": "UGL COLSC",
+        "link": "http://www.lib.umich.edu/location/shapiro-undergraduate-library/unit/35"
+    },
+    {
+        "text": "Shapiro Undergraduate Design Lab",
+        "id": "UGL DLAB",
+        "link": "http://www.lib.umich.edu/location/shapiro-undergraduate-library/unit/35"
+    },
+    {
+        "text": "Shapiro Undergraduate Reserves - Electronic Resource",
+        "id": "UGL ERES",
+        "link": "http://www.lib.umich.edu/location/shapiro-undergraduate-library/unit/35"
+    },
+    {
+        "text": "Shapiro Undergraduate Index Tables",
+        "id": "UGL IND",
+        "link": "http://www.lib.umich.edu/location/shapiro-undergraduate-library/unit/35"
+    },
+    {
+        "text": "Shapiro Undergraduate",
+        "id": "UGL NONE",
+        "link": "http://www.lib.umich.edu/location/shapiro-undergraduate-library/unit/35"
+    },
+    {
+        "text": "Shapiro Undergraduate Ask at reference desk",
+        "id": "UGL OFF",
+        "link": "http://www.lib.umich.edu/location/shapiro-undergraduate-library/unit/35"
+    },
+    {
+        "text": "Shapiro Undergraduate Oversize - basement",
+        "id": "UGL OVR",
+        "link": "http://www.lib.umich.edu/location/shapiro-undergraduate-library/unit/35"
+    },
+    {
+        "text": "Shapiro Undergraduate Periodical Shelves - 2nd Floor",
+        "id": "UGL PER",
+        "link": "http://www.lib.umich.edu/location/shapiro-undergraduate-library/unit/35"
+    },
+    {
+        "text": "Shapiro Undergraduate 2nd floor Browsing Collection - Shelved by author",
+        "id": "UGL PRON",
+        "link": "http://www.lib.umich.edu/location/shapiro-undergraduate-library/unit/35"
+    },
+    {
+        "text": "Shapiro Undergraduate Reference Shelves - 1st Floor",
+        "id": "UGL REF",
+        "link": "http://www.lib.umich.edu/location/shapiro-undergraduate-library/unit/35"
+    },
+    {
+        "text": "Shapiro Undergraduate University Reserves - Askwith Media Lib, 2002 Shapiro",
+        "id": "UGL RESC",
+        "link": "http://www.lib.umich.edu/location/shapiro-undergraduate-library/unit/35"
+    },
+    {
+        "text": "Transportation Research Inst.",
+        "id": "UMTRI",
+        "link": "http://www.lib.umich.edu/location/um-transportation-research-institute--umtri--library/unit/53"
+    },
+    {
+        "text": "Transportation Research Inst. International Data Collection",
+        "id": "UMTRI INTER",
+        "link": "http://www.lib.umich.edu/location/um-transportation-research-institute--umtri--library/unit/53"
+    },
+    {
+        "text": "Transportation Research Inst. Stapp Car Crash Collection",
+        "id": "UMTRI STAPP",
+        "link": "http://www.lib.umich.edu/location/um-transportation-research-institute--umtri--library/unit/53"
+    }
+]

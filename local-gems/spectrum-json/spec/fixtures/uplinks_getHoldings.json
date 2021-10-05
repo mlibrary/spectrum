@@ -1,0 +1,14 @@
+{
+    "005061252": [
+        {
+            "up_links": [
+                {
+                    "key": "004759908",
+                    "library": "MIU01",
+                    "link_text": "Michigan county histories.",
+                    "type": "UP "
+                }
+            ]
+        }
+    ]
+}

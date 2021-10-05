@@ -1,0 +1,9 @@
+{
+  "id": "FIELD",
+  "field": [
+   "title",
+   "subtitle"
+  ],
+  "type": "concat",
+  "metadata": {"name": "NAME"}
+}

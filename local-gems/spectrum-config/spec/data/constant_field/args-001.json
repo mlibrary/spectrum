@@ -1,0 +1,6 @@
+{
+  "id": "constant",
+  "type": "constant",
+  "metadata": {"name": "Constant"},
+  "constant": "const"
+}

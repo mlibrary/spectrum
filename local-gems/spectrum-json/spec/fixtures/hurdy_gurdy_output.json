@@ -1,0 +1,70 @@
+[
+    {
+        "caption": "HathiTrust Digital Library",
+        "headings": [
+            "Link",
+            "Description",
+            "Source"
+        ],
+        "name": "HathiTrust Sources",
+        "preExpanded": false,
+        "rows": [
+            [
+                {
+                    "href": "http://hdl.handle.net/2027/inu.30000042758924?urlappend=%3Bsignon=swle:https://shibboleth.umich.edu/idp/shibboleth",
+                    "text": "Full text available, simultaneous access is limited (HathiTrust log in required)"
+                },
+                {
+                    "text": ""
+                },
+                {
+                    "text": "Indiana University"
+                }
+            ]
+        ],
+        "type": "electronic"
+    },
+    {
+        "caption": "Music",
+        "captionLink": {
+            "href": "http://www.lib.umich.edu/location/music-library/unit/39",
+            "text": "About location"
+        },
+        "headings": [
+            "Action",
+            "Description",
+            "Status",
+            "Call Number"
+        ],
+        "name": "holdings",
+        "notes": [
+            "5th Floor"
+        ],
+        "preExpanded": false,
+        "rows": [
+            [
+                {
+                    "text": "Get This",
+                    "to": {
+                        "action": "get-this",
+                        "barcode": "39015009714562",
+                        "datastore": "000311635",
+                        "record": "000311635"
+                    }
+                },
+                {
+                    "text": ""
+                },
+                {
+                    "icon": "check_circle",
+                    "intent": "success",
+                    "text": "On shelf"
+                },
+                {
+                    "text": "ML760 .P18"
+                }
+            ]
+        ],
+        "type": "physical"
+    }
+]

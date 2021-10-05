@@ -1,0 +1,43 @@
+{
+  "item_loan": [
+    {
+      "loan_id": "8540202000006381",
+      "circ_desk": {
+        "value": "RES_DESK",
+        "desc": "Resource Sharing Desk"
+      },
+      "library": {
+        "value": "HATCH",
+        "desc": "Hatcher Graduate"
+      },
+      "user_id": "mrio",
+      "item_barcode": "39015017893416",
+      "due_date": "2021-10-01T03:59:00Z",
+      "loan_status": "ACTIVE",
+      "loan_date": "2021-06-14T20:51:25.035Z",
+      "process_status": "NORMAL",
+      "mms_id": "990020578280206381",
+      "holding_id": "2297537770006381",
+      "item_id": "2397537760006381",
+      "title": "Enhancing faculty careers : strategies for development and renewal / Jack H. Schuster, Daniel W. Wheeler, and associates.",
+      "author": "Schuster, Jack H.",
+      "description": null,
+      "publication_year": "1990.",
+      "location_code": {
+        "value": "GRAD",
+        "name": "GRAD"
+      },
+      "item_policy": {
+        "value": "01",
+        "description": "Loan 1"
+      },
+      "call_number": "LB 2331.72 .S371 1990",
+      "renewable": false,
+      "last_renew_status": {
+        "value": null,
+        "desc": ""
+      }
+    }
+  ],
+  "total_record_count": 1
+}

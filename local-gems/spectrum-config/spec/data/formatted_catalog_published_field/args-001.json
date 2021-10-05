@@ -1,0 +1,50 @@
+{
+  "id": "published_brief",
+  "metadata":{"name":"Published/Created"},
+  "type":"formatted_catalog_published",
+  "groups": [
+    {
+      "type":"marcxml",
+      "field":"fullrecord",
+      "marc": {
+        "aggregator": "labeling",
+        "fields": [
+          {
+            "label": "c",
+            "tag": "260",
+            "sub": "[c]"
+          },
+          {
+            "label": "ab",
+            "tag": "260",
+            "sub": "[ab]",
+            "join": " "
+          }
+        ]
+      }
+    },
+    {
+      "type":"marcxml",
+      "field":"fullrecord",
+      "marc": {
+        "aggregator": "labeling",
+        "fields": [
+          {
+            "label": "c",
+            "tag": "264",
+            "ind1": "1",
+            "sub": "[c]"
+          },
+          {
+            "label": "ab",
+            "tag": "260",
+            "ind1": "1",
+            "sub": "[ab]",
+            "join": " "
+          }
+        ]
+      }
+    }
+  ],
+  "date":{"field":"display_date"}
+}

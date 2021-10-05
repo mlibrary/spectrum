@@ -1,0 +1,16 @@
+{
+  "tag": "1[01][01]",
+  "sub": "[abcdefgjklnpqtu4]",
+  "label": "display",
+  "join": " ",
+  "filters": [
+    {
+      "sub": "[4]",
+      "value_match": "https?://"
+    },
+    {
+      "sub": "[4]",
+      "sub_exists": "[e]"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+    "action": "https://www.lib.umich.edu/locations-and-hours/hatcher-library/hatcher-north-information-services-desk",
+    "fields": [
+        {
+            "type": "submit",
+            "value": "Contact circulation"
+        }
+    ],
+    "method": "get"
+}

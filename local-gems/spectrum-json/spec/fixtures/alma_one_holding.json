@@ -1,0 +1,139 @@
+{
+  "item": [
+    {
+      "bib_data": {
+        "mms_id": "990020578280206381",
+        "title": "Enhancing faculty careers : strategies for development and renewal /",
+        "author": "Schuster, Jack H.",
+        "issn": null,
+        "isbn": "1555422101",
+        "complete_edition": "1st ed.",
+        "network_number": [
+          "(OCoLC)ocm20758549",
+          "(RLIN)MIUG90-B35724",
+          "(MiU)002057828MIU01"
+        ],
+        "place_of_publication": "San Francisco :",
+        "date_of_publication": "1990.",
+        "publisher_const": "Jossey-Bass Publishers",
+        "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/990020578280206381"
+      },
+      "holding_data": {
+        "holding_id": "2297537770006381",
+        "permanent_call_number_type": {
+          "value": "0",
+          "desc": "Library of Congress classification"
+        },
+        "permanent_call_number": "LB 2331.72 .S371 1990",
+        "call_number_type": {
+          "value": "0",
+          "desc": "Library of Congress classification"
+        },
+        "call_number": "LB 2331.72 .S371 1990",
+        "accession_number": "",
+        "copy_id": "",
+        "in_temp_location": false,
+        "temp_library": {
+          "value": null,
+          "desc": null
+        },
+        "temp_location": {
+          "value": null,
+          "desc": null
+        },
+        "temp_call_number_type": {
+          "value": "",
+          "desc": null
+        },
+        "temp_call_number": "",
+        "temp_policy": {
+          "value": "",
+          "desc": null
+        },
+        "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/990020578280206381/holdings/2297537770006381"
+      },
+      "item_data": {
+        "pid": "2397537760006381",
+        "barcode": "39015017893416",
+        "creation_date": "2021-02-01Z",
+        "modification_date": "2021-02-01Z",
+        "base_status": {
+          "value": "1",
+          "desc": "Item in place"
+        },
+        "awaiting_reshelving": false,
+        "physical_material_type": {
+          "value": "BOOK",
+          "desc": "Book"
+        },
+        "policy": {
+          "value": "01",
+          "desc": "Loan 1"
+        },
+        "provenance": {
+          "value": "",
+          "desc": null
+        },
+        "po_line": "",
+        "is_magnetic": false,
+        "arrival_date": "1990-08-16Z",
+        "year_of_issue": "",
+        "enumeration_a": "",
+        "enumeration_b": "",
+        "enumeration_c": "",
+        "enumeration_d": "",
+        "enumeration_e": "",
+        "enumeration_f": "",
+        "enumeration_g": "",
+        "enumeration_h": "",
+        "chronology_i": "",
+        "chronology_j": "",
+        "chronology_k": "",
+        "chronology_l": "",
+        "chronology_m": "",
+        "description": "",
+        "receiving_operator": "import",
+        "process_type": {
+          "value": "",
+          "desc": null
+        },
+        "inventory_number": "",
+        "inventory_price": "",
+        "library": {
+          "value": "HATCH",
+          "desc": "Hatcher Graduate"
+        },
+        "location": {
+          "value": "GRAD",
+          "desc": "GRAD"
+        },
+        "alternative_call_number": "mdp.39015017893416 ic 20200909",
+        "alternative_call_number_type": {
+          "value": "M",
+          "desc": null
+        },
+        "storage_location_id": "",
+        "pages": "",
+        "pieces": "",
+        "public_note": "",
+        "fulfillment_note": "",
+        "internal_note_1": "",
+        "internal_note_2": "",
+        "internal_note_3": "",
+        "statistics_note_1": "MD20081031",
+        "statistics_note_2": "",
+        "statistics_note_3": "Maintenance count: 002",
+        "requested": false,
+        "edition": null,
+        "imprint": null,
+        "language": null,
+        "physical_condition": {
+          "value": null,
+          "desc": null
+        }
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/990020578280206381/holdings/2297537770006381/items/2397537760006381"
+    }
+  ],
+  "total_record_count": 1
+}

@@ -1,0 +1,96 @@
+---
+- "003553756":
+    - item_info:
+        - item_note_opac: null
+          can_request: true
+          enum_b: null
+          bor_id: null
+          callnumber: ""
+          due_hour: null
+          location: "Hatcher Graduate"
+          barcode: "B1435174"
+          description: null
+          description_sort: ""
+          can_book: false
+          inventory_number: null
+          due_date: null
+          chron_j: null
+          bor_status: null
+          chron_i: null
+          num_requests: "0"
+          status: "On shelf"
+          collection: "GRAD"
+          enum_a: null
+          opt_out: false
+          mdp_id: null
+          hol_doc_number: "004326583"
+          enum_c: null
+          temp_location: false
+          can_reserve: false
+          recall_due_date: null
+          item_expected_arrival_date: "00000000"
+          item_status: "01"
+          sub_library: "HATCH"
+          full_item_key: "003553756000010"
+          loan_status: null
+          item_process_status: null
+      location: "Hatcher Graduate"
+      status: "On shelf"
+      collection: "GRAD"
+      public_note: "CURRENT ISSUES IN SERIALS SERVICES, 203 NORTH HATCHER; Shelved with newspapers; Print is held for 3 months."
+      sub_coll: "HATCH GRAD"
+      summary_holdings: ""
+      index: ""
+      sub_library: "HATCH"
+      info_link: "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25"
+      callnumber: ""
+      supplementary_material: ""
+      hol_doc_number: "004326583"
+    - item_info:
+        - item_note_opac: null
+          can_request: true
+          enum_b: null
+          bor_id: null
+          callnumber: ""
+          due_hour: null
+          location: "Shapiro Undergraduate"
+          barcode: "B1435176"
+          description: null
+          description_sort: ""
+          can_book: false
+          inventory_number: null
+          due_date: null
+          chron_j: null
+          bor_status: null
+          chron_i: null
+          num_requests: "0"
+          status: "On shelf"
+          collection: null
+          enum_a: null
+          opt_out: false
+          mdp_id: null
+          hol_doc_number: "004326585"
+          enum_c: null
+          temp_location: false
+          can_reserve: false
+          recall_due_date: null
+          item_expected_arrival_date: "00000000"
+          item_status: "01"
+          sub_library: "UGL"
+          full_item_key: "003553756000030"
+          loan_status: null
+          item_process_status: null
+      location: "Shapiro Undergraduate"
+      status: "On shelf"
+      collection: null
+      public_note: "Latest issue only kept"
+      sub_coll: "UGL"
+      summary_holdings: ""
+      index: ""
+      sub_library: "UGL"
+      info_link: "http://www.lib.umich.edu/location/shapiro-undergraduate-library/unit/35"
+      callnumber: ""
+      supplementary_material: ""
+      hol_doc_number: "004326585"
+- "003553756"
+- "B1435174"

@@ -24,12 +24,9 @@ source 'https://rubygems.org' do
     branch: 'rack-yaml-institution-finder',
     require: ['keycard/rack', 'keycard/yaml/institution_finder']
 
-  gem 'spectrum-config',
-    git: 'https://github.com/mlibrary/spectrum-config',
-    branch: 'master'
+  gem 'spectrum-config', path: 'local-gems/spectrum-config'
 
-  gem 'spectrum-json', '>= 1.0.2',
-    git: 'https://github.com/mlibrary/spectrum-json'
+  gem 'spectrum-json', path: 'local-gems/spectrum-json'
 
   gem 'alma_rest_client',
     git: 'https://github.com/mlibrary/alma_rest_client',

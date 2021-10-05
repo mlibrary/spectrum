@@ -1,0 +1,177 @@
+{
+    "options": [
+        {
+            "description": {
+                "content": [
+                    "Requests to scan a portion are individually evaluated for copyright compliance.",
+                    "Your requested portion will be available to you on a secure website for 2 weeks.",
+                    "If the requested portion cannot be scanned because doing so would violate copyright law, a hold request for contactless pickup will be made on your behalf unless you specify otherwise in the notes field.",
+                    "Microform scanning is limited."
+                ],
+                "heading": "Policies and additional details"
+            },
+            "duration": "Expected availability 2-7 days",
+            "faq": null,
+            "form": {
+                "action": "https://ill.lib.umich.edu/illiad/illiad.dll",
+                "fields": [
+                    {
+                        "name": "action",
+                        "type": "hidden",
+                        "value": "10"
+                    },
+                    {
+                        "name": "form",
+                        "type": "hidden",
+                        "value": "30"
+                    },
+                    {
+                        "name": "sid",
+                        "type": "hidden",
+                        "value": "mirlyn"
+                    },
+                    {
+                        "name": "genre",
+                        "type": "hidden",
+                        "value": "docdelarticle"
+                    },
+                    {
+                        "name": "rft_dat",
+                        "type": "hidden",
+                        "value": "<accession_number>711682228,670480392</accession_number>"
+                    },
+                    {
+                        "name": "isbn",
+                        "type": "hidden",
+                        "value": "9781861897923"
+                    },
+                    {
+                        "name": "title",
+                        "type": "hidden",
+                        "value": "Ice cream : a global history /"
+                    },
+                    {
+                        "name": "rft.au",
+                        "type": "hidden",
+                        "value": "Weiss, Laura."
+                    },
+                    {
+                        "name": "date",
+                        "type": "hidden",
+                        "value": "2011"
+                    },
+                    {
+                        "name": "rft.pub",
+                        "type": "hidden",
+                        "value": "Reaktion Books"
+                    },
+                    {
+                        "name": "rft.place",
+                        "type": "hidden",
+                        "value": "London "
+                    },
+                    {
+                        "name": "callnumber",
+                        "type": "hidden",
+                        "value": "TX795 .W45 2011"
+                    },
+                    {
+                        "name": "rft.edition",
+                        "type": "hidden",
+                        "value": ""
+                    },
+                    {
+                        "name": "rft.issue",
+                        "type": "hidden",
+                        "value": "{$rft.issue}"
+                    },
+                    {
+                        "name": "aleph_location",
+                        "type": "hidden",
+                        "value": "GRAD"
+                    },
+                    {
+                        "name": "aleph_item_status",
+                        "type": "hidden",
+                        "value": "{$aleph_item_status}"
+                    },
+                    {
+                        "name": "barcode",
+                        "type": "hidden",
+                        "value": "39015087908490"
+                    },
+                    {
+                        "type": "submit",
+                        "value": "Place a request"
+                    }
+                ],
+                "method": "get"
+            },
+            "label": "Request to have a small portion scanned (Document Delivery)",
+            "orientation": "",
+            "service_type": "I.L.L./Document Delivery",
+            "tip": null
+        },
+        {
+            "description": {
+                "content": [
+                    "Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.",
+                    "Learn more about <a href=\"https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup\">contactless pickup</a>."
+                ],
+                "heading": "Policies and additional details"
+            },
+            "duration": "Expected availability within 7 days",
+            "faq": null,
+            "form": {
+                "action": "/spectrum/mirlyn/hold",
+                "fields": [
+                    {
+                        "name": "record",
+                        "type": "hidden",
+                        "value": "990098353850106381"
+                    },
+                    {
+                        "name": "item",
+                        "type": "hidden",
+                        "value": "22917630100006381/23917630080006381"
+                    },
+                    {
+                        "label": "Pickup location",
+                        "name": "pickup_location",
+                        "options": [
+                            {
+                                "disabled": true,
+                                "name": "Select a pickup location",
+                                "value": "select-a-pickup-location"
+                            },
+                            {
+                                "name": "Shapiro Undergraduate Library",
+                                "value": "UGL"
+                            }
+                        ],
+                        "type": "select",
+                        "value": "select-a-pickup-location"
+                    },
+                    {
+                        "label": "Cancel this hold if item is not available before",
+                        "name": "not_needed_after",
+                        "type": "date",
+                        "value": "2021-09-21"
+                    },
+                    {
+                        "name": "submit",
+                        "type": "submit",
+                        "value": "Get me this item"
+                    }
+                ],
+                "method": "post",
+                "type": "ajax"
+            },
+            "label": "Contactless pickup at the library",
+            "orientation": "",
+            "service_type": "Contactless pickup",
+            "tip": null
+        }
+    ],
+    "status": "Success"
+}
