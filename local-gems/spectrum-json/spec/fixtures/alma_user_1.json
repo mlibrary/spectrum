@@ -1,0 +1,227 @@
+{
+    "record_type": {
+        "value": "PUBLIC",
+        "desc": "Public"
+    },
+    "primary_id": "PRIMARY_ID_1",
+    "first_name": "FNAME",
+    "middle_name": "",
+    "last_name": "LNAME",
+    "full_name": "FNAME LNAME",
+    "user_title": {
+        "value": "",
+        "desc": ""
+    },
+    "job_category": {
+        "value": "",
+        "desc": ""
+    },
+    "job_description": "JOB DESCRIPTION",
+    "gender": {
+        "value": "",
+        "desc": ""
+    },
+    "user_group": {
+        "value": "10",
+        "desc": "Camp Level"
+    },
+    "campus_code": {
+        "value": "UMFL",
+        "desc": "UM-Flint"
+    },
+    "web_site_url": "",
+    "cataloger_level": {
+        "value": "00",
+        "desc": "[00] Default Level"
+    },
+    "preferred_language": {
+        "value": "en",
+        "desc": "English"
+    },
+    "expiry_date": "2021-10-10Z",
+    "purge_date": "2023-10-10Z",
+    "account_type": {
+        "value": "EXTERNAL",
+        "desc": "External"
+    },
+    "external_id": "Umich LDAP",
+    "password": "",
+    "force_password_change": "",
+    "status": {
+        "value": "INACTIVE",
+        "desc": "Inactive"
+    },
+    "status_date": "2021-07-15Z",
+    "last_patron_activity_date": "2020-12-15Z",
+    "requests": null,
+    "loans": null,
+    "fees": null,
+    "contact_info": {
+        "address": [
+            {
+                "line1": "Address Line 1",
+                "line2": "Address Line 2",
+                "line3": null,
+                "line4": null,
+                "line5": null,
+                "city": "Ann Arbor",
+                "state_province": "MI",
+                "postal_code": "48109-1190",
+                "country": {
+                    "value": "UNITED STATES",
+                    "desc": null
+                },
+                "address_note": "",
+                "preferred": true,
+                "segment_type": "External",
+                "address_type": [
+                    {
+                        "value": "work",
+                        "desc": "Work"
+                    }
+                ]
+            },
+            {
+                "line1": "Address Line 1",
+                "line2": null,
+                "line3": null,
+                "line4": null,
+                "line5": null,
+                "city": "Ann Arbor",
+                "state_province": "MI",
+                "postal_code": "48109-1190",
+                "country": {
+                    "value": "UNITED STATES",
+                    "desc": null
+                },
+                "address_note": "",
+                "preferred": false,
+                "segment_type": "External",
+                "address_type": [
+                    {
+                        "value": "home",
+                        "desc": "Home"
+                    }
+                ]
+            }
+        ],
+        "email": [
+            {
+                "email_address": "user1@example.com",
+                "description": null,
+                "preferred": true,
+                "segment_type": "External",
+                "email_type": [
+                    {
+                        "value": "work",
+                        "desc": "Work"
+                    }
+                ]
+            }
+        ],
+        "phone": [
+            {
+                "phone_number": "555-555-5555",
+                "preferred": true,
+                "preferred_sms": false,
+                "segment_type": "External",
+                "phone_type": [
+                    {
+                        "value": "home",
+                        "desc": "Home"
+                    }
+                ]
+            },
+            {
+                "phone_number": "5555555555",
+                "preferred": false,
+                "preferred_sms": true,
+                "segment_type": "Internal",
+                "phone_type": [
+                    {
+                        "value": "mobile",
+                        "desc": "Mobile"
+                    }
+                ]
+            }
+        ]
+    },
+    "pref_first_name": "",
+    "pref_middle_name": "",
+    "pref_last_name": "",
+    "pref_name_suffix": "",
+    "is_researcher": false,
+    "researcher": null,
+    "link": null,
+    "user_identifier": [
+        {
+            "value": "00000000",
+            "id_type": {
+                "value": "02",
+                "desc": "UM ID"
+            },
+            "note": null,
+            "status": "ACTIVE",
+            "segment_type": "External"
+        },
+        {
+            "value": "user0@example.com",
+            "id_type": {
+                "value": "05",
+                "desc": "Inst ID"
+            },
+            "note": null,
+            "status": "ACTIVE",
+            "segment_type": "External"
+        },
+        {
+            "value": "00000000000000",
+            "id_type": {
+                "value": "01",
+                "desc": "Barcode"
+            },
+            "note": null,
+            "status": "ACTIVE",
+            "segment_type": "Internal"
+        },
+        {
+            "value": "000000000000",
+            "id_type": {
+                "value": "00",
+                "desc": "System number"
+            },
+            "note": null,
+            "status": "ACTIVE",
+            "segment_type": "Internal"
+        }
+    ],
+    "user_role": [
+        {
+            "status": {
+                "value": "ACTIVE",
+                "desc": "Active"
+            },
+            "scope": {
+                "value": "01UMICH_INST",
+                "desc": "University of Michigan"
+            },
+            "role_type": {
+                "value": "200",
+                "desc": "Patron"
+            },
+            "parameter": []
+        }
+    ],
+    "user_block": [],
+    "user_note": [],
+    "user_statistic": [
+        {
+            "statistic_category": {
+                "value": "DB",
+                "desc": "Debate"
+            },
+            "segment_type": "External"
+        }
+    ],
+    "proxy_for_user": []
+}

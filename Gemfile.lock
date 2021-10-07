@@ -45,9 +45,14 @@ GIT
       parslet
 
 GIT
-  remote: https://github.com/mlibrary/spectrum-config
-  revision: ef35520778fcde2dd794740ef2471c6ea2d060f9
-  branch: master
+  remote: https://github.com/whitequark/rack-utf8_sanitizer
+  revision: e05853ca2f3dc7bd94a44baa13ad84cec8f1a8bf
+  specs:
+    rack-utf8_sanitizer (1.5.0)
+      rack (>= 1.0, < 3.0)
+
+PATH
+  remote: local-gems/spectrum-config
   specs:
     spectrum-config (1.0.0)
       activesupport
@@ -56,9 +61,8 @@ GIT
       marc
       rails-html-sanitizer
 
-GIT
-  remote: https://github.com/mlibrary/spectrum-json
-  revision: 84a656a8e7076bfce0c2e19e2c97bcd995d60909
+PATH
+  remote: local-gems/spectrum-json
   specs:
     spectrum-json (1.0.2)
       activesupport
@@ -72,13 +76,6 @@ GIT
       rails (~> 4.2.0)
       rake (>= 12.3.3)
       rsolr
-
-GIT
-  remote: https://github.com/whitequark/rack-utf8_sanitizer
-  revision: e05853ca2f3dc7bd94a44baa13ad84cec8f1a8bf
-  specs:
-    rack-utf8_sanitizer (1.5.0)
-      rack (>= 1.0, < 3.0)
 
 GEM
   remote: https://rubygems.org/
@@ -563,7 +560,7 @@ DEPENDENCIES
   simplecov!
   skylight!
   spectrum-config!
-  spectrum-json (>= 1.0.2)!
+  spectrum-json!
   sprockets (~> 3.0)!
   stringex!
   summon!

@@ -1,0 +1,155 @@
+{
+    "response": {
+        "docs": [
+            {
+                "_version_": 1708598038291808258,
+                "aleph_id": "015187159",
+                "author": [
+                    "Stern, Meredith,",
+                    "United Nations. General Assembly."
+                ],
+                "author2": [
+                    "United Nations. General Assembly."
+                ],
+                "authorStr": [
+                    "Stern, Meredith,",
+                    "United Nations. General Assembly."
+                ],
+                "author_top": [
+                    "Stern, Meredith, book artist.",
+                    "linocuts by Meredith Stern.",
+                    "United Nations. General Assembly. (uri) http://id.loc.gov/authorities/names/n81139937 (uri) http://viaf.org/viaf/sourceID/LC|n81139937"
+                ],
+                "availability": [
+                    "Circulating Items"
+                ],
+                "barcode": [
+                    "39015098275939"
+                ],
+                "building": [
+                    "Special Collections"
+                ],
+                "callnosort": "N 7433.4 .S835 U56 2017",
+                "callnumber": [
+                    "N 7433.4 .S835 U56 2017"
+                ],
+                "cat_date": 0,
+                "countryOfPubStr": [
+                    "United States"
+                ],
+                "display_date": "2017",
+                "era": [
+                    "21st century.",
+                    "2017."
+                ],
+                "format": [
+                    "Book"
+                ],
+                "fullrecord": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><collection><record><leader>00000nam a2200000 a 4500</leader><controlfield tag=\"001\">990151871590106381</controlfield><controlfield tag=\"005\">20170508144107.0</controlfield><controlfield tag=\"008\">051104s2017    riua          000 0 eng d</controlfield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(MiU)015187159MIU01</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(OCoLC)987201926</subfield><subfield code=\"0\">(uri) http://www.worldcat.org/oclc/987201926</subfield></datafield><datafield tag=\"040\" ind1=\" \" ind2=\" \"><subfield code=\"a\">MiU</subfield><subfield code=\"b\">eng</subfield><subfield code=\"e\">rda</subfield><subfield code=\"c\">MiU</subfield></datafield><datafield tag=\"099\" ind1=\" \" ind2=\" \"><subfield code=\"a\">N 7433.4 .S835 U56 2017</subfield></datafield><datafield tag=\"100\" ind1=\"1\" ind2=\" \"><subfield code=\"a\">Stern, Meredith,</subfield><subfield code=\"e\">book artist.</subfield></datafield><datafield tag=\"245\" ind1=\"1\" ind2=\"0\"><subfield code=\"a\">Universal Declaration of Human Rights /</subfield><subfield code=\"c\">linocuts by Meredith Stern.</subfield></datafield><datafield tag=\"264\" ind1=\" \" ind2=\"1\"><subfield code=\"a\">[Providence, Rhode Island] :</subfield><subfield code=\"b\">[Meredith Stern],</subfield><subfield code=\"c\">[2017]</subfield></datafield><datafield tag=\"300\" ind1=\" \" ind2=\" \"><subfield code=\"a\">32 leaves :</subfield><subfield code=\"b\">illustrations ;</subfield><subfield code=\"c\">48 x 33 cm, in portfolio 50 x 35 x 2 cm</subfield></datafield><datafield tag=\"336\" ind1=\" \" ind2=\" \"><subfield code=\"a\">text</subfield><subfield code=\"b\">txt</subfield><subfield code=\"2\">rdacontent</subfield></datafield><datafield tag=\"336\" ind1=\" \" ind2=\" \"><subfield code=\"a\">still image</subfield><subfield code=\"b\">sti</subfield><subfield code=\"2\">rdacontent</subfield></datafield><datafield tag=\"337\" ind1=\" \" ind2=\" \"><subfield code=\"a\">unmediated</subfield><subfield code=\"b\">n</subfield><subfield code=\"2\">rdamedia</subfield></datafield><datafield tag=\"338\" ind1=\" \" ind2=\" \"><subfield code=\"a\">volume</subfield><subfield code=\"b\">nc</subfield><subfield code=\"2\">rdacarrier</subfield></datafield><datafield tag=\"500\" ind1=\" \" ind2=\" \"><subfield code=\"a\">Edition of 28.</subfield></datafield><datafield tag=\"590\" ind1=\" \" ind2=\" \"><subfield code=\"a\">Copy 8/28.</subfield></datafield><datafield tag=\"650\" ind1=\" \" ind2=\"0\"><subfield code=\"a\">Human rights.</subfield><subfield code=\"0\">(uri) http://id.loc.gov/authorities/subjects/sh85026379</subfield></datafield><datafield tag=\"650\" ind1=\" \" ind2=\"0\"><subfield code=\"a\">Artists' books</subfield><subfield code=\"z\">Rhode Island</subfield><subfield code=\"z\">Providence</subfield><subfield code=\"y\">21st century.</subfield><subfield code=\"0\">(uri) http://id.loc.gov/authorities/subjects/sh85008302</subfield></datafield><datafield tag=\"655\" ind1=\" \" ind2=\"7\"><subfield code=\"a\">Artists' books</subfield><subfield code=\"z\">Rhode Island</subfield><subfield code=\"z\">Providence</subfield><subfield code=\"y\">2017.</subfield><subfield code=\"2\">rbgenr</subfield></datafield><datafield tag=\"710\" ind1=\"2\" ind2=\" \"><subfield code=\"a\">United Nations.</subfield><subfield code=\"b\">General Assembly.</subfield><subfield code=\"t\">Universal Declaration of Human Rights.</subfield><subfield code=\"0\">(uri) http://id.loc.gov/authorities/names/n81139937</subfield><subfield code=\"0\">(uri) http://viaf.org/viaf/sourceID/LC|n81139937</subfield></datafield><datafield tag=\"997\" ind1=\" \" ind2=\" \"><subfield code=\"a\">MARS</subfield></datafield><datafield tag=\"998\" ind1=\" \" ind2=\" \"><subfield code=\"c\">nrobins-pcu OrigCatMono 20170508</subfield></datafield><datafield tag=\"958\" ind1=\" \" ind2=\" \"><subfield code=\"a\">MiU</subfield></datafield><datafield tag=\"995\" ind1=\" \" ind2=\" \"><subfield code=\"a\">20</subfield></datafield><datafield tag=\"BIB\" ind1=\" \" ind2=\" \"><subfield code=\"u\">2021-07-31 04:16:26 US/Eastern</subfield><subfield code=\"c\">2021-06-21 09:01:02 US/Eastern</subfield></datafield><datafield tag=\"852\" ind1=\"0\" ind2=\" \"><subfield code=\"b\">SPEC</subfield><subfield code=\"a\">MiU</subfield><subfield code=\"c\">LAFO</subfield><subfield code=\"h\">N 7433.4 .S835 U56 2017</subfield><subfield code=\"8\">22816720600006381</subfield></datafield><datafield tag=\"974\" ind1=\" \" ind2=\" \"><subfield code=\"8\">22816720600006381</subfield><subfield code=\"f\">1</subfield><subfield code=\"c\">LAFO</subfield><subfield code=\"m\">BOOK</subfield><subfield code=\"a\">39015098275939</subfield><subfield code=\"i\">Spec East 7B 11 5b</subfield><subfield code=\"e\">LAFO</subfield><subfield code=\"7\">23816720590006381</subfield><subfield code=\"p\">08</subfield><subfield code=\"r\">2017-05-08 10:59:00</subfield><subfield code=\"h\">N 7433.4 .S835 U56 2017</subfield><subfield code=\"d\">SPEC</subfield><subfield code=\"b\">SPEC</subfield></datafield></record></collection>",
+                "genre": [
+                    "Artists' books"
+                ],
+                "genreStr": [
+                    "Artists' books"
+                ],
+                "hlb3Delimited": [
+                    "Arts | Art History",
+                    "Arts | Art and Design"
+                ],
+                "hlb3Str": [
+                    "Arts",
+                    "Art History",
+                    "Art and Design"
+                ],
+                "hol": "[{\"hol_mmsid\":\"22816720600006381\",\"callnumber\":\"N 7433.4 .S835 U56 2017\",\"library\":\"SPEC\",\"location\":\"LAFO\",\"info_link\":\"http://lib.umich.edu/locations-and-hours/special-collections-research-center\",\"display_name\":\"Special Collections Labadie Collection\",\"floor_location\":\"\",\"public_note\":null,\"items\":[{\"barcode\":\"39015098275939\",\"library\":\"SPEC\",\"location\":\"LAFO\",\"info_link\":\"http://lib.umich.edu/locations-and-hours/special-collections-research-center\",\"display_name\":\"Special Collections Labadie Collection\",\"can_reserve\":true,\"permanent_library\":\"SPEC\",\"permanent_location\":\"LAFO\",\"temp_location\":false,\"callnumber\":\"N 7433.4 .S835 U56 2017\",\"public_note\":null,\"process_type\":null,\"item_policy\":\"08\",\"description\":null,\"inventory_number\":\"Spec East 7B 11 5b\",\"item_id\":\"23816720590006381\",\"record_has_finding_aid\":false}],\"summary_holdings\":null,\"record_has_finding_aid\":false}]",
+                "ht_searchonly": false,
+                "ht_searchonly_intl": false,
+                "id": "990151871590106381",
+                "id_int": 990151871590106381,
+                "institution": [
+                    "UM Ann Arbor Libraries",
+                    "University Library"
+                ],
+                "language": [
+                    "English"
+                ],
+                "language008": "eng",
+                "lc_subject_display": [
+                    "Human rights",
+                    "Artists' books -- Rhode Island -- Providence -- 21st century"
+                ],
+                "location": [
+                    "MIU",
+                    "SPEC",
+                    "SPEC LABD"
+                ],
+                "mainauthor": [
+                    "Stern, Meredith,"
+                ],
+                "mainauthor_role": [
+                    "book artist"
+                ],
+                "non_lc_subject_display": [
+                    "Artists' books -- Rhode Island -- Providence -- 2017"
+                ],
+                "oclc": [
+                    "987201926"
+                ],
+                "place_of_publication": [
+                    "United States",
+                    "United States -- Rhode Island"
+                ],
+                "publishDate": [
+                    "2017"
+                ],
+                "publishDateRange": [
+                    "2017",
+                    "2010-2019"
+                ],
+                "publisher": [
+                    "[Providence, Rhode Island] : [Meredith Stern], [2017]"
+                ],
+                "record_source": "alma",
+                "title": [
+                    "Universal Declaration of Human Rights /"
+                ],
+                "title_ab": [
+                    "Universal Declaration of Human Rights /"
+                ],
+                "title_c": [
+                    "linocuts by Meredith Stern."
+                ],
+                "title_common": [
+                    "Universal Declaration of Human Rights /"
+                ],
+                "title_display": [
+                    "Universal Declaration of Human Rights / linocuts by Meredith Stern."
+                ],
+                "title_equiv": [
+                    "Universal Declaration of Human Rights /"
+                ],
+                "title_rest": [
+                    "Universal Declaration of Human Rights. (uri) http://id.loc.gov/authorities/names/n81139937 (uri) http://viaf.org/viaf/sourceID/LC|n81139937"
+                ],
+                "title_top": [
+                    "Universal Declaration of Human Rights /"
+                ],
+                "topicStr": [
+                    "Human rights",
+                    "Artists' books",
+                    "Artists' books Rhode Island Providence 21st century",
+                    "Artists' books Rhode Island Providence 2017"
+                ]
+            }
+        ],
+        "numFound": 1,
+        "start": 0
+    },
+    "responseHeader": {
+        "QTime": 0,
+        "params": {
+            "q": "id:990151871590106381"
+        },
+        "status": 0
+    }
+}

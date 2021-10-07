@@ -1,0 +1,29 @@
+{
+  "id": "times_cited2",
+  "type": "times_cited2",
+  "metadata": "Times Cited",
+  "fields": [
+    {
+      "name": "ISI",
+      "href": "ISICitedReferencesURI",
+      "count": "ISICitedReferencesCount"
+    },
+    {
+      "name": "Scopus",
+      "href": "ScopusCitedReferencesURI",
+      "count": "ScopusCitedReferencesCount"
+    }
+  ],
+  "metadata_component": {
+    "medium": {
+      "type": "href_linked",
+      "href_field": "href",
+      "text_field": "name"
+    },
+    "full": {
+      "type": "href_linked",
+      "href_field": "href",
+      "text_field": "name"
+    }
+  }
+}

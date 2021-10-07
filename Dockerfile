@@ -23,11 +23,13 @@ WORKDIR $APP_HOME
 
 RUN mkdir -p ${BUNDLE_PATH} ${APP_HOME}/public ${APP_HOME}/tmp && chown -R ${UNAME} ${BUNDLE_PATH} ${APP_HOME}/public ${APP_HOME}/tmp
 
+RUN gem install bundler:1.17.3
+
+USER $UNAME
 
 COPY Gemfile* ${APP_HOME}/
+COPY local-gems/ ${APP_HOME}/local-gems/
 
-RUN gem install bundler:1.17.3
-USER $UNAME
 RUN bundle install
 
 COPY . ${APP_HOME}

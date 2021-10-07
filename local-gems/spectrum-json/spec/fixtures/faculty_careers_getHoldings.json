@@ -1,0 +1,78 @@
+{
+    "002057828": [
+        {
+            "callnumber": "",
+            "collection": "",
+            "id": "mdp.39015017893416",
+            "info_link": null,
+            "item_info": [
+                {
+                    "description": false,
+                    "description_sort": "false",
+                    "id": "mdp.39015017893416",
+                    "rights": "ic",
+                    "source": "University of Michigan",
+                    "status": "Full text available, simultaneous access is limited (HathiTrust log in required)",
+                    "sub_library": "SDR"
+                }
+            ],
+            "location": "HathiTrust Digital Library",
+            "status": "Full text available, simultaneous access is limited (HathiTrust log in required)",
+            "sub_coll": "HATHI",
+            "sub_library": "HATHI",
+            "temp_loc": "",
+            "temp_loc_count": 0
+        },
+        {
+            "callnumber": "LB 2331.72 .S371 1990",
+            "collection": "GRAD",
+            "hol_doc_number": "002683089",
+            "index": "",
+            "info_link": "http://www.lib.umich.edu/location/hatcher-graduate-library/unit/25",
+            "item_info": [
+                {
+                    "barcode": "39015017893416",
+                    "bor_id": null,
+                    "bor_status": null,
+                    "callnumber": "LB 2331.72 .S371 1990",
+                    "can_book": false,
+                    "can_request": false,
+                    "can_reserve": false,
+                    "chron_i": null,
+                    "chron_j": null,
+                    "collection": "GRAD",
+                    "description": null,
+                    "description_sort": "",
+                    "due_date": null,
+                    "due_hour": null,
+                    "enum_a": null,
+                    "enum_b": null,
+                    "enum_c": null,
+                    "full_item_key": "002057828000010",
+                    "hol_doc_number": "002683089",
+                    "inventory_number": null,
+                    "item_expected_arrival_date": "00000000",
+                    "item_note_opac": null,
+                    "item_process_status": null,
+                    "item_status": "01",
+                    "loan_status": null,
+                    "location": "Hatcher Graduate",
+                    "mdp_id": "mdp.39015017893416$$ric$$d20200909",
+                    "num_requests": "0",
+                    "opt_out": false,
+                    "recall_due_date": null,
+                    "status": "On shelf",
+                    "sub_library": "HATCH",
+                    "temp_location": false
+                }
+            ],
+            "location": "Hatcher Graduate",
+            "public_note": "",
+            "status": "On shelf",
+            "sub_coll": "HATCH GRAD",
+            "sub_library": "HATCH",
+            "summary_holdings": "",
+            "supplementary_material": ""
+        }
+    ]
+}

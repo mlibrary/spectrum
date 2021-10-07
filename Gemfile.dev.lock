@@ -52,7 +52,7 @@ GIT
       rack (>= 1.0, < 3.0)
 
 PATH
-  remote: gems/spectrum-config
+  remote: local-gems/spectrum-config
   specs:
     spectrum-config (1.0.0)
       activesupport
@@ -62,7 +62,7 @@ PATH
       rails-html-sanitizer
 
 PATH
-  remote: gems/spectrum-json
+  remote: local-gems/spectrum-json
   specs:
     spectrum-json (1.0.2)
       activesupport

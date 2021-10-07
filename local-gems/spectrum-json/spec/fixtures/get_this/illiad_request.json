@@ -1,0 +1,95 @@
+{
+    "action": "https://ill.lib.umich.edu/illiad/illiad.dll",
+    "fields": [
+        {
+            "name": "action",
+            "type": "hidden",
+            "value": "10"
+        },
+        {
+            "name": "form",
+            "type": "hidden",
+            "value": "30"
+        },
+        {
+            "name": "sid",
+            "type": "hidden",
+            "value": "mirlyn"
+        },
+        {
+            "name": "rft_dat",
+            "type": "hidden",
+            "value": "ACCESSION NUMBER"
+        },
+        {
+            "name": "isbn",
+            "type": "hidden",
+            "value": "ISBN"
+        },
+        {
+            "name": "title",
+            "type": "hidden",
+            "value": "TITLE"
+        },
+        {
+            "name": "rft.au",
+            "type": "hidden",
+            "value": "AUTHOR"
+        },
+        {
+            "name": "date",
+            "type": "hidden",
+            "value": "DATE"
+        },
+        {
+            "name": "rft.pub",
+            "type": "hidden",
+            "value": "PUB"
+        },
+        {
+            "name": "rft.place",
+            "type": "hidden",
+            "value": "PLACE"
+        },
+        {
+            "name": "callnumber",
+            "type": "hidden",
+            "value": "CALLNUMBER"
+        },
+        {
+            "name": "rft.edition",
+            "type": "hidden",
+            "value": "EDITION"
+        },
+        {
+            "name": "rft.issue",
+            "type": "hidden",
+            "value": ""
+        },
+        {
+            "name": "aleph_location",
+            "type": "hidden",
+            "value": "LOCATION"
+        },
+        {
+            "name": "aleph_item_status",
+            "type": "hidden",
+            "value": ""
+        },
+        {
+            "name": "barcode",
+            "type": "hidden",
+            "value": "BARCODE"
+        },
+        {
+            "type": "submit",
+            "value": "Place a request"
+        },
+        {
+            "name": "genre",
+            "type": "hidden",
+            "value": "docdelarticle"
+        }
+    ],
+    "method": "get"
+}

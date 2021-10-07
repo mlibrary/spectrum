@@ -1,0 +1,5 @@
+get_this:
+  - code: 'HATCH'
+    text: 'Hatcher Graduate Library'
+  - code: 'FLINT'
+    text: 'Thompson Library (UM-Flint)'

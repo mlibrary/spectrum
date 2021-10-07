@@ -1,0 +1,14 @@
+[
+  {
+    "name": "ISI",
+    "count": "529",
+    "text": "ISI: 529",
+    "href": "https://proxy.lib.umich.edu/login?url=http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcApp=Summon&SrcAuth=ProQuest&DestApp=WOS&DestLinkType=CitingArticles&UT=000349190300030"
+  },
+  {
+    "name": "Scopus",
+    "count": "524",
+    "text": "Scopus: 524",
+    "href": "https://proxy.lib.umich.edu/login?url=http://www.scopus.com/scopus/openurl/link.url?ctx_ver=Z39.88-2004&ctx_enc=info:ofi/enc:UTF-8&svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&svc.citedby=yes&rft_id=info:eid/2-s2.0-84923169934&rfr_dat=partnerID:45"
+  }
+]

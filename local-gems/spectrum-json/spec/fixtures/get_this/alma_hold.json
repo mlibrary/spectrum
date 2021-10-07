@@ -1,0 +1,45 @@
+{
+    "action": "/spectrum/mirlyn/hold",
+    "fields": [
+        {
+            "name": "record",
+            "type": "hidden",
+            "value": "MMS_ID"
+        },
+        {
+            "name": "item",
+            "type": "hidden",
+            "value": "HOLDING_ID/ITEM_ID"
+        },
+        {
+            "label": "Pickup location",
+            "name": "pickup_location",
+            "options": [
+                {
+                    "disabled": true,
+                    "name": "Select a pickup location",
+                    "value": "select-a-pickup-location"
+                },
+                {
+                    "name": "Thompson Library (UM-Flint)",
+                    "value": "FLINT"
+                }
+            ],
+            "type": "select",
+            "value": "select-a-pickup-location"
+        },
+        {
+            "label": "Cancel this hold if item is not available before",
+            "name": "not_needed_after",
+            "type": "date",
+            "value": "DATE"
+        },
+        {
+            "name": "submit",
+            "type": "submit",
+            "value": "Get me this item"
+        }
+    ],
+    "method": "post",
+    "type": "ajax"
+}

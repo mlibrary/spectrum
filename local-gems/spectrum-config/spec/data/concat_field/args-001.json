@@ -1,0 +1,10 @@
+{
+  "id": "FIELD",
+  "field": [
+   "title",
+   "subtitle"
+  ],
+  "join": " : ",
+  "type": "concat",
+  "metadata": {"name": "NAME"}
+}
