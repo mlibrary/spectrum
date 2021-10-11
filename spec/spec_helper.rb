@@ -22,12 +22,11 @@ require 'pry'
 require 'pry-byebug'
 
 #require 'coveralls'
-require 'simplecov'
+#require 'simplecov'
 require 'webmock/rspec'
 
 #configure some classes
-SimpleCov.start
-require 'spectrum/json' #just require the gem
+#SimpleCov.start 'rails'
 #Spectrum::Entities::GetThisOptions.configure('spec/fixtures/get_this_policy.yml')
 
 RSpec.configure do |config|

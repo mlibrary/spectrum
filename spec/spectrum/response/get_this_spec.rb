@@ -1,4 +1,4 @@
-require_relative '../../spec_helper'
+require_relative '../../rails_helper'
 class GetThisPolicyDouble
   attr_reader :account, :bib, :item
   def initialize(account, bib, item)

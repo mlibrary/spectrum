@@ -1,4 +1,4 @@
-require_relative '../../spec_helper'
+require_relative '../../rails_helper'
 describe Spectrum::Entities::AlmaUser do
 
   context "alma_user_0" do
