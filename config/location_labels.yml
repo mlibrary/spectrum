@@ -15,6 +15,6 @@ get_this:
     text: "Taubman Health Sciences"
   - code: "FLINT"
     text: "Thompson Library (UM-Flint)"
-  - code: "DRBN"
+  - code: "DBRN"
     text: "Mardigian Library (UM-Dearborn)"
 
