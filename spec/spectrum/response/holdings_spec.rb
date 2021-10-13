@@ -2,7 +2,7 @@ require_relative '../../rails_helper'
 
 describe Spectrum::Response::Holdings, "integrations" do
   def stub_http(id:,getHoldings:,solr:)
-    stub_request(:get, "http://localhost/solr/biblio/select?q=id:#{id}&wt=ruby").to_return(body: solr, status: 200, headers: {content_type: 'application/json'})
+    stub_request(:get, "http://localhost/solr/biblio/select?q=id:#{id}&wt=json").to_return(body: solr, status: 200, headers: {content_type: 'application/json'})
     stub_alma_get_request(url: "bibs/#{id}/loans", output: {"total_record_count": 0}.to_json, query: {limit: 100, offset: 0})
   end
   before(:each) do

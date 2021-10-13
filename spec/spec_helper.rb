@@ -24,6 +24,8 @@ require 'pry-byebug'
 #require 'coveralls'
 #require 'simplecov'
 require 'webmock/rspec'
+require 'rsolr'
+RSolr::Client.default_wt = :json
 
 #configure some classes
 #SimpleCov.start 'rails'

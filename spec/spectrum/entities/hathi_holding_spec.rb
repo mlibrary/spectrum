@@ -68,7 +68,7 @@ describe Spectrum::Entities::NewHathiHolding do
   context ".for" do
     let(:solr_url) { 'http://localhost/solr/biblio' }
     before(:each) do
-      @solr_req = stub_request(:get, "#{solr_url}/select?q=id:#{mms_id}&wt=ruby").to_return(body: @solr_bib_alma.to_json, status: 200, headers: {content_type: 'application/json'})
+      @solr_req = stub_request(:get, "#{solr_url}/select?q=id:#{mms_id}&wt=json").to_return(body: @solr_bib_alma.to_json, status: 200, headers: {content_type: 'application/json'})
     end
     it "returns a NewHathiHolding" do
       expect(described_class.for(mms_id,solr_url).class.name.to_s).to eq(described_class.name.to_s)
