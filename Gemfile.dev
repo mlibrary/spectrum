@@ -37,6 +37,10 @@ source 'https://rubygems.org' do
   gem 'aleph',
     git: 'https://github.com/mlibrary/aleph',
     branch: 'master'
+
+ gem "callnumber_collation",
+   git: "https://github.com/billdueber/callnumber_collation",
+   branch: 'main'
   
   gem 'rails', '~> 4.2.0'
 
