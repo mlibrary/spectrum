@@ -390,7 +390,7 @@ module Spectrum
         app.match "#{@url}/browse",
                   to: "json#browse",
                   defaults: { source: source, focus: @id, type: 'DataStore' },
-                  via: [:post, :options]
+                  via: [:get, :options]
 
         app.match "#{@url}/record/*id",
                   to: 'json#record',

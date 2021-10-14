@@ -93,7 +93,56 @@ class JsonController < ApplicationController
     end
 
     full_response = browse_response(prev_page, full_records)
-    render(json: full_response)
+    fields = [
+      {
+        label: "Keyword",
+        value: "keyword"
+      },
+      {
+        label: "Author",
+        value: "author"
+      },
+      {
+        label: "Title",
+        value: "title"
+      },
+      {
+        label: "Browse by (LC) call number",
+        value: "browse-by-callnumber"
+      }
+    ]
+
+    stub_response = [
+      {
+        callnumber: 'Z 253 .U582 1984',
+        title: 'Patents and trademarks style menu :',
+        subtitles: [
+          'United States. Patent and Trademark Office.',
+          'Office : For sale by the Supt. of Docs., U.S. G.P.O., 1984.'
+        ]
+      },
+      {
+        callnumber: 'Z 253 .U582 1984',
+        title: 'Patents and trademarks style menu :',
+        subtitles: [
+          'United States. Patent and Trademark Office.',
+          'Office : For sale by the Supt. of Docs., U.S. G.P.O., 1984.'
+        ]
+      },
+      {
+        callnumber: 'Z 253 .U582 1984',
+        title: 'Patents and trademarks style menu :',
+        subtitles: [
+          'United States. Patent and Trademark Office.',
+          'Office : For sale by the Supt. of Docs., U.S. G.P.O., 1984.'
+        ]
+      }
+    ]
+    render(locals: {
+      fields: fields,
+      results: stub_response,
+      full_response: full_response,
+    })
   end
 
   def search

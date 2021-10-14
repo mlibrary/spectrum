@@ -6,6 +6,16 @@ module Spectrum
     class BrowseRequest
       include Requesty
 
+      def get_data(request)
+        {
+          'uid' => request.params['focus'].to_s,
+          'raw_query' => request.params[:q].to_s,
+          'page' => request.params[:page].to_i,
+          'count' => request.params[:count] || 10,
+          'browse_field' => 'callnumber',
+        }
+      end
+
       def initialize(request = nil, focus = nil, sort_dir = nil)
         @request = request
         @focus = focus

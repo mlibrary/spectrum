@@ -1,0 +1,57 @@
+doctype html
+html lang="en"
+  head
+    title Library Search | Browse by callnumber
+    meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    link href="https://unpkg.com/@umich-lib/web@1/umich-lib.css" rel="stylesheet"
+    link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet"
+    link href="browse.css" rel="stylesheet"
+    = stylesheet_link_tag(params[:controller])
+    script type="module" src="https://unpkg.com/@umich-lib/web@1/dist/umich-lib/umich-lib.esm.js">
+  body
+    m-universal-header
+    m-website-header name="Search" to="https://search.lib.umich.edu/" variant="dark"
+
+    form class="search-box" method="get"
+      div class="viewport-container" role="presentation"
+        div class="search-box-inner-container" role="presentation"
+          select
+            - fields.each do |field| 
+              option value=field[:value] = field[:label]
+
+          / = fields.inspect / will "pretty print"
+
+          input type="text" name="query" value="Z253 .U6 1963"
+          button Search
+
+      div.viewport-container
+        p style="margin-bottom: 0; margin-top: var(--space-small);"
+          strong Search tip: 
+          | Browse by Library of Congress (LC) call number, sorted alphanumerically. (e.g. RC662.4 .H38 2016; QH 105)
+        a href="" Learn more about the meaning of call numbers
+    main class="viewport-container" style="margin-top: var(--space-x-large);"
+      h1 Browse `Z 253 .U6 1963` in call numbers
+
+      table class="table browse-table" cellspacing="0"
+        thead
+          tr
+            th Call number
+            th Item
+        tbody
+          - results.each do |result|
+            tr
+              td = result[:callnumber]
+              td
+                a href="" = result[:title]
+                - result[:subtitles].each do |subtitle|
+                  p = subtitle
+
+
+    / footer class="page-footer" style="margin-top: var(--space-xxx-large)"
+      div role="presentation"
+        section
+          ol
+            li
+              a href="" TODO
+    
+      
