@@ -6,7 +6,7 @@ describe Spectrum::Presenters::PhysicalItem, "to_a" do
     @to_a_init = {
       action: instance_double(Spectrum::Holding::Action, finalize: nil),
     }
-    @item = double('Spectrum::Entities::AlmaItem', callnumber: 'call_number', inventory_number: nil, 'process_type' => nil, item_policy: '01', requested?: false, 'in_reserves?': false, 'in_unavailable_temporary_location?': false, description: nil)
+    @item = double('Spectrum::Entities::AlmaItem', callnumber: 'call_number', inventory_number: nil, 'process_type' => nil, item_policy: '01', requested?: false, 'in_reserves?': false, 'in_unavailable_temporary_location?': false, description: nil, temp_location?: false)
   
   end
   subject do

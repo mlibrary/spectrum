@@ -25,7 +25,7 @@ describe Spectrum::Holding::PhysicalItemStatus do
       it "returns success for temporaryily located item" do
         allow(@alma_item).to receive(:in_reserves?).and_return(false)
         allow(@solr_item).to receive(:temp_location?).and_return(true)
-        expect(subject.to_h).to eq({text: 'Temporarily located at Hatcher Graduate Library', intent: 'success', icon: 'check_circle'})
+        expect(subject.to_h).to eq({text: 'Temporary location: Hatcher Graduate Library', intent: 'success', icon: 'check_circle'})
       end
       it "returns error for item in an unavailable temporary location" do
         allow(@solr_item).to receive(:temp_location?).and_return(true)

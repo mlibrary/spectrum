@@ -45,7 +45,7 @@ class Spectrum::Holding::PhysicalItemStatus::Text
   end
   class AvailableTemporaryLocationText < AvailableText
     def base_text
-      "Temporarily located at #{@item.item_location_text}"
+      "Temporary location: #{@item.item_location_text}"
     end
   end
   class AvailableReservesText < AvailableText
