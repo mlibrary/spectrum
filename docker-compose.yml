@@ -12,8 +12,6 @@ services:
     command: bash -c 'rm -f tmp/pids/server.pid && bundle exec rails s -p ${BIND_PORT} -b ${BIND_IP}'
     env_file:
       - .env
-    environment:
-      - SPECTRUM_CATALOG_SOLR_URL=http://solr:8026/solr/biblio
     volumes:
     - .:/app
     - bundle:/bundle
@@ -21,10 +19,10 @@ services:
     - "3000:3000"
     user: ${UID}:${GID}
 
-  solr:
-    image: ghcr.io/mlibrary/library-solr:latest 
-    ports:
-     - "8026:8026"
+  #solr:
+    #image: ghcr.io/mlibrary/library-solr:latest 
+    #ports:
+     #- "8026:8026"
 
 volumes:
   bundle:
