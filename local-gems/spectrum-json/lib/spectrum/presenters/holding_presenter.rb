@@ -62,11 +62,12 @@ module Spectrum::Presenters
     end
     def rows
       @holding.items.map do |item|
-        [ 
-          {text: item.link_text, href: item.link},
-          {text: item.description || ''},
-          {text: item.note || 'N/A'}
-        ]
+        Spectrum::Presenters::ElectronicItem.for(item).to_a
+        #[ 
+          #{text: item.link_text, href: item.link},
+          #{text: item.description || ''},
+          #{text: item.note || 'N/A'}
+        #]
       end
     end
   end
