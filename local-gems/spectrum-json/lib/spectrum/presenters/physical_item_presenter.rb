@@ -4,12 +4,13 @@ module Spectrum
       @item = item #Entities::MirlynItem
     end
     def to_a(action: Spectrum::Holding::Action.for(@item),
-             description: Spectrum::Holding::PhysicalItemDescription.for(@item),
              status: Spectrum::Holding::PhysicalItemStatus.for(@item)
              )
       [
         action.finalize,
-        description.to_h,
+        {
+          text: @item.description || "" 
+        },
         {
           text: status.text || 'N/A',
           intent: status.intent || 'N/A',

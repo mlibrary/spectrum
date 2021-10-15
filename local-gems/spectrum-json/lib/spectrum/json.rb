@@ -101,7 +101,6 @@ require 'spectrum/request/debug'
 
 require 'spectrum/presenters/holding_presenter'
 require 'spectrum/presenters/physical_item_presenter'
-require 'spectrum/holding/physical_item_description'
 require 'spectrum/holding/physical_item_status'
 require 'spectrum/holding/physical_item_status_text'
 require 'spectrum/holding/action'
