@@ -4067,6 +4067,13 @@
 
 - id: primo_author
   uid: author
+  csl:
+    id: author
+    type: author
+  z3988:
+    id: rft.au
+  ris:
+    - AU
   field: creator
   metadata:
     name: Author
