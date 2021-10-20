@@ -6,13 +6,9 @@ RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
   apt-transport-https\
   nodejs
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY ./ /usr/src/app/
+COPY ./ /app
 
 RUN gem install bundler -v ">= 1.3, < 2.0"
 ENV BUNDLE_PATH /gems
-
-RUN bundle install
-
-CMD tail -f /dev/null

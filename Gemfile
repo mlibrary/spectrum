@@ -111,6 +111,8 @@ source 'https://rubygems.org' do
 
   group :test, :development do
     gem 'rspec-rails'
+    gem 'simplecov'
+    gem 'webmock'
   end
 
   group :test do
