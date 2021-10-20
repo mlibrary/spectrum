@@ -9,6 +9,8 @@ class Spectrum::Holding::PhysicalItemStatus::Text
     def self.for(item)
       if item.in_reserves?
         AvailableReservesText.new(item)
+      elsif item.temp_location?
+        AvailableTemporaryLocationText.new(item)
       else
         AvailableText.new(item)
       end
@@ -39,6 +41,11 @@ class Spectrum::Holding::PhysicalItemStatus::Text
       when '12'
         "(12 Hour Loan)"
       end
+    end
+  end
+  class AvailableTemporaryLocationText < AvailableText
+    def base_text
+      "Temporary location: #{@item.item_location_text}"
     end
   end
   class AvailableReservesText < AvailableText

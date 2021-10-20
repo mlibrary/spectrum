@@ -1,7 +1,7 @@
 require_relative '../../rails_helper'
 describe Spectrum::Holding::PhysicalItemStatus do
   before(:each) do
-    @solr_item = double("Spectrum::BibRecord:AlmaHolding::Item", process_type: nil, location: 'GRAD', library: 'HATCH', temp_location?: true)
+    @solr_item = double("Spectrum::BibRecord:AlmaHolding::Item", process_type: nil, location: 'GRAD', library: 'HATCH', temp_location?: false, item_location_text: 'Hatcher Graduate Library')
     @bib_record = instance_double(Spectrum::BibRecord)
     @alma_item = Spectrum::Entities::AlmaItem.new(solr_item: @solr_item, holding: double("AlmaHolding"), alma_loan: nil, bib_record: @bib_record)
   end
@@ -13,12 +13,22 @@ describe Spectrum::Holding::PhysicalItemStatus do
       before(:each) do
         allow(@alma_item).to receive(:item_policy).and_return('01')
       end
-      it "returns success status for non-requested item" do
+      it "returns success status non-temporarily-moved-item item" do
 #        allow(@alma_item).to receive(:requested?).and_return(false)
         expect(subject.to_h).to eq({text: 'On shelf', intent: 'success', icon: 'check_circle'})
         expect(subject.class.to_s).to include('Success')
       end
+      it "returns success for reserves item" do
+        allow(@alma_item).to receive(:in_reserves?).and_return(true)
+        expect(subject.to_h).to eq({text: 'On reserve at Hatcher Graduate Library', intent: 'success', icon: 'check_circle'})
+      end
+      it "returns success for temporaryily located item" do
+        allow(@alma_item).to receive(:in_reserves?).and_return(false)
+        allow(@solr_item).to receive(:temp_location?).and_return(true)
+        expect(subject.to_h).to eq({text: 'Temporary location: Hatcher Graduate Library', intent: 'success', icon: 'check_circle'})
+      end
       it "returns error for item in an unavailable temporary location" do
+        allow(@solr_item).to receive(:temp_location?).and_return(true)
         allow(@alma_item).to receive(:in_unavailable_temporary_location?).and_return(true)
         expect(subject.to_h).to eq({text: 'Unavailable', intent: 'error', icon: 'error'})
         expect(subject.class.to_s).to include('Error')
