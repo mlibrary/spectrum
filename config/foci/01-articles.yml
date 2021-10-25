@@ -13,11 +13,9 @@ sorts:
   date_asc: summon_date_asc
   date_desc: summon_date_desc
 fields:
-  - position
   - summon_title
   - subtitle
   - format
-  - favorites_tags
   - abstract
   - ap_author
   - summon_date
@@ -61,11 +59,6 @@ fields:
   - times_cited
   - times_cited2
   - summon_openurl
-# Header Components
-  - select_box
-  - favorites_icon
-  - peer_reviewed
-  - open_access_const
 # Not rendered
   - id
 # For citation generation

@@ -52,19 +52,6 @@
       method: sanitize
     - id: trim
       method: trim
-  header_region:
-    preview:
-      main-left-aligned:
-        type: plain
-    medium:
-      main-left-aligned:
-        type: plain
-    full:
-      main-left-aligned:
-        type: plain
-    callno_browse:
-      title:
-        type: plain
 
 - id: primo_title
   uid: title
@@ -85,19 +72,6 @@
       method: sanitize
     - id: trim
       method: trim
-  header_region:
-    preview:
-      main-left-aligned:
-        type: plain
-    medium:
-      main-left-aligned:
-        type: plain
-    full:
-      main-left-aligned:
-        type: plain
-    callno_browse:
-      title:
-        type: plain
 
 - id: summon_title
   csl:
@@ -122,19 +96,6 @@
       method: sanitize
     - id: trim
       method: trim
-  header_region:
-    preview:
-      main-left-aligned:
-        type: plain
-    medium:
-      main-left-aligned:
-        type: plain
-    full:
-      main-left-aligned:
-        type: plain
-    callno_browse:
-      title:
-        type: plain
 
 - id: summon_openurl
   uid: openurl
@@ -347,10 +308,6 @@
   metadata:
     name: Date
     short_desc: Published by, publish date
-  header_region:
-    callno_browse:
-      published:
-        type: plain
 
 - id: cat_date
   metadata:
@@ -631,10 +588,6 @@
       type: plain
     medium:
       type: plain
-  header_region:
-    full:
-      lower-left-aligned:
-        type: plain
 
 - id: db_brief_description_with_special_message
   ris:
@@ -666,10 +619,6 @@
   metadata_component:
     medium:
       type: plain
-  header_region:
-    full:
-      lower-left-aligned:
-        type: plain
 
 - id: special_message
   ris:
@@ -899,10 +848,6 @@
   filters:
     - id: sanitize
       method: sanitize
-  header_region:
-    full:
-      lower-left-aligned:
-        type: plain
 
 - id: subject
   metadata:
@@ -1252,11 +1197,6 @@
   field: edition
   searchable: true
   sortable: false
-  header_region:
-    callno_browse:
-      edition:
-        type: plain
-
 
 - id: callnumber
   csl:
@@ -1271,10 +1211,6 @@
   field: callnumber
   searchable: true
   sortable: false
-  header_region:
-    callno_browse:
-      callnumber:
-        type: plain
 
 - id: building
   metadata:
@@ -1411,10 +1347,6 @@
       type: icon
     full:
       type: icon
-  header_region:
-    full:
-      upper-left-aligned:
-        type: icon
 
 - id: format
   field: ContentType
@@ -1429,10 +1361,6 @@
       type: icon
     medium:
       type: icon
-  header_region:
-    full:
-      upper-left-aligned:
-        type: icon
 
 - id: primo_format
   uid: format
@@ -1449,10 +1377,6 @@
       type: icon
     medium:
       type: icon
-  header_region:
-    full:
-      upper-left-aligned:
-        type: icon
   mapping:
     article: Article
     newspaper_article: Newspaper Article
@@ -1676,113 +1600,6 @@
       type: icon
     medium:
       type: icon
-  header_region:
-    full:
-      upper-left-aligned:
-        type: icon
-
-
-- id: position
-  metadata:
-    name:  Position
-  header_region:
-    medium:
-      main-left-aligned:
-        type: plain
-        append: .
-        modifier: diminished
-
-- id: recommended
-  metadata:
-    name: Highly Recommended
-  type: constant
-  constant: recommended
-  header_region:
-    medium:
-      main-left-aligned:
-        type: plain
-    full:
-      main-left-aligned:
-        type: plain
-
-
-- id: peer_reviewed
-  metadata:
-    name: placeholder
-  type: constant
-  constant: peer_reviewed
-  header_region:
-    medium:
-      main-left-aligned:
-        type: plain
-    full:
-      main-left-aligned:
-        type: plain
-
-- id: open_access_const
-  metadata:
-    name: placeholder
-  type: constant
-  constant: open_access
-  header_region:
-    medium:
-      main-left-aligned:
-        type: plain
-    full:
-      main-left-aligned:
-        type: plain
-
-- id: favorites_icon
-  metadata:
-    name: placeholder
-  type: constant
-  constant: favorites_icon
-  header_region:
-    medium:
-      main-right-aligned:
-        type: placeholder
-    full:
-      main-right-aligned:
-        type: placeholder
-
-- id: favorites_tags
-  metadata:
-    name: placeholder
-  type: constant
-  constant: favorites_tags
-  header_region:
-    medium:
-      lower-left-aligned:
-        type: placeholder
-    full:
-      lower-left-aligned:
-        type: placeholder
-
-- id: select_box
-  metadata:
-    name: placeholder
-  type: constant
-  constant: select_box
-  header_region:
-    medium:
-      main-left-margin:
-        type: placeholder
-    full:
-      main-left-margin:
-        type: placeholder
-
-- id: outbound_link_graphic
-  metadata:
-    name: placeholder
-  type: constant
-  constant: outbound_link_graphic
-  header_region:
-    preview:
-      main-left-aligned:
-        type: icon
-    medium:
-      main-left-aligned:
-        type: icon
 
 - id: online_journal_format
   metadata:
@@ -1794,10 +1611,6 @@
       type: icon
     medium:
       type: icon
-  header_region:
-    full:
-      upper-left-aligned:
-        type: icon
 
 - id: journal_academic_discipline
   ris:
@@ -2192,19 +2005,6 @@
     name: Title
     short_desc: Title
   query_field: search_title
-  header_region:
-    preview:
-      main-left-aligned:
-        type: plain
-    medium:
-      main-left-aligned:
-       type: plain
-    full:
-      main-left-aligned:
-        type: plain
-    callno_browse:
-      title:
-        type: plain
 
 - id: marc_title
   uid: title
@@ -2221,19 +2021,6 @@
   filters:
     - id: sanitize
       method: sanitize
-  header_region:
-    preview:
-      main-left-aligned:
-        type: plain
-    medium:
-      main-left-aligned:
-       type: plain
-    full:
-      main-left-aligned:
-        type: plain
-    callno_browse:
-      title:
-        type: plain
 
 - id: marc_ris_title
   csl:
@@ -2558,10 +2345,6 @@
       method: trim
     - id: trim2
       method: trim2
-  header_region:
-    callno_browse:
-      author:
-        type: plain
 
 - id: csl_contributor
   csl:
@@ -2706,10 +2489,6 @@
   metadata_component:
     full:
       type: plain
-  header_region:
-    callno_browse:
-      edition:
-        type: plain
 
 - id: series
   csl:
@@ -3655,14 +3434,6 @@
   field: publishDate
   metadata:
     name: Published Year
-  header_region:
-    preview:
-      main-left-aligned:
-        type: plain
-    callno_browse:
-      published:
-        type: plain
-
 
 - id: published_brief
   metadata:
