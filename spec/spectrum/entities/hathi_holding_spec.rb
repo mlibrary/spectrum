@@ -101,7 +101,9 @@ describe Spectrum::Entities::NewHathiItem do
     expect(subject.id).to eq('mdp.39015017893416')
   end
   context "#status" do
-    it "generates appropriate status"
+    it "generates appropriate status" do
+      expect(subject.status).to eq('Full text available, simultaneous access is limited (HathiTrust log in required)')
+    end
   end
   context "#url" do
     it "has login link" do
