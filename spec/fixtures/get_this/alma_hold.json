@@ -21,8 +21,40 @@
                     "value": "select-a-pickup-location"
                 },
                 {
+                    "name": "Art, Architecture, & Engineering Library",
+                    "value": "AAEL"
+                },
+                {
+                    "name": "Donald Hall Collection",
+                    "value": "DHCL"
+                },
+                {
+                    "name": "Fine Arts",
+                    "value": "FINE"
+                },
+                {
+                    "name": "Museums",
+                    "value": "MUSM"
+                },
+                {
+                    "name": "Music Library",
+                    "value": "MUSIC"
+                },
+                {
+                    "name": "Shapiro Undergraduate Library",
+                    "value": "SHAP"
+                },
+                {
+                    "name": "Taubman Health Sciences",
+                    "value": "TAUB"
+                },
+                {
                     "name": "Thompson Library (UM-Flint)",
                     "value": "FLINT"
+                },
+                {
+                    "name": "Mardigian Library (UM-Dearborn)",
+                    "value": "DBRN"
                 }
             ],
             "type": "select",
