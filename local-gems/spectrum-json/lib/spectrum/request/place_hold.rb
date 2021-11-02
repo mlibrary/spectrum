@@ -11,22 +11,6 @@ module Spectrum
         false
       end
 
-      class << self
-        attr_writer :lib
-      end
-
-      class << self
-        attr_writer :adm
-      end
-
-      class << self
-        attr_reader :lib
-      end
-
-      class << self
-        attr_reader :adm
-      end
-
       attr_reader :request, :patron
       def initialize(request)
         @request = request
@@ -102,14 +86,6 @@ module Spectrum
 
       def valid_account?
         @valid_account
-      end
-
-      def lib
-        self.class.lib
-      end
-
-      def adm
-        self.class.adm
       end
 
       def patron_id
