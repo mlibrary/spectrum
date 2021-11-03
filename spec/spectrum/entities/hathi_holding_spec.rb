@@ -1,5 +1,5 @@
 require_relative '../../rails_helper'
-describe Spectrum::Entities::NewHathiHolding do
+describe Spectrum::Entities::HathiHolding do
   let(:mms_id) {'990020578280206381'}
   let(:etas_status) {"Full text available, simultaneous access is limited (HathiTrust log in required)"}
   before(:each) do
@@ -70,20 +70,20 @@ describe Spectrum::Entities::NewHathiHolding do
     before(:each) do
       @solr_req = stub_request(:get, "#{solr_url}/select?q=id:#{mms_id}&wt=json").to_return(body: @solr_bib_alma.to_json, status: 200, headers: {content_type: 'application/json'})
     end
-    it "returns a NewHathiHolding" do
+    it "returns a HathiHolding" do
       expect(described_class.for(mms_id,solr_url).class.name.to_s).to eq(described_class.name.to_s)
       expect(@solr_req).to have_been_requested
 
     end
   end
 end
-describe Spectrum::Entities::NewHathiItem do
+describe Spectrum::Entities::HathiItem do
   before(:each) do
     @solr_bib_alma = JSON.parse(File.read('./spec/fixtures/solr_bib_alma.json'))
   end
   subject do
     bib_record = Spectrum::BibRecord.new(@solr_bib_alma)
-    Spectrum::Entities::NewHathiHolding.new(bib_record).items.first
+    Spectrum::Entities::HathiHolding.new(bib_record).items.first
   end
   it "has a description" do
     expect(subject.description).to eq('')

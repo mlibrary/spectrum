@@ -1,12 +1,12 @@
 module Spectrum::Entities
-  class NewHathiHolding
+  class HathiHolding
     def initialize(bib_record)
       @bib_record = bib_record
       @holding = bib_record.hathi_holding
     end
     def self.for(mms_id, url, 
                  bib_record=Spectrum::BibRecord.fetch(id: mms_id, url: url))
-      NewHathiHolding.new(bib_record)
+      HathiHolding.new(bib_record)
     end
     #
     # Things that respond with the empty string
@@ -34,7 +34,7 @@ module Spectrum::Entities
       mms_id
     end
     def items 
-      @holding&.items&.map{|x| Spectrum::Entities::NewHathiItem.new(self, x) } unless empty?
+      @holding&.items&.map{|x| Spectrum::Entities::HathiItem.new(self, x) } unless empty?
     end
     def id
       items&.first.id if items.count == 1
@@ -44,7 +44,7 @@ module Spectrum::Entities
     end
     
   end
-  class NewHathiItem
+  class HathiItem
     extend Forwardable
     def_delegators :@holding, :mms_id, :doc_id, :callnumber, :sub_library, :collection, :holding_id, :location
 
