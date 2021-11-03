@@ -3,7 +3,7 @@
   name: Mirlyn
   type: solr
   url: <%= ENV['SPECTRUM_CATALOG_SOLR_URL'] %>
-  holdings: <%= ENV['SPECTRUM_CATALOG_HOLDINGS_URL'] %>
+  holdings: '' #mrio: I don't know how to get rid of this
   truncate: true
   driver: RSolr
   link_type: rebase
@@ -23,10 +23,10 @@
 - id: summon
   name: ArticlesPlus
   type: summon
-  url: <%= ENV['SPECTRUM_SUMMON_URL'] %>
+  url: 'should_not_need_this_anymore' 
   driver: Summon
-  access_id: <%= ENV['SPECTRUM_SUMMON_ID'] %>
-  secret_key: <%= ENV['SPECTRUM_SUMMON_SECRET_KEY'] %>
+  access_id: 'should_not_need_this_anymore' 
+  secret_key: 'should_not_need_this_anymore' 
 - id: primo
   name: Primo
   type: primo

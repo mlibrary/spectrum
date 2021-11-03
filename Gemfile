@@ -10,7 +10,6 @@ source 'https://rubygems.org' do
   gem 'skylight'
   gem 'net-ldap'
   gem 'twilio-ruby'
-  gem 'exlibris-aleph', '~>2.0.4'
   gem 'puma'
   gem 'parslet'
   gem 'execjs', '~> 2.7.0'
@@ -36,10 +35,6 @@ source 'https://rubygems.org' do
     git: 'https://github.com/mlibrary/mlibrary_search_parser',
     branch: 'master'
 
-  gem 'aleph',
-    git: 'https://github.com/mlibrary/aleph',
-    branch: 'master'
-  
   gem 'rails', '~> 4.2.0'
 
   #  ###  BLACKLIGHT (begin)  ###
@@ -48,10 +43,6 @@ source 'https://rubygems.org' do
   #  ###  BLACKLIGHT (end)  ###
 
   gem 'json'
-
-  platforms :mri do
-    gem 'therubyracer'
-  end
 
   gem 'httpclient'
   gem 'nokogiri', '>= 1.8.5'

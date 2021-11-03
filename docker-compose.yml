@@ -1,5 +1,5 @@
 ---
-version: "3.7"
+version: '3'
 services:
   web:
     stdin_open: true
@@ -11,6 +11,7 @@ services:
         - GID=${GID}
     command: bash -c 'rm -f tmp/pids/server.pid && bundle exec rails s -p ${BIND_PORT} -b ${BIND_IP}'
     env_file:
+      - .env-dev-values
       - .env
     volumes:
     - .:/app

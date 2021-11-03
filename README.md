@@ -5,15 +5,45 @@ Forked from Columbia Libraries Unified Search &amp; Discovery
 
 ## Using docker-compose for development
 
+Clone the repository
 ```bash
 git clone git@github.com:mlibrary/spectrum.git spectrum
 cd spectrum
-cp /path/to/env-file .env
-docker-compose up --build --no-start
+```
+Copy .env-example to .env
+```
+cp .env-example .env
+```
+Get the actual values for the `.env` file from one of the developers. Update `.env` with those values.
+
+Build it.
+```
+docker-compose build
+```
+
+Install the gems into the gem-cache
+```
 docker-compose run --rm web bundle install
+```
+
+Pull the latest version of the search front end
+```
 docker-compose run --rm web bundle exec rake 'search[latest,local]'
+```
+
+Easiest path to starting up is to be on the Library VPN. (Ask the developer you got the environment variables from what they're using.)
+
+One way to start up the app:
+```
 docker-compose start web && docker attach "$(docker-compose ps -q web)"
 ```
+
+Another way to start up the app. This will enable you to put in `byebug` breaks
+
+```
+docker-compose run --rm --service-ports web
+```
+
 
 ## Overview of Spectrum
 
