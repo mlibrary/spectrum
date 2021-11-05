@@ -31,19 +31,31 @@ Pull the latest version of the search front end
 docker-compose run --rm web bundle exec rake 'search[latest,local]'
 ```
 
-Easiest path to starting up is to be on the Library VPN. (Ask the developer you got the environment variables from what they're using.)
-
-One way to start up the app:
-```
-docker-compose start web && docker attach "$(docker-compose ps -q web)"
-```
-
-Another way to start up the app. This will enable you to put in `byebug` breaks
+Load up the catalog with some example data. To do that you need to start up catalog solr and then index the data.
 
 ```
-docker-compose run --rm --service-ports web
+docker-compose start catalog-solr
+docker-compose exec catalog-solr bash /examples/load_into_solr.sh
 ```
 
+Then start it
+
+```
+docker-compose up
+```
+In the browser go to `http://localhost:3000`
+
+### Running Tests
+```
+docker-compose run --rm web bundle exec rspec
+```
+
+### Debugging
+To use a debugger like `byebug`, first start the app with `docker-compose up`. Then in another terminal: 
+
+```
+docker attach "$(docker-compose ps -q web)"
+```
 
 ## Overview of Spectrum
 
