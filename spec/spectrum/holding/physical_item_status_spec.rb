@@ -48,6 +48,11 @@ describe Spectrum::Holding::PhysicalItemStatus do
         expect(subject.class.to_s).to include('Success')
         expect(subject.text).to eq('Building use only')
       end
+      it "handles temporary location" do
+        allow(@alma_item).to receive(:in_reserves?).and_return(false)
+        allow(@solr_item).to receive(:temp_location?).and_return(true)
+        expect(subject.text).to eq('Temporary location: Hatcher Graduate Library; Building use only')
+      end
       ['SPEC', 'BENT', 'CLEM'].each do |library|
         it "is Reading Room Use Only for #{library} " do
           allow(@alma_item).to receive(:library).and_return(library)

@@ -16,6 +16,10 @@ class Spectrum::Holding::PhysicalItemStatus::Text
       end
     end
     def to_s
+      [base_text, suffix].reject{|x| x.nil?}.join(' ')
+    end
+    private
+    def base_text
       if @item.item_policy == '08'
         if ['SPEC','BENT','CLEM'].include?(@item.library)
           "Reading Room Use Only"
@@ -23,12 +27,8 @@ class Spectrum::Holding::PhysicalItemStatus::Text
           "Building use only"
         end
       else
-        [base_text, suffix].reject{|x| x.nil?}.join(' ')
+        "On shelf"
       end
-    end
-    private
-    def base_text
-      "On shelf"
     end
     def suffix
       case @item.item_policy
@@ -45,7 +45,12 @@ class Spectrum::Holding::PhysicalItemStatus::Text
   end
   class AvailableTemporaryLocationText < AvailableText
     def base_text
-      "Temporary location: #{@item.item_location_text}"
+      output = "Temporary location: #{@item.item_location_text}"
+      if super != 'On shelf'
+        [output, super].join('; ')
+      else
+        output
+      end
     end
   end
   class AvailableReservesText < AvailableText
