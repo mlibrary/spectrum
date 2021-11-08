@@ -48,11 +48,6 @@ source 'https://rubygems.org' do
   gem 'nokogiri', '>= 1.8.5'
 
   # HTML replacement language
-  gem 'haml'
-  gem 'haml-rails'
-
-  # CSS replacement language
-  gem 'sass'
 
   gem 'unicode'
   gem 'summon'
@@ -73,13 +68,6 @@ source 'https://rubygems.org' do
   # (blacklight_range_limit brings this in anyway - no way to switch to CDN)
   gem 'jquery-rails'
   
-  group :assets do
-    gem 'sass-rails'
-    gem 'coffee-rails'
-    gem 'uglifier'
-    gem 'bootstrap-sass', ">= 3.4.1"
-  end
-
 
   # To build slugs for saved-list URLs
   gem 'stringex'
@@ -106,33 +94,4 @@ source 'https://rubygems.org' do
     gem 'webmock'
   end
 
-  group :test do
-    gem 'minitest'
-
-    gem 'factory_girl_rails'
-
-    # Copy Stanford's approach to Solr relevancy testing
-    gem 'rspec-solr'
-
-    # pin to old version, or go with newest?
-    gem 'capybara'
-
-    # Which Capybara driver for JS support?
-    platforms :mri do
-      gem 'ruby-prof'
-    end
-    # dependent on localhost's browser configs
-
-    gem 'launchy'
-    gem 'database_cleaner'
-
-    gem 'rb-fsevent'
-
-    # code coverage
-    gem 'simplecov'
-
-    # Lock sprockets to 3.x
-    gem 'sprockets', '~>3.0'
-
-  end
 end
