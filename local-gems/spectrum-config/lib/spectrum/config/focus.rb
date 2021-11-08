@@ -196,29 +196,6 @@ module Spectrum
         ret
       end
 
-      def header_component(data, _ = nil, request = nil)
-        return data.map {|item| header_component(item, nil, request)}.compact if data === Array
-        ret = {}
-        [:preview, :medium, :full, :callno_browse].each do |display_type|
-          ret[display_type] = Hash.new
-          @fields.each_value do |field|
-            if field.respond_to?(:header_region_display)
-              rendered_display = field.header_region_display(display_type, data, request)
-              unless rendered_display.nil?
-                region = rendered_display[:region]
-                description = rendered_display[:description]
-                unless description.nil?
-                  ret[display_type][region] ||= []
-                  ret[display_type][region] << description
-                end
-              end
-            end
-          end
-        end
-        ret
-      end
-
-
       def apply_fields(data, _ = nil, request = nil)
         if data === Array
           data.map { |item| apply_fields(item, nil, request) }.compact

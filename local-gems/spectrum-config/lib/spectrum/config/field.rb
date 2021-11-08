@@ -89,7 +89,6 @@ module Spectrum
         @csl = i.csl
         @z3988 = i.z3988
         @metadata_component = i.metadata_component
-        @header_region = i.header_region
         @mapping = i.mapping
         @reverse_facets = i.reverse_facets
       end
@@ -135,14 +134,7 @@ module Spectrum
           full: MetadataComponent.new(name, mc['full']),
         }
 
-       hr = args['header_region'] || {}
-       @header_region = {
-          preview: HeaderRegion.new(hr['preview']),
-          medium: HeaderRegion.new(hr['medium']),
-          full: HeaderRegion.new(hr['full']),
-          callno_browse: HeaderRegion.new(hr['callno_browse']),
-        }
-      end
+     end
 
       def type
         self.class.type
@@ -189,12 +181,6 @@ module Spectrum
         mc = metadata_component[mode]
         return nil unless mc
         mc.resolve(filter(data, request))
-      end
-
-      def header_region_display(mode, data, request)
-        hr = header_region[mode]
-        return nil unless hr
-        hr.resolve(filter(data, request))
       end
 
       def icons(data, request)

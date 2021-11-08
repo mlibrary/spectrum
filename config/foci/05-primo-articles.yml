@@ -58,7 +58,6 @@ solr_params:
 fields:
 - id
 - alt_ids
-- position
 - primo_title
 - primo_format
 - primo_author

@@ -166,7 +166,6 @@ fields:
   - allfields
   - keyword
   - mirlyn_format
-  - position
   - title_display
   - marc_ris_title
   - main_author
@@ -257,10 +256,6 @@ fields:
   - call_number_starts_with
   - subject
   - isn
-# Header Components
-  - select_box
-  - favorites_icon
-  - favorites_tags
 # Citation specfic fields, not for display
   - ris_main_author
   - ris_contributors
