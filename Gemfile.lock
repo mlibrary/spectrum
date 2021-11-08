@@ -64,7 +64,6 @@ PATH
       json-schema
       lru_redux
       marc
-      rails (~> 4.2.0)
       rake (>= 12.3.3)
       rsolr
 
