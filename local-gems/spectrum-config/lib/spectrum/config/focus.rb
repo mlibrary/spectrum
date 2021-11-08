@@ -358,6 +358,11 @@ module Spectrum
           to: 'json#debug',
           defaults: {source: source, focus: @id, type: 'Debug' },
           via: [:get, :options]
+        
+        app.match "#{@url}/browse",
+          to: "json#browse",
+          defaults: { source: source, focus: @id, type: 'DataStore' },
+          via: [:get, :options]
 
         app.match @url,
                   to: 'json#search',

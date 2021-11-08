@@ -1,5 +1,7 @@
 source 'https://rubygems.org' do
 
+  #slim templates
+  gem 'slim'
   # I'm getting deployment errors with capistrano about trying to load pry
   gem 'pry'
   gem 'lograge'
@@ -34,6 +36,10 @@ source 'https://rubygems.org' do
   gem 'mlibrary_search_parser',
     git: 'https://github.com/mlibrary/mlibrary_search_parser',
     branch: 'master'
+
+  gem "callnumber_collation",
+    git: "https://github.com/billdueber/callnumber_collation",
+    branch: 'main'
 
   gem 'rails', '~> 4.2.0'
 

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'byebug'
 
 class JsonController < ApplicationController
   before_filter :init, :cors
@@ -67,6 +68,83 @@ class JsonController < ApplicationController
     @new_request = Spectrum::Request::Null.new
     @response    = Spectrum::Response::DataStoreList.new(list_datastores)
     render(json: basic_response)
+  end
+
+  def browse
+    @request = Spectrum::Request::BrowseRequest.new(request, @focus, :desc)
+    @datastore = Spectrum::Response::DataStore.new(this_datastore)
+    @response = Spectrum::Response::RecordList.new(fetch_browse_records, @request)
+    prev_page = @response.spectrum
+    @request      = Spectrum::Request::BrowseRequest.new(request, @focus, :asc)
+    @engine = @source.engine(@focus, @request, self)
+    @datastore    = Spectrum::Response::DataStore.new(this_datastore)
+    @response     = Spectrum::Response::RecordList.new(fetch_browse_records, @request)
+    this_page = @response.spectrum
+
+    #if prev_page and this_page
+      #first_before_id = prev_page[0][:fields].find{|e| e[:uid] == "title"}[:value]
+      #first_after_id =  this_page[0][:fields].find{|e| e[:uid] == "title"}[:value]
+      #full_records = if first_before_id == first_after_id
+                        #prev_page[1..2].reverse.concat(this_page)
+                     #else
+                       #prev_page[0..1].reverse.concat(this_page)
+                     #end
+    #else
+      #full_records = this_page
+    #end
+
+    #full_response = browse_response(prev_page, full_records)
+    fields = [
+      {
+        label: "Keyword",
+        value: "keyword"
+      },
+      {
+        label: "Author",
+        value: "author"
+      },
+      {
+        label: "Title",
+        value: "title"
+      },
+      {
+        label: "Browse by (LC) call number",
+        value: "browse-by-callnumber"
+      }
+    ]
+
+    stub_response = [
+      {
+        callnumber: 'Z 253 .U582 1984',
+        title: 'Patents and trademarks style menu :',
+        subtitles: [
+          'United States. Patent and Trademark Office.',
+          'Office : For sale by the Supt. of Docs., U.S. G.P.O., 1984.'
+        ]
+      },
+      {
+        callnumber: 'Z 253 .U582 1984',
+        title: 'Patents and trademarks style menu :',
+        subtitles: [
+          'United States. Patent and Trademark Office.',
+          'Office : For sale by the Supt. of Docs., U.S. G.P.O., 1984.'
+        ]
+      },
+      {
+        callnumber: 'Z 253 .U582 1984',
+        title: 'Patents and trademarks style menu :',
+        subtitles: [
+          'United States. Patent and Trademark Office.',
+          'Office : For sale by the Supt. of Docs., U.S. G.P.O., 1984.'
+        ]
+      }
+    ]
+    render(locals: {
+      fields: fields,
+      results: stub_response,
+      #full_response: full_response,
+      full_response: [],
+    })
   end
 
   def search
@@ -233,6 +311,14 @@ class JsonController < ApplicationController
     )
   end
 
+   def fetch_browse_records
+    base_url.merge(
+        data: engine.results,
+        source: @source,
+        focus: @focus
+    )
+  end
+
   def fetch_records
     base_url.merge(
       data: engine.results,
@@ -298,6 +384,16 @@ class JsonController < ApplicationController
       total_available: @response.total_available,
       default_institution: default_institution,
       affiliation: default_affiliation,
+    }
+  end
+
+  def browse_response(prev_page, full_records)
+    {
+        request:  @request.spectrum,
+        response: full_records,
+        datastore: @datastore.spectrum,
+        prev_page_start: prev_page.last[:fields].find {|f| f[:uid] == 'callnumber'}[:value].first,
+        next_page_start: full_records.last[:fields].find {|f| f[:uid] == 'callnumber'}[:value].first
     }
   end
 
