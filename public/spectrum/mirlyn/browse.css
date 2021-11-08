@@ -1,0 +1,145 @@
+body {
+  /*
+    Search Product original colors.
+  */
+  --search-blue-100: #f2f9ff;
+  --search-blue-200: #e6f3ff;
+  --search-blue-300: #cce6ff;
+  --search-blue-400: #126dc1;
+  --search-blue-500: #0c5292;
+  --search-blue-600: var(--color-blue-400);
+
+  --search-neutral-100: #f2f2f2;
+  --search-neutral-200: #fafafa;
+  --search-neutral-300: #e5e5e5;
+  --search-neutral-400: #ccc;
+  --search-neutral-500: #6e6e6e;
+  --search-neutral-600: #4e4e4e;
+  --search-neutral-700: #262626;
+
+  --search-font: 'Source Sans Pro';
+}
+
+/*
+  Search Product Typography
+*/
+body,
+h1 {
+  font-family: var(--search-font);
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.search-box {
+  background: var(--search-blue-200);
+  border-bottom: 2px solid var(--search-blue-300);
+  padding: var(--space-medium) 0;
+}
+
+/*
+  Reset input and select styles.
+*/
+.search-box select,
+.search-box input,
+.search-box button {
+  all: unset;
+  padding: var(--space-small) var(--space-medium);
+  box-sizing: border-box;
+}
+
+.search-box select {
+  background: var(--search-neutral-200);
+}
+
+.search-box input {
+  background: white;
+  flex-grow: 1;
+}
+
+.search-box button {
+  background: var(--search-blue-400);
+  color: white;
+  font-weight: 600;
+}
+
+/*
+  Search box borders
+*/
+
+.search-box-inner-container {
+  display: flex;
+  width: 100%;
+}
+
+.search-box select {
+  border: solid 1px rgba(18, 108, 193, 0.4);
+  border-radius: 4px 0 0 4px;
+  cursor: pointer;
+}
+
+.search-box input {
+  border: solid 1px rgba(18, 108, 193, 0.4);
+  border-left: 0;
+  border-right: 0;
+  cursor: pointer;
+}
+
+.search-box button {
+  border-radius: 4px;
+  border: solid 1px var(--search-blue-500);
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 719px) {
+  .search-box-inner-container {
+    flex-wrap: wrap;
+  }
+
+  .search-box select {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: var(--space-small);
+  }
+
+  .search-box input {
+    border: solid 1px rgba(18, 108, 193, 0.4);
+    border-right: 0;
+    border-radius: 4px 0 0 4px;
+  }
+}
+
+/*
+  Search specific anchors
+*/
+
+a {
+  color: var(--search-blue-400);
+}
+
+/*
+  Browse table
+*/
+
+.browse-table th {
+  color: var(--search-neutral-600);
+}
+
+.browse-table a {
+  font-weight: 600;
+}
+
+.browse-table a ~ p {
+  margin: 0;
+}
+
+/* global focus styles */
+
+*:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px var(--color-maize-400),
+    0 0 0 3px var(--color-neutral-400) !important;
+}

@@ -41,6 +41,7 @@ token.txt
 /.env
 /.ssh
 /public
+!/public/spectrum/mirlyn/browse.css
 /gems
 /.local
 /.wget-hsts
