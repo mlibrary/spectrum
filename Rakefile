@@ -68,7 +68,7 @@ Rake::Task['assets:precompile'].enhance do
     end
     system('mv tmp/search.alt/build/index.html tmp/search.alt/build/app.html') || abort("Couldn't rename index to app")
   end
-end if (`which npm` && $?.success?)
+end if ENV.fetch('SPECTRUM_BUILDS_SEARCH', false)
 
 
 # Doing this lets us test by just typing "rake", but that also means
