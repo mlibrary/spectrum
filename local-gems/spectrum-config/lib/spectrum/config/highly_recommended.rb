@@ -2,16 +2,18 @@
 module Spectrum
   module Config
     class HighlyRecommended
-      attr_reader :field
+      attr_reader :field, :prefix, :suffix
 
       def initialize(config = nil)
         config ||= {}
         @field = config['field']
+        @prefix = config['prefix'] || ''
+        @suffix = config['suffix'] || ''
       end
 
       def map(value)
         return nil unless value.respond_to?(:downcase)
-        "isfield-order-#{value.downcase.gsub(/[^a-z&']/, '_').gsub(/_+/, '_').sub(/_+$/, '')} asc"
+        "#{prefix}#{value.downcase.gsub(/[^a-z&']/, '_').gsub(/_+/, '_').sub(/_+$/, '')}#{suffix} asc"
       end
 
       def get_sorts(sort, facets)

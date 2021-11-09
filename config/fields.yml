@@ -3607,7 +3607,15 @@
     name: Link Model
 
 - id: highly_recommended
-  field: isfield-order-
+  field: isfield-order-*
+  facet_field: academic_discipline
+  type: highly_recommended
+  metadata:
+    name: Highly Recommended
+
+- id: highly_recommended_catalog
+  uid: highly_recommended
+  field: '*_bb'
   facet_field: academic_discipline
   type: highly_recommended
   metadata:

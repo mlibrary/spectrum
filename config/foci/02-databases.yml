@@ -7,6 +7,7 @@ source: website
 highly_recommended:
   field: academic_discipline
   sort_uid: title_asc
+  prefix: isfield-order-
 href:
   field: path_alias
   prefix: http://www.lib.umich.edu/node/
