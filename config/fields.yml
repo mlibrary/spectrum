@@ -3380,7 +3380,7 @@
         join: ' '
   metadata_component:
     full:
-      type: search2
+      type: quoted_search2
       variant: fielded
       scope: subject
       text_field: display
