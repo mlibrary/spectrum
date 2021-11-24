@@ -5,5 +5,17 @@ require ::File.expand_path('../config/environment',  __FILE__)
 
 ::BLACKLIGHT_VERBOSE_LOGGING=true
 
-run Clio::Application
+require 'catalog-browse'
 
+map '/browse.css' do
+  use CatalogBrowse::BrowseCSS
+  run CatalogBrowse
+end
+
+map '/catalog/browse' do
+  run CatalogBrowse
+end
+
+map '/' do
+  run Clio::Application
+end

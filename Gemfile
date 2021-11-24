@@ -1,5 +1,9 @@
 source 'https://rubygems.org' do
 
+  gem 'catalog-browse',
+    git: 'https://github.com/bertrama/catalog-browse',
+    branch: 'modularizing'
+
   # I'm getting deployment errors with capistrano about trying to load pry
   gem 'pry'
   gem 'lograge'
