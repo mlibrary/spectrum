@@ -3,14 +3,18 @@ describe Spectrum::Entities::GetThisOption do
   before(:each) do
      @patron = instance_double(Spectrum::Entities::AlmaUser)
      @item = double('Spectrum::Decorators::PhysicalItemDecorator')
-     Spectrum::Entities::GetThisOptions.configure('spec/fixtures/new_get_this_policy.yml')
-     Spectrum::Entities::LocationLabels.configure('spec/fixtures/location_labels.yml')
+     #Spectrum::Entities::GetThisOptions.configure('spec/fixtures/new_get_this_policy.yml')
+     Spectrum::Entities::GetThisOptions.configure('config/get_this.yml')
+     Spectrum::Entities::LocationLabels.configure('config/location_labels.yml')
 
+  end
+  def option_for(field:,value:)
+    Spectrum::Entities::GetThisOptions.all.find{|x| x.dig(*field) == value }
   end
   context "No form" do
     subject do
-      hold = Spectrum::Entities::GetThisOptions.all[3]
-      described_class.for(option: hold, patron: @patron, item: @item)
+      option = option_for(field: ["service_type"], value: 'Weblogin') 
+      described_class.for(option: option, patron: @patron, item: @item)
     end
     it "returns a GetThisOption"  do
       expect(subject.class.to_s).to eq('Spectrum::Entities::GetThisOption')
@@ -21,8 +25,8 @@ describe Spectrum::Entities::GetThisOption do
   end
   context "Link" do
     subject do
-      hold = Spectrum::Entities::GetThisOptions.all[0]
-      described_class.for(option: hold, patron: @patron, item: @item)
+      option = option_for(field: ["form","type"], value: 'link') 
+      described_class.for(option: option, patron: @patron, item: @item)
     end
     it "returns a GetThisOption::Link"  do
       expect(subject.class.to_s).to eq('Spectrum::Entities::GetThisOption::Link')
@@ -33,8 +37,8 @@ describe Spectrum::Entities::GetThisOption do
   end
   context "Alma Hold" do
     subject do 
-      hold = Spectrum::Entities::GetThisOptions.all[1]
-      described_class.for(option: hold, patron: @patron, item: @item)
+      option = option_for(field: ["form","type"], value: 'alma_hold') 
+      described_class.for(option: option, patron: @patron, item: @item)
     end
     it "returns an alma hold" do
       expect(subject.class.to_s).to include('AlmaHold')
@@ -48,8 +52,8 @@ describe Spectrum::Entities::GetThisOption do
   end
   context "ILLiad Hold" do
     subject do
-      hold = Spectrum::Entities::GetThisOptions.all[2]
-      described_class.for(option: hold, 
+      option = option_for(field: ["form","type"], value: 'illiad_request') 
+      described_class.for(option: option, 
         patron: @patron, item: @item)
     end
     it "returns an ILLiadRequest" do

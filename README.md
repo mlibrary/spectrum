@@ -5,14 +5,56 @@ Forked from Columbia Libraries Unified Search &amp; Discovery
 
 ## Using docker-compose for development
 
+Clone the repository
 ```bash
 git clone git@github.com:mlibrary/spectrum.git spectrum
 cd spectrum
-cp /path/to/env-file .env
-docker-compose up --build --no-start
+```
+Copy .env-example to .env
+```
+cp .env-example .env
+```
+Get the actual values for the `.env` file from one of the developers. Update `.env` with those values.
+
+Build it.
+```
+docker-compose build
+```
+
+Install the gems into the gem-cache
+```
 docker-compose run --rm web bundle install
+```
+
+Pull the latest version of the search front end
+```
 docker-compose run --rm web bundle exec rake 'search[latest,local]'
-docker-compose start web && docker attach "$(docker-compose ps -q web)"
+```
+
+Load up the catalog with some example data. To do that you need to start up catalog solr and then index the data.
+
+```
+docker-compose start catalog-solr
+docker-compose exec catalog-solr bash /examples/load_into_solr.sh
+```
+
+Then start it
+
+```
+docker-compose up
+```
+In the browser go to `http://localhost:3000`
+
+### Running Tests
+```
+docker-compose run --rm web bundle exec rspec
+```
+
+### Debugging
+To use a debugger like `byebug`, first start the app with `docker-compose up`. Then in another terminal: 
+
+```
+docker attach "$(docker-compose ps -q web)"
 ```
 
 ## Overview of Spectrum

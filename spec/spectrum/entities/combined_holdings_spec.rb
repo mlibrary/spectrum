@@ -9,7 +9,7 @@ describe Spectrum::Entities::CombinedHoldings do
     @alma_holdings_dbl = instance_double(Spectrum::Entities::AlmaHoldings, 
         holdings: [@alma_holding_dbl1, @alma_holding_dbl2])
     
-    @hathi_holding_dbl = instance_double(Spectrum::Entities::NewHathiHolding, "empty?" => false)
+    @hathi_holding_dbl = instance_double(Spectrum::Entities::HathiHolding, "empty?" => false)
   end
   let(:mms_id) {'990020578280206381'}
   let(:bib_record) {instance_double(Spectrum::BibRecord, mms_id: mms_id, hathi_holding: {}, alma_holding: @alma_holding_dbl1, "physical_holdings?" => true, elec_holdings: @elec_holdings) }

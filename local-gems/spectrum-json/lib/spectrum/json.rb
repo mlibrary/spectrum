@@ -7,14 +7,11 @@ require 'alma_rest_client'
 require 'active_support'
 require 'active_support/concern'
 
-#require 'spectrum/lib_loc_display'
 require 'spectrum/available_online_holding'
-#require 'spectrum/floor_location'
 require 'spectrum/bib_record'
 require 'spectrum/special_collections_bib_record'
 
-require 'spectrum/entities/item'
-require 'spectrum/entities/holdings'
+require 'spectrum/entities/entities'
 require 'spectrum/entities/alma_holdings'
 require 'spectrum/entities/alma_item'
 require 'spectrum/entities/hathi_holding'
@@ -26,7 +23,6 @@ require 'spectrum/entities/get_this_option'
 require 'spectrum/entities/location_labels'
 
 require 'spectrum/decorators/physical_item_decorator'
-require 'spectrum/decorators/mirlyn_item_decorator'
 
 require 'spectrum/json/version'
 require 'spectrum/json/engine'
