@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/bertrama/catalog-browse
-  revision: 51963690b1bed45c6e39f4becdba7a32faecd0f9
+  revision: c7904edd83c954604ae1042606e32ae09260927f
   branch: modularizing
   specs:
     catalog-browse (0.0.1)
