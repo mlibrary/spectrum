@@ -4,6 +4,10 @@ metadata:
   name: Online Journals
   short_desc: Journals from the library catalog.
 source: mirlyn
+highly_recommended:
+  field: academic_discipline
+  sort_uid: title_asc
+  suffix: _bb
 solr_params:
 
   f.search_series.pf: series^500 series2^50
@@ -238,6 +242,7 @@ fields:
   - z3988_rft_genre
   - z3988_sid
   - catalog_rfr_id
+  - highly_recommended_catalog
 
 facets:
   - subject
