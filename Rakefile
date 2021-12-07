@@ -36,39 +36,37 @@ task :search, [:version, :flavor] do |t, args|
   system("wget -O - -q #{url} | tar -xzf - -C #{pub} #{xform} #{strip}")
 end
 
-Rake::Task['assets:precompile'].enhance do
+namespace 'assets' do
+  namespace 'precompile' do
+    desc "Build Search Front End"
+    task :search do
 
-  search_branch = ENV['SPECTRUM_SEARCH_GIT_BRANCH'] || 'master'
-  pride_branch = ENV['SPECTRUM_PRIDE_GIT_BRANCH'] || 'master'
+      if ENV.fetch('SPECTRUM_BUILDS_SEARCH', false)
+        search_branch = ENV['SPECTRUM_SEARCH_GIT_BRANCH'] || 'master'
+        pride_branch = ENV['SPECTRUM_PRIDE_GIT_BRANCH'] || 'master'
 
-  system("chmod g-s tmp") || abort("Couldn't fix permissions")
-  system('rm -rf tmp/search') || abort('Unable to remove existing search directory')
-  system("git clone --branch #{search_branch} --depth 1 https://github.com/mlibrary/search tmp/search") || abort("Couldn't clone search")
+        system("chmod g-s tmp") || abort("Couldn't fix permissions")
+        system('rm -rf tmp/search') || abort('Unable to remove existing search directory')
+        system("git clone --branch #{search_branch} --depth 1 https://github.com/mlibrary/search tmp/search") ||
+          abort("Couldn't clone search")
 
-  #search_package = 'tmp/search/package.json'
-  #File.read(search_package).tap{|contents| File.open(search_package, 'w:utf-8') {|f| f.puts contents.gsub(/pride\.git/, "pride.git\##{pride_branch}")}}
-    
-  Bundler.with_clean_env do
-    Dotenv.load
-    system('(cd tmp/search && npm install --no-progress && npm run build)') || abort("Couldn't build search front end")
-  end
-  system("chmod g+s tmp") || abort("Couldn't fix permissions")
-
-  system('mv tmp/search/build/index.html tmp/search/build/app.html') || abort("Couldn't rename index to app")
-  system('(cd tmp/search/build && tar cf - . ) | (cd public && tar xf -)') || abort("Couldn't copy build to public directory")
-
-  # Temporary addition: build an alt search interface.
-  # We know we want this to use the master branch of pride.
-  if pride_branch != 'master'
-    system('rm -rf tmp/search.alt') || abort('Unable to remove existing search directory')
-    system("git clone --branch #{search_branch} --depth 1 https://github.com/mlibrary/search tmp/search.alt") || abort("Couldn't clone search")
-    Bundler.with_clean_env do
-      Dotenv.load
-      system('(cd tmp/search.alt && npm install --no-progress && npm run build)') || abort("Couldn't build search front end")
+        Bundler.with_clean_env do
+          Dotenv.load
+          system('(cd tmp/search && npm install --no-progress && npm run build)') ||
+            abort("Couldn't build search front end")
+        end
+        system("chmod g+s tmp") ||
+          abort("Couldn't fix permissions")
+        system('mv tmp/search/build/index.html tmp/search/build/app.html') ||
+          abort("Couldn't rename index to app")
+        system('(cd tmp/search/build && tar cf - . ) | (cd public && tar xf -)') ||
+          abort("Couldn't copy build to public directory")
+      end
+      exit 0
     end
-    system('mv tmp/search.alt/build/index.html tmp/search.alt/build/app.html') || abort("Couldn't rename index to app")
   end
-end if ENV.fetch('SPECTRUM_BUILDS_SEARCH', false)
+end
+task :"assets:precompile" => [:"assets:precompile:search"]
 
 
 # Doing this lets us test by just typing "rake", but that also means
