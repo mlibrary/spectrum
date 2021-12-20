@@ -43,7 +43,7 @@ module Spectrum
           end.join(",#{conjunction};")
         end
         if tree.is_type?('tokens')
-          return "#{field_mapping.fetch(field, field)},contains,#{tree.text}"
+          return "#{field_mapping.fetch(field, field)},exact,#{tree.text}"
         end
         if ['and','or', 'not'].any? {|type| tree.is_type?(type) }
           op = tree.operator.to_s.upcase
