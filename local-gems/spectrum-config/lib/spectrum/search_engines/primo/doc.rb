@@ -44,10 +44,10 @@ module Spectrum
 
         def link_to_resource
           @link_to_resource ||= [@data.dig('links', 'linktorsrc')].flatten.compact.map do |linktorsrc|
-            linktorsrc.scan(/\$\$.[^$]*/).filter do |link|
-              link.start_with?('$$U')
+            linktorsrc.split('$$').filter do |link|
+              link.start_with?('U')
             end.map do |link|
-              link[3, link.length]
+              link[1, link.length]
             end
           end.flatten.first
         end
