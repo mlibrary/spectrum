@@ -4,6 +4,8 @@ source 'https://rubygems.org' do
   gem 'pry'
   gem 'lograge'
 
+  gem 'rack-reverse-proxy', require: 'rack/reverse_proxy'
+
   # Allow dotenv configuration
   gem 'dotenv-rails', require: 'dotenv/rails-now'
 
