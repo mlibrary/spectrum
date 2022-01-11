@@ -21,7 +21,7 @@ services:
     user: ${UID}:${GID}
 
   catalog-solr:
-    image: ghcr.io/mlibrary/library-solr:latest 
+    image: ghcr.io/mlibrary/catalog-solr-unstable:latest 
     ports:
      - "8026:8026"
     volumes:
