@@ -48,7 +48,4 @@ token.txt
 !public/
 
 public/*
-!public/static/
-
-public/static/*
-!public/static/bookplates/
+!public/bookplates/
