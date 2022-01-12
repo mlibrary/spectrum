@@ -1,4 +1,3 @@
-require 'byebug'
 #TBD #status, #temp_location?
 class Spectrum::Entities::AlmaItem
   extend Forwardable
