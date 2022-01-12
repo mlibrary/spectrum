@@ -95,5 +95,12 @@ describe Spectrum::Entities::AlmaItem do
       expect(subject.process_type).to eq(nil)
     end
   end
+  context "item is lost" do
+    it "returns lost process type if item is lost" do
+      @alma_loan["process_status"] = "LOST"
+      @solr_bib_alma.gsub!('\"process_type\":null','\"process_type\":\"LOST_LOAN\"')
+      expect(subject.process_type).to eq("LOST_LOAN")
+    end
+  end
   
 end
