@@ -1,32 +1,32 @@
 - uid: SPAUL
   desc: Spaulding Trust Fund
   #url: http://www.lib.umich.edu/funds/hunt.html
-  image: /bookplates/Stephen_Spaulding.png
+  image: https://mirlyn.lib.umich.edu/images/bookplates/Stephen_Spaulding.png
 - uid: HUNT
   desc: Lieutenant John Henry Hunter Memorial Fund
   #url: http://www.lib.umich.edu/funds/hunt.html
-  image: /bookplates/Hunter_digital.png
+  image: https://mirlyn.lib.umich.edu/images/bookplates/Hunter_digital.png
 - uid: BRAND
   desc: Brandt Fund
   #url: http://www.lib.umich.edu/funds/brand.html
-  image: /bookplates/Brandt.png 
+  image: https://mirlyn.lib.umich.edu/images/bookplates/Brandt.png 
 - uid: LITT
   desc: Lucius N. Littauer Judaica Book Fund
   #url: http://www.lib.umich.edu/funds/litt.html
-  image: /bookplates/Littauer.png 
+  image: https://mirlyn.lib.umich.edu/images/bookplates/Littauer.png 
 - uid: BATRB
   desc: Octavia Williams Bates Bequest
   #url: http://www.lib.umich.edu/funds/batrb.html
-  image: /bookplates/Bates.png 
+  image: https://mirlyn.lib.umich.edu/images/bookplates/Bates.png 
 - uid: HARRB
   desc: Galen C. Hartman Library Fund
   #url: http://www.lib.umich.edu/funds/harrb.html
-  image: /bookplates/Hartman.png 
+  image: https://mirlyn.lib.umich.edu/images/bookplates/Hartman.png 
 - uid: EAST
   desc: Mona A. East Book Endowment Fund
   #url: http://www.lib.umich.edu/funds/east.html
-  image: /bookplates/EAST_Endowment.png 
+  image: https://mirlyn.lib.umich.edu/images/bookplates/EAST_Endowment.png 
 - uid: TYWU
   desc: Ta-You Wu Trust Fund
   #url: http://www.lib.umich.edu/funds/east.html
-  image: /bookplates/interimtywu.png
+  image: https://mirlyn.lib.umich.edu/images/bookplates/interimtywu.png
