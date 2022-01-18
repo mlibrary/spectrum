@@ -42,10 +42,44 @@ module Spectrum
           end
         end
 
+
+        # Sometimes the link to the resource is already fully formed, others it needs to be constructed
         def link_to_resource
-          @link_to_resource ||= [@data.dig('links', 'linktorsrc')].flatten.compact.map do |linktorsrc|
+          @link_to_resource ||= get_link_to_resource_from_data || construct_link_to_resource
+        end
+
+        # If there's a $$U linktosrc use it
+        def get_link_to_resource_from_data
+          [@data.dig('links', 'linktorsrc')].flatten.compact.map do |linktorsrc|
             linktorsrc.split('$$').filter do |link|
               link.start_with?('U')
+            end.map do |link|
+              link[1, link.length]
+            end
+          end.flatten.first
+        end
+
+        # Otherwise look up the link type ($$T for the link), and construct the link
+        # These are going to be brittle.  Long term I'll need to look them up and use that.
+        def construct_link_to_resource
+          case link_type
+          when 'naxos_music_library', 'naxos_music_libray'
+            "https://umich.naxosmusiclibrary.com/catalogue/item.asp?cid=#{sourcerecordid}"
+          when 'gale_linking'
+            "http://link.galegroup.com/apps/doc/#{sourcerecordid}/MMLT?sid=primo&u=umuser"
+          else
+            nil
+          end
+        end
+
+        def sourcerecordid
+          @sourcerecordid ||= [@data.dig('control', 'sourcerecordid')].flatten.first
+        end
+
+        def link_type
+          link_type = [@data.dig('links', 'linktorsrc')].flatten.compact.map do |linktorsrc|
+            linktorsrc.split('$$').filter do |link|
+              link.start_with?('T')
             end.map do |link|
               link[1, link.length]
             end
