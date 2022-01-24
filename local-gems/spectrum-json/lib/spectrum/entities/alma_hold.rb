@@ -45,10 +45,11 @@ class Spectrum::Entities::AlmaHold
 
   def create!
     @response = @client.post(item_hold_url, body: item_hold_body.to_json)
+    # mrio: turning this off. reference ticket: SEARCH-1588
     # If the item level hold fails, try a title level hold
-    if no_items_can_fulfill?
-      @response = @client.post(title_hold_url, body: title_hold_body.to_json)
-    end
+    #if no_items_can_fulfill?
+      #@response = @client.post(title_hold_url, body: title_hold_body.to_json)
+    #end
     self
   end
 
