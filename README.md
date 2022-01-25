@@ -18,7 +18,7 @@ Get the actual values for the `.env` file from one of the developers. Update `.e
 
 Build it.
 ```
-docker-compose build
+docker-compose up --build --no-start
 ```
 
 Install the gems into the gem-cache
@@ -51,10 +51,16 @@ docker-compose run --rm web bundle exec rspec
 ```
 
 ### Debugging
-To use a debugger like `byebug`, first start the app with `docker-compose up`. Then in another terminal: 
+Puma doesn't always play nicely with pry.  Worker timeouts can end sessions early, and multi-threading can make taking input from the terminal troublesome.
+
+To address these issues, the `script/docker-startup` file will run in WEBrick when started with the environment variable `RAILS_SERVER` set to webrick.
+
+Changing environment variables in `docker-compose` gets updated when running `docker-compose up` so, to pick up environment variable changes every time, and attach for use with a debugger:
 
 ```
-docker attach "$(docker-compose ps -q web)"
+docker-compose up --no-start web && \
+  docker-compose start web && \
+  docker attach "$(docker-compose ps -q web)"
 ```
 
 ## Overview of Spectrum
