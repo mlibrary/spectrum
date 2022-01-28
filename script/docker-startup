@@ -2,8 +2,7 @@
 
 rm -f tmp/pids/server.pid
 
-if [ "x${RAILS_SERVER}" = x"webrick" ] ; then
-  bundle exec rackup -s webrick -p "${BIND_PORT}" -o "${BIND_IP}"
-else
-  bundle exec rails s -p "${BIND_PORT}" -b "${BIND_IP}"
-fi
+bundle exec rackup \
+  -s "${RAILS_SERVER:-puma}" \
+  -p "${BIND_PORT}" \
+  -o "${BIND_IP}"
