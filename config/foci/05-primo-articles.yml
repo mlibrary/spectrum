@@ -41,6 +41,9 @@ search_fields:
   keyword:
     pf: .
     qf: .
+  pmid:
+    pf: .
+    qf: .
   any:
     pf: .
     qf: .
