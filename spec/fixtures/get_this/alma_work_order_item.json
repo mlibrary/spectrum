@@ -1,0 +1,151 @@
+{
+    "bib_data": {
+        "author": null,
+        "bib_suppress_from_publishing": "false",
+        "complete_edition": "",
+        "date_of_publication": "2003",
+        "isbn": null,
+        "issn": null,
+        "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/990151880600106381",
+        "mms_id": "990151880600106381",
+        "network_number": [
+            "(MiU)015188060MIU01"
+        ],
+        "title": "Alvar Aalto Viborgs Bibliotek Arkitekturens Hus i Goteborg"
+    },
+    "holding_data": {
+        "accession_number": "",
+        "call_number": "",
+        "call_number_type": {
+            "desc": "Library of Congress classification",
+            "value": "0"
+        },
+        "copy_id": "",
+        "holding_id": "22816724810006381",
+        "holding_suppress_from_publishing": "false",
+        "in_temp_location": false,
+        "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/990151880600106381/holdings/22816724810006381",
+        "permanent_call_number": "",
+        "permanent_call_number_type": {
+            "desc": "Library of Congress classification",
+            "value": "0"
+        },
+        "temp_call_number": "",
+        "temp_call_number_source": "",
+        "temp_call_number_type": {
+            "desc": null,
+            "value": ""
+        },
+        "temp_library": {
+            "desc": null,
+            "value": null
+        },
+        "temp_location": {
+            "desc": null,
+            "value": null
+        },
+        "temp_policy": {
+            "desc": null,
+            "value": ""
+        }
+    },
+    "item_data": {
+        "alternative_call_number": "",
+        "alternative_call_number_type": {
+            "desc": null,
+            "value": ""
+        },
+        "arrival_date": "2017-04-20Z",
+        "awaiting_reshelving": false,
+        "barcode": "39015098796876",
+        "base_status": {
+            "desc": "Item not in place",
+            "value": "0"
+        },
+        "break_indicator": {
+            "desc": null,
+            "value": ""
+        },
+        "chronology_i": "",
+        "chronology_j": "",
+        "chronology_k": "",
+        "chronology_l": "",
+        "chronology_m": "",
+        "creation_date": "2021-06-21Z",
+        "description": "",
+        "edition": null,
+        "enumeration_a": "",
+        "enumeration_b": "",
+        "enumeration_c": "",
+        "enumeration_d": "",
+        "enumeration_e": "",
+        "enumeration_f": "",
+        "enumeration_g": "",
+        "enumeration_h": "",
+        "fulfillment_note": "",
+        "imprint": null,
+        "internal_note_1": "",
+        "internal_note_2": "",
+        "internal_note_3": "Process Status: RE",
+        "inventory_number": "",
+        "inventory_price": "",
+        "is_magnetic": false,
+        "language": null,
+        "library": {
+            "desc": "Art Architecture & Engineering",
+            "value": "AAEL"
+        },
+        "linking_number": "",
+        "location": {
+            "desc": "Book Collection",
+            "value": "BKS"
+        },
+        "modification_date": "2022-02-11Z",
+        "pages": "",
+        "pattern_type": {
+            "desc": null,
+            "value": ""
+        },
+        "physical_condition": {
+            "desc": null,
+            "value": null
+        },
+        "physical_material_type": {
+            "desc": "Book",
+            "value": "BOOK"
+        },
+        "pid": "23816724800006381",
+        "pieces": "",
+        "po_line": "500736966",
+        "policy": {
+            "desc": "Loan 1",
+            "value": "01"
+        },
+        "process_type": {
+            "desc": "In Process",
+            "value": "WORK_ORDER_DEPARTMENT"
+        },
+        "provenance": {
+            "desc": null,
+            "value": ""
+        },
+        "public_note": "",
+        "receiving_operator": "import",
+        "requested": true,
+        "statistics_note_1": "",
+        "statistics_note_2": "",
+        "statistics_note_3": "",
+        "storage_location_id": "",
+        "type_of_unit": "",
+        "work_order_at": {
+            "desc": "HATCH Acquisitions Department",
+            "value": "AcqDeptHATCH"
+        },
+        "work_order_type": {
+            "desc": "Acquisition technical services",
+            "value": "AcqWorkOrder"
+        },
+        "year_of_issue": ""
+    },
+    "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/990151880600106381/holdings/22816724810006381/items/23816724800006381"
+}
