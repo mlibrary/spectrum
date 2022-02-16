@@ -9,7 +9,7 @@ services:
       args:
         - UID=${UID}
         - GID=${GID}
-    command: bash -c 'rm -f tmp/pids/server.pid && bundle exec rails s -p ${BIND_PORT} -b ${BIND_IP}'
+    command: script/docker-startup
     env_file:
       - .env-dev-values
       - .env

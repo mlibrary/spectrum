@@ -29,8 +29,8 @@ RUN gem install bundler:1.17.3
 
 USER $UNAME
 
-COPY Gemfile* ${APP_HOME}/
-COPY local-gems/ ${APP_HOME}/local-gems/
+COPY --chown=${UNAME}:${UNAME} Gemfile* ${APP_HOME}/
+COPY --chown=${UNAME}:${UNAME} local-gems/ ${APP_HOME}/local-gems/
 
 RUN bundle install
 

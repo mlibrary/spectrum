@@ -1,0 +1,8 @@
+#!/bin/bash
+
+rm -f tmp/pids/server.pid
+
+bundle exec rackup \
+  -s "${RAILS_SERVER:-puma}" \
+  -p "${BIND_PORT}" \
+  -o "${BIND_IP}"
