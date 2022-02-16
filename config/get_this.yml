@@ -174,7 +174,7 @@
   grants:
     holding:
       - ann_arbor?
-      - on_order?
+      - in_acq?
       - can_request?
       - not_short_loan?
       - not_building_use_only?

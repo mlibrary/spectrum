@@ -120,11 +120,11 @@ module Spectrum::Decorators
     def in_process?
       !not_in_process?
     end
-    def on_order?
+    def in_acq?
       @item.process_type == 'ACQ'
     end
-    def not_on_order?
-      !on_order?
+    def not_in_acq?
+      !in_acq?
     end
     def building_use_only?
       @item.fulfillment_unit == "Limited" || @item.item_policy == '08' #08 for Special Collections is also Reading Room Only

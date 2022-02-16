@@ -280,24 +280,24 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
       expect(subject.not_missing?).to eq(true)
     end
   end
-  context "#on_order?" do
+  context "#in_acq?" do
     it "is true if item has on order status" do
       allow(@input[:solr_item]).to receive(:process_type).and_return('ACQ')
-      expect(subject.on_order?).to eq(true)
+      expect(subject.in_acq?).to eq(true)
     end
     it "is false if item does not have on order status" do
       allow(@input[:solr_item]).to receive(:process_type).and_return(nil)
-      expect(subject.on_order?).to eq(false)
+      expect(subject.in_acq?).to eq(false)
     end
   end
-  context "#not_on_order?" do
+  context "#not_in_acq?" do
     it "is true if item does not have on order status" do
       allow(@input[:solr_item]).to receive(:process_type).and_return(nil)
-      expect(subject.not_on_order?).to eq(true)
+      expect(subject.not_in_acq?).to eq(true)
     end
     it "is false if item has on order status" do
       allow(@input[:solr_item]).to receive(:process_type).and_return('ACQ')
-      expect(subject.not_on_order?).to eq(false)
+      expect(subject.not_in_acq?).to eq(false)
     end
   end
   context "#recallable?" do
