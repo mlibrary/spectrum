@@ -8,10 +8,21 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
       solr_item:  double('BibRecord::AlmaItem', process_type: nil, item_policy: '01', barcode: 'somebarcode', fulfillment_unit: "General"),
       bib_record: instance_double(Spectrum::BibRecord)
     }
+    @get_this_work_order_double = instance_double(Spectrum::Entities::GetThisWorkOrderOption, in_gettable_workorder?: "in_gettable_workorder", not_in_gettable_workorder?: "not_in_gettable_workorder")
   end
   subject do
     item = Spectrum::Entities::AlmaItem.new(**@input)
-    described_class.new(item)
+    described_class.new(item, [], @get_this_work_order_double)
+  end
+  context "work order methods" do
+    #mrio: both of these would be booleans, but having them return strings shows
+    #that the correct path through the code is being used.
+    it "responds to #in_gettable_workorder?" do
+      expect(subject.in_gettable_workorder?).to eq("in_gettable_workorder")
+    end
+    it "responds to #in_gettable_workorder?" do
+      expect(subject.not_in_gettable_workorder?).to eq("not_in_gettable_workorder")
+    end
   end
   context "#etas?" do
     it "is true if bib_record says etas is true" do

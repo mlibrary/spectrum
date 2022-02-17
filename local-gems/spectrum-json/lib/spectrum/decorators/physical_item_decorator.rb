@@ -48,11 +48,15 @@ module Spectrum::Decorators
 
     ETAS_START = 'Full text available,'
 
+    extend Forwardable
+    def_delegators :@work_order_option, :in_gettable_workorder?, :not_in_gettable_workorder?
+
     attr_reader :hathi_holding
-    def initialize(item, hathi_holdings = [])
+    def initialize(item, hathi_holdings = [], work_order_option = Spectrum::Entities::GetThisWorkOrderOption.for(item))
       @item = item
       __setobj__ @item
       @hathi_holdings = hathi_holdings
+      @work_order_option = work_order_option
     end
 
     def not_etas?

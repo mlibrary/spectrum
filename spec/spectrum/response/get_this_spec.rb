@@ -20,7 +20,7 @@ describe Spectrum::Response::GetThis do
       stub_alma_get_request(url: "bibs/990020578280106381/loans", output: {"total_record_count": 0}.to_json, query: {limit: 100, offset: 0})
       @init = {
                 source: double("HoldingsSource", holdings: 'http://localhost', url: 'mirlyn_solr_url'),
-                request: double('Spectrum::Request::GetThis', id: '123456789', barcode: '55555', logged_in?: true, username: 'username'),
+                request: double('Spectrum::Request::GetThis', id: '123456789', barcode: '39015017893416', logged_in?: true, username: 'username'),
 
                 get_this_policy_factory: lambda{|patron, bib_record, holdings_record| GetThisPolicyDouble.new( patron, bib_record, holdings_record)},
                 user: double('Aleph::Borrower', empty?: false, expired?: false),
@@ -57,7 +57,7 @@ describe Spectrum::Response::GetThis do
       expect(subject.renderable[:options].bib.class.to_s).to eq('Spectrum::BibRecord')
     end
 
-    it 'calls get_this_policy with Spectrum::Decorators::MirlynItemDecorator' do
+    it 'calls get_this_policy with Spectrum::Decorators::PhysicalItemDecorator' do
       expect(subject.renderable[:options].item.class.to_s).to include('PhysicalItemDecorator')
     end
   end
