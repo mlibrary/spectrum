@@ -1,0 +1,38 @@
+{
+  "user_primary_id": "some_uniqname",
+  "request_id": "21170201910006381",
+  "additional_id": "211-702-019-1",
+  "request_type": "HOLD",
+  "request_sub_type": {
+    "value": "PATRON_PHYSICAL",
+    "desc": "Patron physical item request"
+  },
+  "mms_id": "99187517457006381",
+  "title": "Curiosité d'Égypte : entre quête de soi et découverte de l'autre, de l'Antiquité à l'époque contemporaine / textes réunis et édités par Michel Chauveau, Jean-Luc Fournet, Jean-Michel Mouton & Antonio Ricciardetto.",
+  "author": null,
+  "description": null,
+  "pickup_location": "Shapiro",
+  "pickup_location_type": "LIBRARY",
+  "pickup_location_library": "SHAP",
+  "managed_by_library": "Hatcher Graduate",
+  "managed_by_circulation_desk": "North Information Desk",
+  "managed_by_library_code": "HATCH",
+  "managed_by_circulation_desk_code": "DEFAULT_CIRC_DESK",
+  "material_type": {
+    "value": null,
+    "desc": null
+  },
+  "last_interest_date": "2023-01-01Z",
+  "volume": "",
+  "issue": "",
+  "part": "",
+  "date_of_publication": "",
+  "comment": null,
+  "request_status": "IN_PROCESS",
+  "request_date": "2022-02-23Z",
+  "request_time": "2022-02-23T16:17:29.100Z",
+  "task_name": "Pickup From Shelf",
+  "expiry_date": "2022-03-26Z",
+  "item_id": "231179767430006381",
+  "barcode": "39015102810762"
+}
