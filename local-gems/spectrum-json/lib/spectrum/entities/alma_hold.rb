@@ -58,8 +58,8 @@ class Spectrum::Entities::AlmaHold
     @response&.code != 200 ||
       @response&.body.nil? ||
       @response&.parsed_response.nil? ||
-      @response&.parsed_response&.dig('errorsExist') ||
-      @response&.parsed_response&.dig('web_service_result', 'errorsExist')
+      !@response&.parsed_response&.dig('errorsExist').nil? ||
+      !@response&.parsed_response&.dig('web_service_result', 'errorsExist').nil?
   end
 
   def success?

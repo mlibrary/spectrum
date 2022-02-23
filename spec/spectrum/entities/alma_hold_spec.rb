@@ -54,6 +54,26 @@ describe Spectrum::Entities::AlmaHold do
         expect(subject.success?).to eq(true)
       end
     end
+    context "#error?" do
+      it "is true when there is an error" do
+        expect(subject.error?).to eq(true)
+      end
+      it "is false when there is a success" do
+        @code = 200
+        @alma_response = JSON.parse(File.read("./spec/fixtures/get_this/alma_hold_success_response.json"))
+        expect(subject.error?).to eq(false)
+      end
+    end
+    context "#error_code" do
+      it "returns the appropriate error code" do
+        expect(subject.error_code).to eq(["60328"])
+      end
+    end
+    context "#error_message" do
+      it "returns the appropriate error code" do
+        expect(subject.error_message).to eq(["Physical item not found for request: blah"])
+      end
+    end
   end
 
 end
