@@ -137,8 +137,6 @@ module Spectrum
 
         field_mapping = focus.fields.values.map { |f| [f.uid, f.query_field]}.to_h
 
-binding.pry
-
         {
           q: extract_query(
             field_mapping,
