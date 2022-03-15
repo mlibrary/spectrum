@@ -25,11 +25,7 @@ class Spectrum::Entities::AlmaHold
     "/bibs/#{@doc_id}/holdings/#{@holding_id}/items/#{@item_id}/requests?user_id=#{@patron_id}"
   end
 
-  def title_hold_url
-    "/bibs/#{@doc_id}/requests?user_id=#{@patron_id}"
-  end
-
-  def title_hold_body
+  def item_hold_body
     {
       "request_type" => "HOLD",
       "pickup_location_type" => "LIBRARY",
@@ -39,21 +35,9 @@ class Spectrum::Entities::AlmaHold
     }
   end
 
-  def item_hold_body
-    title_hold_body.merge("holding_id" => @holding_id)
-  end
-
   def create!
     @response = @client.post(item_hold_url, body: item_hold_body.to_json)
-    # If the item level hold fails, try a title level hold
-    if no_items_can_fulfill?
-      @response = @client.post(title_hold_url, body: title_hold_body.to_json)
-    end
     self
-  end
-
-  def no_items_can_fulfill?
-    error? && [error_code].flatten(1).include?('401129')
   end
 
   def error_code
@@ -74,12 +58,12 @@ class Spectrum::Entities::AlmaHold
     @response&.code != 200 ||
       @response&.body.nil? ||
       @response&.parsed_response.nil? ||
-      @response&.parsed_response&.dig('errorsExist') ||
-      @response&.parsed_response&.dig('web_service_result', 'errorsExist')
+      !@response&.parsed_response&.dig('errorsExist').nil? ||
+      !@response&.parsed_response&.dig('web_service_result', 'errorsExist').nil?
   end
 
   def success?
-    @response&.code == 200 && @response&.parsed_response&.dig('request_id')
+    @response&.code == 200 && !@response&.parsed_response&.dig('request_id').nil?
   end
   
 end
