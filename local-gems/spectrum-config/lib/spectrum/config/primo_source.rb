@@ -36,25 +36,30 @@ module Spectrum
       end
 
       def extract_query(field_mapping, field, conjunction, tree )
-        if tree.root_node?
-          return 'any,contains,*' if tree.children.empty?
-          return tree.children.map do |child|
-            extract_query(field_mapping, field, conjunction, child)
-          end.join(",#{conjunction};")
-        end
         if tree.is_type?('tokens')
           return "#{field_mapping.fetch(field, field)},exact,#{tree.text}"
-        end
-        if ['and','or', 'not'].any? {|type| tree.is_type?(type) }
+        elsif ['and', 'or'].any? { |type| tree.is_type?(type) }
           op = tree.operator.to_s.upcase
           return tree.children.map do |child|
             extract_query(field_mapping, field, op, child)
           end.join(",#{op};")
-        end
-        if tree.is_type?('fielded')
+        elsif tree.is_type?('not')
+          return ",NOT;" + tree.children.map do |child|
+             extract_query(field_mapping, field, 'NOT', child)
+          end.join(",NOT;")
+        elsif tree.is_type?('fielded')
           return extract_query(field_mapping, tree.field, conjunction, tree.query)
+        elsif tree.root_node?
+          return 'any,contains,*' if tree.children.empty?
+          return tree.children.map do |child|
+            extract_query(field_mapping, field, conjunction, child)
+          end.
+            join(",#{conjunction};").
+            gsub(/,(AND|OR);,NOT;/, ',NOT;').
+            gsub(/^,NOT;/, 'any,contains,*,NOT;')
+        else
+          return ''
         end
-        ''
       end
 
       def extract_record_query(request)
