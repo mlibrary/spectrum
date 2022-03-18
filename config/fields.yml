@@ -2116,14 +2116,22 @@
   type: marcxml
   field: fullrecord
   marc:
+    aggregator: advanced_filtering
     fields:
       - tag: 780
-        sub: "[ast]"
+        label: "author"
+        sub: "[a]"
+      - tag: 780
+        label: "title"
+        sub: "[s]"
+      - tag: 780
+        label: "title"
+        sub: "[t]"
   metadata_component:
     full:
-      type: search1
-      variant: fielded
-      scope: title
+      type: specified_search
+      text_field: display
+      value_field: search
 
 - id: previous_title_issn
   metadata:
