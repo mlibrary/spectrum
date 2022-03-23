@@ -2088,9 +2088,17 @@
   type: marcxml
   field: fullrecord
   marc:
+    aggregator: advanced_filtering
     fields:
       - tag: 785
-        sub: "[ast]"
+        label: "author"
+        sub: "[a]"
+      - tag: 785
+        label: "title"
+        sub: "[s]"
+      - tag: 785
+        label: "title"
+        sub: "[t]"
   metadata_component:
     full:
       type: search1
