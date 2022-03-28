@@ -1934,7 +1934,6 @@
     id: publisher-place
   ris:
     - CP
-    - CY
   type: marcxml
   field: fullrecord
   marc:
@@ -1944,20 +1943,6 @@
   metadata:
     name: Place of Publication
     short_desc: Place of publication
-
-- id: marc_300_a
-  ris:
-    - M1
-    - NV
-  metadata:
-    name: MARC 300$$a
-    short_desc: MARC 300$$a
-  type: marcxml
-  field: fullrecord
-  marc:
-    fields:
-      - tag: "300"
-        sub: "a"
 
 - id: marc_264_b
   ris:
