@@ -1,7 +1,7 @@
 require_relative '../../rails_helper'
 describe Spectrum::Entities::AlmaHoldings do
   before(:each) do
-    @mms_id = "990020578280206381"
+    @mms_id = "990020578280106381"
     @alma_holdings = JSON.parse(File.read('./spec/fixtures/alma_loans_one_holding.json'))
     @solr_bib_alma = JSON.parse(File.read('./spec/fixtures/solr_bib_alma.json'))
   end
@@ -43,7 +43,7 @@ describe Spectrum::Entities::AlmaHolding do
   end
   subject do
     solr_bib_record = Spectrum::BibRecord.new(@solr_json)
-    solr_holding = solr_bib_record.alma_holding("2297537770006381")
+    solr_holding = solr_bib_record.alma_holding("22957681780006381")
     described_class.new(bib: solr_bib_record, alma_loans: @alma_loan, solr_holding: solr_holding)
   end
   it "has bib title" do
@@ -53,7 +53,7 @@ describe Spectrum::Entities::AlmaHolding do
     #expect(subject.doc_id).to eq('doc_id')
   #end
   it "has holding_id" do
-    expect(subject.holding_id).to eq("2297537770006381")
+    expect(subject.holding_id).to eq("22957681780006381")
   end
   it "has a call number" do
     expect(subject.callnumber).to eq("LB 2331.72 .S371 1990")

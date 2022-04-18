@@ -11,8 +11,8 @@
         "rows": [
             [
                 {
-                    "href": "http://hdl.handle.net/2027/mdp.39015017893416?urlappend=%3Bsignon=swle:https://shibboleth.umich.edu/idp/shibboleth",
-                    "text": "Full text available, simultaneous access is limited (HathiTrust log in required)"
+                    "href": "http://hdl.handle.net/2027/mdp.39015017893416",
+                    "text": "Search only (no full text)"
                 },
                 {
                     "text": ""
@@ -27,7 +27,7 @@
     {
         "caption": "Hatcher Graduate",
         "captionLink": {
-            "href": "http://lib.umich.edu/locations-and-hours/hatcher-graduate-library",
+            "href": "https://lib.umich.edu/locations-and-hours/hatcher-library",
             "text": "About location"
         },
         "headings": [
@@ -48,8 +48,8 @@
                     "to": {
                         "action": "get-this",
                         "barcode": "39015017893416",
-                        "datastore": "990020578280206381",
-                        "record": "990020578280206381"
+                        "datastore": "990020578280106381",
+                        "record": "990020578280106381"
                     }
                 },
                 {

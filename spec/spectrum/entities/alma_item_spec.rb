@@ -6,7 +6,7 @@ describe Spectrum::Entities::AlmaItem do
   end
   subject do
     solr_bib_record = Spectrum::BibRecord.new(JSON.parse(@solr_bib_alma))
-    solr_holding = solr_bib_record.alma_holding("2297537770006381")
+    solr_holding = solr_bib_record.alma_holding("22957681780006381")
     solr_item = solr_holding.items.first
 
     holding = instance_double(Spectrum::Entities::AlmaHolding, holding_id: "holding_id", bib_record: solr_bib_record, solr_holding: solr_holding, display_name: 'Hatcher Graduate Library')
@@ -21,7 +21,7 @@ describe Spectrum::Entities::AlmaItem do
     expect(subject.callnumber).to eq('LB 2331.72 .S371 1990')
   end
   it "has a pid" do
-    expect(subject.pid).to eq("2397537760006381")
+    expect(subject.pid).to eq("23957681750006381")
   end
   it "has a barcode" do
     expect(subject.barcode).to eq("39015017893416")
@@ -46,7 +46,7 @@ describe Spectrum::Entities::AlmaItem do
     expect(subject.process_type).to eq('LOAN')
   end
   it "calculates etas" do
-    expect(subject.etas?).to eq(true)
+    expect(subject.etas?).to eq(false)
   end
   it "has a due_date" do
     expect(subject.due_date).to eq("2021-10-01T03:59:00Z")
