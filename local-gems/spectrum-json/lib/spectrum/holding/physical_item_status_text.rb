@@ -21,11 +21,7 @@ class Spectrum::Holding::PhysicalItemStatus::Text
     private
     def base_text
       if @item.item_policy == '08'
-        if ['SPEC','BENT','CLEM'].include?(@item.library)
-          "Reading Room Use Only"
-        else
-          "Building use only"
-        end
+        "Building use only"
       else
         "On shelf"
       end

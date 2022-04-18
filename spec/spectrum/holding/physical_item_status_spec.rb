@@ -1,7 +1,7 @@
 require_relative '../../rails_helper'
 describe Spectrum::Holding::PhysicalItemStatus do
   before(:each) do
-    @solr_item = double("Spectrum::BibRecord:AlmaHolding::Item", process_type: nil, location: 'GRAD', library: 'HATCH', temp_location?: false, item_location_text: 'Hatcher Graduate Library')
+    @solr_item = double("Spectrum::BibRecord:AlmaHolding::Item", process_type: nil, location: 'GRAD', library: 'HATCH', temp_location?: false, item_location_text: 'Hatcher Graduate Library', can_reserve?: false)
     @bib_record = instance_double(Spectrum::BibRecord)
     @alma_item = Spectrum::Entities::AlmaItem.new(solr_item: @solr_item, holding: double("AlmaHolding"), alma_loan: nil, bib_record: @bib_record)
   end
@@ -39,6 +39,13 @@ describe Spectrum::Holding::PhysicalItemStatus do
         #expect(subject.class.to_s).to include('Error')
       #end
     end
+    context "Bentley, Clements, or Special Collections" do
+      it "always shows Reading Room Use Only" do
+        allow(@alma_item).to receive(:can_reserve?).and_return(true)
+        expect(subject.class.to_s).to include('Success')
+        expect(subject.text).to eq('Reading Room Use Only')
+      end
+    end
     context "Policy: Loan 08" do
       before(:each) do
         allow(@alma_item).to receive(:item_policy).and_return('08')
@@ -52,13 +59,6 @@ describe Spectrum::Holding::PhysicalItemStatus do
         allow(@alma_item).to receive(:in_reserves?).and_return(false)
         allow(@solr_item).to receive(:temp_location?).and_return(true)
         expect(subject.text).to eq('Temporary location: Hatcher Graduate Library; Building use only')
-      end
-      ['SPEC', 'BENT', 'CLEM'].each do |library|
-        it "is Reading Room Use Only for #{library} " do
-          allow(@alma_item).to receive(:library).and_return(library)
-          expect(subject.class.to_s).to include('Success')
-          expect(subject.text).to eq('Reading Room Use Only')
-        end
       end
     end
     hour_loans = [
