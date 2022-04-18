@@ -29,11 +29,11 @@ class Spectrum::Holding::PhysicalItemStatus::Text
     def suffix
       case @item.item_policy
       when '06'
-        "(4 hour loan)"
+        "(4-hour loan)"
       when '07'
-        "(2 hour loan)"
+        "(2-hour loan)"
       when "1 Day Loan"
-        "(1 day loan)"
+        "(1-day loan)"
       end
     end
   end

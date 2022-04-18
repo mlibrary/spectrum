@@ -178,9 +178,9 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
   end
   context "short loan item" do
     [
-        {value: "06", desc: '4 hour loan'},
-        {value: "07", desc: '2 hour loan'},
-        {value: "1 Day Loan", desc: '1 day loan'},
+        {value: "06", desc: '4-hour loan'},
+        {value: "07", desc: '2-hour loan'},
+        {value: "1 Day Loan", desc: '1-day loan'},
     ].each do |policy|
       context "Policy: #{policy[:desc]}" do
         before(:each) do
