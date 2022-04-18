@@ -20,7 +20,7 @@ class Spectrum::Holding::PhysicalItemStatus::Text
     end
     private
     def base_text
-      if @item.item_policy == '08'
+      if @item.fulfillment_unit == "Limited" || @item.item_policy == '08'
         "Building use only"
       else
         "On shelf"

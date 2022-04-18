@@ -1,7 +1,7 @@
 require_relative '../../rails_helper'
 describe Spectrum::Holding::PhysicalItemStatus do
   before(:each) do
-    @solr_item = double("Spectrum::BibRecord:AlmaHolding::Item", process_type: nil, location: 'GRAD', library: 'HATCH', temp_location?: false, item_location_text: 'Hatcher Graduate Library', can_reserve?: false)
+    @solr_item = double("Spectrum::BibRecord:AlmaHolding::Item", process_type: nil, location: 'GRAD', library: 'HATCH', temp_location?: false, item_location_text: 'Hatcher Graduate Library', can_reserve?: false, fulfillment_unit: "General", item_policy: nil)
     @bib_record = instance_double(Spectrum::BibRecord)
     @alma_item = Spectrum::Entities::AlmaItem.new(solr_item: @solr_item, holding: double("AlmaHolding"), alma_loan: nil, bib_record: @bib_record)
   end
@@ -44,6 +44,21 @@ describe Spectrum::Holding::PhysicalItemStatus do
         allow(@alma_item).to receive(:can_reserve?).and_return(true)
         expect(subject.class.to_s).to include('Success')
         expect(subject.text).to eq('Reading Room Use Only')
+      end
+    end
+    context "Fulfillment Unit: Limited" do
+      before(:each) do
+        allow(@alma_item).to receive(:fulfillment_unit).and_return('Limited')
+      end
+      it "handles building_use_only" do
+        allow(@alma_item).to receive(:library).and_return('MUSIC')
+        expect(subject.class.to_s).to include('Success')
+        expect(subject.text).to eq('Building use only')
+      end
+      it "handles temporary location" do
+        allow(@alma_item).to receive(:in_reserves?).and_return(false)
+        allow(@solr_item).to receive(:temp_location?).and_return(true)
+        expect(subject.text).to eq('Temporary location: Hatcher Graduate Library; Building use only')
       end
     end
     context "Policy: Loan 08" do
