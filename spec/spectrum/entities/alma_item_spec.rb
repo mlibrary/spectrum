@@ -48,6 +48,9 @@ describe Spectrum::Entities::AlmaItem do
   it "calculates etas" do
     expect(subject.etas?).to eq(false)
   end
+  it "has fulfillment_unit" do
+    expect(subject.fulfillment_unit).to eq("General")
+  end
   it "has a due_date" do
     expect(subject.due_date).to eq("2021-10-01T03:59:00Z")
   end
