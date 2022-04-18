@@ -4,10 +4,6 @@ module Spectrum
       def self.match?(item)
         return true if item.barcode.nil?
         case item.item_policy
-        when "06"
-          true
-        when "07"
-          true
         when "05"
           true if item.library == "AAEL"
         when "10"

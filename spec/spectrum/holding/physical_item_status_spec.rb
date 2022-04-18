@@ -43,7 +43,7 @@ describe Spectrum::Holding::PhysicalItemStatus do
       it "always shows Reading Room Use Only" do
         allow(@alma_item).to receive(:can_reserve?).and_return(true)
         expect(subject.class.to_s).to include('Success')
-        expect(subject.text).to eq('Reading Room Use Only')
+        expect(subject.text).to eq('Reading Room use only')
       end
     end
     context "Fulfillment Unit: Limited" do
@@ -77,10 +77,9 @@ describe Spectrum::Holding::PhysicalItemStatus do
       end
     end
     hour_loans = [
-        {value: '06', desc: '4 Hour Loan'},
-        {value: '07', desc: '2 Hour Loan'},
-        {value: '11', desc: '6 Hour Loan'},
-        {value: '12', desc: '12 Hour Loan'}
+        {value: "06", desc: '4 hour loan'},
+        {value: "07", desc: '2 hour loan'},
+        {value: "1 Day Loan", desc: '1 day loan'},
     ]
     hour_loans.each do |policy|
       context "Policy: #{policy[:desc]}" do
@@ -114,7 +113,7 @@ describe Spectrum::Holding::PhysicalItemStatus do
         expect(subject.text).to eq("Checked out: due Oct 01, 2021 On reserve at Hatcher Graduate Library")
       end
 
-      hour_loans.each do |policy|
+      hour_loans[0..1].each do |policy|
         it "returns Checked out with length of time for policy #{policy[:desc]}" do
           allow(@alma_item).to receive(:item_policy).and_return(policy[:value])
           expect(subject.class.to_s).to include('Warning')

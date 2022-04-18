@@ -5,7 +5,7 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
     @input = {
       holding:  instance_double(Spectrum::Entities::AlmaHolding),
       alma_loan: nil,
-      solr_item:  double('BibRecord::AlmaItem', process_type: nil, item_policy: '01', barcode: 'somebarcode'),
+      solr_item:  double('BibRecord::AlmaItem', process_type: nil, item_policy: '01', barcode: 'somebarcode', fulfillment_unit: "General"),
       bib_record: instance_double(Spectrum::BibRecord)
     }
   end
@@ -143,9 +143,20 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
       expect(subject.not_checked_out?).to eq(false)
     end
   end
-  context "building_use_only only item" do
+  context "building_use_only only item with item_policy 08" do
     before(:each) do
       allow(@input[:solr_item]).to receive(:item_policy).and_return('08')
+    end
+    it "has true #building_use_only?" do
+      expect(subject.building_use_only?).to eq(true)
+    end
+    it "has false #not_building_use_only?" do
+      expect(subject.not_building_use_only?).to eq(false)
+    end
+  end
+  context "building_use_only only item with Fulfillment Unit Limited" do
+    before(:each) do
+      allow(@input[:solr_item]).to receive(:fulfillment_unit).and_return('Limited')
     end
     it "has true #building_use_only?" do
       expect(subject.building_use_only?).to eq(true)
@@ -164,6 +175,47 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
     it "has true #not_building_use_only?" do
       expect(subject.not_building_use_only?).to eq(true)
     end
+  end
+  context "short loan item" do
+    [
+        {value: "06", desc: '4 hour loan'},
+        {value: "07", desc: '2 hour loan'},
+        {value: "1 Day Loan", desc: '1 day loan'},
+    ].each do |policy|
+      context "Policy: #{policy[:desc]}" do
+        before(:each) do
+          allow(@input[:solr_item]).to receive(:item_policy).and_return(policy[:value])
+        end
+        it "has true #short_loan?" do
+          expect(subject.short_loan?).to eq(true)
+        end
+        it "has false #not_short_loan?" do 
+          expect(subject.not_short_loan?).to eq(false)
+        end
+      end
+    end
+    context "Policy: Default" do
+      before(:each) do
+        allow(@input[:solr_item]).to receive(:item_policy).and_return(nil)
+      end
+      it "has false #short_loan?" do
+        expect(subject.short_loan?).to eq(false)
+      end
+      it "has false #not_short_loan?" do 
+        expect(subject.not_short_loan?).to eq(true)
+      end
+    end
+    it "is true for item policy 06" do
+      allow(@input[:solr_item]).to receive(:item_policy).and_return('06')
+    end
+    it "is true for item policy 07" do
+      allow(@input[:solr_item]).to receive(:item_policy).and_return('07')
+    end
+    it "is true for item policy 1 Day Loan" do
+      allow(@input[:solr_item]).to receive(:item_policy).and_return('one')
+    end
+
+
   end
   context "#not_pickup_or_checkout?" do
     it "is true if item is not in any of the pickup locations" do
@@ -201,8 +253,8 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
       expect(subject.can_request?).to eq(true)
     end
     it "is false if it wouldn't get a 'Get This' link" do
-      allow(@input[:solr_item]).to receive(:library).and_return('SHAP')
-      allow(@input[:solr_item]).to receive(:item_policy).and_return('06')
+      allow(@input[:solr_item]).to receive(:library).and_return('AAEL')
+      allow(@input[:solr_item]).to receive(:item_policy).and_return('05')
       allow(@input[:solr_item]).to receive(:can_reserve?).and_return(false)
       allow(@input[:solr_item]).to receive(:record_has_finding_aid).and_return(false)
       expect(subject.can_request?).to eq(false)

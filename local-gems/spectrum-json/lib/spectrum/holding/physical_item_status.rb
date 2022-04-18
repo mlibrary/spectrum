@@ -16,7 +16,7 @@ module Spectrum
         }
       end
       def self.for(item)
-        return Success.new("Reading Room Use Only") if item.can_reserve?
+        return Success.new("Reading Room use only") if item.can_reserve?
         case item.process_type
         when nil
           if item.in_unavailable_temporary_location?

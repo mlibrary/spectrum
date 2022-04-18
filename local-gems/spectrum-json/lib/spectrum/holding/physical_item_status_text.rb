@@ -29,13 +29,11 @@ class Spectrum::Holding::PhysicalItemStatus::Text
     def suffix
       case @item.item_policy
       when '06'
-        "(4 Hour Loan)"
+        "(4 hour loan)"
       when '07'
-        "(2 Hour Loan)"
-      when '11'
-        "(6 Hour Loan)"
-      when '12'
-        "(12 Hour Loan)"
+        "(2 hour loan)"
+      when "1 Day Loan"
+        "(1 day loan)"
       end
     end
   end
@@ -64,7 +62,7 @@ class Spectrum::Holding::PhysicalItemStatus::Text
       date = DateTime.parse(@item.due_date)
       date_string = "Checked out: due #{date.strftime("%b %d, %Y")}"
 
-      if ['06', '07', '11', '12'].include?(@item.item_policy)
+      if ['06', '07'].include?(@item.item_policy)
         date_string = date_string + ' at' + date.strftime("%l:%M %p")
       end
       date_string 

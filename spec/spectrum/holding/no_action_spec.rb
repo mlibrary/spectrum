@@ -11,14 +11,6 @@ describe Spectrum::Holding::NoAction do
     it "generally does not match" do
       expect(subject).to eq(false)
     end
-    it "matches Item Policy 06" do
-      allow(@item).to receive(:item_policy).and_return('06')
-      expect(subject).to eq(true)
-    end
-    it "matches Item Policy 07" do
-      allow(@item).to receive(:item_policy).and_return('07')
-      expect(subject).to eq(true)
-    end
     it "matches AAEL 05" do
       allow(@item).to receive(:library).and_return('AAEL')
       allow(@item).to receive(:item_policy).and_return('05')
