@@ -89,6 +89,9 @@ fields:
 - primo_all_fields
 - primo_keyword
 
+# COinS
+- z3988_rft_val_fmt
+
 facets:
 - primo_is_scholarly
 - primo_exclude_newspapers
