@@ -35,9 +35,14 @@ module Spectrum
         )
       end
 
+      def precision(field)
+        return 'contains' if field == 'contains'
+        'exact'
+      end
+
       def extract_query(field_mapping, field, conjunction, tree )
         if tree.is_type?('tokens')
-          return "#{field_mapping.fetch(field, field)},exact,#{tree.text}"
+          return "#{field_mapping.fetch(field, field)},#{precision(field)},#{tree.text}"
         elsif ['and', 'or'].any? { |type| tree.is_type?(type) }
           op = tree.operator.to_s.upcase
           return tree.children.map do |child|

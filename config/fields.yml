@@ -28,6 +28,12 @@
     name: Keyword
   viewable: false
 
+- id: contains
+  query_field: any
+  metadata:
+    name: contains
+  viewable: false
+
 - id: primo_keyword
   uid: keyword
   query_field: any
