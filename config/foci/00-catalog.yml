@@ -34,6 +34,7 @@ search_fields:
       barcode
       htid
       callnosearch
+      bookplate
 
     pf: >-
       title_equiv^40
