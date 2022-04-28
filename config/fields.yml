@@ -1055,18 +1055,10 @@
 
 - id: bookplate
   metadata:
-    name: Bookplate
-    short_desc: Bookplate
-  type: bookplate
-  has_html: true
-  searchable: false
-  field: fund
+    name: Donor Information
   metadata_component:
     full:
-      type: image
-      text_prefix: 'This purchase made possible by the '
-      text_field: 'desc'
-      image_field: 'image'
+      type: plain
 
 - id: ejournal_links
   uid: links
@@ -3299,19 +3291,6 @@
   marc:
     fields:
       - tag: '948'
-        sub: 'a'
-  metadata_component:
-    full:
-      type: plain
-
-- id: marc_bookplate
-  metadata:
-    name: Bookplate
-  type: marcxml
-  field: fullrecord
-  marc:
-    fields:
-      - tag: '949'
         sub: 'a'
   metadata_component:
     full:

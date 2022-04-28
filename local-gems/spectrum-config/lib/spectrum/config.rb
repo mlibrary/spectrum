@@ -100,7 +100,6 @@ require 'spectrum/config/basic_field'
 require 'spectrum/config/constant_field'
 require 'spectrum/config/concat_field'
 require 'spectrum/config/priority_field'
-require 'spectrum/config/bookplate_field'
 require 'spectrum/config/marcxml_field'
 require 'spectrum/config/marcjson_field'
 require 'spectrum/config/parallel_merge_field'
@@ -139,9 +138,6 @@ require 'spectrum/config/field_facet'
 
 require 'spectrum/config/filter'
 require 'spectrum/config/filter_list'
-
-require 'spectrum/config/bookplate'
-require 'spectrum/config/bookplate_list'
 
 require 'spectrum/config/credentials'
 require 'spectrum/config/action'

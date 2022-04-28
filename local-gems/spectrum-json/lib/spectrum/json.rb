@@ -113,7 +113,7 @@ require 'erb'
 module Spectrum
   module Json
     class << self
-      attr_reader :base_url, :actions, :filter, :fields, :foci, :sorts, :sources, :bookplates
+      attr_reader :base_url, :actions, :filter, :fields, :foci, :sorts, :sources
 
       def configure(root, base_url)
         @base_url     = base_url
@@ -123,7 +123,6 @@ module Spectrum
         @focus_files  = root.join('config', 'foci', '*.yml')
         @sources_file = root.join('config', 'source.yml')
         @sorts_file   = root.join('config', 'sorts.yml')
-        @bookplates_file = root.join('config', 'bookplates.yml')
         Spectrum::Config::FacetParents.configure(root)
         configure!
       end
@@ -135,10 +134,6 @@ module Spectrum
 
         if File.exist?(@sources_file)
           @sources = Spectrum::Config::SourceList.new(YAML.load(ERB.new(File.read(@sources_file)).result))
-        end
-
-        if File.exist?(@bookplates_file)
-          @bookplates = Spectrum::Config::BookplateList.new(YAML.load(ERB.new(File.read(@bookplates_file)).result))
         end
 
         if File.exist?(@filters_file)
