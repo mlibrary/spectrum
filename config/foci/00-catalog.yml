@@ -194,6 +194,10 @@ fields:
   - language_note
   - performers
   - date_place_of_event
+  - preferred_citation
+  - location_of_originals
+  - funding_information
+  - source_of_acquisition
   - related_items
   - numbering
   - current_publication_frequency
@@ -207,6 +211,7 @@ fields:
   - arrangement
   - copyright
   - physical_description
+  - map_scale
   - reproduction_note
   - original_version_note
   - playing_time
