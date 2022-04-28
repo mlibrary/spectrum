@@ -4064,6 +4064,41 @@
     "true": "pcAvailability=true"
     "false": "pcAvailability=false"
 
+- id: preferred_citation
+  metadata:
+    name: Preferred Citation
+  metadata_component:
+    full:
+      type: plain
+
+- id: location_of_originals
+  metadata:
+    name: Location of Originals
+  metadata_component:
+    full:
+      type: plain
+
+- id: funding_information
+  metadata:
+    name: Funding Information
+  metadata_component:
+    full:
+      type: plain
+
+- id: source_of_acquisition
+  metadata:
+    name: Source of Acquisition
+  metadata_component:
+    full:
+      type: plain
+
+- id: map_scale
+  metadata:
+    name: Map Scale
+  metadata_component:
+    full:
+      type: plain
+
 - id: primo_language
   uid: language
   field: language
