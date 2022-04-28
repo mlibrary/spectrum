@@ -30,13 +30,17 @@
 
 - id: contains
   query_field: any
+  query_precision: contains
   metadata:
     name: contains
   viewable: false
+  feedback: "This search included a contains search"
 
 - id: primo_keyword
   uid: keyword
   query_field: any
+  query_precision: exact
+  feedback: "This search included an exact match search"
   metadata:
     name: Keyword
   viewable: false

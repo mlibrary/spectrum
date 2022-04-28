@@ -35,29 +35,24 @@ module Spectrum
         )
       end
 
-      def precision(field)
-        return 'contains' if field == 'contains'
-        'exact'
-      end
-
-      def extract_query(field_mapping, field, conjunction, tree )
+      def extract_query(fields, field, conjunction, tree )
         if tree.is_type?('tokens')
-          return "#{field_mapping.fetch(field, field)},#{precision(field)},#{tree.text}"
+          return "#{fields[field]&.query_field || field},#{fields[field]&.query_precision || 'exact'},#{tree.text}"
         elsif ['and', 'or'].any? { |type| tree.is_type?(type) }
           op = tree.operator.to_s.upcase
           return tree.children.map do |child|
-            extract_query(field_mapping, field, op, child)
+            extract_query(fields, field, op, child)
           end.join(",#{op};")
         elsif tree.is_type?('not')
           return ",NOT;" + tree.children.map do |child|
-             extract_query(field_mapping, field, 'NOT', child)
+             extract_query(fields, field, 'NOT', child)
           end.join(",NOT;")
         elsif tree.is_type?('fielded')
-          return extract_query(field_mapping, tree.field, conjunction, tree.query)
+          return extract_query(fields, tree.field, conjunction, tree.query)
         elsif tree.root_node?
           return 'any,contains,*' if tree.children.empty?
           return tree.children.map do |child|
-            extract_query(field_mapping, field, conjunction, child)
+            extract_query(fields, field, conjunction, child)
           end.
             join(",#{conjunction};").
             gsub(/,(AND|OR);,NOT;/, ',NOT;').
@@ -140,11 +135,11 @@ module Spectrum
           return extract_record_query(request)
         end
 
-        field_mapping = focus.fields.values.map { |f| [f.uid, f.query_field]}.to_h
+        fields = focus.fields.values.map {|f| [f.uid, f]}.to_h
 
         {
           q: extract_query(
-            field_mapping,
+            fields,
             focus.raw_config['search_field_default'] || 'any',
             'AND',
             request.build_psearch.search_tree
