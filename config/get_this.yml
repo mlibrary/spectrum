@@ -80,6 +80,7 @@
       - ann_arbor?
       - on_shelf?
       - can_request?
+      - not_short_loan?
       - not_building_use_only?
       - not_reservable_library?
 
@@ -111,6 +112,7 @@
       - flint?
       - on_shelf?
       - can_request?
+      - not_short_loan?
       - not_building_use_only?
       - not_reservable_library?
 
@@ -143,6 +145,7 @@
       - flint?
       - on_shelf?
       - can_request?
+      - not_short_loan?
       - not_building_use_only?
       - not_reservable_library?
 
@@ -173,6 +176,7 @@
       - ann_arbor?
       - on_order?
       - can_request?
+      - not_short_loan?
       - not_building_use_only?
       - not_reservable_library?
         
@@ -199,6 +203,7 @@
       - ann_arbor?
       - on_shelf?
       - can_request?
+      - not_short_loan?
       - not_building_use_only?
       - not_reservable_library?
 
@@ -224,6 +229,7 @@
       - flint?
       - on_shelf?
       - can_request?
+      - not_short_loan?
       - not_building_use_only?
       - not_reservable_library?
 
@@ -346,6 +352,7 @@
       - ann_arbor?
       - recallable?
       - can_request?
+      - not_short_loan?
       - not_building_use_only?
       - not_reservable_library?
 
@@ -378,5 +385,6 @@
       - flint?
       - recallable?
       - can_request?
+      - not_short_loan?
       - not_building_use_only?
       - not_reservable_library?

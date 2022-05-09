@@ -127,10 +127,16 @@ module Spectrum::Decorators
       !on_order?
     end
     def building_use_only?
-      @item.item_policy == '08' #08 for Special Collections is also Reading Room Only
+      @item.fulfillment_unit == "Limited" || @item.item_policy == '08' #08 for Special Collections is also Reading Room Only
     end
     def not_building_use_only?
       !building_use_only?
+    end
+    def short_loan?
+      ["06","07","1 Day Loan"].include?(@item.item_policy)
+    end
+    def not_short_loan?
+      !short_loan?
     end
     def not_pickup_or_checkout?
       not_pickup? || checked_out? || missing? || building_use_only?

@@ -14,7 +14,7 @@ describe Spectrum::Response::Holdings, "integrations" do
     described_class.new(@source_dbl, @request)
   end
   it "returns expected array for single normal holding" do
-    @request = Spectrum::Request::Holdings.new({id: '990020578280206381'}) 
+    @request = Spectrum::Request::Holdings.new({id: '990020578280106381'}) 
     solr = File.read('./spec/fixtures/solr_bib_alma.json')
     stub_http(id: @request.id, solr: solr)
 

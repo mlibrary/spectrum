@@ -10,7 +10,8 @@ describe Spectrum::Holding::Action, ".for" do
     described_class.for(@item) 
   end
   it "returns NoAction" do
-    allow(@item).to receive("item_policy").and_return('06')
+    allow(@item).to receive("library").and_return('AAEL')
+    allow(@item).to receive("item_policy").and_return('05')
     expect(subject.class.to_s).to eq('Spectrum::Holding::NoAction')
   end
   it "returns FindingAidAction" do
