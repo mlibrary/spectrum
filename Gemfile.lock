@@ -132,7 +132,7 @@ GEM
     cancan (1.6.10)
     cane (2.6.2)
       parallel
-    cgi (0.1.0)
+    cgi (0.3.2)
     chronic (0.10.2)
     churn (1.0.8)
       chronic (>= 0.2.3)
