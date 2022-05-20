@@ -41,6 +41,9 @@ search_fields:
   keyword:
     pf: .
     qf: .
+  contains:
+    pf: .
+    qf: .
   pmid:
     pf: .
     qf: .
@@ -88,6 +91,10 @@ fields:
 # Searching
 - primo_all_fields
 - primo_keyword
+- contains
+
+# COinS
+- z3988_rft_val_fmt
 
 facets:
 - primo_is_scholarly

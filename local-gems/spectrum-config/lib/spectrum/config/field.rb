@@ -58,7 +58,8 @@ module Spectrum
       attr_reader :list, :full, :viewable, :searchable, :uid,
                   :field, :sorts, :fields, :query_params, :values,
                   :query_field, :facet_field, :metadata_component, :header_region,
-                  :mapping, :facet_query_field, :reverse_facets
+                  :mapping, :facet_query_field, :reverse_facets, :query_precision,
+                  :query_feedback
 
       type 'default'
 
@@ -83,6 +84,8 @@ module Spectrum
         @values = i.values
         @origin = 'instance'
         @query_field = i.query_field
+        @query_precision = i.query_precision
+        @query_feedback = i.query_feedback
         @facet_field = i.facet_field
         @facet_query_field = i.facet_query_field
         @ris = i.ris
@@ -110,6 +113,8 @@ module Spectrum
         @metadata   = Metadata.new(args['metadata'])
         @field      = args['field'] || args['id']
         @query_field = args['query_field'] || @field
+        @query_precision = args['query_precision'] || @field
+        @query_feedback = args['query_feedback'] || @field
         @facet_field = args['facet_field'] || @field
         @facet_query_field = args['facet_query_field'] || @facet_field
         @uid = args['uid'] || args['id']

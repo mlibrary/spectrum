@@ -12,7 +12,7 @@ describe Spectrum::BibRecord do
 
   context '#mms_id' do
     it "returns a string" do
-      expect(subject.mms_id).to eq('990020578280206381')
+      expect(subject.mms_id).to eq('990020578280106381')
     end
   end
   #needs to have bib Holdings.
@@ -44,7 +44,7 @@ describe Spectrum::BibRecord do
         expect(alma_holding.floor_location).to eq("6 South")
       end
       it "has an info_link" do
-        expect(alma_holding.info_link).to eq("http://lib.umich.edu/locations-and-hours/hatcher-graduate-library")
+        expect(alma_holding.info_link).to eq("https://lib.umich.edu/locations-and-hours/hatcher-library")
       end
     end
 
@@ -66,7 +66,7 @@ describe Spectrum::BibRecord do
 
     context "#alma_holding(holding_id)" do
       it "returns the alma holding for a given holding id" do
-        expect(subject.alma_holding("2297537770006381").callnumber).to eq('LB 2331.72 .S371 1990')  
+        expect(subject.alma_holding("22957681780006381").callnumber).to eq('LB 2331.72 .S371 1990')  
       end
       it "returns nil for no matching holding" do
         expect(subject.alma_holding("not_a_holding_id")).to be_nil
@@ -87,7 +87,7 @@ describe Spectrum::BibRecord do
       ['library','location','description','public_note','barcode',
       'item_policy','process_type','permanent_location','permanent_library',
       'id','temp_location?','callnumber', 'inventory_number', "item_id", 
-      "record_has_finding_aid"].each do |method|
+      "fulfillment_unit", "record_has_finding_aid"].each do |method|
         context "##{method}" do
           it "respond_to? #{method}" do
             expect(alma_item.respond_to?(method)).to be(true)
@@ -101,12 +101,12 @@ describe Spectrum::BibRecord do
       end
       context "#item_location_text" do
         it "returns a string" do
-          expect(alma_item.item_location_text).to eq('Hatcher Graduate ')
+          expect(alma_item.item_location_text).to eq("Hatcher Graduate")
         end
       end
       context "#item_location_link" do
         it "returns a string" do
-          expect(alma_item.item_location_link).to eq('http://lib.umich.edu/locations-and-hours/hatcher-graduate-library')
+          expect(alma_item.item_location_link).to eq('https://lib.umich.edu/locations-and-hours/hatcher-library')
         end
       end
     end
@@ -152,13 +152,13 @@ describe Spectrum::BibRecord do
           expect(hathi_item.collection_code).to eq("MIU")
         end
         it "has access boolean" do
-          expect(hathi_item.access).to eq(0)
+          expect(hathi_item.access).to eq(false)
         end
         it "has a source" do
           expect(hathi_item.source).to eq("University of Michigan")
         end
         it "has a status" do
-          expect(hathi_item.status).to eq("Full text available, simultaneous access is limited (HathiTrust log in required)")
+          expect(hathi_item.status).to eq("Search only (no full text)")
         end
       end
     end
