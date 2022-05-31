@@ -217,6 +217,25 @@ module Spectrum
          value.merge(value: candidate_value)
        end
       end
+
+      def marc_300_a(value, request)
+        case value
+        when Array
+          value.map { |val| marc_300_a(val, request) }
+        when String
+          return nil if value.match(/[^A-Za-z0-9]/)
+          value
+        end
+      end
+
+      def ris_text(value, request)
+        case value
+        when Array
+          value.map { |val| ris_text(val, request) }
+        when String
+          value.gsub(/ : /, ': ').gsub(/ ?[\/:]$/, '')
+        end
+      end
     end
   end
 end
