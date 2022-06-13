@@ -52,7 +52,7 @@ namespace 'assets' do
 
         Bundler.with_clean_env do
           Dotenv.load
-          system('(cd tmp/search && npm install --no-progress && npm run build)') ||
+          system('(cd tmp/search && npm install --no-progress --legacy-peer-deps && npm run build)') ||
             abort("Couldn't build search front end")
         end
         system("chmod g+s tmp") ||
