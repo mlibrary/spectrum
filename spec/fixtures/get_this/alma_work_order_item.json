@@ -1,151 +1,153 @@
 {
-    "bib_data": {
-        "author": null,
-        "bib_suppress_from_publishing": "false",
-        "complete_edition": "",
-        "date_of_publication": "2003",
-        "isbn": null,
-        "issn": null,
-        "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/990151880600106381",
-        "mms_id": "990151880600106381",
-        "network_number": [
-            "(MiU)015188060MIU01"
-        ],
-        "title": "Alvar Aalto Viborgs Bibliotek Arkitekturens Hus i Goteborg"
+  "bib_data": {
+    "mms_id": "99187599175706381",
+    "bib_suppress_from_publishing": "false",
+    "title": "Thần đất, ông địa & thần tài /",
+    "author": "Huỳnh, Ngọc Trảng,",
+    "issn": null,
+    "isbn": "6046868858",
+    "complete_edition": "",
+    "network_number": [
+      "(OCoLC)on1236900706",
+      "(OCoLC)1236900706"
+    ],
+    "place_of_publication": "TP. Hồ Chí Minh :",
+    "date_of_publication": "2020.",
+    "publisher_const": "Nhà xuất bản Văn hóa - văn nghệ Thành phố Hồ Chí Minh",
+    "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/99187599175706381"
+  },
+  "holding_data": {
+    "holding_id": "221205455000006381",
+    "holding_suppress_from_publishing": "false",
+    "permanent_call_number_type": {
+      "value": "0",
+      "desc": "Library of Congress classification"
     },
-    "holding_data": {
-        "accession_number": "",
-        "call_number": "",
-        "call_number_type": {
-            "desc": "Library of Congress classification",
-            "value": "0"
-        },
-        "copy_id": "",
-        "holding_id": "22816724810006381",
-        "holding_suppress_from_publishing": "false",
-        "in_temp_location": false,
-        "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/990151880600106381/holdings/22816724810006381",
-        "permanent_call_number": "",
-        "permanent_call_number_type": {
-            "desc": "Library of Congress classification",
-            "value": "0"
-        },
-        "temp_call_number": "",
-        "temp_call_number_source": "",
-        "temp_call_number_type": {
-            "desc": null,
-            "value": ""
-        },
-        "temp_library": {
-            "desc": null,
-            "value": null
-        },
-        "temp_location": {
-            "desc": null,
-            "value": null
-        },
-        "temp_policy": {
-            "desc": null,
-            "value": ""
-        }
+    "permanent_call_number": "BL 2055 .H93 2020",
+    "call_number_type": {
+      "value": "0",
+      "desc": "Library of Congress classification"
     },
-    "item_data": {
-        "alternative_call_number": "",
-        "alternative_call_number_type": {
-            "desc": null,
-            "value": ""
-        },
-        "arrival_date": "2017-04-20Z",
-        "awaiting_reshelving": false,
-        "barcode": "39015098796876",
-        "base_status": {
-            "desc": "Item not in place",
-            "value": "0"
-        },
-        "break_indicator": {
-            "desc": null,
-            "value": ""
-        },
-        "chronology_i": "",
-        "chronology_j": "",
-        "chronology_k": "",
-        "chronology_l": "",
-        "chronology_m": "",
-        "creation_date": "2021-06-21Z",
-        "description": "",
-        "edition": null,
-        "enumeration_a": "",
-        "enumeration_b": "",
-        "enumeration_c": "",
-        "enumeration_d": "",
-        "enumeration_e": "",
-        "enumeration_f": "",
-        "enumeration_g": "",
-        "enumeration_h": "",
-        "fulfillment_note": "",
-        "imprint": null,
-        "internal_note_1": "",
-        "internal_note_2": "",
-        "internal_note_3": "Process Status: RE",
-        "inventory_number": "",
-        "inventory_price": "",
-        "is_magnetic": false,
-        "language": null,
-        "library": {
-            "desc": "Art Architecture & Engineering",
-            "value": "AAEL"
-        },
-        "linking_number": "",
-        "location": {
-            "desc": "Book Collection",
-            "value": "BKS"
-        },
-        "modification_date": "2022-02-11Z",
-        "pages": "",
-        "pattern_type": {
-            "desc": null,
-            "value": ""
-        },
-        "physical_condition": {
-            "desc": null,
-            "value": null
-        },
-        "physical_material_type": {
-            "desc": "Book",
-            "value": "BOOK"
-        },
-        "pid": "23816724800006381",
-        "pieces": "",
-        "po_line": "500736966",
-        "policy": {
-            "desc": "Loan 1",
-            "value": "01"
-        },
-        "process_type": {
-            "desc": "In Process",
-            "value": "WORK_ORDER_DEPARTMENT"
-        },
-        "provenance": {
-            "desc": null,
-            "value": ""
-        },
-        "public_note": "",
-        "receiving_operator": "import",
-        "requested": true,
-        "statistics_note_1": "",
-        "statistics_note_2": "",
-        "statistics_note_3": "",
-        "storage_location_id": "",
-        "type_of_unit": "",
-        "work_order_at": {
-            "desc": "HATCH Acquisitions Department",
-            "value": "AcqDeptHATCH"
-        },
-        "work_order_type": {
-            "desc": "Acquisition technical services",
-            "value": "AcqWorkOrder"
-        },
-        "year_of_issue": ""
+    "call_number": "BL 2055 .H93 2020",
+    "accession_number": "",
+    "copy_id": "",
+    "in_temp_location": false,
+    "temp_library": {
+      "value": null,
+      "desc": null
     },
-    "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/990151880600106381/holdings/22816724810006381/items/23816724800006381"
+    "temp_location": {
+      "value": null,
+      "desc": null
+    },
+    "temp_call_number_type": {
+      "value": "",
+      "desc": null
+    },
+    "temp_call_number": "",
+    "temp_call_number_source": "",
+    "temp_policy": {
+      "value": "",
+      "desc": null
+    },
+    "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/99187599175706381/holdings/221205455000006381"
+  },
+  "item_data": {
+    "pid": "231205454980006381",
+    "barcode": "39015105257391",
+    "creation_date": "2022-06-16Z",
+    "modification_date": "2022-06-16Z",
+    "base_status": {
+      "value": "0",
+      "desc": "Item not in place"
+    },
+    "awaiting_reshelving": false,
+    "physical_material_type": {
+      "value": "BOOK",
+      "desc": "Book"
+    },
+    "policy": {
+      "value": "01",
+      "desc": "Loan 1"
+    },
+    "provenance": {
+      "value": "",
+      "desc": null
+    },
+    "po_line": "500886971",
+    "is_magnetic": false,
+    "year_of_issue": "",
+    "enumeration_a": "",
+    "enumeration_b": "",
+    "enumeration_c": "",
+    "enumeration_d": "",
+    "enumeration_e": "",
+    "enumeration_f": "",
+    "enumeration_g": "",
+    "enumeration_h": "",
+    "chronology_i": "",
+    "chronology_j": "",
+    "chronology_k": "",
+    "chronology_l": "",
+    "chronology_m": "",
+    "break_indicator": {
+      "value": "",
+      "desc": null
+    },
+    "pattern_type": {
+      "value": "",
+      "desc": null
+    },
+    "linking_number": "",
+    "type_of_unit": "",
+    "description": "",
+    "receiving_operator": "dtplien",
+    "process_type": {
+      "value": "WORK_ORDER_DEPARTMENT",
+      "desc": "In Process"
+    },
+    "work_order_type": {
+      "value": "Labeling",
+      "desc": "Labeling"
+    },
+    "work_order_at": {
+      "value": "Labeling",
+      "desc": "Operations - Labeling"
+    },
+    "inventory_number": "",
+    "inventory_price": "",
+    "library": {
+      "value": "HATCH",
+      "desc": "Hatcher Graduate"
+    },
+    "location": {
+      "value": "GRAD",
+      "desc": "GRAD"
+    },
+    "alternative_call_number": "",
+    "alternative_call_number_type": {
+      "value": "",
+      "desc": null
+    },
+    "storage_location_id": "",
+    "pages": "",
+    "pieces": "",
+    "public_note": "",
+    "fulfillment_note": "",
+    "internal_note_1": "",
+    "internal_note_2": "",
+    "internal_note_3": "",
+    "statistics_note_1": "",
+    "statistics_note_2": "",
+    "statistics_note_3": "",
+    "requested": true,
+    "edition": null,
+    "imprint": null,
+    "language": null,
+    "physical_condition": {
+      "value": null,
+      "desc": null
+    }
+  },
+  "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/99187599175706381/holdings/221205455000006381/items/231205454980006381"
 }

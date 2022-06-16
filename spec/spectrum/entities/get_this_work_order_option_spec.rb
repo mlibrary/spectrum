@@ -11,13 +11,8 @@ describe Spectrum::Entities::GetThisWorkOrderOption do
     it "false when no process type and not gettable location" do
       expect(subject.in_gettable_workorder?).to eq(false)
     end
-    it "false when in work order and not gettable location" do
-      allow(@item).to receive(:process_type).and_return('WORK_ORDER_DEPARTMENT')
-      expect(subject.in_gettable_workorder?).to eq(false)
-    end
     it "is true when both in a work order department and it's in the correct work order department" do
       stub_alma_get_request(url: "items", output: @alma_item.to_json, query: {item_barcode: 'BARCODE'})
-      allow(@item).to receive(:location).and_return('ASIA')
       allow(@item).to receive(:process_type).and_return('WORK_ORDER_DEPARTMENT')
       allow(@item).to receive(:barcode).and_return('BARCODE')
       expect(subject.in_gettable_workorder?).to eq(true)
@@ -25,7 +20,6 @@ describe Spectrum::Entities::GetThisWorkOrderOption do
     it "is false when in the incorrect work order department" do
       @alma_item["item_data"]["work_order_type"]["value"] = "NOT_A_REQUESTABLE_WORK_ORDER_DEPT"
       stub_alma_get_request(url: "items", output: @alma_item.to_json, query: {item_barcode: 'BARCODE'})
-      allow(@item).to receive(:location).and_return("ASIA")
       allow(@item).to receive(:process_type).and_return("WORK_ORDER_DEPARTMENT")
       allow(@item).to receive(:barcode).and_return("BARCODE")
       expect(subject.in_gettable_workorder?).to eq(false)
