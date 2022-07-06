@@ -1948,6 +1948,9 @@
   metadata:
     name: Place of Publication
     short_desc: Place of publication
+  filters:
+    - id: ris_text
+      method: ris_text
 
 - id: marc_300_a
   ris:
@@ -1962,6 +1965,9 @@
     fields:
       - tag: "300"
         sub: "a"
+  filters:
+    - id: marc_300_a
+      method: marc_300_a
 
 - id: marc_264_b
   ris:
@@ -2049,6 +2055,8 @@
       method: sanitize
     - id: trim
       method: trim
+    - id: ris_text
+      method: ris_text
 
 - id: marc_csl_title
   csl:

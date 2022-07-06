@@ -66,6 +66,41 @@ describe Spectrum::Config::Filter do
     end
   end
 
+  context "configured with ris_text" do
+    let(:cfg) {{'id' => 'ris_text', 'method' => 'ris_text'}}
+    subject { described_class.new(cfg) }
+    context "#apply" do
+      it "returns nil when given nil" do
+        expect(subject.apply(nil, nil)).to be(nil)
+      end
+      it "returns [] when given []" do
+        expect(subject.apply([], nil)).to eq([])
+      end
+      it "returns 'abc: xyz' when given 'abc : xyz /'" do
+        expect(subject.apply('abc : xyz /', nil)).to eq('abc: xyz')
+      end
+    end
+  end
+
+  context "Configured with marc_300_a" do
+    let(:cfg) {{'id' => 'marc_300_a', 'method' => 'marc_300_a'}}
+    subject { described_class.new(cfg) }
+    context "#apply" do
+      it "returns nil when given nil" do
+        expect(subject.apply(nil, nil)).to be(nil)
+      end
+      it "returns [] when given []" do
+        expect(subject.apply([], nil)).to eq([])
+      end
+      it "returns 'abc' when given 'abc'" do
+        expect(subject.apply('abc', nil)).to eq('abc')
+      end
+      it "returns nil when given '$'" do
+        expect(subject.apply('$', nil)).to be(nil)
+      end
+    end
+  end
+
   context "Configured with boolean" do
     let(:cfg) {{'id' => 'boolean', 'method' => 'boolean'}}
     subject { described_class.new(cfg) }
