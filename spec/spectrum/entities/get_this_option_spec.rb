@@ -36,18 +36,28 @@ describe Spectrum::Entities::GetThisOption do
     end
   end
   context "Alma Hold" do
+    before(:each) do
+      @base_form = JSON.parse(File.read('./spec/fixtures/get_this/alma_hold.json'))
+      allow(@item).to receive(:mms_id).and_return('MMS_ID')
+      allow(@item).to receive(:holding_id).and_return('HOLDING_ID')
+      allow(@item).to receive(:item_id).and_return('ITEM_ID')
+    end
     subject do 
       option = option_for(field: ["form","type"], value: 'alma_hold') 
-      described_class.for(option: option, patron: @patron, item: @item)
+      described_class.for(option: option, patron: @patron, item: @item, now: DateTime.parse("2022-10-03"))
     end
     it "returns an alma hold" do
       expect(subject.class.to_s).to include('AlmaHold')
     end
-    it "has a proper looking form" do
-      allow(@item).to receive(:mms_id).and_return('MMS_ID')
-      allow(@item).to receive(:holding_id).and_return('HOLDING_ID')
-      allow(@item).to receive(:item_id).and_return('ITEM_ID')
-      expect(subject.form('DATE')).to eq(JSON.parse(File.read('./spec/fixtures/get_this/alma_hold.json')))
+    it "has a proper looking form for default item" do
+      allow(@item).to receive(:in_acq?).and_return(false)
+      @base_form["fields"][3]["value"] = "2022-12-03"
+      expect(subject.form).to eq(@base_form)
+    end
+    it "has a proper looking form with year long default for acq item" do
+      allow(@item).to receive(:in_acq?).and_return(true)
+      @base_form["fields"][3]["value"] = "2023-10-03"
+      expect(subject.form).to eq(@base_form)
     end
   end
   context "ILLiad Hold" do

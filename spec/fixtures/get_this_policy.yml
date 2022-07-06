@@ -417,7 +417,7 @@
       - not_checked_out?
       - not_missing?
       - not_etas?
-      - not_on_order?
+      - not_in_acq?
     bib:
       - can_scan?
   form:
@@ -497,7 +497,7 @@
     holding:
       - not_etas?
       - reopened?
-      - on_order?
+      - in_acq?
     bib:
       - can_scan?
   form:
@@ -679,7 +679,7 @@
       - active?
       - flint?
     holding:
-      - not_on_order?
+      - not_in_acq?
       - not_checked_out?
       - not_missing?
       - reopened?
@@ -730,7 +730,7 @@
     holding:
       - not_checked_out?
       - not_missing?
-      - not_on_order?
+      - not_in_acq?
       - standard_pickup?
     bib:
       - not_etas?
@@ -778,7 +778,7 @@
       - active?
       - flint?
     holding:
-      - on_order?
+      - in_acq?
       - not_checked_out?
       - not_missing?
     bib:
@@ -833,7 +833,7 @@
       - shapiro_and_aael_pickup?
       - not_missing?
       - not_checked_out?
-      - not_on_order?
+      - not_in_acq?
     bib:
       - not_etas?
 
@@ -887,7 +887,7 @@
       - shapiro_and_aael_pickup?
       - not_missing?
       - not_checked_out?
-      - on_order?
+      - in_acq?
     bib:
       - not_etas?
 
@@ -937,7 +937,7 @@
       - flint_pickup?
       - not_missing?
       - not_checked_out?
-      - not_on_order?
+      - not_in_acq?
     bib:
       - not_etas?
 
@@ -988,7 +988,7 @@
       - flint_pickup?
       - not_missing?
       - not_checked_out?
-      - on_order?
+      - in_acq?
     bib:
       - not_etas?
 
@@ -1039,7 +1039,7 @@
       - shapiro_pickup?
       - not_missing?
       - not_checked_out?
-      - not_on_order?
+      - not_in_acq?
     bib:
       - not_etas?
 
@@ -1091,7 +1091,7 @@
       - shapiro_pickup?
       - not_missing?
       - not_checked_out?
-      - on_order?
+      - in_acq?
     bib:
       - not_etas?
 
@@ -1142,7 +1142,7 @@
       - aael_pickup?
       - not_missing?
       - not_checked_out?
-      - not_on_order?
+      - not_in_acq?
     bib:
       - not_etas?
 
@@ -1194,7 +1194,7 @@
       - aael_pickup?
       - not_missing?
       - not_checked_out?
-      - on_order?
+      - in_acq?
     bib:
       - not_etas?
 
@@ -1245,7 +1245,7 @@
       - music_pickup?
       - not_missing?
       - not_checked_out?
-      - not_on_order?
+      - not_in_acq?
     bib:
       - not_etas?
 
@@ -1297,7 +1297,7 @@
       - music_pickup?
       - not_missing?
       - not_checked_out?
-      - on_order?
+      - in_acq?
     bib:
       - not_etas?
 
@@ -1348,7 +1348,7 @@
       - reopened?
       - not_missing?
       - not_checked_out?
-      - not_on_order?
+      - not_in_acq?
     bib:
       - not_etas?
 
@@ -1398,7 +1398,7 @@
       - flint_pickup?
       - not_missing?
       - not_checked_out?
-      - not_on_order?
+      - not_in_acq?
     bib:
       - not_etas?
 
@@ -1446,7 +1446,7 @@
       - active?
       - dearborn?
     holding:
-      - on_order?
+      - in_acq?
       - not_missing?
       - not_checked_out?
     bib:

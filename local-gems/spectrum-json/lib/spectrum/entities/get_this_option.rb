@@ -1,7 +1,8 @@
 class Spectrum::Entities::GetThisOption
  attr_reader :label, :service_type, :duration, :description, :tip, :faq, :form,
              :grants, :weight, :orientation
-  def initialize(option:,patron:,item:)
+ def initialize(option:,patron:,item:,now:)
+    @now = now
     @option = option
     @patron = patron
     @item = item
@@ -15,8 +16,8 @@ class Spectrum::Entities::GetThisOption
     @orientation = option['orientation'] || ''
     @tip = option['tip']
   end
-  def self.for(option:, patron:, item:)
-    args = {option: option, patron: patron, item: item}
+ def self.for(option:, patron:, item:, now: DateTime.now)
+    args = {option: option, patron: patron, item: item, now: now}
     case option.dig("form","type")
     when "reservation"
       Spectrum::Entities::GetThisOption::Reservation.new(**args)
@@ -80,7 +81,7 @@ class Spectrum::Entities::GetThisOption
     end
   end
   class AlmaHold < self
-    def form(two_months_from_today=(::DateTime.now >> 2).strftime('%Y-%m-%d'))
+    def form
       {
         "type" => "ajax",
         "method" => "post",
@@ -107,7 +108,7 @@ class Spectrum::Entities::GetThisOption
             "type" => "date",
             "label" => "Cancel this hold if item is not available before",
             "name" => "not_needed_after",
-            "value" => two_months_from_today,
+            "value" => not_needed_after,
           },
           {
             "type" => "submit",
@@ -121,7 +122,6 @@ class Spectrum::Entities::GetThisOption
     def submit_text
       "Get me this item"
     end
-    private
     def select_options
       output = [ 
         {
@@ -137,6 +137,15 @@ class Spectrum::Entities::GetThisOption
         })
       end
       output
+    end
+    def not_needed_after
+      if @item.in_acq?
+        #one year from now
+        @now.next_year.strftime('%Y-%m-%d')
+      else
+        #two months from now
+        (@now >> 2).strftime('%Y-%m-%d')
+      end
     end
   end
   class AlmaRecall < AlmaHold
