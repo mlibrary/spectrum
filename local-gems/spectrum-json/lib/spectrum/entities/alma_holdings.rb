@@ -8,11 +8,13 @@ class Spectrum::Entities::AlmaHoldings
   end
   def self.for(bib_record:, client: AlmaRestClient.client)
     if bib_record.physical_holdings?
-      response = client.get_all(url: "/bibs/#{bib_record.mms_id}/loans", record_key: "item_loan")
-      if response.code == 200
+      begin
+        response = client.get_all(url: "/bibs/#{bib_record.mms_id}/loans", record_key: "item_loan")
+        raise ::StandardError.new("problem with contacting alma") if response.code != 200
         Spectrum::Entities::AlmaHoldings.new(alma: response.parsed_response, solr: bib_record)
-      else
-        #TBD ERROR
+      rescue => e
+        Logger.new($stdout).error "Cant'contact Alma: #{e}"
+        Spectrum::Entities::AlmaHoldings.new(alma: { "item_loan" => [] }, solr: bib_record)
       end
     else
       Spectrum::Entities::AlmaHoldings::Empty.new
