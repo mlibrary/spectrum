@@ -21,6 +21,10 @@
                     "value": "select-a-pickup-location"
                 },
                 {
+                    "name": "Shapiro Library",
+                    "value": "SHAP"
+                },
+                {
                     "name": "Art, Architecture, & Engineering Library",
                     "value": "AAEL"
                 },
@@ -33,16 +37,16 @@
                     "value": "FINE"
                 },
                 {
+                    "name": "Hatcher Library (Use Shapiro for wheelchair access)",
+                    "value": "HATCH"
+                },
+                {
                     "name": "Museums",
                     "value": "MUSM"
                 },
                 {
                     "name": "Music Library",
                     "value": "MUSIC"
-                },
-                {
-                    "name": "Shapiro Undergraduate Library",
-                    "value": "SHAP"
                 },
                 {
                     "name": "Taubman Health Sciences",
