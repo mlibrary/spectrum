@@ -231,7 +231,6 @@ fields:
   - place
   - printer
   - association
-  - marc_bookplate
   - lcsh_subjects
   - other_subjects
   - academic_discipline

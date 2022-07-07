@@ -16,7 +16,7 @@ describe Spectrum::Entities::GetThisOptions do
      @item = double('Spectrum::Decorators::Physical_Item_Decorator')
      ["can_request?", "not_etas?", "not_pickup_or_checkout?", "checked_out?", 
       "not_pickup?", "not_flint?", "etas?", "reopened?", "not_checked_out?", 
-      "not_missing?", "not_on_order?", "on_order?", "flint?", "standard_pickup?", 
+      "not_missing?", "not_in_acq?", "in_acq?", "flint?", "standard_pickup?", 
       "shapiro_and_aael_pickup?", "flint_pickup?", "shapiro_pickup?", 
       "aael_pickup?", "music_pickup?"].each do |method|
        allow(@item).to receive(method)

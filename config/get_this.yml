@@ -52,7 +52,7 @@
     - on_shelf?
     - can_request?
 
-# Contactless Pickup (1 of 4)
+# Contactless Pickup (1 of 5)
 - label: Contactless pickup at the library
   service_type: Library pick up
   duration: Expected availability 1-5 days
@@ -84,7 +84,7 @@
       - not_building_use_only?
       - not_reservable_library?
 
-# Contactless Pickup (2 of 4)
+# Contactless Pickup (2 of 5)
 - label: Contactless pickup at the library
   service_type: Library pick up
   duration: Expected availability 1-10 days
@@ -117,7 +117,7 @@
       - not_reservable_library?
 
 
-# Contactless Pickup (3 of 4)
+# Contactless Pickup (3 of 5)
 - label: Contactless pickup at the library
   service_type: Library pick up
   duration: Expected availability 1-2 days
@@ -149,7 +149,37 @@
       - not_building_use_only?
       - not_reservable_library?
 
-# Contactless Pickup (4 of 4)
+# Contactless Pickup (4 of 5) WORK_ORDER_DEPARTMENT
+- label: Contactless pickup at the library for a WORK_ORDER_DEPARTMENT
+  service_type: Library pick up
+  duration: Click to see additional details
+  description:
+    heading: Policies and additional details
+    content:
+      - Delivery time varies for items with status IN A WORKORDER and notification will be sent when this item is available. <a href="https://ill.lib.umich.edu/illiad/illiad.dll?">Please make an interlibrary loan request if you need this item quickly</a>.
+      - Standard loan and renewal policies apply. Once checked-out, your item can be recalled by another user.
+      - Learn more about <a href="https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup">contactless pickup</a>.
+  form:
+    type: alma_hold
+    pickup_locations:
+      -  AAEL
+      -  DHCL
+      -  FINE
+      -  MUSM
+      -  MUSIC
+      -  SHAP
+      -  TAUB
+      -  FLINT
+      -  DBRN
+  grants:
+    holding:
+      - ann_arbor?
+      - in_gettable_workorder?
+      - can_request?
+      - not_building_use_only?
+      - not_reservable_library?
+        
+# Contactless Pickup (5 of 5)
 - label: Contactless pickup at the library
   service_type: Library pick up
   duration: Click to see additional details
@@ -174,12 +204,11 @@
   grants:
     holding:
       - ann_arbor?
-      - on_order?
+      - in_acq?
       - can_request?
       - not_short_loan?
       - not_building_use_only?
       - not_reservable_library?
-        
 
 # Departmental Delivery (1 of 2)
 - label: Have it delivered

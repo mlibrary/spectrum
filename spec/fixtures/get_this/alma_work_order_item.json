@@ -1,0 +1,153 @@
+{
+  "bib_data": {
+    "mms_id": "99187599175706381",
+    "bib_suppress_from_publishing": "false",
+    "title": "Thần đất, ông địa & thần tài /",
+    "author": "Huỳnh, Ngọc Trảng,",
+    "issn": null,
+    "isbn": "6046868858",
+    "complete_edition": "",
+    "network_number": [
+      "(OCoLC)on1236900706",
+      "(OCoLC)1236900706"
+    ],
+    "place_of_publication": "TP. Hồ Chí Minh :",
+    "date_of_publication": "2020.",
+    "publisher_const": "Nhà xuất bản Văn hóa - văn nghệ Thành phố Hồ Chí Minh",
+    "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/99187599175706381"
+  },
+  "holding_data": {
+    "holding_id": "221205455000006381",
+    "holding_suppress_from_publishing": "false",
+    "permanent_call_number_type": {
+      "value": "0",
+      "desc": "Library of Congress classification"
+    },
+    "permanent_call_number": "BL 2055 .H93 2020",
+    "call_number_type": {
+      "value": "0",
+      "desc": "Library of Congress classification"
+    },
+    "call_number": "BL 2055 .H93 2020",
+    "accession_number": "",
+    "copy_id": "",
+    "in_temp_location": false,
+    "temp_library": {
+      "value": null,
+      "desc": null
+    },
+    "temp_location": {
+      "value": null,
+      "desc": null
+    },
+    "temp_call_number_type": {
+      "value": "",
+      "desc": null
+    },
+    "temp_call_number": "",
+    "temp_call_number_source": "",
+    "temp_policy": {
+      "value": "",
+      "desc": null
+    },
+    "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/99187599175706381/holdings/221205455000006381"
+  },
+  "item_data": {
+    "pid": "231205454980006381",
+    "barcode": "39015105257391",
+    "creation_date": "2022-06-16Z",
+    "modification_date": "2022-06-16Z",
+    "base_status": {
+      "value": "0",
+      "desc": "Item not in place"
+    },
+    "awaiting_reshelving": false,
+    "physical_material_type": {
+      "value": "BOOK",
+      "desc": "Book"
+    },
+    "policy": {
+      "value": "01",
+      "desc": "Loan 1"
+    },
+    "provenance": {
+      "value": "",
+      "desc": null
+    },
+    "po_line": "500886971",
+    "is_magnetic": false,
+    "year_of_issue": "",
+    "enumeration_a": "",
+    "enumeration_b": "",
+    "enumeration_c": "",
+    "enumeration_d": "",
+    "enumeration_e": "",
+    "enumeration_f": "",
+    "enumeration_g": "",
+    "enumeration_h": "",
+    "chronology_i": "",
+    "chronology_j": "",
+    "chronology_k": "",
+    "chronology_l": "",
+    "chronology_m": "",
+    "break_indicator": {
+      "value": "",
+      "desc": null
+    },
+    "pattern_type": {
+      "value": "",
+      "desc": null
+    },
+    "linking_number": "",
+    "type_of_unit": "",
+    "description": "",
+    "receiving_operator": "dtplien",
+    "process_type": {
+      "value": "WORK_ORDER_DEPARTMENT",
+      "desc": "In Process"
+    },
+    "work_order_type": {
+      "value": "Labeling",
+      "desc": "Labeling"
+    },
+    "work_order_at": {
+      "value": "Labeling",
+      "desc": "Operations - Labeling"
+    },
+    "inventory_number": "",
+    "inventory_price": "",
+    "library": {
+      "value": "HATCH",
+      "desc": "Hatcher Graduate"
+    },
+    "location": {
+      "value": "GRAD",
+      "desc": "GRAD"
+    },
+    "alternative_call_number": "",
+    "alternative_call_number_type": {
+      "value": "",
+      "desc": null
+    },
+    "storage_location_id": "",
+    "pages": "",
+    "pieces": "",
+    "public_note": "",
+    "fulfillment_note": "",
+    "internal_note_1": "",
+    "internal_note_2": "",
+    "internal_note_3": "",
+    "statistics_note_1": "",
+    "statistics_note_2": "",
+    "statistics_note_3": "",
+    "requested": true,
+    "edition": null,
+    "imprint": null,
+    "language": null,
+    "physical_condition": {
+      "value": null,
+      "desc": null
+    }
+  },
+  "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/99187599175706381/holdings/221205455000006381/items/231205454980006381"
+}
