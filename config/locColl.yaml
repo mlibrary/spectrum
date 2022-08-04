@@ -30,7 +30,6 @@ AAEL:
     AAEL ERES: 'Reserves - Electronic Resource'
     AAEL RAR: 'Special Coll. - By appt. only'
     AAEL STO: 'Closed shelving'
-    AAEL GAME: 'Video Games - Basement'
 FVL:
   desc: 'Askwith Media Library'
   collections:
@@ -293,6 +292,8 @@ SHAP:
     SHAP OVR: 'Undergrad Oversize - basement'
     SHAP PER: 'Undergrad Periodical Shelves - 2nd Floor'
     SHAP PRON: '2nd floor Browsing Collection - Shelved by author'
+    SHAP GAME: 'Video Games - 4th Floor'
+    SHAP GAMEB: 'Video Games - 4th Floor - Books'
 SPEC: 
   desc: 'Special Collections' 
   collections: 
