@@ -3522,9 +3522,6 @@
             where:
               - sub: "6"
                 start_with: ['260']
-          - label: c
-            tag: "260"
-            sub: "c"
     - type: marcxml
       field: fullrecord
       marc:
