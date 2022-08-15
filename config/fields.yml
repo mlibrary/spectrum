@@ -1945,6 +1945,12 @@
     fields:
       - tag: "260"
         sub: a
+      - tag: "880"
+        sub: a
+        where:
+          - sub: "6"
+            start_with: ['260']
+
   metadata:
     name: Place of Publication
     short_desc: Place of publication
@@ -2028,6 +2034,12 @@
     fields:
       - tag: "245"
         sub: "[a-gi-z]"
+      - tag: "880"
+        sub: "[a-gi-z]"
+        where:
+          - sub: "6"
+            start_with: ['245']
+
   filters:
     - id: sanitize
       method: sanitize
@@ -2236,6 +2248,20 @@
         where:
           - sub: t
             exists: false
+      - tag: '880'
+        sub: '[abcdefgjklnpqu4]'
+        label: display
+        join: ' '
+        where:
+          - sub: '6'
+            start_with: ['700', '710', '711']
+      - tag: '880'
+        sub: '[abcdgjkgu]'
+        label: search
+        join: ' '
+        where:
+          - sub: '6'
+            start_with: ['700', '710', '711']
   metadata_component:
     medium:
       type: search2
@@ -2495,6 +2521,12 @@
       - tag: '260'
         sub: '[efg]'
         join: ' '
+      - tag: '880'
+        sub: '[efg]'
+        join: ' '
+        where:
+          - sub: '6'
+            start_with: ['260']
   metadata_component:
     full:
       type: plain
@@ -2645,6 +2677,21 @@
         tag: '246|247'
         sub: '[a-eghj-z]'
         join: ' '
+
+      - label: display
+        tag: '880'
+        sub: '[a-z]'
+        join: ' '
+        where:
+          - sub: "6"
+            start_with: ['246', '247']
+      - label: search
+        tag: '880'
+        sub: '[a-eghj-z]'
+        join: ' '
+        where:
+          - sub: "6"
+            start_with: ['246', '247']
 
       - label: 'display'
         tag: '740'
@@ -2853,6 +2900,11 @@
     fields:
       - tag: '362'
         sub: 'a'
+      - tag: "880"
+        sub: "a"
+        where:
+          - sub: "6"
+            start_with: ['362']
   metadata_component:
     full:
       type: plain
@@ -3007,6 +3059,11 @@
     fields:
       - tag: '500|501|502|525|526|530|547|550|552|561|565|584|585'
         sub: 'a'
+      - tag: '880'
+        sub: 'a'
+        where:
+          - sub: "6"
+            start_with: ['500']
   metadata_component:
     full:
       type: plain
@@ -3466,6 +3523,21 @@
             tag: "260"
             sub: '[ab]'
             join: ' '
+          - label: c
+            tag: "260"
+            sub: "c"
+    - type: marcxml
+      field: fullrecord
+      marc:
+        aggregator: labeling
+        fields:
+          - label: ab
+            tag: "880"
+            sub: "[ab]"
+            join: ' '
+            where:
+              - sub: "6"
+                start_with: ['260']
           - label: c
             tag: "260"
             sub: "c"
