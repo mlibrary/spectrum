@@ -213,7 +213,7 @@ module Spectrum
               end
             end
             [value].flatten.map do |val|
-              if val.empty?
+              if val.nil? || val.empty?
                 nil
               else
                 "#{tag}  - #{val.to_s.gsub(/[\r\n]/, ' ')}"
