@@ -80,6 +80,7 @@ require 'spectrum/config/marc_matcher_where_clause'
 require 'spectrum/config/marc_matcher_where_is'
 require 'spectrum/config/marc_matcher_where_not'
 require 'spectrum/config/marc_matcher_where_exists'
+require 'spectrum/config/marc_matcher_where_start_with'
 require 'spectrum/config/marc_matcher_where'
 
 require 'spectrum/config/marc'

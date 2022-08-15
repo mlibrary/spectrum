@@ -39,7 +39,7 @@ module Spectrum
       def find_all(field)
         return [] unless field.respond_to?(:find_all)
         field.find_all do |subfield|
-          sub.match(subfield.code) && values.include?(subfield.value)
+          sub.match(subfield.code)
         end
       end
 
