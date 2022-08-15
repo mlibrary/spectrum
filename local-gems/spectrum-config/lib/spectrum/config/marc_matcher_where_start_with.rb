@@ -1,18 +1,18 @@
 module Spectrum
   module Config
-    class MarcMatcherWhereIs < MarcMatcherWhereClause
+    class MarcMatcherWhereStartWith < MarcMatcherWhereClause
       attr_accessor :sub, :values
-      type 'is'
+      type 'start_with'
 
       def initialize(cfg)
         cfg ||= {}
         self.sub = /#{cfg['sub']}/
-        self.values = cfg['is']
+        self.values = cfg['start_with']
       end
 
       def match?(field)
         return true unless sub && values
-        !find_all(field).reject { |subfield| !values.include?(subfield.value) }.empty?
+        !find_all(field).reject { |subfield| !values.any? { |val| subfield.value.start_with?(val) } }.empty?
       end
     end
   end
