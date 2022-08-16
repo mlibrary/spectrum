@@ -1065,8 +1065,8 @@
 
 - id: bookplate
   metadata:
-    name: Bookplate
-    short_desc: Bookplate
+    name: Donor Information
+    short_desc: Donor Information
   has_html: true
   metadata_component:
     full:
@@ -3538,9 +3538,6 @@
             where:
               - sub: "6"
                 start_with: ['260']
-          - label: c
-            tag: "260"
-            sub: "c"
     - type: marcxml
       field: fullrecord
       marc:
