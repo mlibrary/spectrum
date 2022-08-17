@@ -2199,6 +2199,22 @@
         sub: '[abcdgjkqu]'
         label: search
         join: ' '
+
+      - tag: '880'
+        sub: '[abcdefgjklnpqtu4]'
+        label: display
+        join: ' '
+        where:
+          - sub: '6'
+            start_with: ['100', '110', '111']
+      - tag: '880'
+        sub: '[abcdgjkqu]'
+        label: search
+        join: ' '
+        where:
+          - sub: '6'
+            start_with: ['100', '110', '111']
+
   metadata_component:
     preview:
       type: quoted_search2
