@@ -4008,6 +4008,8 @@
       field: volume
     issue:
       field: issue
+    ispartof:
+      field: ispartof
   metadata_component:
     medium:
       type: plain
