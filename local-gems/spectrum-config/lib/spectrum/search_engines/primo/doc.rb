@@ -66,10 +66,14 @@ module Spectrum
           when 'naxos_music_library', 'naxos_music_libray'
             "https://umich.naxosmusiclibrary.com/catalogue/item.asp?cid=#{sourcerecordid}"
           when 'gale_linking'
-            "http://link.galegroup.com/apps/doc/#{sourcerecordid}/MMLT?sid=primo&u=umuser"
+            "http://link.galegroup.com/apps/doc/#{sourcerecordid}/#{addsrcrecordid}?sid=primo&u=umuser"
           else
             nil
           end
+        end
+
+        def addsrcrecordid
+          @addsrcrecordid ||= [@data.dig('control', 'addsrcrecordid')].flatten.first
         end
 
         def sourcerecordid
