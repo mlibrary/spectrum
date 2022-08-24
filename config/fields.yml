@@ -1190,7 +1190,8 @@
     name: Place of Publication
     short_desc: Place of publication
 
-- id: edition
+- id: articles_edition
+  uid: edition
   csl:
     id: edition
   z3988:
@@ -1201,6 +1202,11 @@
   field: edition
   searchable: true
   sortable: false
+  metadata_component:
+    medium:
+      type: plain
+    full:
+      type: plain
 
 - id: callnumber
   csl:
@@ -2547,6 +2553,8 @@
       - tag: '250'
         sub: 'a'
   metadata_component:
+    medium:
+      type: plain
     full:
       type: plain
 

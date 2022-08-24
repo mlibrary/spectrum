@@ -87,6 +87,7 @@ fields:
 - primo_resource_access
 - primo_times_cited
 - abstract
+- articles_edition
 
 # Searching
 - primo_all_fields
