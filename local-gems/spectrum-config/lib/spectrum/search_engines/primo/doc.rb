@@ -67,6 +67,8 @@ module Spectrum
             "https://umich.naxosmusiclibrary.com/catalogue/item.asp?cid=#{sourcerecordid}"
           when 'gale_linking'
             "http://link.galegroup.com/apps/doc/#{sourcerecordid}/#{addsrcrecordid}?sid=primo&u=umuser"
+          when 'moazine_linking'
+            "http://dl.moazine.com/viewer3/index.asp?libraryid=9MtJb2T3nzH3BEvu609VaY52Ca3EA1Y2EWW0&articleid=#{sourcerecordid}&articlepage=1"
           else
             nil
           end
