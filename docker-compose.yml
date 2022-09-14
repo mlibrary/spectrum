@@ -31,7 +31,10 @@ services:
     image: ghcr.io/mlibrary/library-web-solr:latest
     ports:
       - "8080:8080"
+    volumes:
+      - library-web:/var/solr
 
 volumes:
   bundle:
   catalog:
+  library-web:
