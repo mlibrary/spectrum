@@ -2512,6 +2512,13 @@
       - tag: '264'
         ind2: '0'
         sub: '[a-z]'
+      - tag: '880'
+        sub: '[a-z]'
+        ind2: '0'
+        join: ' '
+        where:
+          - sub: '6'
+            start_with: ['264']
   metadata_component:
     full:
       type: plain
@@ -2526,6 +2533,13 @@
       - tag: '264'
         ind2: '2'
         sub: '[a-z]'
+      - tag: '880'
+        sub: '[a-z]'
+        ind2: '2'
+        join: ' '
+        where:
+          - sub: '6'
+            start_with: ['264']
   metadata_component:
     full:
       type: plain
@@ -2549,6 +2563,13 @@
         where:
           - sub: '6'
             start_with: ['260']
+      - tag: '880'
+        sub: '[a-z]'
+        ind2: '3'
+        join: ' '
+        where:
+          - sub: '6'
+            start_with: ['264']
   metadata_component:
     full:
       type: plain
@@ -3116,6 +3137,13 @@
       - tag: '264'
         sub: '[a-z]'
         ind2: 4
+      - tag: '880'
+        sub: '[a-z]'
+        ind2: '4'
+        join: ' '
+        where:
+          - sub: '6'
+            start_with: ['264']
   metadata_component:
     full:
       type: plain
@@ -3549,7 +3577,7 @@
             join: ' '
           - label: c
             tag: "260"
-            sub: "c"
+            sub: "[c]"
     - type: marcxml
       field: fullrecord
       marc:
@@ -3562,6 +3590,13 @@
             where:
               - sub: "6"
                 start_with: ['260']
+          - label: c
+            tag: "880"
+            sub: "[c]"
+            join: ' '
+            where:
+              - sub: "6"
+                start_with: ['260']
     - type: marcxml
       field: fullrecord
       marc:
@@ -3570,12 +3605,33 @@
           - label: ab
             tag: '264'
             ind2: '1'
-            sub: [ab]
+            sub: '[ab]'
             join: ' '
           - label: c
             tag: '264'
             ind2: '1'
-            sub: c
+            sub: '[c]'
+    - type: marcxml
+      field: fullrecord
+      marc:
+        aggregator: labeling
+        fields:
+          - label: ab
+            tag: '880'
+            sub: '[ab]'
+            ind2: '1'
+            join: ' '
+            where:
+              - sub: '6'
+                start_with: ['264']
+          - label: c
+            tag: '880'
+            sub: '[c]'
+            ind2: '1'
+            join: ' '
+            where:
+              - sub: '6'
+                start_with: ['264']
   metadata_component:
     medium:
       type: plain
