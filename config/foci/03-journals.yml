@@ -21,6 +21,10 @@ solr_params:
   f.search_title_starts_with.pf: title_ngram
   f.search_title_starts_with.mm: 100%
 
+  f.title_starts_with.qf: title_ngram
+  f.title_starts_with.pf: title_ngram
+  f.title_starts_with.mm: 100%
+
   # callno_starts_with
   f.search_call_number_starts_with.qf: callnosearch
   f.search_call_number_starts_with.pf: callnosearch

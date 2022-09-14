@@ -17,6 +17,10 @@ solr_params:
   tie: 0.1
   defType: edismax
 
+  f.title_starts_with.qf: title_ngram
+  f.title_starts_with.pf: title_ngram
+  f.title_starts_with.mm: 100%
+
 href:
   field: path_alias
   prefix: http://www.lib.umich.edu/

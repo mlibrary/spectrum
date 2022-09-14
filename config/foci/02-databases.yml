@@ -11,6 +11,7 @@ highly_recommended:
 href:
   field: path_alias
   prefix: http://www.lib.umich.edu/node/
+
 solr_params:
   # title
   f.search_title.qf: sort_title^12 stitle^12 title_unstemmed^6 all_titles_unstemmed^3 title^2 alt^1
@@ -21,6 +22,10 @@ solr_params:
   f.search_title_starts_with.qf: title_ngram
   f.search_title_starts_with.pf: title_ngram
   f.search_title_starts_with.mm: 100%
+
+  f.title_starts_with.qf: title_ngram
+  f.title_starts_with.pf: title_ngram
+  f.title_starts_with.mm: 100%
 
   # academic_discipline
   f.academic_discipline.qf: og_groups_both^5 tmfield_taxonomy_name
