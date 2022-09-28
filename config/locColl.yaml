@@ -298,11 +298,11 @@ SPEC:
   desc: 'Special Collections' 
   collections: 
     ALL: All collections 
-    SPEC SCB-ASG: 'Asa Gray' 
+    SPEC SCB-ASG: 'Asa Gray Collection' 
     SPEC CHIL: 'Children''s Literature' 
     SPEC FAUL: 'Faulkner Collection' 
     SPEC TAUB: 'History of Medicine Collection' 
-    SPEC SCB-HUB: 'Hubbard Imaginary Voyages Collections' 
+    SPEC SCB-HUB: 'Hubbard Imaginary Voyages Collection'
     SPEC SCH-ISLM: 'Islamic Manuscripts' 
     SPEC CUL: 'Janice Bluestein Longone Culinary Archive'
     SPEC JHC: 'Jewish Heritage Collection' 
