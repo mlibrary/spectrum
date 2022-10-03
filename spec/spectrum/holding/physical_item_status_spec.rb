@@ -33,6 +33,11 @@ describe Spectrum::Holding::PhysicalItemStatus do
         expect(subject.to_h).to eq({text: 'Unavailable', intent: 'error', icon: 'error'})
         expect(subject.class.to_s).to include('Error')
       end
+      it "returns cvga text for item in shap game" do
+        allow(@solr_item).to receive(:library).and_return("SHAP")
+        allow(@solr_item).to receive(:location).and_return("GAME")
+        expect(subject.to_h).to eq({text: "CVGA room use only; check out required", intent: "success", icon: "check_circle"})
+      end
       #it "returns error for requested item" do
         #allow(@alma_item).to receive(:requested?).and_return(true)
         #expect(subject.to_h).to eq({text: 'Requested', intent: 'error', icon: 'error'})

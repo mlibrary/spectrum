@@ -11,6 +11,8 @@ class Spectrum::Holding::PhysicalItemStatus::Text
         AvailableReservesText.new(item)
       elsif item.temp_location?
         AvailableTemporaryLocationText.new(item)
+      elsif item.library == "SHAP" && item.location == "GAME"
+        AvailableGameText.new
       else
         AvailableText.new(item)
       end
@@ -35,6 +37,11 @@ class Spectrum::Holding::PhysicalItemStatus::Text
       when "1 Day Loan"
         "(1-day loan)"
       end
+    end
+  end
+  class AvailableGameText
+    def to_s
+      "CVGA room use only; check out required"
     end
   end
   class AvailableTemporaryLocationText < AvailableText
