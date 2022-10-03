@@ -24,6 +24,25 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
       expect(subject.not_in_gettable_workorder?).to eq("not_in_gettable_workorder")
     end
   end
+  context "#game?" do
+    it "is true if the item is in SHAP GAME" do
+      allow(@input[:solr_item]).to receive(:library).and_return('SHAP')
+      allow(@input[:solr_item]).to receive(:location).and_return('GAME')
+      expect(subject.game?).to eq(true)
+    end
+    it "is false if the item not in SHAP GAME" do
+      allow(@input[:solr_item]).to receive(:library).and_return('SHAP')
+      allow(@input[:solr_item]).to receive(:location).and_return('GAMEB')
+      expect(subject.game?).to eq(false)
+    end
+  end
+  context "#not_game?" do
+    it "is true if the item is in SHAP GAME" do
+      allow(@input[:solr_item]).to receive(:library).and_return('SHAP')
+      allow(@input[:solr_item]).to receive(:location).and_return('GAMEB')
+      expect(subject.not_game?).to eq(true)
+    end
+  end
   context "#etas?" do
     it "is true if bib_record says etas is true" do
       allow(@input[:bib_record]).to receive("etas?").and_return(true)

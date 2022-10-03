@@ -59,6 +59,15 @@ module Spectrum::Decorators
       @work_order_option = work_order_option
     end
 
+    #mrio: 2022-09 per request from Dave in CVGA that items in SHAP Game
+    #      are only "Find it in the Library"; Media Fullfillment Unit is 
+    #      pretty inconsistent so we can't use that
+    def game?
+      @item.library == "SHAP" && @item.location == "GAME"
+    end
+    def not_game?
+      !game?
+    end
     def not_etas?
       !etas?
     end
