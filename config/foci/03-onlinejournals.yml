@@ -75,6 +75,7 @@ solr_params:
 
 
   qt: edismax
+  defType: edismax
   mm: "2<-1 5<67%"
   mm.autoRelax: true
   tie: 0.1
