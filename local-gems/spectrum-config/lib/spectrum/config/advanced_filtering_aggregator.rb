@@ -52,7 +52,7 @@ module Spectrum
                                values
                              end
           joined_fields[1].map do |value|
-            "#{joined_fields[0]}:#{quote(value)}"
+            "#{joined_fields[0]}:\"#{quote(value)}\""
           end.join(" AND ")
         end.flatten.join(" AND ")
       end
