@@ -196,7 +196,7 @@
   description:
     heading: Policies and additional details
     content:
-      - Delivery time varies for items with status ON ORDER and notification will be sent when this item is available. <a href="https://ill.lib.umich.edu/illiad/illiad.dll?">Please make an interlibrary loan request if you need this item quickly</a>.
+      - "Delivery time varies for items with status \"In Process: ACQ.\" A notification will be sent when this item is available. <a href=\"https://ill.lib.umich.edu/illiad/illiad.dll?\">Please make an interlibrary loan request if you need this item quickly</a>."
       - Standard loan and renewal policies apply. Once checked-out, your item can be recalled by another user.
       - The Hatcher pickup desk in the North Lobby is less accessible than our other locations. We suggest you choose nearby Shapiro if you have mobility issues.
   form:
