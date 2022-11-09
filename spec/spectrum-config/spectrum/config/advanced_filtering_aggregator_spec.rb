@@ -22,7 +22,7 @@ describe Spectrum::Config::AdvancedFilteringAggregator do
                :value_has_html => true],
           Hash[:uid => "search",
                :name => "NAME",
-               :value => "author:(TestAuthor) AND title:(TestTitle)",
+               :value => "author:\"(TestAuthor)\" AND title:\"(TestTitle)\"",
                :value_has_html => true]
         ]
       ]
