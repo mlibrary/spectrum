@@ -17,8 +17,18 @@ class Spectrum::Entities::GetThisWorkOrderOption
     !in_gettable_workorder?
   end
   def in_gettable_workorder?
+    in_labeling? || in_international_studies_acquitions_techenical_services?
+  end
+
+  def in_labeling?
     ["Labeling"].include?(@data.dig("item_data","work_order_type","value"))
   end
+
+  def in_international_studies_acquitions_techenical_services?
+    ["AcqWorkOrder"].include?(@data.dig("item_data","work_order_type","value")) && 
+    ["IS-SEEES"].include?(@data.dig("item_data","location","value"))
+  end
+  
 
   class GetThisWorkOrderNotApplicable < self
     def initialize
