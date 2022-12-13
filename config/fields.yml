@@ -36,11 +36,19 @@
   viewable: false
   feedback: "This search included a contains search"
 
+- id: exact
+  query_field: any
+  query_precision: exact
+  metadata:
+    name: exact
+  viewable: false
+  feedback: "This search included an exact match search"
+
 - id: primo_keyword
   uid: keyword
   query_field: any
-  query_precision: exact
-  feedback: "This search included an exact match search"
+  query_precision: contains
+  feedback: "This search included a contains search"
   metadata:
     name: Keyword
   viewable: false
@@ -4136,9 +4144,21 @@
       href_field: href
       text_field: text
 
+- id: primo_any
+  uid: any
+  field: any
+  query_field: any
+  query_precision: contains
+  metadata:
+    name: All Fields
+    short_desc: All fields
+  viewable: false
+
 - id: primo_all_fields
   uid: all_fields
   field: any
+  query_field: any
+  query_precision: contains
   metadata:
     name: All Fields
     short_desc: All fields
