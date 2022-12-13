@@ -113,8 +113,8 @@ module Spectrum
         @metadata   = Metadata.new(args['metadata'])
         @field      = args['field'] || args['id']
         @query_field = args['query_field'] || @field
-        @query_precision = args['query_precision'] || @field
-        @query_feedback = args['query_feedback'] || @field
+        @query_precision = args['query_precision'] || 'exact'
+        @query_feedback = args['query_feedback'] || nil
         @facet_field = args['facet_field'] || @field
         @facet_query_field = args['facet_query_field'] || @facet_field
         @uid = args['uid'] || args['id']
