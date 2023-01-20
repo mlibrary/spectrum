@@ -275,6 +275,7 @@ fields:
   - z3988_rft_genre
   - z3988_sid
   - catalog_rfr_id
+  - indexing_date
 
 facets:
   - available_online
