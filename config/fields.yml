@@ -4075,6 +4075,11 @@
     full:
       type: plain
 
+- id: indexing_date
+  metadata:
+    name: Date Last Indexed
+    short_desc: Date Last Indexed
+
 - id: oclcid
   metadata:
     name: OCLC Number
