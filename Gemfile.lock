@@ -158,6 +158,8 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
+    down (5.4.0)
+      addressable (~> 2.8)
     erb (2.2.3)
       cgi
     erubis (2.7.0)
@@ -430,6 +432,7 @@ DEPENDENCIES
   blacklight-marc!
   cancan!
   dotenv-rails!
+  down!
   exception_notification!
   execjs (~> 2.7.0)!
   httpclient!

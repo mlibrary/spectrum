@@ -3,6 +3,7 @@ source 'https://rubygems.org' do
   # I'm getting deployment errors with capistrano about trying to load pry
   gem 'pry'
   gem 'lograge'
+  gem 'down'
 
   gem 'rack-reverse-proxy', require: 'rack/reverse_proxy'
 
