@@ -49,7 +49,7 @@ module Spectrum::Decorators
     ETAS_START = 'Full text available,'
 
     extend Forwardable
-    def_delegators :@work_order_option, :in_gettable_workorder?, :not_in_gettable_workorder?
+    def_delegators :@work_order_option, :in_labeling?, :in_international_studies_acquisitions_technical_services? 
 
     attr_reader :hathi_holding
     def initialize(item, hathi_holdings = [], work_order_option = Spectrum::Entities::GetThisWorkOrderOption.for(item))
@@ -138,6 +138,12 @@ module Spectrum::Decorators
     end
     def not_in_acq?
       !in_acq?
+    end
+    def not_in_labeling?
+      !in_labeling?
+    end
+    def not_in_international_studies_acquisitions_technical_services?
+      !in_international_studies_acquisitions_technical_services?
     end
     def building_use_only?
       @item.fulfillment_unit == "Limited" || @item.item_policy == '08' #08 for Special Collections is also Reading Room Only

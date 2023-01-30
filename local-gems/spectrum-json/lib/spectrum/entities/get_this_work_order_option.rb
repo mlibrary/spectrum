@@ -13,17 +13,24 @@ class Spectrum::Entities::GetThisWorkOrderOption
   def initialize(data)
     @data = data
   end
-  def not_in_gettable_workorder?
-    !in_gettable_workorder?
-  end
-  def in_gettable_workorder?
+
+  def in_labeling?
     ["Labeling"].include?(@data.dig("item_data","work_order_type","value"))
   end
+
+  def in_international_studies_acquisitions_technical_services?
+    ["AcqWorkOrder"].include?(@data.dig("item_data","work_order_type","value")) && 
+    ["IS-SEEES"].include?(@data.dig("item_data","location","value"))
+  end
+  
 
   class GetThisWorkOrderNotApplicable < self
     def initialize
     end
-    def in_gettable_workorder?
+    def in_international_studies_acquisitions_technical_services?
+      false
+    end
+    def in_labeling?
       false
     end
   end

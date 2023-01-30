@@ -8,7 +8,7 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
       solr_item:  double('BibRecord::AlmaItem', process_type: nil, item_policy: '01', barcode: 'somebarcode', fulfillment_unit: "General"),
       bib_record: instance_double(Spectrum::BibRecord)
     }
-    @get_this_work_order_double = instance_double(Spectrum::Entities::GetThisWorkOrderOption, in_gettable_workorder?: "in_gettable_workorder", not_in_gettable_workorder?: "not_in_gettable_workorder")
+    @get_this_work_order_double = instance_double(Spectrum::Entities::GetThisWorkOrderOption, in_labeling?: "in_labeling", in_international_studies_acquisitions_technical_services?: "in_international_studies_acquisitions_technical_services")
   end
   subject do
     item = Spectrum::Entities::AlmaItem.new(**@input)
@@ -17,11 +17,18 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
   context "work order methods" do
     #mrio: both of these would be booleans, but having them return strings shows
     #that the correct path through the code is being used.
-    it "responds to #in_gettable_workorder?" do
-      expect(subject.in_gettable_workorder?).to eq("in_gettable_workorder")
+    it "responds to #in_international_studies_acquisitions_technical_services?" do
+      expect(subject.in_international_studies_acquisitions_technical_services?).to eq("in_international_studies_acquisitions_technical_services")
     end
-    it "responds to #in_gettable_workorder?" do
-      expect(subject.not_in_gettable_workorder?).to eq("not_in_gettable_workorder")
+    it "responds to #not_in_international_studies_acquisitions_technical_services?" do
+      expect(subject.not_in_international_studies_acquisitions_technical_services?).to eq(false)
+    end
+    it "responds to #in_labeling?" do
+      expect(subject.in_labeling?).to eq("in_labeling")
+    end
+    
+    it "responds to #not_in_labeling?" do
+      expect(subject.not_in_labeling?).to eq(false)
     end
   end
   context "#game?" do
