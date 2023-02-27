@@ -6,7 +6,7 @@ get_this:
   - code: "FINE"
     text: "Fine Arts"
   - code: "HATCH"
-    text: "Hatcher Library (Use Shapiro for wheelchair access)"
+    text: "Hatcher Library (Use south entrance for wheelchair access)"
   - code: "MUSM"
     text: "Museums"
   - code: "MUSIC"

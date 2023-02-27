@@ -61,7 +61,8 @@
     content:
       - Standard loan and renewal policies apply. #Once checked-out, your item can be recalled by another user.
       - Can't find your book on the shelf? Request it for pickup, and we will search for it.
-      - The Hatcher pickup desk in the North Lobby is less accessible than our other locations. We suggest you choose nearby Shapiro if you have mobility issues.
+      - The Hatcher pickup desk in the North Lobby is less accessible than our other locations. Please enter by the Hatcher South entrance, or select Shapiro pickup instead, for the most accessible approach to the pickup desk.
+      - Find out more about all pickup desks and <a href="https://www.lib.umich.edu/locations-and-hours">Library locations</a>.
   form:
     type: alma_hold
     pickup_locations:
@@ -96,7 +97,8 @@
     content: 
       - Standard loan and renewal policies apply. #Once checked-out, your item can be recalled by another user.
       - Can't find your book on the shelf? Request it for pickup, and we will search for it.
-      - The Hatcher pickup desk in the North Lobby is less accessible than our other locations. We suggest you choose nearby Shapiro if you have mobility issues.
+      - The Hatcher pickup desk in the North Lobby is less accessible than our other locations. Please enter by the Hatcher South entrance, or select Shapiro pickup instead, for the most accessible approach to the pickup desk.
+      - Find out more about all pickup desks and <a href="https://www.lib.umich.edu/locations-and-hours">Library locations</a>.
   form:
     type: alma_hold
     pickup_locations:
@@ -133,7 +135,8 @@
     content:
       - Standard loan and renewal policies apply. Once checked-out, your item can be recalled by another user.
       - Can't find your book on the shelf? Request it for pickup, and we will search for it.
-      - The Hatcher pickup desk in the North Lobby is less accessible than our other locations. We suggest you choose nearby Shapiro if you have mobility issues.
+      - The Hatcher pickup desk in the North Lobby is less accessible than our other locations. Please enter by the Hatcher South entrance, or select Shapiro pickup instead, for the most accessible approach to the pickup desk.
+      - Find out more about all pickup desks and <a href="https://www.lib.umich.edu/locations-and-hours">Library locations</a>.
   form:
     type: alma_hold
     pickup_locations:
@@ -167,7 +170,8 @@
     content:
       - Delivery time varies for items with status IN A WORKORDER and notification will be sent when this item is available. <a href="https://ill.lib.umich.edu/illiad/illiad.dll?">Please make an interlibrary loan request if you need this item quickly</a>.
       - Standard loan and renewal policies apply. Once checked-out, your item can be recalled by another user.
-      - The Hatcher pickup desk in the North Lobby is less accessible than our other locations. We suggest you choose nearby Shapiro if you have mobility issues.
+      - The Hatcher pickup desk in the North Lobby is less accessible than our other locations. Please enter by the Hatcher South entrance, or select Shapiro pickup instead, for the most accessible approach to the pickup desk.
+      - Find out more about all pickup desks and <a href="https://www.lib.umich.edu/locations-and-hours">Library locations</a>.
   form:
     type: alma_hold
     pickup_locations:
@@ -199,7 +203,8 @@
     content:
       - Standard loan and renewal policies apply. #Once checked-out, your item can be recalled by another user.
       - Can't find your book on the shelf? Request it for pickup, and we will search for it.
-      - The Hatcher pickup desk in the North Lobby is less accessible than our other locations. We suggest you choose nearby Shapiro if you have mobility issues.
+      - The Hatcher pickup desk in the North Lobby is less accessible than our other locations. Please enter by the Hatcher South entrance, or select Shapiro pickup instead, for the most accessible approach to the pickup desk.
+      - Find out more about all pickup desks and <a href="https://www.lib.umich.edu/locations-and-hours">Library locations</a>.
   form:
     type: alma_hold
     pickup_locations:
@@ -228,7 +233,8 @@
     content:
       - "Delivery time varies for items with status \"In Process: ACQ.\" A notification will be sent when this item is available. <a href=\"https://ill.lib.umich.edu/illiad/illiad.dll?\">Please make an interlibrary loan request if you need this item quickly</a>."
       - Standard loan and renewal policies apply. Once checked-out, your item can be recalled by another user.
-      - The Hatcher pickup desk in the North Lobby is less accessible than our other locations. We suggest you choose nearby Shapiro if you have mobility issues.
+      - The Hatcher pickup desk in the North Lobby is less accessible than our other locations. Please enter by the Hatcher South entrance, or select Shapiro pickup instead, for the most accessible approach to the pickup desk.
+      - Find out more about all pickup desks and <a href="https://www.lib.umich.edu/locations-and-hours">Library locations</a>.
   form:
     type: alma_hold
     pickup_locations:
@@ -404,8 +410,9 @@
     heading: Policies and additional details
     content:
       - Standard loan and renewal policies apply. 
-      - The Hatcher pickup desk in the North Lobby is less accessible than our other locations. We suggest you choose nearby Shapiro if you have mobility issues.
-      - "* A new due date will be given for this item"
+      - The Hatcher pickup desk in the North Lobby is less accessible than our other locations. Please enter by the Hatcher South entrance, or select Shapiro pickup instead, for the most accessible approach to the pickup desk.
+      - Find out more about all pickup desks and <a href="https://www.lib.umich.edu/locations-and-hours">Library locations</a>.
+      - "* A new due date will be given for this item."
   form:
     type: alma_recall
     pickup_locations:
@@ -438,8 +445,9 @@
     heading: Policies and additional details
     content:
       - Standard loan and renewal policies apply. 
-      - The Hatcher pickup desk in the North Lobby is less accessible than our other locations. We suggest you choose nearby Shapiro if you have mobility issues.
-      - "* A new due date will be given for this item"
+      - The Hatcher pickup desk in the North Lobby is less accessible than our other locations. Please enter by the Hatcher South entrance, or select Shapiro pickup instead, for the most accessible approach to the pickup desk.
+      - Find out more about all pickup desks and <a href="https://www.lib.umich.edu/locations-and-hours">Library locations</a>.
+      - "* A new due date will be given for this item."
   form:
     type: alma_recall
     pickup_locations:
