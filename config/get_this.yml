@@ -123,8 +123,6 @@
       - not_building_use_only?
       - not_reservable_library?
       - not_game?
-      - not_getable_work_order?
-
 
 # Pickup (3 of 6)
 - label: Pick it up at the library
