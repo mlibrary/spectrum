@@ -24,7 +24,6 @@ aa:
     HATCH: Hatcher Graduate
     HERB: Herbarium
     HSRS: Health Sciences Remote Shelvng
-    CHES: Mark Chesler Library
     MUSM: Research Museums Center
     MUSIC: Music
     SHAP: Shapiro
@@ -45,7 +44,6 @@ all:
     HATCH: Hatcher Graduate
     HERB: Herbarium
     HSRS: Health Sciences Remote Shelvng
-    CHES: Mark Chesler Library
     MUSM: Museums
     MUSIC: Music
     SHAP: Shapiro
