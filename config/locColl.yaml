@@ -198,13 +198,10 @@ HERB:
   desc: 'Herbarium'
   collections:
     ALL: All collections
+    HERB HERB: 'Stacks'
     HERB HEBC: 'Cage - By appointment only'
     HERB HEBO: 'Oversize'
     HERB HEBR: 'Reference'
-CHES:
-  desc: 'Mark Chesler Library'
-  collections:
-    ALL: All collections
 MUSM:
   desc: 'Museums'
   collections:
@@ -301,6 +298,7 @@ SPEC:
     SPEC SCB-ASG: 'Asa Gray Collection' 
     SPEC CHIL: 'Children''s Literature' 
     SPEC FAUL: 'Faulkner Collection' 
+    SPEC RARE: 'General and Rare'
     SPEC TAUB: 'History of Medicine Collection' 
     SPEC SCB-HUB: 'Hubbard Imaginary Voyages Collection'
     SPEC SCH-ISLM: 'Islamic Manuscripts' 
@@ -310,6 +308,8 @@ SPEC:
     SPEC SCB-PARS: 'Parsons-Rau Collection' 
     SPEC WOR: 'Philippine History Collection' 
     SPEC SCB-GOSL: 'Pop-Up and Movable Books' 
+    SPEC BIND: 'Publishers'' Bindings'
+    SPEC REF: 'Reference Collection'
     SPEC SCB-SCFI: 'Science Fiction Collection' 
     SPEC SCB-SHA: 'Shakespeare Collection' 
     SPEC THC: 'Transportation History Collection' 
