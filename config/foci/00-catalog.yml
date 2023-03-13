@@ -224,6 +224,7 @@ fields:
   - bibliography
   - isbn
   - marc_issn
+  - callnumber_browse
   - oclc
   - gov_doc_no
   - publisher_number
