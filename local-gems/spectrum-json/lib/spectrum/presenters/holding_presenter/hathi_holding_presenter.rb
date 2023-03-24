@@ -1,6 +1,6 @@
 module Spectrum
   module Presenters
-    class HathiTrustHoldingPresenter < HoldingPresenter
+    class HathiHoldingPresenter < HoldingPresenter
       private
       def caption
         @holding.library
