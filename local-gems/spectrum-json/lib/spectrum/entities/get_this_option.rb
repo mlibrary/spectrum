@@ -237,7 +237,7 @@ class Spectrum::Entities::GetThisOption
           {
             "type" => "hidden",
             "name" => "CitedTitle",
-            "value" => @item&.cited_title || ""
+            "value" => @item.cited_title
           },
           {"type" => "hidden",
            "name" => "barcode",
