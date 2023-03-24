@@ -20,7 +20,7 @@ module Spectrum
               {
                 text: "Get This",
                 to: {
-                  barcode: "",
+                  barcode: "none",
                   action: "get-this",
                   record: @holding.mms_id,
                   datastore: @holding.mms_id
