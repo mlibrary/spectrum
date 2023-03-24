@@ -27,6 +27,9 @@ class Spectrum::Entities::AlmaHoldings
       .find{|i| i.barcode == barcode}
   end
 
+  # Finds the element of the @holdings array. Treats an instance of Alma
+  # Holdings as if it were an array.
+  # @param index [[Integer]] [Array element index in @holdings instance variable]
   def [](index)
     @holdings[index]
   end

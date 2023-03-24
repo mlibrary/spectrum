@@ -6,6 +6,10 @@ module Spectrum::Entities
     extend Forwardable
     def_delegators :@alma_holdings, :find_item
 
+    # Combined holdings derrived from the bib record. 
+    # @param alma_holdings [Spectrum::Entities::AlmaHoldings]
+    # @param hathi_holding [[Spectrum::Entities::HathiHolding]] 
+    # @param bib_record [[Spectrum::BibRecord]] 
     def initialize(alma_holdings:,hathi_holding:,bib_record:)
       @bib_record = bib_record
       @alma_holdings = alma_holdings
@@ -16,7 +20,7 @@ module Spectrum::Entities
       @holdings.push(OpenStruct.new(library: 'ELEC', items: @elec_holdings)) unless @elec_holdings.empty?
       @holdings.push(@hathi_holding) unless @hathi_holding.empty?
       @alma_holdings&.holdings&.each{|h| @holdings.push(h)}
-
+      @holdings.push(OpenStruct.new(library: 'EMPTY', bib_record: @bib_record) ) if @holdings.empty? 
     end
 
     def self.for(source, request)
