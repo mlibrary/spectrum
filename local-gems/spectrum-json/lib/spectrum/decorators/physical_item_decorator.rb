@@ -99,7 +99,7 @@ module Spectrum::Decorators
     end
 
     def ann_arbor?
-      @item.library != "FLINT"
+      not_flint?
     end
 
     def not_flint?

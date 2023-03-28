@@ -2,22 +2,11 @@ module Spectrum
   module Presenters
     module HoldingPresenter
       class Base
+        # Takes base holding information and returns an object with an interface
+        # for display
+        # @param holding [[Element of Spectrum::Entities::CombinedHoldings]]
         def initialize(holding)
           @holding = holding
-        end
-
-        def self.for(holding)
-          if /Hathi/.match?(holding.class.name.to_s)
-            HathiHoldingPresenter.new(holding)
-            # elsif holding.up_links || holding.down_links
-            # LinkedHoldingPresenter.for(holding)
-          elsif holding.library == "ELEC"
-            ElectronicHoldingPresenter.new(holding)
-          elsif holding.library == "EMPTY"
-            EmptyHoldingPresenter.new(holding)
-          else
-            AlmaHoldingPresenter.new(holding)
-          end
         end
 
         def to_h

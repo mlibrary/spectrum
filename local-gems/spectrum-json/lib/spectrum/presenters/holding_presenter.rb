@@ -2,7 +2,8 @@ module Spectrum
   module Presenters
     module HoldingPresenter
       def self.for(holding)
-        if /Hathi/.match?(holding.class.name.to_s)
+        if holding.library == "HathiTrust Digital Library"
+          # if /Hathi/.match?(holding.class.name.to_s)
           HathiHoldingPresenter.new(holding)
           # elsif holding.up_links || holding.down_links
           # LinkedHoldingPresenter.for(holding)
