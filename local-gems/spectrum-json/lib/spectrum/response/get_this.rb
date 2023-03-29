@@ -51,11 +51,16 @@ module Spectrum
       end
 
       def item
-        return Spectrum::AvailableOnlineHolding.new(@request.id) if @request.barcode == "available-online"
-        return Spectrum::EmptyItemHolding.new(@bib_record) if @request.barcode == "none"
-        alma_holdings = Spectrum::Entities::AlmaHoldings.for(bib_record: @bib_record)
-        item = alma_holdings.find_item(@request.barcode)
-        Spectrum::Decorators::PhysicalItemDecorator.new(item)
+        case @request.barcode
+        when "available-online"
+          Spectrum::AvailableOnlineHolding.new(@request.id)
+        when "unavailable"
+          Spectrum::EmptyItemHolding.new(@bib_record)
+        else
+          alma_holdings = Spectrum::Entities::AlmaHoldings.for(bib_record: @bib_record)
+          item = alma_holdings.find_item(@request.barcode)
+          Spectrum::Decorators::PhysicalItemDecorator.new(item)
+        end
       end
     end
   end

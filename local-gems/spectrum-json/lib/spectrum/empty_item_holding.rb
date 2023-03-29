@@ -12,8 +12,12 @@ module Spectrum
       @bib_record = bib_record
     end
 
+    def library
+      "EMPTY"
+    end
+
     def barcode
-      "None"
+      "unavailable"
     end
 
     def status

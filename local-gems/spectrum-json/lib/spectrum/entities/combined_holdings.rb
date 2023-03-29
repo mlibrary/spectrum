@@ -20,7 +20,7 @@ module Spectrum::Entities
       @holdings.push(OpenStruct.new(library: "ELEC", items: @elec_holdings)) unless @elec_holdings.empty?
       @holdings.push(@hathi_holding) unless @hathi_holding.empty?
       @alma_holdings&.holdings&.each { |h| @holdings.push(h) }
-      @holdings.push(OpenStruct.new(library: "EMPTY", mms_id: @bib_record.mms_id)) if @holdings.empty?
+      @holdings.push(Spectrum::EmptyItemHolding.new(@bib_record)) if @holdings.empty?
     end
 
     def self.for(source, request)

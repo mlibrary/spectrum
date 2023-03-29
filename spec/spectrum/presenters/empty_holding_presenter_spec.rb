@@ -1,6 +1,6 @@
 describe Spectrum::Presenters::HoldingPresenter::EmptyHoldingPresenter do
   subject do
-    described_class.new(double(library: "EMPTY", mms_id: "MMS_ID"))
+    described_class.new(Spectrum::EmptyItemHolding.new(instance_double(Spectrum::BibRecord, mms_id: "MMS_ID")))
   end
   context "#type" do
     it "returns 'physical'" do
@@ -25,7 +25,7 @@ describe Spectrum::Presenters::HoldingPresenter::EmptyHoldingPresenter do
             {
               text: "Get This",
               to: {
-                barcode: "none",
+                barcode: "unavailable",
                 action: "get-this",
                 record: "MMS_ID",
                 datastore: "MMS_ID"

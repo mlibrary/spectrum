@@ -20,7 +20,7 @@ module Spectrum
               {
                 text: "Get This",
                 to: {
-                  barcode: "none",
+                  barcode: @holding.barcode,
                   action: "get-this",
                   record: @holding.mms_id,
                   datastore: @holding.mms_id
@@ -29,12 +29,7 @@ module Spectrum
               {
                 text: "Use Get This to request through Interlibrary Loan"
               },
-              {
-                text: "In Process",
-                intent: "warning",
-                icon: "warning"
-              }
-
+              Spectrum::Holding::PhysicalItemStatus::Warning.new(@holding.status).to_h
             ]
           ]
         end

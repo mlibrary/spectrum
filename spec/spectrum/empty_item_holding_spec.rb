@@ -7,7 +7,7 @@ describe Spectrum::EmptyItemHolding do
   end
   context "barcode" do
     it "returns \"None\"" do
-      expect(subject.barcode).to eq("None")
+      expect(subject.barcode).to eq("unavailable")
     end
   end
   context "#status" do
