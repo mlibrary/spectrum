@@ -194,14 +194,6 @@ HSRS:
     HSRS OVR: 'Oversize'
     HSRS IND: 'Indexes'
     HSRS STOR: ''
-HERB:
-  desc: 'Herbarium'
-  collections:
-    ALL: All collections
-    HERB HERB: 'Stacks'
-    HERB HEBC: 'Cage - By appointment only'
-    HERB HEBO: 'Oversize'
-    HERB HEBR: 'Reference'
 MUSM:
   desc: 'Museums'
   collections:
@@ -216,6 +208,10 @@ MUSM:
     MUSM FIS: 'Fish Division Library'
     MUSM HEPO: 'Herpetology Div. Lib. - Oversize'
     MUSM HEP: 'Herpetology Division Library'
+    MUSM HERB: 'Herbarium Stacks'
+    MUSM HEBC: 'Herbarium Cage - By appointment only'
+    MUSM HEBO: 'Herbarium Oversize'
+    MUSM HEBR: 'Herbarium Reference'
     MUSM INST: 'Insect Div. Lib. - Orthoptera'
     MUSM INSO: 'Insect Div. Lib. - Oversize'
     MUSM INS: 'Insect Division Library'
