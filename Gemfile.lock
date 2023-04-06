@@ -349,6 +349,7 @@ GEM
       kwalify (~> 0.7.0)
       parser (~> 3.0.0)
       rainbow (>= 2.0, < 4.0)
+    regexp_parser (2.7.0)
     request_store (1.5.0)
       rack (>= 1.4)
     require_all (3.0.0)
@@ -376,6 +377,20 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.3)
+    rubocop (1.24.1)
+      parallel (~> 1.10)
+      parser (>= 3.0.0.0)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml
+      rubocop-ast (>= 1.15.1, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 3.0)
+    rubocop-ast (1.15.2)
+      parser (>= 3.0.1.1)
+    rubocop-performance (1.13.1)
+      rubocop (>= 1.7.0, < 2.0)
+      rubocop-ast (>= 0.4.0)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
     ruby_parser (3.18.0)
@@ -402,6 +417,9 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    standard (1.6.0)
+      rubocop (= 1.24.1)
+      rubocop-performance (= 1.13.1)
     stringex (2.8.5)
     summon (2.0.5)
       json
@@ -417,6 +435,7 @@ GEM
       unf_ext
     unf_ext (0.0.8)
     unicode (0.4.4.4)
+    unicode-display_width (2.4.2)
     webmock (3.14.0)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
@@ -461,6 +480,7 @@ DEPENDENCIES
   skylight!
   spectrum-config!
   spectrum-json!
+  standard!
   stringex!
   summon!
   twilio-ruby!

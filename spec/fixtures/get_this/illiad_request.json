@@ -19,7 +19,7 @@
         {
             "name": "rft_dat",
             "type": "hidden",
-            "value": "ACCESSION NUMBER"
+            "value": "OCLC"
         },
         {
             "name": "isbn",
@@ -75,6 +75,11 @@
             "name": "aleph_item_status",
             "type": "hidden",
             "value": ""
+        },
+        {
+            "name": "CitedTitle",
+            "type": "hidden",
+            "value": "CITED_TITLE"
         },
         {
             "name": "barcode",

@@ -17,7 +17,7 @@
   url: <%= ENV['SPECTRUM_WEBSITE_SOLR_URL'] %>
   truncate: true
   driver: RSolr
-  link_type: :rebase
+  link_type: rebase
   link_base: https://www.lib.umich.edu
   link_key: path_alias
 - id: summon
