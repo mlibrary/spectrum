@@ -49,6 +49,7 @@ namespace 'assets' do
         dest_file = 'public' + '/photos' + url_parsed.path
         FileUtils.mkdir_p(File.dirname(dest_file))
         Down.download(url_string, destination: dest_file)
+        FileUtils.chmod('ug=rw,o=r', dest_file)
       end
       puts "Finished downloading profile photos"
     end
