@@ -47,7 +47,7 @@ namespace 'assets' do
           next unless url_string
           next if url_string.empty?
           url_parsed = URI(url_string)
-          dest_file = 'public' + '/photos' + url_parsed.path
+          dest_file = CGI.unescape('public' + '/photos' + url_parsed.path)
           FileUtils.mkdir_p(File.dirname(dest_file))
           Down.download(url_string, destination: dest_file)
         end
