@@ -40,18 +40,20 @@ namespace 'assets' do
   namespace 'precompile' do
     desc "Download profile photos"
     task :profile_photos do
-      puts "Downloading profile photos ..."
-      HTTParty.get('https://cms.lib.umich.edu/api/solr/staff').parsed_response.each do |profile|
-        url_string = profile.dig('field_user_photo_display', 0, 'url')
-        next unless url_string
-        next if url_string.empty?
-        url_parsed = URI(url_string)
-        dest_file = CGI.unescape('public' + '/photos' + url_parsed.path)
-        FileUtils.mkdir_p(File.dirname(dest_file))
-        Down.download(url_string, destination: dest_file)
-        FileUtils.chmod('ug=rw,o=r', dest_file)
+      if ENV.fetch('SPECTRUM_BUILDS_SEARCH', false)
+        puts "Downloading profile photos ..."
+        HTTParty.get('https://cms.lib.umich.edu/api/solr/staff').parsed_response.each do |profile|
+          url_string = profile.dig('field_user_photo_display', 0, 'url')
+          next unless url_string
+          next if url_string.empty?
+          url_parsed = URI(url_string)
+          dest_file = CGI.unescape('public' + '/photos' + url_parsed.path)
+          FileUtils.mkdir_p(File.dirname(dest_file))
+          Down.download(url_string, destination: dest_file)
+          FileUtils.chmod('ug=rw,o=r', dest_file)
+        end
+        puts "Finished downloading profile photos"
       end
-      puts "Finished downloading profile photos"
     end
 
     desc "Build Search Front End"
@@ -82,7 +84,8 @@ namespace 'assets' do
     end
   end
 end
-task :"assets:precompile" => [:"assets:precompile:search", :"assets:precompile:profile_photos"]
+task :"assets:precompile" => [:"assets:precompile:search"]
+Rake::Task['assets:precompile:search'].enhance ['assets:precompile:profile_photos']
 
 
 # Doing this lets us test by just typing "rake", but that also means
