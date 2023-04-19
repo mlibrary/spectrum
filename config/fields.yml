@@ -4064,6 +4064,9 @@
   facet:
     expanded: true
     transform: date_range
+  ris:
+    - DA
+    - PY
   metadata:
     name: Date
     short_desc: Date
