@@ -2476,6 +2476,25 @@
     fields:
       - tag: "520"
         sub: '[abc3]'
+        ind1: '[^4]'
+  metadata_component:
+    full:
+      type: plain
+
+- id: content_advice
+  ris:
+    - N2
+  metadata:
+    name: Content advice
+    short_desc: Content advice
+  type: marcxml
+  has_html: true
+  field: fullrecord
+  marc:
+    fields:
+      - tag: "520"
+        sub: '[abc3]'
+        ind1: '4'
   metadata_component:
     full:
       type: plain

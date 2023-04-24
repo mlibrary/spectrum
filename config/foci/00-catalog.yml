@@ -218,6 +218,7 @@ fields:
   - playing_time
   - media_format
   - audience
+  - content_advice
   - awards
   - production_credits
   - bibliography
