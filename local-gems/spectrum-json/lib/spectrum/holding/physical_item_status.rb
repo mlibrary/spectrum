@@ -5,7 +5,7 @@ module Spectrum
       def initialize(text)
         @text = text
       end
-      ['intent', 'icon'].each do |name|
+      ["intent", "icon"].each do |name|
         define_method(name) {}
       end
       def to_h
@@ -15,51 +15,59 @@ module Spectrum
           icon: icon
         }
       end
+
       def self.for(item)
         return Success.new("Reading Room use only") if item.can_reserve?
+        workflow_status_label = ::Spectrum::Entities::AlmaWorkflowStatusLabels.value(item.process_type)
         case item.process_type
         when nil
           if item.in_unavailable_temporary_location?
-            Error.new('Unavailable')
+            Error.new("Unavailable")
           else
             Success.new(Text::AvailableText.for(item).to_s)
           end
-        when 'LOAN'
-          return Warning.new(Text::CheckedOutText.new(item).to_s) 
-        when 'MISSING'
-          Error.new('Missing')
-        when 'ILL'
-          Error.new('Unavailable - Ask at ILL')
-
+        when "LOAN"
+          Warning.new(Text::CheckedOutText.new(item).to_s)
+        when "MISSING"
+          Error.new(workflow_status_label)
+        when "ILL"
+          Error.new(workflow_status_label)
         else
-          Warning.new("In Process: #{item.process_type}")
+          Warning.new(workflow_status_label)
         end
       end
+
       class Success < self
         def intent
-          'success'
+          "success"
         end
+
         def icon
-          'check_circle'
+          "check_circle"
         end
+
         def base_text
           "On shelf"
         end
       end
+
       class Warning < self
         def intent
-          'warning'
+          "warning"
         end
+
         def icon
-          'warning'
+          "warning"
         end
       end
+
       class Error < self
         def intent
-          'error'
+          "error"
         end
+
         def icon
-          'error'
+          "error"
         end
       end
     end

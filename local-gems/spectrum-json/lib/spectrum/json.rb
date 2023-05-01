@@ -24,6 +24,7 @@ require "spectrum/entities/get_this_work_order_option"
 require "spectrum/entities/get_this_options"
 require "spectrum/entities/get_this_option"
 require "spectrum/entities/location_labels"
+require "spectrum/entities/alma_workflow_status_labels"
 
 require "spectrum/decorators/physical_item_decorator"
 

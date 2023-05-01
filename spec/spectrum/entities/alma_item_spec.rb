@@ -43,6 +43,7 @@ describe Spectrum::Entities::AlmaItem do
     expect(subject.description).to eq(nil)
   end
   it "returns a process type" do
+    @solr_bib_alma.gsub!('\"process_type\":null', '\"process_type\":\"LOAN\"')
     expect(subject.process_type).to eq("LOAN")
   end
   it "calculates etas" do
@@ -119,8 +120,15 @@ describe Spectrum::Entities::AlmaItem do
   context "item is lost" do
     it "returns lost process type if item is lost" do
       @alma_loan["process_status"] = "LOST"
-      @solr_bib_alma.gsub!('\"process_type\":null', '\"process_type\":\"LOST_LOAN\"')
-      expect(subject.process_type).to eq("LOST_LOAN")
+      @solr_bib_alma.gsub!('\"process_type\":null', '\"process_type\":\"LOST\"')
+      expect(subject.process_type).to eq("LOST")
+    end
+  end
+  context "item is claimed returned" do
+    it "returns lost process type if item is lost" do
+      @alma_loan["process_status"] = "CLAIMED_RETURN"
+      @solr_bib_alma.gsub!('\"process_type\":null', '\"process_type\":\"CLAIM_RETURNED_LOAN\"')
+      expect(subject.process_type).to eq("CLAIM_RETURNED_LOAN")
     end
   end
 end
