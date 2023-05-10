@@ -1232,8 +1232,8 @@
 
 - id: callnumber_browse
   metadata:
-    name: Call Numbers
-    short_desc: Call numbers
+    name: Call Number
+    short_desc: Call Number
   metadata_component:
     full:
       type: browse
