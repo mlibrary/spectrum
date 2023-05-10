@@ -1,7 +1,7 @@
 class Spectrum::Entities::AlmaWorkflowStatusLabels
   class << self
     def configure(labels)
-      @labels = JSON.load_file(labels)
+      @labels = JSON.parse(File.read(labels))
     end
 
     def value(code)
