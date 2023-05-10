@@ -25,7 +25,7 @@ class Spectrum::Entities::AlmaItem
   end
 
   def process_type
-    if !@alma_loan.nil? && !["LOST", "OVERDUE_LOST", "LOST_AND_PAID", "LOST_NO_FEE"].include?(@alma_loan["process_status"])
+    if !@alma_loan.nil? && @solr_item.process_type == "LOAN"
       "LOAN"
     elsif @solr_item.process_type == "LOAN"
       # if Solr still says there's a loan, but alma doesn't have a loan for the item

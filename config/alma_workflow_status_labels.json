@@ -1,0 +1,14 @@
+{
+  "ACQ": "On order: Use Get This to place a request",
+  "CLAIM_RETURNED_LOAN": "Item unavailable: Last user claims it was returned",
+  "HOLDSHELF": "On hold shelf",
+  "ILL": "Checked out: Use Get This to request I.L.L.",
+  "LOST_ILL": "Item unavailable: Lost",
+  "LOST_LOAN": "Item unavailable: Lost",
+  "LOST_LOAN_AND_PAID": "Item unavailable: Lost",
+  "MISSING": "Item unavailable: Missing",
+  "TECHNICAL": "Item unavailable: In process",
+  "TRANSIT": "Item in transit between U-M libraries",
+  "TRANSIT_TO_REMOTE_STORAGE": "Item in transit between U-M libraries",
+  "WORK_ORDER_DEPARTMENT": "In Process: Use Get This to request a copy"
+}
