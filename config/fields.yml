@@ -1230,6 +1230,15 @@
   searchable: true
   sortable: false
 
+- id: callnumber_browse
+  metadata:
+    name: Call Number
+    short_desc: Call Number
+  metadata_component:
+    full:
+      type: browse
+      variant: callnumber
+
 - id: building
   metadata:
     name: Location
