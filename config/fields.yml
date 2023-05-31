@@ -4276,8 +4276,8 @@
     - "false"
     - 1
   mapping:
-    "true": "pcAvailability=true"
-    "false": "pcAvailability=false"
+    "false": "pcAvailability=true"
+    "true": "pcAvailability=false"
 
 - id: preferred_citation
   metadata:
