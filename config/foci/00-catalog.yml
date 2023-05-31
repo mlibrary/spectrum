@@ -134,6 +134,10 @@ search_fields:
     pf: callnosearch sudoc
     qf: callnosearch sudoc
 
+  lc_subject_starts_with:
+    pf: subject_browse_leftanchored
+    qf: subject_browse_leftanchored
+
 
 
 # Note that solr_params will _not_ work if they reference '$q' or whatnot, since
