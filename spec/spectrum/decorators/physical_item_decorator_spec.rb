@@ -374,9 +374,28 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
   end
   context "#closed_stacks?" do
     it "is true if the fulfillment_unit is 'Closed Stacks'" do
+      allow(@input[:solr_item]).to receive(:location_type).and_return("OPEN")
       allow(@input[:solr_item]).to receive(:fulfillment_unit).and_return("Closed Stacks")
       allow(@input[:holding]).to receive(:display_name).and_return("DISPLAY_NAME")
       expect(subject.closed_stacks?).to eq(true)
+    end
+    it "is true if the location type is closed but the fulfillment unit is limited" do
+      allow(@input[:solr_item]).to receive(:location_type).and_return("CLOSED")
+      allow(@input[:solr_item]).to receive(:fulfillment_unit).and_return("Limited")
+      allow(@input[:holding]).to receive(:display_name).and_return("DISPLAY_NAME")
+      expect(subject.closed_stacks?).to eq(true)
+    end
+    it "is false if the location type is OPEN and the fulfillment unit is Limited" do
+      allow(@input[:solr_item]).to receive(:location_type).and_return("OPEN")
+      allow(@input[:solr_item]).to receive(:fulfillment_unit).and_return("Limited")
+      allow(@input[:holding]).to receive(:display_name).and_return("DISPLAY_NAME")
+      expect(subject.closed_stacks?).to eq(false)
+    end
+    it "is false if location type is nil and fulfillment unit is Limited" do
+      allow(@input[:solr_item]).to receive(:location_type).and_return(nil)
+      allow(@input[:solr_item]).to receive(:fulfillment_unit).and_return("Limited")
+      allow(@input[:holding]).to receive(:display_name).and_return("DISPLAY_NAME")
+      expect(subject.closed_stacks?).to eq(false)
     end
   end
   context "#recallable?" do

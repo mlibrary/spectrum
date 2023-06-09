@@ -196,7 +196,7 @@ module Spectrum::Decorators
     end
 
     def closed_stacks?
-      @item.fulfillment_unit == "Closed Stacks"
+      ["CLOSED", "NOT_LIB", "REMOTE", "UNAVAIL"].include?(@item.location_type) || @item.fulfillment_unit == "Closed Stacks"
     end
 
     def open_stacks?

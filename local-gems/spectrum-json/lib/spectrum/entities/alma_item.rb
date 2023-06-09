@@ -11,7 +11,7 @@ class Spectrum::Entities::AlmaItem
   def_delegators :@solr_item, :callnumber, :temp_location?, :barcode, :library,
     :location, :permanent_library, :permanent_location, :description, :item_policy,
     :process_type, :inventory_number, :can_reserve?, :item_id, :record_has_finding_aid,
-    :item_location_text, :item_location_link, :fulfillment_unit
+    :item_location_text, :item_location_link, :fulfillment_unit, :location_type
 
   def initialize(holding:, solr_item:, bib_record:, alma_loan: nil)
     @holding = holding # AlmaHolding
