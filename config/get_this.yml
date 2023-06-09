@@ -85,7 +85,6 @@
       - can_request?
       - not_short_loan?
       - not_building_use_only?
-      - not_reservable_library?
       - not_game?
 
 # Pickup (2 of 6)
@@ -121,7 +120,6 @@
       - can_request?
       - not_short_loan?
       - not_building_use_only?
-      - not_reservable_library?
       - not_game?
 
 # Pickup (3 of 6)
@@ -157,7 +155,6 @@
       - can_request?
       - not_short_loan?
       - not_building_use_only?
-      - not_reservable_library?
 
 # Pickup (4 of 6) WORK_ORDER_DEPARTMENT Labeling
 - label: Pick it up at the library
@@ -189,7 +186,6 @@
       - in_labeling?
       - can_request?
       - not_building_use_only?
-      - not_reservable_library?
       - not_game?
 
 # Pickup (5 of 6) WORK_ORDER_DEPARTMENT AcqTechServices for ISEEES
@@ -253,7 +249,6 @@
       - can_request?
       - not_short_loan?
       - not_building_use_only?
-      - not_reservable_library?
       - not_game?
 
 # Departmental Delivery (1 of 2)
