@@ -39,6 +39,7 @@ class Spectrum::Entities::AlmaItem
     @alma_loan&.dig("due_date")
   end
 
+  # Library and Location name
   def library_display_name
     @holding.display_name
   end

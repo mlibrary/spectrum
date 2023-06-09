@@ -197,7 +197,7 @@ module Spectrum::Decorators
 
     # Deprecated.  I think the semantics people care about now is open/closed stacks.
     def off_site?
-      @item.library_display_name.start_with?("Offsite", "- Offsite")
+      @item.library_display_name.start_with?("Offsite", "- Offsite") || @item.fulfillment_unit == "Closed Stacks"
     end
 
     # Deprecated.  I think the semantics people care about now is open/closed stacks.
@@ -206,7 +206,7 @@ module Spectrum::Decorators
     end
 
     def closed_stacks?
-      @item.library_display_name.start_with?("Offsite", "- Offsite", "Buhr")
+      @item.fulfillment_unit == "Closed Stacks"
     end
 
     def open_stacks?
