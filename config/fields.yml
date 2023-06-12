@@ -1237,6 +1237,7 @@
   metadata_component:
     full:
       type: browse
+      text: Browse in call number list
       variant: callnumber
 
 - id: building
@@ -2252,11 +2253,14 @@
       text_field: display
       value_field: search
     full:
-      type: quoted_search2
-      variant: fielded
-      scope: author
+      type: search_browse
+      search_variant: fielded
+      search_scope: author
       text_field: display
       value_field: search
+      quoted_search: true
+      browse_variant: author
+      browse_text: Browse in author list
 
 - id: contributors
   metadata:
@@ -2309,11 +2313,19 @@
       text_field: display
       value_field: search
     full:
-      type: search2
-      variant: filtered
-      scope: author
+      type: search_browse
+      search_variant: fielded
+      search_scope: author
       text_field: display
       value_field: search
+      quoted_search: true
+      browse_variant: author
+      browse_text: Browse in author list
+#      type: search2
+#      variant: filtered
+#      scope: author
+#      text_field: display
+#      value_field: search
 
 - id: ris_contributors
   z3988:
@@ -3505,11 +3517,14 @@
         join: ' '
   metadata_component:
     full:
-      type: quoted_search2
-      variant: fielded
-      scope: subject
+      type: search_browse
+      search_variant: fielded
+      search_scope: subject
       text_field: display
       value_field: search
+      quoted_search: true
+      browse_text: Browse in subject list
+      browse_variant: subject
 
 - id: other_subjects
   ris:
