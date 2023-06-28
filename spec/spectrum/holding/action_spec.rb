@@ -4,7 +4,7 @@ require_relative "../../rails_helper"
 
 describe Spectrum::Holding::Action, ".for" do
   before(:each) do
-    @item = instance_double(Spectrum::Entities::AlmaItem, :item_policy => "01", :library => "SHAP", :location => "NONE", "etas?" => false, :process_type => nil, :can_reserve? => false, :record_has_finding_aid => false, :fullrecord => {}, :barcode => "somebarcode")
+    @item = instance_double(Spectrum::Entities::AlmaItem, :item_policy => "01", :library => "SHAP", :location => "NONE", "etas?" => false, :process_type => nil, :can_reserve? => false, :record_has_finding_aid => false, :fullrecord => {}, :barcode => "somebarcode", :in_game? => false)
   end
   subject do
     described_class.for(@item)

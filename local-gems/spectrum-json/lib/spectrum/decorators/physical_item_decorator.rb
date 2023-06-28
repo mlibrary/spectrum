@@ -63,7 +63,7 @@ module Spectrum::Decorators
     #      are only "Find it in the Library"; Media Fullfillment Unit is
     #      pretty inconsistent so we can't use that
     def game?
-      @item.library == "SHAP" && @item.location == "GAME"
+      in_game?
     end
 
     def not_game?

@@ -62,6 +62,20 @@ describe Spectrum::Entities::AlmaItem do
     expect(subject.can_reserve?).to eq(false)
   end
 
+  # mrio: 2022-09 per request from Dave in CVGA that items in SHAP Game
+  #      are only "Find it in the Library"; Media Fullfillment Unit is
+  #      pretty inconsistent so we can't use that
+  context "#in_game?" do
+    it "is true when in SHAP GAME" do
+      @solr_bib_alma.gsub!('\"library\":\"HATCH\"', '\"library\":\"SHAP\"')
+      @solr_bib_alma.gsub!('\"permanent_location\":\"GRAD\"', '\"location\":\"GAME\"')
+      expect(subject.in_game?).to eq(true)
+    end
+    it "is not true when not in SHAP GAME" do
+      expect(subject.in_game?).to eq(false)
+    end
+  end
+
   it "has #record_has_finding_aid" do
     expect(subject.record_has_finding_aid).to eq(false)
   end

@@ -19,6 +19,7 @@ module Spectrum
       def self.for(item)
         return Success.new("Reading Room use only") if item.can_reserve?
         workflow_status_label = ::Spectrum::Entities::AlmaWorkflowStatusLabels.value(item.process_type)
+        return Error.new("Unavailable") if item.process_type == "WORK_ORDER_DEPARTMENT" && item.in_game?
         case item.process_type
         when nil
           if item.in_unavailable_temporary_location?

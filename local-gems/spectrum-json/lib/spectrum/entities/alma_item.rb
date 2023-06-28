@@ -51,6 +51,10 @@ class Spectrum::Entities::AlmaItem
     !in_reserves?
   end
 
+  def in_game?
+    @solr_item.library == "SHAP" && @solr_item.location == "GAME"
+  end
+
   def in_unavailable_temporary_location?
     @solr_item.temp_location? && ["FVL LRC"].include?("#{@solr_item.library} #{@solr_item.location}")
   end

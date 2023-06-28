@@ -3,7 +3,7 @@ module Spectrum
     class NoAction < Action
       def self.match?(item)
         return true if item.barcode.nil?
-        return true if item.library == "SHAP" && item.location == "GAME" && item.process_type == "WORK_ORDER_DEPARTMENT"
+        return true if item.in_game? && item.process_type == "WORK_ORDER_DEPARTMENT"
         case item.item_policy
         when "05"
           true if item.library == "AAEL"
