@@ -3,6 +3,7 @@ module Spectrum
     class NoAction < Action
       def self.match?(item)
         return true if item.barcode.nil?
+        return true if item.library == "SHAP" && item.location == "GAME" && item.process_type == "WORK_ORDER_DEPARTMENT"
         case item.item_policy
         when "05"
           true if item.library == "AAEL"
@@ -12,11 +13,13 @@ module Spectrum
           false
         end
       end
+
       def self.label
-        'N/A'
+        "N/A"
       end
+
       def finalize
-        { text: label }
+        {text: label}
       end
     end
   end

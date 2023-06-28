@@ -291,6 +291,7 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
   context "#can_request?" do
     it "is true if it would get a 'Get This' link" do
       allow(@input[:solr_item]).to receive(:library).and_return("SHAP")
+      allow(@input[:solr_item]).to receive(:location).and_return("NONE")
       allow(@input[:solr_item]).to receive(:item_policy).and_return("01")
       allow(@input[:solr_item]).to receive(:process_type).and_return(nil)
       allow(@input[:solr_item]).to receive(:can_reserve?).and_return(false)
