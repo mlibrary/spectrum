@@ -334,8 +334,6 @@
       - can_ill?
     holding:
       - etas?
-    bib:
-      - can_scan?
   form:
     method: get
     action: "https://ill.lib.umich.edu/illiad/illiad.dll"
@@ -418,8 +416,6 @@
       - not_missing?
       - not_etas?
       - not_in_acq?
-    bib:
-      - can_scan?
   form:
     method: get
     action: "https://ill.lib.umich.edu/illiad/illiad.dll"
@@ -498,8 +494,6 @@
       - not_etas?
       - reopened?
       - in_acq?
-    bib:
-      - can_scan?
   form:
     method: get
     action: "https://ill.lib.umich.edu/illiad/illiad.dll"
@@ -577,8 +571,6 @@
     holding:
       - not_etas?
       - flint?
-    bib:
-      - can_scan?
   form:
     method: get
     action: "https://ill.lib.umich.edu/illiad/illiad.dll"
