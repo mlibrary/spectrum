@@ -11,7 +11,7 @@ describe Spectrum::Holding::PhysicalItemStatus do
   context "Not loaned out; no process" do
     context "Policy: Loan 1" do
       before(:each) do
-        allow(@alma_item).to receive(:item_policy).and_return("01")
+        allow(@solr_item).to receive(:item_policy).and_return("01")
       end
       it "returns success status non-temporarily-moved-item item" do
         #        allow(@alma_item).to receive(:requested?).and_return(false)
@@ -126,9 +126,23 @@ describe Spectrum::Holding::PhysicalItemStatus do
     end
     context "Holdshelf" do
       it "returns a warning and the status label from config" do
-        allow(@alma_item).to receive(:process_type).and_return("HOLDSHELF")
+        allow(@solr_item).to receive(:process_type).and_return("HOLDSHELF")
         expect(subject.class.to_s).to include("Warning")
         expect(subject.text).to eq("On hold shelf")
+      end
+    end
+    context "Work order department" do
+      it "returns unavailable if in shap game" do
+        allow(@solr_item).to receive(:process_type).and_return("WORK_ORDER_DEPARTMENT")
+        allow(@solr_item).to receive(:library).and_return("SHAP")
+        allow(@solr_item).to receive(:location).and_return("GAME")
+        expect(subject.class.to_s).to include("Error")
+        expect(subject.text).to eq("Unavailable")
+      end
+      it "returns warning and status label from config" do
+        allow(@solr_item).to receive(:process_type).and_return("WORK_ORDER_DEPARTMENT")
+        expect(subject.class.to_s).to include("Warning")
+        expect(subject.text).to eq("In Process: Use Get This to request a copy")
       end
     end
   end
