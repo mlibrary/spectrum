@@ -87,7 +87,7 @@ describe Spectrum::BibRecord do
       ["library", "location", "description", "public_note", "barcode",
         "item_policy", "process_type", "permanent_location", "permanent_library",
         "id", "temp_location?", "callnumber", "inventory_number", "item_id",
-        "fulfillment_unit", "record_has_finding_aid"].each do |method|
+        "fulfillment_unit", "location_type", "record_has_finding_aid"].each do |method|
         context "##{method}" do
           it "respond_to? #{method}" do
             expect(alma_item.respond_to?(method)).to be(true)

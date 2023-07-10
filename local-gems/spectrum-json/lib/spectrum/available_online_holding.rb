@@ -14,20 +14,19 @@ module Spectrum
     # Things that respond with Available Online
     [:location, :status].each do |name|
       define_method(name) do
-        'Available Online'
+        "Available Online"
       end
     end
-
 
     # Things that respond with the empty string
     [:callnumber, :notes, :issue, :full_item_key].each do |name|
       define_method(name) do
-        ''
+        ""
       end
     end
 
     # Things that respond with true
-    [:off_site?, :circulating?, :can_request?, :mobile?, :off_shelf?].each do |name|
+    [:closed_stacks?, :circulating?, :can_request?, :mobile?, :off_shelf?].each do |name|
       define_method(name) do
         true
       end
@@ -35,11 +34,11 @@ module Spectrum
 
     # Things that respond with false
     [:can_book?, :can_reserve?, :circulating?, :on_shelf?,
-     :building_use_only?, :missing?, :known_off_shelf?,
-     :on_site?, :checked_out?, :reopened?].each do |name|
-       define_method(name) do
-         false
-       end
+      :building_use_only?, :missing?, :known_off_shelf?,
+      :open_stacks?, :checked_out?, :reopened?].each do |name|
+      define_method(name) do
+        false
+      end
     end
   end
 end

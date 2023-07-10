@@ -29,7 +29,7 @@ describe Spectrum::EmptyItemHolding do
       end
     end
   end
-  [:off_site?, :can_request?, :mobile?, :off_shelf?, :ann_arbor?,
+  [:closed_stacks?, :can_request?, :mobile?, :off_shelf?, :ann_arbor?,
     :not_on_shelf?, :not_reservable_library?].each do |method|
     context "##{method}" do
       it "returns true" do
@@ -38,7 +38,7 @@ describe Spectrum::EmptyItemHolding do
     end
   end
   [:can_book?, :can_reserve?, :circulating?, :on_shelf?, :building_use_only?,
-    :missing?, :known_off_shelf?, :on_site?, :checked_out?, :reopened?,
+    :missing?, :known_off_shelf?, :checked_out?, :reopened?,
     :open_stacks?, :flint?, :in_labeling?, :in_acq?, :reservable_library?,
     :in_international_studies_acquisitions_technical_services?,
     :recallable?].each do |method|
