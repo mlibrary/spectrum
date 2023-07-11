@@ -36,7 +36,7 @@ module Spectrum
     end
 
     # Things that respond with true
-    [:off_site?, :can_request?, :mobile?, :off_shelf?,
+    [:closed_stacks?, :can_request?, :mobile?, :off_shelf?,
       :ann_arbor?, :not_on_shelf?, :not_reservable_library?].each do |name|
       define_method(name) do
         true
@@ -45,8 +45,8 @@ module Spectrum
 
     # Things that respond with false
     [:can_book?, :can_reserve?, :circulating?, :on_shelf?, :building_use_only?,
-      :missing?, :known_off_shelf?, :on_site?, :checked_out?, :reopened?,
-      :open_stacks?, :flint?, :in_labeling?, :in_acq?, :reservable_library?,
+      :missing?, :known_off_shelf?, :open_stacks?, :checked_out?, :reopened?,
+      :flint?, :in_labeling?, :in_acq?, :reservable_library?,
       :in_international_studies_acquisitions_technical_services?,
       :recallable?].each do |name|
       define_method(name) do
