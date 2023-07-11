@@ -52,6 +52,9 @@ describe Spectrum::Entities::AlmaItem do
   it "has fulfillment_unit" do
     expect(subject.fulfillment_unit).to eq("General")
   end
+  it "has a location_type" do
+    expect(subject.location_type).to eq(nil)
+  end
   it "has a due_date" do
     expect(subject.due_date).to eq("2021-10-01T03:59:00Z")
   end

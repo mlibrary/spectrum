@@ -195,18 +195,8 @@ module Spectrum::Decorators
       !not_on_shelf?
     end
 
-    # Deprecated.  I think the semantics people care about now is open/closed stacks.
-    def off_site?
-      @item.library_display_name.start_with?("Offsite", "- Offsite")
-    end
-
-    # Deprecated.  I think the semantics people care about now is open/closed stacks.
-    def on_site?
-      !off_site?
-    end
-
     def closed_stacks?
-      @item.library_display_name.start_with?("Offsite", "- Offsite", "Buhr")
+      ["CLOSED", "NOT_LIB", "REMOTE", "UNAVAIL"].include?(@item.location_type) || @item.fulfillment_unit == "Closed Stacks"
     end
 
     def open_stacks?

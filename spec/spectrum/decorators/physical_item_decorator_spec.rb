@@ -372,6 +372,32 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
       expect(subject.not_in_acq?).to eq(false)
     end
   end
+  context "#closed_stacks?" do
+    it "is true if the fulfillment_unit is 'Closed Stacks'" do
+      allow(@input[:solr_item]).to receive(:location_type).and_return("OPEN")
+      allow(@input[:solr_item]).to receive(:fulfillment_unit).and_return("Closed Stacks")
+      allow(@input[:holding]).to receive(:display_name).and_return("DISPLAY_NAME")
+      expect(subject.closed_stacks?).to eq(true)
+    end
+    it "is true if the location type is closed but the fulfillment unit is limited" do
+      allow(@input[:solr_item]).to receive(:location_type).and_return("CLOSED")
+      allow(@input[:solr_item]).to receive(:fulfillment_unit).and_return("Limited")
+      allow(@input[:holding]).to receive(:display_name).and_return("DISPLAY_NAME")
+      expect(subject.closed_stacks?).to eq(true)
+    end
+    it "is false if the location type is OPEN and the fulfillment unit is Limited" do
+      allow(@input[:solr_item]).to receive(:location_type).and_return("OPEN")
+      allow(@input[:solr_item]).to receive(:fulfillment_unit).and_return("Limited")
+      allow(@input[:holding]).to receive(:display_name).and_return("DISPLAY_NAME")
+      expect(subject.closed_stacks?).to eq(false)
+    end
+    it "is false if location type is nil and fulfillment unit is Limited" do
+      allow(@input[:solr_item]).to receive(:location_type).and_return(nil)
+      allow(@input[:solr_item]).to receive(:fulfillment_unit).and_return("Limited")
+      allow(@input[:holding]).to receive(:display_name).and_return("DISPLAY_NAME")
+      expect(subject.closed_stacks?).to eq(false)
+    end
+  end
   context "#recallable?" do
     it "is true for non reserve item,  that's on loan" do
       allow(@input[:solr_item]).to receive(:process_type).and_return("LOAN")
@@ -380,12 +406,12 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
       @input[:alma_loan] = "not_nil"
       expect(subject.recallable?).to eq(true)
     end
-  end
-  it "is false for reserve item that's in process" do
-    allow(@input[:solr_item]).to receive(:process_type).and_return("LOAN")
-    @input[:alma_loan] = "not_nil"
-    allow(@input[:solr_item]).to receive(:library).and_return("HATCH")
-    allow(@input[:solr_item]).to receive(:location).and_return("RESC")
-    expect(subject.recallable?).to eq(false)
+    it "is false for reserve item that's in process" do
+      allow(@input[:solr_item]).to receive(:process_type).and_return("LOAN")
+      @input[:alma_loan] = "not_nil"
+      allow(@input[:solr_item]).to receive(:library).and_return("HATCH")
+      allow(@input[:solr_item]).to receive(:location).and_return("RESC")
+      expect(subject.recallable?).to eq(false)
+    end
   end
 end
