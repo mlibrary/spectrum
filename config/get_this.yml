@@ -325,6 +325,8 @@
       - faculty_student_staff?
     bib:
       - can_scan?
+    holding:
+      - not_game?
 
 
 # Interlibrary Loan (1 of 2)
@@ -348,6 +350,7 @@
     holding:
       - not_on_shelf?
       - not_reservable_library?
+      - not_game?
 
 # Interlibrary Loan (2 of 2)
 - label: Request a copy from another library (Interlibrary Loan (I.L.L.))
@@ -370,6 +373,7 @@
     holding:
       - not_on_shelf?
       - not_reservable_library?
+      - not_game?
 
 # Place a future reservation
 # Media Booking
