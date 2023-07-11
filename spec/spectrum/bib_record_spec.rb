@@ -175,11 +175,21 @@ describe Spectrum::BibRecord do
       it "does not have physical holdings" do
         expect(subject.physical_holdings?).to eq(false)
       end
-      it "returns electronic holdings" do
-        expect(subject.elec_holdings.count).to eq(1)
+      context "#elec_holdings" do
+        it "returns electronic holdings for library ELEC" do
+          expect(subject.elec_holdings.count).to eq(1)
+        end
+        it "returns electronic holdings for library ALMA_DIGITAL" do
+          @solr_elec = @solr_elec.gsub('library\":\"ELEC\"', 'library\":\"ALMA_DIGITAL\"')
+          expect(subject.elec_holdings.count).to eq(1)
+        end
       end
       context "finding_aid" do
-        it "returns nil when no finding_aid" do
+        it "returns nil when finding_aid is false" do
+          expect(subject.finding_aid).to be_nil
+        end
+        it "returns nil when no finding aid" do
+          @solr_elec = @solr_elec.gsub(/finding_aid\\":false,/, "")
           expect(subject.finding_aid).to be_nil
         end
         it "returns holding when there is a finding_aid" do
