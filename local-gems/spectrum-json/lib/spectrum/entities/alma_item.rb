@@ -11,7 +11,7 @@ class Spectrum::Entities::AlmaItem
   def_delegators :@solr_item, :callnumber, :temp_location?, :barcode, :library,
     :location, :permanent_library, :permanent_location, :description, :item_policy,
     :process_type, :inventory_number, :can_reserve?, :item_id, :record_has_finding_aid,
-    :item_location_text, :item_location_link, :fulfillment_unit, :material_type
+    :item_location_text, :item_location_link, :fulfillment_unit, :location_type
 
   def initialize(holding:, solr_item:, bib_record:, alma_loan: nil)
     @holding = holding # AlmaHolding
@@ -39,6 +39,7 @@ class Spectrum::Entities::AlmaItem
     @alma_loan&.dig("due_date")
   end
 
+  # Library and Location name
   def library_display_name
     @holding.display_name
   end
@@ -49,6 +50,10 @@ class Spectrum::Entities::AlmaItem
 
   def not_in_reserves?
     !in_reserves?
+  end
+
+  def in_game?
+    @solr_item.library == "SHAP" && @solr_item.location == "GAME"
   end
 
   def in_unavailable_temporary_location?

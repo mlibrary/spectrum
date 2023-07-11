@@ -169,9 +169,9 @@ module Spectrum
       holdings.find { |x| x.holding_id == holding_id }
     end
 
-    # non-HathiTrust Electronic Holdings
+    # non-HathiTrust Electronic Holdings or Digital Holdings
     def elec_holdings
-      holdings.select { |x| x.class.name.to_s.match(/ElectronicHolding/) }
+      holdings.select { |x| ["ELEC", "ALMA_DIGITAL"].any? { |y| x.library == y } }
     end
 
     def physical_holdings?
@@ -212,9 +212,21 @@ module Spectrum
       end
 
       def self.for(holding)
-        [HathiHolding, FindingAid, ElectronicHolding, AlmaHolding].find do |klass|
+        [HathiHolding, FindingAid, ElectronicHolding, DigitalHolding, AlmaHolding].find do |klass|
           klass.match?(holding)
         end.new(holding)
+      end
+    end
+
+    # passes through the data from a Digital Holding
+    class DigitalHolding < Holding
+      def self.match?(holding)
+        holding["library"] == "ALMA_DIGITAL"
+      end
+      ["public_note", "link", "link_text", "delivery_description", "label"].each do |name|
+        define_method(name) do
+          @holding[name]
+        end
       end
     end
 
@@ -303,7 +315,7 @@ module Spectrum
         ["description", "public_note", "barcode", "library", "location",
           "permanent_library", "permanent_location", "process_type",
           "callnumber", "item_policy", "inventory_number", "item_id",
-          "fulfillment_unit", "record_has_finding_aid", "material_type"].each do |name|
+          "fulfillment_unit", "location_type", "record_has_finding_aid"].each do |name|
           define_method(name) do
             @item[name]
           end
