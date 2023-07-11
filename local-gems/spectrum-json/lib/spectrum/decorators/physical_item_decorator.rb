@@ -2,6 +2,18 @@ module Spectrum::Decorators
   class PhysicalItemDecorator < SimpleDelegator
     # provides methods for determining material access
 
+    SCANNABLE_MATERIAL_TYPES = [
+      "BOOK",
+      "ISSUE",
+      "FILM",
+      "FICHE",
+      "ISSBD",
+      "MIXED",
+      "OVERSIZE",
+      "PHDTHESIS",
+      "MICROFORM"
+    ]
+
     REOPENED = [
       "HATCH",
       "HSRS",
@@ -64,6 +76,10 @@ module Spectrum::Decorators
     #      pretty inconsistent so we can't use that
     def game?
       in_game?
+    end
+
+    def can_scan?
+      SCANNABLE_MATERIAL_TYPES.include?(@item.material_type)
     end
 
     def not_game?

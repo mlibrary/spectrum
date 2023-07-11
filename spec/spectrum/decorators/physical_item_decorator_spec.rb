@@ -31,6 +31,16 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
       expect(subject.not_in_labeling?).to eq(false)
     end
   end
+  context "#can_scan?" do
+    it "is true for a scannable material type" do
+      allow(@input[:solr_item]).to receive(:material_type).and_return("BOOK")
+      expect(subject.can_scan?).to eq(true)
+    end
+    it "is not true for a non-scannable material type" do
+      allow(@input[:solr_item]).to receive(:material_type).and_return("GAME")
+      expect(subject.can_scan?).to eq(false)
+    end
+  end
   context "#game?" do
     it "is true if the item is in SHAP GAME" do
       allow(@input[:solr_item]).to receive(:library).and_return("SHAP")

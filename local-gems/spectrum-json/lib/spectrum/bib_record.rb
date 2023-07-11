@@ -6,20 +6,6 @@ require "rsolr"
 module Spectrum
   class BibRecord
     attr_reader :fullrecord
-    SCANABLE = Hash.new(true).merge(
-      "ISSCF" => false,
-      "ISSMU" => false,
-      "ISSVM" => false,
-      "ISSMX" => false,
-      "CF" => false,
-      "MU" => false,
-      "VM" => false,
-      "MX" => false,
-      "Data File" => false,
-      "Music" => false,
-      "Visual Material" => false,
-      "Mixed Material" => false
-    )
 
     RESERVABLE = Hash.new(false).merge(
       "Video (Blu-ray)" => true,
@@ -208,10 +194,6 @@ module Spectrum
       formats.any? { |format| RESERVABLE[format] }
     end
 
-    def can_scan?
-      formats.all? { |format| SCANABLE[format] }
-    end
-
     class Holding
       def initialize(holding)
         @holding = holding
@@ -387,8 +369,7 @@ module Spectrum
     end
 
     def formats
-      (@fullrecord&.fields("970")&.map { |field| field["a"] } || []) +
-        (@data&.fetch("format", []) || [])
+      @data&.fetch("format", []) || []
     end
   end
 end

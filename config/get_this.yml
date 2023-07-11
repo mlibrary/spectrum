@@ -323,7 +323,7 @@
   grants:
     patron:
       - faculty_student_staff?
-    bib:
+    holding:
       - can_scan?
     holding:
       - not_game?
