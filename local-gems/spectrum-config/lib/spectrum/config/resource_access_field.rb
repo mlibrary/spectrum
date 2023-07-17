@@ -72,7 +72,7 @@ module Spectrum
           end
           if values['campus'] && !values['campus'].empty?
             extra_headings << 'Access restriction' unless extra_headings.include?('Access restriction')
-            row << {text: values['campus'], icon: 'warning', intent: 'warning' }
+            row << {text: values['campus']}
           end
           if values['outage'] && !values['outage'].empty?
             extra_headings << 'Status' unless extra_headings.include?('Status')
