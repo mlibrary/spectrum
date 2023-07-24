@@ -2,7 +2,7 @@ module Spectrum
   module Config
     class PrimoSource < BaseSource
 
-      attr_accessor :key, :host, :tab, :scope, :view
+      attr_accessor :key, :host, :tab, :scope, :view, :libkey
 
       def fetch_record(field, id, _ = nil)
         Spectrum::SearchEngines::Primo::Engine.new(
@@ -11,6 +11,7 @@ module Spectrum
           tab: tab,
           scope: scope,
           view: view,
+          libkey: libkey,
           params: { q: "#{field},exact,#{id}" }
         ).results&.first || {}
       end
@@ -22,6 +23,13 @@ module Spectrum
         @tab   = args['tab']
         @scope = args['scope']
         @view  = args['view']
+        if args.has_key?('libkey')
+          @libkey = {
+            'host' => args.dig('libkey', 'host').to_s,
+            'key' => args.dig('libkey', 'key').to_s,
+            'library_id' => args.dig('libkey', 'library_id').to_s
+          }
+        end
       end
 
       def engine(focus, request, controller = nil)
@@ -31,6 +39,7 @@ module Spectrum
           tab: tab,
           scope: scope,
           view: view,
+          libkey: libkey,
           params: params(focus, request, controller)
         )
       end

@@ -3956,6 +3956,26 @@
   openurl_root: https://mgetit.lib.umich.edu/resolve
   proxy_prefix: https://proxy.lib.umich.edu/login?url=
 
+- id: retracted
+  metadata:
+    name: Retracted
+    short_desc: Retracted
+  type: concatenate_merge
+  fields:
+    - uid: text
+      constant: This article has been retracted.
+      name: text
+    - uid: href
+      preferred:
+        - retractionNoticeUrl
+      fields: []
+      name: href
+  metadata_component:
+     full:
+      type: structured_data_href_linked
+      href_field: href
+      text_field: text
+
 - id: summon_resource_access
   metadata:
     name: Resource Access

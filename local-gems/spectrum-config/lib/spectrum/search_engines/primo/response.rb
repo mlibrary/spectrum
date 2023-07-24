@@ -14,6 +14,19 @@ module Spectrum
           )
         end
 
+        def with_libkey(config)
+          return self if config.empty? ||
+            config['library_id'].empty? ||
+            config['host'].empty? ||
+            config['key'].empty?
+          @docs.each do |doc|
+            doc.libkey = LibKey.for_data(config, 'pmid', doc['pmid']&.first) ||
+              LibKey.for_data(config, 'doi', doc['doi']&.first) ||
+              LibKey.for_nothing
+          end
+          self
+        end
+
         def initialize(info:, highlights:, docs:, timelog:, facets:)
           @info = info
           @highlights = highlights

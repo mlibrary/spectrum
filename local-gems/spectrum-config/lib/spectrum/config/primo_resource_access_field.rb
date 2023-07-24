@@ -59,12 +59,20 @@ module Spectrum
           CITATION_ONLY
         end
 
-        rows = [
-          [
-            {href: url, text: link_text},
-            description
-          ] + report_a_problem(data)
-        ]
+        rows = []
+
+        full_text_file = data['fullTextFile']
+        if full_text_file && ! full_text_file.empty?
+          rows << [
+            {href: full_text_file, text: 'View PDF'},
+            FULLTEXT,
+          ] + report_a_libkey_problem(data)
+        end
+
+        rows << [
+          {href: url, text: link_text},
+          description
+        ] + report_a_problem(data)
 
         return nil if rows.nil? || rows.empty?
         {
@@ -79,6 +87,13 @@ module Spectrum
         }.delete_if { |k,v| v.nil? }
       end
 
+      def report_a_libkey_problem(data)
+        [{
+          html: 'Full text link not working? ' +
+             "<a href=\"#{HTMLEntities.new.encode(report_a_libkey_problem_url(data))}\">Report a problem.</a>"
+        }]
+      end
+
       def report_a_problem(data)
         if data.respond_to?(:fulltext?) && data.fulltext?
           [{
@@ -90,6 +105,19 @@ module Spectrum
         end
       end
 
+
+      def report_a_libkey_problem_url(data)
+        URI::HTTPS.build(
+          scheme: 'https',
+          host: 'umich.qualtrics.com',
+          path: '/jfe/form/SV_2broDMHlZrBYwJL',
+          query: {
+            DocumentID: "https://search.lib.umich.edu/primo/record/#{data['id']}",
+            LinkModel: 'unknown',
+            ReportSource: 'ArticlesSearch-LibKey-GoToPDF'
+          }.to_query
+        ).to_s
+      end
 
       def report_a_problem_url(data)
         URI::HTTPS.build(

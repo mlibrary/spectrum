@@ -69,6 +69,7 @@ fields:
 - alt_ids
 - primo_title
 - primo_format
+- retracted
 - primo_author
 - primo_publication_date
 - primo_published_brief

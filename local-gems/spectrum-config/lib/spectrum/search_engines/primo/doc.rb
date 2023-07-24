@@ -28,6 +28,11 @@ module Spectrum
               data.dig('control', 'addsrcrecordid'),
             ].compact.flatten,
           }
+          @data['libkey'] = {}
+        end
+
+        def libkey=(data)
+          @data['libkey'] = data
         end
 
         def fulltext?
@@ -96,8 +101,12 @@ module Spectrum
           @delivery['almaOpenurl'].sub(/^.*\?/,'')
         end
 
+        def empty?
+          false
+        end
+
         def [](key)
-          ['control', 'display', 'addata', 'search', 'internal', 'facets'].each do |area|
+          ['control', 'display', 'addata', 'search', 'internal', 'facets', 'libkey'].each do |area|
             if data[area].has_key?(key)
               return data[area][key]
             end

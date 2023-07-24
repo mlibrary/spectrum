@@ -2,7 +2,7 @@ module Spectrum
   module SearchEngines
     module Primo
       class Engine
-        attr_accessor :key, :host, :tab, :scope, :view, :params
+        attr_accessor :key, :host, :tab, :scope, :view, :libkey, :params
 
         def initialize(
           key:,
@@ -10,6 +10,7 @@ module Spectrum
           tab: 'default_tab',
           scope: 'default_scope',
           view: 'Auto1',
+          libkey:,
           params: {}
         )
           @key = key
@@ -17,6 +18,7 @@ module Spectrum
           @tab = tab
           @scope = scope
           @view = view
+          @libkey = libkey
           @params = params
           @results = nil
           if defined?(Rails) && Rails.respond_to?(:logger)
@@ -35,7 +37,7 @@ module Spectrum
 
         def search
           @logger&.info { url }
-          @results ||= Response.for_json(HTTParty.get(url))
+          @results ||= Response.for_json(HTTParty.get(url)).with_libkey(libkey)
         end
 
         def url

@@ -20,7 +20,10 @@ module Spectrum
         # Wrap the result in an array for parity with ParallelMergeField.
         [
           @fields.map do |field|
-            if field['preferred']
+
+            if field['constant']
+              val = field['constant']
+            elsif field['preferred']
               val = field['preferred'].map { |fld| resolve_key(data, fld) }.join('')
             else
               val = nil
