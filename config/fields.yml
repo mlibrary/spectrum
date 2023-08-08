@@ -3986,6 +3986,14 @@
       fields: []
       name: href
   metadata_component:
+     preview:
+      type: structured_data_href_linked
+      href_field: href
+      text_field: text
+     medium:
+      type: structured_data_href_linked
+      href_field: href
+      text_field: text
      full:
       type: structured_data_href_linked
       href_field: href
