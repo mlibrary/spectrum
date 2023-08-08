@@ -3750,6 +3750,11 @@
   metadata:
     name: Browse title starts with
 
+- id: lc_subject_starts_with
+  query_field: search_lc_subject_starts_with
+  metadata:
+    name: LC Subject starts with
+
 - id: call_number_starts_with
   query_field: search_call_number_starts_with
   metadata:

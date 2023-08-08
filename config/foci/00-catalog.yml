@@ -265,6 +265,7 @@ fields:
 # Search specific fields
   - title_starts_with
   - call_number_starts_with
+  - lc_subject_starts_with
   - subject
   - isn
 # Citation specfic fields, not for display
