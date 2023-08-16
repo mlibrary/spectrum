@@ -84,6 +84,12 @@
     qf: issn_txt
     pf: issn_txt
 
+- name: lc_subject_starts_with
+  dropdown: true
+  local_parameters:
+    qf: lc_subject_starts_with_txt
+    pf: lc_subject_starts_with_txt
+
 - name: call_number
   dropdown: true
   local_parameters:

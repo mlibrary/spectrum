@@ -13,6 +13,7 @@ module Spectrum
 
       PHRASE_ONLY_FIELDS = %w[
           search_call_number_starts_with
+          search_lc_subject_starts_with
           search_title_starts_with
       ]
 

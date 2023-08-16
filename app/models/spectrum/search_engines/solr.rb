@@ -412,6 +412,16 @@ module Spectrum
           end
         end
 
+        if fields.include?('lc_subject_starts_with')
+          config.add_search_field('lc_subject_starts_with') do |field|
+            field.show_in_dropdown = true
+            field.solr_local_parameters = {
+              qf: 'lc_subject_starts_with_txt',
+              pf: 'lc_subject_starts_with_txt'
+            }
+          end
+        end
+
         if fields.include?('call_number')
           config.add_search_field('call_number') do |field|
             field.show_in_dropdown = true
