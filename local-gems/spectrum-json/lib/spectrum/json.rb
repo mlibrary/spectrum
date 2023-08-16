@@ -195,6 +195,10 @@ module Spectrum
       def routes(app)
         foci.routes(app) if foci.respond_to?(:routes)
 
+        app.match "my_login_page",
+          to: "json#my_login_page",
+          via: %i[get options]
+
         app.match "profile",
           to: "json#profile",
           defaults: {type: "Profile"},

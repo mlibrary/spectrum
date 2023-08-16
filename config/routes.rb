@@ -3,19 +3,18 @@
 module ActionDispatch
   module Routing
     class StaticResponder < Endpoint
-
       attr_accessor :path, :file_handler
 
       def initialize(path)
         self.path = path
         # Only if you're on Rails 5+:
-        #self.file_handler = ActionDispatch::FileHandler.new(
+        # self.file_handler = ActionDispatch::FileHandler.new(
         #  Rails.configuration.paths["public"].first
-        #)
+        # )
         # Only if you're on Rails 4.2:
         self.file_handler = ActionDispatch::FileHandler.new(
-           Rails.configuration.paths["public"].first,
-           Rails.configuration.static_cache_control
+          Rails.configuration.paths["public"].first,
+          Rails.configuration.static_cache_control
         )
       end
 
@@ -27,7 +26,6 @@ module ActionDispatch
       def inspect
         "static('#{path}')"
       end
-
     end
 
     class Mapper
@@ -38,19 +36,17 @@ module ActionDispatch
   end
 end
 
-
 Clio::Application.routes.draw do
-
-  mount Spectrum::Json::Engine => '/spectrum/'
-  get '/', to: redirect('/everything', status: 302)
-  get '/index.html', to: redirect('/everything', status: 302)
-  get '/login', to: redirect(status: 302) { |params, request|
-    if request.params['dest'] && request.params['dest'].start_with?('/')
-      request.params['dest']
+  mount Spectrum::Json::Engine => "/spectrum/"
+  get "/", to: redirect("/everything", status: 302)
+  get "/index.html", to: redirect("/everything", status: 302)
+  get "/auth/openid_connect/callback", to: "sessions#create"
+  get "/login", to: redirect(status: 302) { |params, request|
+    if request.params["dest"] && request.params["dest"].start_with?("/")
+      request.params["dest"]
     else
-      '/everything'
+      "/everything"
     end
   }
-  get '*_', to: static('app.html')
-
+  get "*_", to: static("app.html")
 end
