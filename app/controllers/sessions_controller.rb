@@ -14,9 +14,10 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    url = ENV.fetch("REACT_APP_LOGIN_BASE_URL") + params["dest"]
+    url = ENV.fetch("REACT_APP_LOGIN_BASE_URL")
+    url += params["dest"] if params["dest"]
     # adds trailing slash if needed
-    url << "/" unless url.end_with?("/")
+    url += "/" unless url.end_with?("/")
     reset_session
     redirect_to "https://shibboleth.umich.edu/cgi-bin/logout?#{url}"
   end

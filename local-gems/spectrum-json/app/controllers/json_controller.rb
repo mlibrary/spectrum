@@ -57,10 +57,6 @@ class JsonController < ::ApplicationController
     )
   end
 
-  def my_login_page
-    render inline: "<%= form_tag('/auth/openid_connect', method: 'post', data: {}) do %> <button type='submit'>Login with weblogin</button> <% end %>"
-  end
-
   def profile
     no_cache
     render(json: response_class.new(request_class.new(request: request, username: session[:username])).spectrum)
