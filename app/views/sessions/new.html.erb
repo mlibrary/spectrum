@@ -1,11 +1,14 @@
- <h1>Logging You In...<h1>
- <script>
-   window.onload = function(){
-     document.forms['login_form'].submit();
-   }
- </script>
- <%= form_tag('/auth/openid_connect', method: 'post', id: 'login_form', data: {}) do %> 
-   <noscript>
-     <button type="submit">Login</button>
-   </noscript>
- <% end %>
+<h1>Logging you in...</h1>
+<section>
+  <p>You will be redirected back shortly.</p>
+</section>
+<%= form_tag('/auth/openid_connect', method: 'post', id: 'login_form', data: {}) do %> 
+  <noscript>
+    <button type="submit">Login</button>
+  </noscript>
+<% end %>
+<script>
+  window.onload = function () {
+    document.forms.login_form.submit();
+  };
+</script>
