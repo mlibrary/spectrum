@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class JsonController < ApplicationController
+class JsonController < ::ApplicationController
   before_filter :init, :cors
 
   AA_ADDRESSES = [
@@ -45,7 +45,7 @@ class JsonController < ApplicationController
   end
 
   def act
-    render(json: response_class.new(request_class.new(request)).spectrum)
+    render(json: response_class.new(request_class.new(request: request, username: session[:username])).spectrum)
   end
 
   def file
@@ -63,7 +63,7 @@ class JsonController < ApplicationController
 
   def profile
     no_cache
-    render(json: response_class.new(request_class.new(request)).spectrum)
+    render(json: response_class.new(request_class.new(request: request, username: session[:username])).spectrum)
   end
 
   def index
@@ -122,13 +122,13 @@ class JsonController < ApplicationController
   end
 
   def hold_redirect
-    @request = Spectrum::Request::PlaceHold.new(request)
+    @request = Spectrum::Request::PlaceHold.new(request: request, username: session[:username])
     Spectrum::Response::PlaceHold.new(@request).renderable
     redirect_to "https://www.lib.umich.edu/my-account/holds-recalls", status: 302
   end
 
   def hold
-    @request = Spectrum::Request::PlaceHold.new(request)
+    @request = Spectrum::Request::PlaceHold.new(request: request, username: session[:username])
     @response = Spectrum::Response::PlaceHold.new(@request)
     render(json: @response.renderable)
   end
@@ -140,7 +140,7 @@ class JsonController < ApplicationController
   end
 
   def get_this
-    @request = Spectrum::Request::GetThis.new(request)
+    @request = Spectrum::Request::GetThis.new(request: request, username: session[:username])
     @response = Spectrum::Response::GetThis.new(source: @source, request: @request)
     render(json: @response.renderable)
   end

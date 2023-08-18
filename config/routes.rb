@@ -40,13 +40,14 @@ Clio::Application.routes.draw do
   mount Spectrum::Json::Engine => "/spectrum/"
   get "/", to: redirect("/everything", status: 302)
   get "/index.html", to: redirect("/everything", status: 302)
+  get "/login", to: "sessions#new"
   get "/auth/openid_connect/callback", to: "sessions#create"
-  get "/login", to: redirect(status: 302) { |params, request|
-    if request.params["dest"] && request.params["dest"].start_with?("/")
-      request.params["dest"]
-    else
-      "/everything"
-    end
-  }
+  # get "/login", to: redirect(status: 302) { |params, request|
+  # if request.params["dest"] && request.params["dest"].start_with?("/")
+  # request.params["dest"]
+  # else
+  # "/everything"
+  # end
+  # }
   get "*_", to: static("app.html")
 end

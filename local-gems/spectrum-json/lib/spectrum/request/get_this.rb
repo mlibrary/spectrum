@@ -5,10 +5,10 @@ module Spectrum
     class GetThis
       attr_reader :id, :username, :barcode
 
-      def initialize(request)
+      def initialize(request:, username:)
         @id = request[:id]
         @barcode = request[:barcode]
-        @username = request.env['HTTP_X_REMOTE_USER'] || ''
+        @username = username || ""
       end
 
       def logged_in?
