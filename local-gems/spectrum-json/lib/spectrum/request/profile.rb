@@ -11,7 +11,6 @@ module Spectrum
       DEFAULT_DOMAIN = "@umich.edu"
       LOGGED_IN = "Logged in"
       NOT_LOGGED_IN = "Not logged in"
-      REMOTE_USER = "HTTP_X_REMOTE_USER"
       INSTITUTION_KEY = "dlpsInstitutionId"
 
       attr_reader :request, :username
@@ -34,10 +33,6 @@ module Spectrum
         return nil unless logged_in?
         @sms ||= Spectrum::Entities::AlmaUser.for(username: username).sms
       end
-
-      # def username
-      # @username ||= request.env[REMOTE_USER]
-      # end
 
       def email
         return nil unless logged_in?
