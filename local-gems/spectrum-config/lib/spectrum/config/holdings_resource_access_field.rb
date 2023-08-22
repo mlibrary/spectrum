@@ -38,6 +38,7 @@ module Spectrum
         end
 
         return nil if rows.nil? || rows.empty?
+        rows.first.first[:previewEligible] = true
         {
           caption: caption,
           headings: headings + extra_headings,
