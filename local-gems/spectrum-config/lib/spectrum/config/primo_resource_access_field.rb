@@ -64,13 +64,13 @@ module Spectrum
         full_text_file = data['fullTextFile']
         if full_text_file && ! full_text_file.empty?
           rows << [
-            {href: full_text_file, text: 'View PDF'},
+            {href: full_text_file, text: 'View PDF', previewEligible: true},
             FULLTEXT,
           ] + report_a_libkey_problem(data)
         end
 
         rows << [
-          {href: url, text: link_text},
+          {href: url, text: link_text, previewEligible: true},
           description
         ] + report_a_problem(data)
 

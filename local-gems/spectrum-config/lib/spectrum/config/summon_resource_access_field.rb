@@ -63,7 +63,7 @@ module Spectrum
           name: name,
           rows: [
             [
-              {href: href, text: 'Go to item'},
+              {href: href, text: 'Go to item', previewEligible: true},
               description(data),
             ] + report_a_problem(data),
           ],
