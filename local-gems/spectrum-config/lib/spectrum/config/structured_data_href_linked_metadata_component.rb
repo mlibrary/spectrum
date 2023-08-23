@@ -17,8 +17,11 @@ module Spectrum
         description = [data].flatten(1).map { |row|
           text_value = (row.find {|field| field["uid"] == text_field} || {})["value"]
           href_value = (row.find {|field| field["uid"] == href_field} || {})["value"]
-          return nil if text_value.nil? || text_value.empty? || href_value.nil? || href_value.empty?
-          {text: text_value, href: href_value}.compact
+          if text_value.nil? || text_value.empty? || href_value.nil? || href_value.empty?
+            nil
+          else
+            {text: text_value, href: href_value}
+          end
         }.compact
         return nil if description.empty?
         {
