@@ -3,13 +3,12 @@ module Spectrum
     class BrowseMetadataComponent < MetadataComponent
       type 'browse'
 
-      attr_accessor :name, :variant, :text
+      attr_accessor :name, :variant
 
       def initialize(name, config)
         config ||= {}
         self.name = name
         self.variant = config['variant']
-        self.text = config['text']
       end
 
       def resolve_description(data)
@@ -19,7 +18,6 @@ module Spectrum
             browse: {
               type: variant,
               value: item,
-              text: text,
             }
           }
         }.compact
