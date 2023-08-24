@@ -15,18 +15,16 @@ class HTTPClient
   end
 end
 
-# OmniAuth::AuthenticityTokenProtection.default_options(key: "csrf.token", authenticity_param: "_csrf")
-
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :openid_connect, {
     scope: [:openid, :email, :profile],
-    issuer: "https://weblogin.lib.umich.edu",
+    issuer: ENV["WEBLOGIN_URL"],
     discovery: true,
     client_auth_method: "jwks",
     client_options: {
       identifier: ENV["WEBLOGIN_ID"],
       secret: ENV["WEBLOGIN_SECRET"],
-      redirect_uri: "http://localhost:3000/auth/openid_connect/callback"
+      redirect_uri: "#{ENV["REACT_APP_LOGIN_BASE_URL"]}/auth/openid_connect/callback"
     }
   }
 end
