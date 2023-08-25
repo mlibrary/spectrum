@@ -16,6 +16,10 @@ source "https://rubygems.org" do
   gem "parslet"
   gem "execjs", "~> 2.7.0"
 
+  gem "omniauth"
+  gem "omniauth_openid_connect"
+  gem "omniauth-rails_csrf_protection"
+
   gem "ipresolver",
     git: "https://github.com/mlibrary/ipresolver",
     branch: "master"

@@ -1,0 +1,211 @@
+{
+    "account_type": {
+        "desc": "Internal",
+        "value": "INTERNAL"
+    },
+    "campus_code": {
+        "desc": "",
+        "value": null
+    },
+    "cataloger_level": {
+        "desc": "[00] Default Level",
+        "value": "00"
+    },
+    "contact_info": {
+        "address": [
+            {
+                "address_note": "User Address Type: Permanent address",
+                "address_type": [
+                    {
+                        "desc": "Home",
+                        "value": "home"
+                    }
+                ],
+                "city": "",
+                "country": {
+                    "desc": "",
+                    "value": ""
+                },
+                "line1": "1440 Fake Street",
+                "line2": "Ann Arbor, MI  48105",
+                "line3": null,
+                "line4": null,
+                "line5": null,
+                "postal_code": "48105",
+                "preferred": false,
+                "segment_type": "Internal",
+                "state_province": ""
+            },
+            {
+                "address_note": "User Address Type: Mailing address",
+                "address_type": [
+                    {
+                        "desc": "Home",
+                        "value": "home"
+                    }
+                ],
+                "city": "",
+                "country": {
+                    "desc": "",
+                    "value": ""
+                },
+                "line1": "Library Info Tech - AIM",
+                "line2": "300 Hatcher North",
+                "line3": "Ann Arbor, MI  48109-1190",
+                "line4": null,
+                "line5": null,
+                "postal_code": "481091190",
+                "preferred": true,
+                "segment_type": "Internal",
+                "state_province": ""
+            }
+        ],
+        "email": [
+            {
+                "description": null,
+                "email_address": "tutor@umich.edu",
+                "email_type": [
+                    {
+                        "desc": "Personal",
+                        "value": "personal"
+                    }
+                ],
+                "preferred": true,
+                "segment_type": "Internal"
+            }
+        ],
+        "phone": [
+            {
+                "phone_number": "555-555-5555",
+                "phone_type": [
+                    {
+                        "desc": "Home",
+                        "value": "home"
+                    }
+                ],
+                "preferred": true,
+                "preferred_sms": false,
+                "segment_type": "Internal"
+            }, {
+      "phone_number": "734-123-4567",
+      "preferred": false,
+      "preferred_sms": true,
+      "segment_type": "Internal",
+      "phone_type": [{
+        "value": "mobile",
+        "desc": "Mobile"
+      }]
+
+            } ]
+    },
+    "external_id": "",
+    "fees": null,
+    "first_name": "Julian",
+    "force_password_change": "",
+    "full_name": "Julian Tutor",
+    "gender": {
+        "desc": "",
+        "value": ""
+    },
+    "is_researcher": false,
+    "job_category": {
+        "desc": "",
+        "value": ""
+    },
+    "job_description": "",
+    "last_name": "Tutor",
+    "link": null,
+    "loans": null,
+    "middle_name": "",
+    "password": "",
+    "pref_first_name": "",
+    "pref_last_name": "",
+    "pref_middle_name": "",
+    "pref_name_suffix": "",
+    "preferred_language": {
+        "desc": "English",
+        "value": "en"
+    },
+    "primary_id": "TUTOR",
+    "proxy_for_user": [],
+    "record_type": {
+        "desc": "Public",
+        "value": "PUBLIC"
+    },
+    "requests": null,
+    "researcher": null,
+    "status": {
+        "desc": "Active",
+        "value": "ACTIVE"
+    },
+    "status_date": "2020-09-01Z",
+    "user_block": [],
+    "user_group": {
+        "desc": "Staff Level",
+        "value": "02"
+    },
+    "user_identifier": [
+        {
+            "id_type": {
+                "desc": "System number",
+                "value": "00"
+            },
+            "note": null,
+            "segment_type": "Internal",
+            "status": "ACTIVE",
+            "value": "000000377644"
+        },
+        {
+            "id_type": {
+                "desc": "Barcode",
+                "value": "01"
+            },
+            "note": null,
+            "segment_type": "Internal",
+            "status": "ACTIVE",
+            "value": "29015022761089"
+        },
+        {
+            "id_type": {
+                "desc": "UM ID",
+                "value": "02"
+            },
+            "note": null,
+            "segment_type": "Internal",
+            "status": "ACTIVE",
+            "value": "12345678"
+        }
+    ],
+    "user_note": [],
+    "user_role": [
+        {
+            "parameter": [],
+            "role_type": {
+                "desc": "Patron",
+                "value": "200"
+            },
+            "scope": {
+                "desc": "University of Michigan",
+                "value": "01UMICH_INST"
+            },
+            "status": {
+                "desc": "Active",
+                "value": "ACTIVE"
+            }
+        }
+    ],
+    "user_statistic": [
+        {
+            "segment_type": "Internal",
+            "statistic_category": {
+                "desc": "Staff",
+                "value": "ST"
+            }
+        }
+    ],
+    "user_title": {
+        "desc": "",
+        "value": ""
+    },
+    "web_site_url": ""
+}

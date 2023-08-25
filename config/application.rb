@@ -1,26 +1,26 @@
-require File.expand_path('../boot', __FILE__)
+require File.expand_path("../boot", __FILE__)
 
-require 'action_controller/railtie'
-require 'action_mailer/railtie'
-require 'sprockets/railtie'
-require 'rails/test_unit/railtie'
-require 'active_model/railtie'
+require "action_controller/railtie"
+require "action_mailer/railtie"
+require "sprockets/railtie"
+require "rails/test_unit/railtie"
+require "active_model/railtie"
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
 if defined?(Bundler)
-  Bundler.require *Rails.groups(assets: %w(development test))
+  Bundler.require(*Rails.groups(assets: %w[development test]))
 end
 
 # Load up .env file if we've got one
 Dotenv::Railtie.load
 
-RELEASE_STAMP = IO.read('VERSION').strip
+RELEASE_STAMP = IO.read("VERSION").strip
 
 # explicitly require, so that "config.middleware.use" works below during
 # capistrano's assets:precompile step
 # require 'rack/attack'
-require 'rack/utf8_sanitizer'
+require "rack/utf8_sanitizer"
 
 module Clio
   def self.under_rake?
@@ -38,17 +38,17 @@ module Clio
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras #{config.root}/lib)
-    config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += %W[#{config.root}/lib]
 
-    config.action_controller.relative_url_root = ENV['RAILS_RELATIVE_URL_ROOT']
-    config.relative_url_root = ENV['RAILS_RELATIVE_URL_ROOT']
+    config.action_controller.relative_url_root = ENV["RAILS_RELATIVE_URL_ROOT"]
+    config.relative_url_root = ENV["RAILS_RELATIVE_URL_ROOT"]
     # require File.expand_path('../../lib/monkey_patches', __FILE__)
-    require 'monkey_patches'
+    require "monkey_patches"
     # require File.expand_path('../../lib/rsolr_notifications', __FILE__)
-    require 'rsolr_notifications'
-    require 'browse_support'
+    require "rsolr_notifications"
+    require "browse_support"
 
-    MARC::ControlField.control_tags.add('FMT')
+    MARC::ControlField.control_tags.add("FMT")
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -60,19 +60,19 @@ module Clio
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
-    config.time_zone = 'Eastern Time (US & Canada)'
+    config.time_zone = "Eastern Time (US & Canada)"
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-     # config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
-     # config.i18n.default_locale = :en
+    # config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
+    # config.i18n.default_locale = :en
 
     # JavaScript files you want as :defaults (application.js is always included).
     # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
-    config.assets.precompile += %w(.svg .eot .woff .ttf)
+    config.assets.precompile += %w[.svg .eot .woff .ttf]
 
     # Configure the default encoding used in templates for Ruby 1.9.
-    config.encoding = 'utf-8'
+    config.encoding = "utf-8"
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
@@ -88,7 +88,7 @@ module Clio
     #
     # Catch 404s
     config.after_initialize do |app|
-      app.routes.append { get '*catch_unknown_routes', to: 'application#catch_404s' }
+      app.routes.append { get "*catch_unknown_routes", to: "application#catch_404s" }
     end
 
     # After seeing some: ActionDispatch::RemoteIp::IpSpoofAttackError
@@ -108,28 +108,28 @@ module Clio
     # https://github.com/whitequark/rack-utf8_sanitizer
     # Rack::UTF8Sanitizer is a Rack middleware which cleans up
     # invalid UTF8 characters in request URI and headers.
-    config.middleware.insert_before 'Rack::Runtime', Rack::UTF8Sanitizer
-    config.middleware.insert_before 'Rack::UTF8Sanitizer',
+    config.middleware.insert_before "Rack::Runtime", Rack::UTF8Sanitizer
+    config.middleware.insert_before "Rack::UTF8Sanitizer",
       Ipresolver::Middleware,
       proxies: [
-        '127.0.0.1/16',
-        '141.211.168.128/25',
-        '141.213.128.128/25',
-        '10.255.0.0/16'
+        "127.0.0.1/16",
+        "141.211.168.128/25",
+        "141.213.128.128/25",
+        "10.255.0.0/16"
       ]
 
-    require 'keycard/cookie/institution_finder'
-    require 'keycard/ldap/institution_finder'
+    require "keycard/cookie/institution_finder"
+    require "keycard/ldap/institution_finder"
 
-    config.middleware.insert_after 'Ipresolver::Middleware',
+    config.middleware.insert_after "Ipresolver::Middleware",
       Keycard::Rack::InjectAttributes,
       Clio.under_rake? ? Keycard::Ldap::InstitutionFinder : Keycard::Ldap::InstitutionFinder.new
 
-    config.middleware.insert_after 'Ipresolver::Middleware',
+    config.middleware.insert_after "Ipresolver::Middleware",
       Keycard::Rack::InjectAttributes,
       Clio.under_rake? ? Keycard::Cookie::InstitutionFinder : Keycard::Cookie::InstitutionFinder.new
 
-    config.middleware.insert_after 'Ipresolver::Middleware',
+    config.middleware.insert_after "Ipresolver::Middleware",
       Keycard::Rack::InjectAttributes,
       Clio.under_rake? ? Keycard::Yaml::InstitutionFinder : Keycard::Yaml::InstitutionFinder.new
 
@@ -154,7 +154,7 @@ module Clio
     config.eager_load = true
     config.before_eager_load do
       Blacklight::Engine.class_eval do
-        config.eager_load_paths = config.eager_load_paths.reject { |path| path.end_with?('/models') }
+        config.eager_load_paths = config.eager_load_paths.reject { |path| path.end_with?("/models") }
       end
     end
   end

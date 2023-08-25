@@ -1,21 +1,20 @@
 module Spectrum
   module Request
     class Action
-
       attr_reader :request, :role, :username
 
-      def initialize(request)
+      def initialize(request:, username:)
         @request = request
         if request.post?
-            @raw = CGI.unescape(request.raw_post)
-            @data = JSON.parse(@raw)
+          @raw = CGI.unescape(request.raw_post)
+          @data = JSON.parse(@raw)
         end
-        @username = request.env['HTTP_X_REMOTE_USER'] || ''
-        @role = if request.env['dlpsInstitutionId'] &&
-            request.env['dlpsInstitutionId'].length > 0
-          'authenticated'
+        @username = username || ""
+        @role = if request.env["dlpsInstitutionId"] &&
+            request.env["dlpsInstitutionId"].length > 0
+          "authenticated"
         else
-          ''
+          ""
         end
         @items = nil
       end
@@ -33,9 +32,9 @@ module Spectrum
         @data.each_pair do |focus_uid, data|
           focus = Spectrum::Json.foci[focus_uid]
           next unless focus
-          data['records'].each do |id|
+          data["records"].each do |id|
             record = focus.fetch_record(Spectrum::Json.sources, id, role, self)
-            yield record + [{ uid: 'base_url', value: data['base_url'] }]
+            yield record + [{uid: "base_url", value: data["base_url"]}]
           end
         end
       end
@@ -45,9 +44,8 @@ module Spectrum
       end
 
       def proxy_prefix
-        ''
+        ""
       end
-
     end
   end
 end
