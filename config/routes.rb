@@ -43,12 +43,5 @@ Clio::Application.routes.draw do
   get "/login", to: "sessions#new"
   get "/logout", to: "sessions#destroy"
   get "/auth/openid_connect/callback", to: "sessions#create"
-  # get "/login", to: redirect(status: 302) { |params, request|
-  # if request.params["dest"] && request.params["dest"].start_with?("/")
-  # request.params["dest"]
-  # else
-  # "/everything"
-  # end
-  # }
   get "*_", to: static("app.html")
 end
