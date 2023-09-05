@@ -414,12 +414,12 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
       allow(@input[:solr_item]).to receive(:process_type).and_return("LOAN")
       allow(@input[:solr_item]).to receive(:library).and_return("HATCH")
       allow(@input[:solr_item]).to receive(:location).and_return("GRAD")
-      @input[:alma_loan] = "not_nil"
+      @input[:alma_loan] = {"process_status" => "LOAN"}
       expect(subject.recallable?).to eq(true)
     end
     it "is false for reserve item that's in process" do
       allow(@input[:solr_item]).to receive(:process_type).and_return("LOAN")
-      @input[:alma_loan] = "not_nil"
+      @input[:alma_loan] = {"process_status" => "LOAN"}
       allow(@input[:solr_item]).to receive(:library).and_return("HATCH")
       allow(@input[:solr_item]).to receive(:location).and_return("RESC")
       expect(subject.recallable?).to eq(false)
