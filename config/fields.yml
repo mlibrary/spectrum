@@ -3600,67 +3600,71 @@
       marc:
         aggregator: labeling
         fields:
-          - label: ab
+          - label: abc
             tag: "260"
-            sub: '[ab]'
+            sub: '[abc]'
             join: ' '
-          - label: c
-            tag: "260"
-            sub: "[c]"
     - type: marcxml
       field: fullrecord
       marc:
         aggregator: labeling
         fields:
-          - label: ab
+          - label: abc
             tag: "880"
-            sub: "[ab]"
+            sub: "[abc]"
             join: ' '
             where:
               - sub: "6"
                 start_with: ['260']
-          - label: c
+              - sub: '6'
+                not_end_with: ['/', '/r']
+          - label: abc
             tag: "880"
-            sub: "[c]"
+            sub: "[abc]"
             join: ' '
+            prepend: "\u2067"
+            append: "\u2069"
             where:
               - sub: "6"
                 start_with: ['260']
+              - sub: "6"
+                end_with: ['/', '/r']
     - type: marcxml
       field: fullrecord
       marc:
         aggregator: labeling
         fields:
-          - label: ab
+          - label: abc
             tag: '264'
             ind2: '1'
-            sub: '[ab]'
+            sub: '[abc]'
             join: ' '
-          - label: c
-            tag: '264'
-            ind2: '1'
-            sub: '[c]'
     - type: marcxml
       field: fullrecord
       marc:
         aggregator: labeling
         fields:
-          - label: ab
+          - label: abc
             tag: '880'
-            sub: '[ab]'
+            sub: '[abc]'
             ind2: '1'
             join: ' '
             where:
               - sub: '6'
                 start_with: ['264']
-          - label: c
-            tag: '880'
-            sub: '[c]'
-            ind2: '1'
+              - sub: '6'
+                not_end_with: ['/', '/r']
+          - label: abc
+            tag: "880"
+            sub: "[abc]"
             join: ' '
+            prepend: "\u2067"
+            append: "\u2069"
             where:
               - sub: '6'
                 start_with: ['264']
+              - sub: "6"
+                end_with: ['/', '/r']
   metadata_component:
     medium:
       type: plain

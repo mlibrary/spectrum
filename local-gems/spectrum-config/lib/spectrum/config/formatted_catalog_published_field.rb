@@ -38,12 +38,7 @@ module Spectrum
           values = [group.value(data)].flatten(1).reject do |item|
             item.nil? || item.empty?
           end.map do |item|
-            [
-              (item.find {|fl| fl[:uid] == 'ab'} || {})[:value],
-              date_val || (item.find {|fl| fl[:uid] == 'c'} || {})[:value]
-            ].flatten.reject do |val|
-              val.nil? || !(String === val) || val.empty?
-            end.join(' ')
+            (item.find { |fl| fl[:uid] == 'abc' } || {})[:value]
           end
           values.empty? ? nil : values
         end.compact.flatten

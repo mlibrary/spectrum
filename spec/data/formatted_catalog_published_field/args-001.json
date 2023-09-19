@@ -10,14 +10,9 @@
         "aggregator": "labeling",
         "fields": [
           {
-            "label": "c",
+            "label": "abc",
             "tag": "260",
-            "sub": "[c]"
-          },
-          {
-            "label": "ab",
-            "tag": "260",
-            "sub": "[ab]",
+            "sub": "[abc]",
             "join": " "
           }
         ]
@@ -30,16 +25,10 @@
         "aggregator": "labeling",
         "fields": [
           {
-            "label": "c",
+            "label": "abc",
             "tag": "264",
             "ind1": "1",
-            "sub": "[c]"
-          },
-          {
-            "label": "ab",
-            "tag": "260",
-            "ind1": "1",
-            "sub": "[ab]",
+            "sub": "[abc]",
             "join": " "
           }
         ]
