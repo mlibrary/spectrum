@@ -15,12 +15,12 @@ module Spectrum
           metadata_values.map do |metadata, values|
             label = metadata[:label]
             join = metadata[:join]
-            value_append = metadata[:append] || ''
-            value_prepend = metadata[:prepend] || ''
+            prefix = metadata[:prefix] || ''
+            suffix = metadata[:suffix] || ''
             value = if join
-              value_prepend + values.join(join) + value_append
+              prefix + values.join(join) + suffix
             else
-              values.map { |val| value_prepend + val + value_append }
+              values.map { |val| prefix + val + suffix }
             end
 
             {

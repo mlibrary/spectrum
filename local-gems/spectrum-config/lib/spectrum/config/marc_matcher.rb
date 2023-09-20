@@ -2,13 +2,15 @@
 module Spectrum
   module Config
     class MarcMatcher
-      attr_reader :label, :join, :filters, :default
+      attr_reader :label, :join, :filters, :default, :prefix, :suffix
 
       def metadata
         {
           label: label,
           join: join,
           filters: filters,
+          prefix: prefix,
+          suffix: suffix,
         }
       end
 
@@ -16,6 +18,8 @@ module Spectrum
         @label = arg['label'] || "#{arg['tag']} #{arg['ind1']}#{arg['ind2']} #{arg['sub']}"
         @join  = arg['join']
         @filters = (arg['filters'] || []).map(&:symbolize_keys)
+        @prefix = arg['prefix'] || ''
+        @suffix = arg['suffix'] || ''
         @tag   = /#{arg['tag'] || '.'}/
         @sub   = /#{arg['sub'] || '.'}/
         @ind1  = /#{arg['ind1'] || '.'}/

@@ -3622,8 +3622,8 @@
             tag: "880"
             sub: "[abc]"
             join: ' '
-            prepend: "\u2067"
-            append: "\u2069"
+            prefix: "\u2067"
+            suffix: "\u2069"
             where:
               - sub: "6"
                 start_with: ['260']
@@ -3658,8 +3658,8 @@
             tag: "880"
             sub: "[abc]"
             join: ' '
-            prepend: "\u2067"
-            append: "\u2069"
+            prefix: "\u2067"
+            suffix: "\u2069"
             where:
               - sub: '6'
                 start_with: ['264']
