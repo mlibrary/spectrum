@@ -1391,7 +1391,7 @@
 
 - id: primo_format
   uid: format
-  field: format
+  field: type
   facet_field: rtype
   metadata:
     name: Format
@@ -1425,6 +1425,8 @@
     dataset: Dataset
     report: Report
     standard: Standard
+    magazinearticle: Magazine Article
+    newsletterarticle: Newsletter Article
 
     articles: Articles
     newspaper_articles: Newspaper Articles
@@ -1446,6 +1448,8 @@
     datasets: Datasets
     reports: Reports
     standards: Standards
+    magazinearticles: Magazine Articles
+    newsletterarticles: Newsletter Articles
 
     Articles: articles
     Newspaper Articles: newspaper_articles
@@ -1467,6 +1471,11 @@
     Datasets: datasets
     Reports: reports
     Standards: standards
+    Magazine Articles: magazinearticles
+    Newsletter Articles: newsletterarticles
+
+    Magazine Article: magazinearticle
+    Newsletter Article: newsletterarticle
 
 - id: mirlyn_csl_type
   csl:
@@ -4039,21 +4048,6 @@
   filters:
     - id: proxy_prefix
       method: proxy_prefix
-
-
-#- id: primo_subject
-#  uid: subject
-#  field: topic
-#  metadata:
-#    name: Subject
-#    short_desc: Subject
-
-#- id: primo_format
-#  uid: format
-#  field: rtype
-#  metadata:
-#    name: Format
-#    short_desc: Format
 
 - id: domain
   metadata:
