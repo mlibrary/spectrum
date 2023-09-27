@@ -7,7 +7,7 @@ describe Spectrum::Config::MarcMatcher do
     context "When configured with an empty hash" do
       let(:cfg) {{}}
       subject { described_class.new(cfg) }
-      let(:results) {{ label: "  ", join: nil, filters: [] }}
+      let(:results) {{ label: "  ", join: nil, filters: [], prefix: '', suffix: '' }}
 
       it "returns appropriate defaults" do
         expect(subject.metadata).to eq(results)
@@ -21,7 +21,9 @@ describe Spectrum::Config::MarcMatcher do
         {
           label: 'LABEL',
           join:  'JOIN',
-          filters: [{attr: 'FILTER_ATTR'}]
+          filters: [{attr: 'FILTER_ATTR'}],
+          prefix: '',
+          suffix: '',
         }
       end
 

@@ -6,25 +6,27 @@ module Spectrum
 
       def add(metadata, field, subfield)
         @ret[field] ||= {}
-        @ret[field][metadata[:label]] ||= {}
-        @ret[field][metadata[:label]][metadata[:join]] ||= []
-        @ret[field][metadata[:label]][metadata[:join]] << subfield.value
+        @ret[field][metadata] ||= []
+        @ret[field][metadata] << subfield.value
       end
 
       def to_value
-        @ret.values.map do |labelled_fields|
-          labelled_fields.map do |joined_fields|
-            join = joined_fields[1].keys.first
-            values = joined_fields[1].values.first
-            joined_fields[1] = if join
-                                 values.join(join)
-                               else
-                                 values
-                               end
+        @ret.values.map do |metadata_values|
+          metadata_values.map do |metadata, values|
+            label = metadata[:label]
+            join = metadata[:join]
+            prefix = metadata[:prefix] || ''
+            suffix = metadata[:suffix] || ''
+            value = if join
+              prefix + values.join(join) + suffix
+            else
+              values.map { |val| prefix + val + suffix }
+            end
+
             {
-              uid: joined_fields[0],
-              name: joined_fields[0],
-              value: joined_fields[1],
+              uid: label,
+              name: label,
+              value: value,
               value_has_html: true
             }
           end
