@@ -3944,9 +3944,9 @@
     - uid: href
       fields:
         - ssfield_permalink
-    - uid: campus
+    - uid: access_restriction
       fields:
-        - smfield_campus
+        - ssfield_access_restriction
     - uid: outage
       spaced: smfield_outage
 
