@@ -91,7 +91,8 @@ module Spectrum
           query: {
             DocumentID: "https://search.lib.umich.edu/articles/record/#{data.id}",
             LinkModel: 'unknown',
-            ReportSource: 'ArticlesSearch'
+            ReportSource: 'ArticlesSearch',
+            utm_source: 'library-search'
           }.to_query
         ).to_s
       end
