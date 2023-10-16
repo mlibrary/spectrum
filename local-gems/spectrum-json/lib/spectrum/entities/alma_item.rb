@@ -11,7 +11,7 @@ class Spectrum::Entities::AlmaItem
   def_delegators :@solr_item, :callnumber, :temp_location?, :barcode, :library,
     :location, :permanent_library, :permanent_location, :description, :item_policy,
     :process_type, :inventory_number, :can_reserve?, :item_id, :record_has_finding_aid,
-    :item_location_text, :item_location_link, :fulfillment_unit, :location_type,    :material_type
+    :item_location_text, :item_location_link, :fulfillment_unit, :location_type, :material_type
 
   def initialize(holding:, solr_item:, bib_record:, alma_loan: nil)
     @holding = holding # AlmaHolding
@@ -24,8 +24,43 @@ class Spectrum::Entities::AlmaItem
     @solr_item.id
   end
 
+  # List of loan process statuses that imply that the item is on loan. The
+  # commented out statuses we handle in different ways. Documention:
+  # https://developers.exlibrisgroup.com/alma/apis/docs/xsd/rest_item_loan.xsd/?tags=GET
+  def alma_says_on_loan?
+    [
+      "AT_SHELF",
+      "AT_USER",
+      "AUTO_RENEW",
+      "BULK_CHANGE_BACKWARD",
+      "BULK_CHANGE_FORWARD",
+      # "CLAIMED_RETURN",
+      "FOUND_ITEM",
+      "LOAN",
+      # "LOST",
+      # "LOST_AND_PAID",
+      # "LOST_NO_FEE",
+      "MEDIATED_RENEWAL",
+      "NORMAL",
+      # "OVERDUE_CLAIMED_RETURN",
+      # "OVERDUE_LOST",
+      "OVERDUE_NOTIFICATION",
+      "READING_ROOM_AT_SHELF",
+      "READING_ROOM_AT_USER",
+      "RECALL",
+      "RENEW",
+      "RENEW_REJECTED",
+      "RENEW_REQUESTED",
+      # "RETURN",
+      "UNDO_RENEW",
+      "UNDO_RETURN",
+      "WB_CHANGE_BACKWARD",
+      "WB_CHANGE_FORWARD"
+    ].include?(@alma_loan&.dig("process_status"))
+  end
+
   def process_type
-    if !@alma_loan.nil? && @solr_item.process_type == "LOAN"
+    if alma_says_on_loan?
       "LOAN"
     elsif @solr_item.process_type == "LOAN"
       # if Solr still says there's a loan, but alma doesn't have a loan for the item

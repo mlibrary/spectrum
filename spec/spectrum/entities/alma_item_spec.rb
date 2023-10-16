@@ -134,6 +134,12 @@ describe Spectrum::Entities::AlmaItem do
       expect(subject.process_type).to eq(nil)
     end
   end
+  context "item is checked out today" do
+    it "returns the due date" do
+      @alma_loan["process_status"] = "LOAN"
+      expect(subject.process_type).to eq("LOAN")
+    end
+  end
   context "item is lost" do
     it "returns lost process type if item is lost" do
       @alma_loan["process_status"] = "LOST"
