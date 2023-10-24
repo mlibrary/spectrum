@@ -7,18 +7,27 @@ module Spectrum
 
       JOURNAL = "info:ofi/fmt:kev:mtx:journal"
       BOOK = "info:ofi/fmt:kev:mtx:book"
-      JOURNAL_FORMATS = ['Journal', 'Serial']
+      DISSERTATION = "info:ofi/fmt:kev:mtx:dissertation"
+      PATENT = "info:ofi/fmt:kev:mtx:patent"
+
+      JOURNAL_FORMATS = ['journal', 'serial']
+      DISSERTATION_FORMATS = ['thesis', 'dissertation']
+      PATENT_FORMATS = ['patent']
 
       def initialize(args)
-        self.id = args['id'] || 'rft_val_fmt' if args
-        self.namespace = args['namespace'] || '' if args
+        self.id = (args || {})['id'] || 'rft_val_fmt'
+        self.namespace = (args || {})['namespace'] || ''
       end
 
       def value(data)
         val = if id && data && data[:value]
-          formats = [data[:value]].flatten
+          formats = [data[:value]].flatten.map(&:downcase)
           if JOURNAL_FORMATS.any? { |fmt| formats.include?(fmt) }
             JOURNAL
+          elsif DISSERTATION_FORMATS.any? { |fmt| formats.include?(fmt) }
+            DISSERTATION
+          elsif PATENT_FORMATS.any? { |fmt| formats.include?(fmt) }
+            PATENT
           else
             BOOK
           end
