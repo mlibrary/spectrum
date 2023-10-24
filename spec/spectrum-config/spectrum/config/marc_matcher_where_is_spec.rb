@@ -30,14 +30,19 @@ describe Spectrum::Config::MarcMatcherWhereIs do
     let(:cfg) { {'sub' => 'a', 'is' => ['']} }
     let(:matching_field) { FieldStub.new('a', '') }
     let(:not_matching_field) { FieldStub.new('b', '') }
+    let(:not_matching_value) { FieldStub.new('a', 'not-value') }
       
     context "#match?" do
-      it 'returns true when given match' do
+      it 'returns true when given matching field and value' do
         expect(subject.match?(matching_field)).to be(true)
       end
 
-      it 'returns false when given not-match' do
+      it 'returns false when given not-matching field with matching value' do
         expect(subject.match?(not_matching_field)).to be(false)
+      end
+
+      it 'returns false when given matching field and not-matching value' do
+        expect(subject.match?(not_matching_value)).to be(false)
       end
     end
   end

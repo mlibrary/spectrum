@@ -12,7 +12,7 @@ module Spectrum
 
       def match?(field)
         return true unless sub && values
-        !find_all(field).reject { |subfield| !values.any? { |val| subfield.value.start_with?(val) } }.empty?
+        find_all(field).any? { |subfield| values.any? { |val| subfield.value.start_with?(val) } }
       end
     end
   end
