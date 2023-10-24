@@ -2138,6 +2138,24 @@
    id: rft.genre
    type: rft_genre
 
+- id: primo_z3988_rft_genre
+  field: type
+  metadata:
+    name: rft_val_genre
+    short_desc: rft_genre
+  z3988:
+   id: rft.genre
+   type: rft_genre
+
+- id: primo_z3988_rft_val_fmt
+  field: type
+  metadata:
+    name: rft_val_fmt
+    short_desc: rft_val_fmt
+  z3988:
+   id: rft_val_fmt
+   type: rft_val_fmt
+
 - id: new_title
   metadata:
     name: New Title
