@@ -327,7 +327,7 @@ describe Spectrum::BibRecord::ElectronicHolding do
 
     context "When the holding has an non-Alma link" do
       let(:url) { "https://www.lib.umich.edu" }
-      let(:proxied_url) { "https://apps.lib.umich.edu/proxy-login/?url=#{url}" }
+      let(:proxied_url) { "https://apps.lib.umich.edu/proxy-login/?qurl=#{URI::encode_www_form_component(url)}" }
 
       it "Returns the proxied link" do
         expect(subject.link).to eq(proxied_url)
