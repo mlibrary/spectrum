@@ -23,7 +23,7 @@ module Spectrum
             hsh['text']  = "#{field['name']}: #{count}"
             if (href = [data.src[field['href']]].flatten.first)
               hsh['href'] = if request.respond_to?(:proxy_prefix)
-                request.proxy_prefix + href
+                request.proxy_prefix + URI::encode_www_form_component(href)
               else
                 href
               end

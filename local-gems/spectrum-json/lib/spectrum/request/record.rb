@@ -5,8 +5,8 @@ module Spectrum
     class Record
 
       FLINT = 'Flint'
-      FLINT_PROXY_PREFIX = 'http://libproxy.umflint.edu:2048/login?url='
-      DEFAULT_PROXY_PREFIX = 'https://proxy.lib.umich.edu/login?url='
+      FLINT_PROXY_PREFIX = 'http://libproxy.umflint.edu:2048/login?qurl='
+      DEFAULT_PROXY_PREFIX = 'https://proxy.lib.umich.edu/login?qurl='
       INSTITUTION_KEY = 'dlpsInstitutionId'
 
       def proxy_prefix

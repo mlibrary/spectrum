@@ -60,7 +60,7 @@ module Spectrum
         return value unless value
         return value if value.include?('proxy.lib.umich.edu')
         return value if value.include?('libproxy.umflint.edu')
-        prefix + value
+        prefix + URI::encode_www_form_component(value)
       end
 
       def <=>(other)

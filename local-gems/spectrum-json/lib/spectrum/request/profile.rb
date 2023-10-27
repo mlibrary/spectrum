@@ -4,10 +4,10 @@ module Spectrum
   module Request
     class Profile
       FLINT = "Flint"
-      FLINT_PROXY = "https://login.libproxy.umflint.edu/login?url="
+      FLINT_PROXY = "https://login.libproxy.umflint.edu/login?qurl="
       DEARBORN = "Dearborn"
       DEARBORN_PROXY = "https://library.umd.umich.edu/verify/fwd.php?"
-      ANN_ARBOR_PROXY = "https://proxy.lib.umich.edu/login?url="
+      ANN_ARBOR_PROXY = "https://proxy.lib.umich.edu/login?qurl="
       DEFAULT_DOMAIN = "@umich.edu"
       LOGGED_IN = "Logged in"
       NOT_LOGGED_IN = "Not logged in"
