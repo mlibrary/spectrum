@@ -22,8 +22,3 @@
       <header>Items sent from U-M Library search</header>
     html_footer: >-
       <footer>If you have questions about accessing these resources, please <a href="https://www.lib.umich.edu/research-and-scholarship/help-research/how-we-can-help">Ask a Librarian</a> or email <a href="mailto:askus@umich.edu">askus@umich.edu</a>.</footer>
-- id: favorites
-  type: favorites
-  driver: Spectrum::Json::Favorites
-  credentials:
-    service: https://apps.lib.umich.edu/favorites/api
