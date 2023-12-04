@@ -2053,6 +2053,9 @@
     name: Title
     short_desc: Title
   query_field: search_title
+  filters:
+    - id: bidi
+      method: bidi
 
 - id: marc_title
   uid: title

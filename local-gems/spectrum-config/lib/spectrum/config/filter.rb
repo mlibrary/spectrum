@@ -228,6 +228,15 @@ module Spectrum
         end
       end
 
+      def bidi(value, request)
+        case value
+        when Array
+          value.map { |val| bidi(val, request) }
+        when String
+          "\u2068" + value + "\u2069"
+        end
+      end
+
       def ris_text(value, request)
         case value
         when Array
