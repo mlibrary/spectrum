@@ -4119,6 +4119,9 @@
   ris:
     - DA
     - PY
+  csl:
+    id: issued
+    type: date
   metadata:
     name: Date
     short_desc: Date
