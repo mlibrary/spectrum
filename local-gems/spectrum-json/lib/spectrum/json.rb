@@ -4,6 +4,8 @@ require "rails" # so `bundle console` works
 require "json-schema"
 require "lru_redux"
 require "alma_rest_client"
+require "mlibrary_search_parser"
+require "mlibrary_search_parser/transformer/solr/sometimes_quoted_local_params"
 
 require "active_support"
 require "active_support/concern"

@@ -13,6 +13,7 @@ sorts:
 #  title: primo_title
 #  author: primo_author
 new_parser: true
+transformer: MLibrarySearchParser::Transformer::Solr::LocalParams
 search_fields:
   all_fields:
     pf: .
