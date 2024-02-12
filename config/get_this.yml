@@ -38,7 +38,8 @@
       - can_request?
 
 # Self Service (1 of 1)
-- label: Find it in the library
+- label: Get it off the shelves
+  summary: Self service. Visit the library location during open hours to find the item.
   service_type: Self Service
   duration: Immediate access to a physical copy when the library is open
   description:
@@ -53,7 +54,8 @@
     - can_request?
 
 # Pickup (1 of 6)
-- label: Pick it up at the library
+- label: Request for pick up at a library
+  summary: We'll find the item and send it to the library of your choice for pick up in 1-3 days.
   service_type: Library-to-library
   duration: Expected availability 1-3 days
   description:
@@ -88,7 +90,8 @@
       - not_game?
 
 # Pickup (2 of 6)
-- label: Pick it up at the library
+- label: Request for pick up at a library
+  summary: We'll find the item and send it to the library of your choice for pick up in 1-10 days.
   service_type: Library-to-library
   duration: Expected availability 1-10 days
   description:
@@ -123,7 +126,8 @@
       - not_game?
 
 # Pickup (3 of 6)
-- label: Pick it up at the library
+- label: Request for pick up at a library
+  summary: We'll find the item and send it to the library of your choice for pick up in 1-2 days.
   service_type: Library-to-library
   duration: Expected availability 1-2 days
   description:
@@ -157,7 +161,8 @@
       - not_building_use_only?
 
 # Pickup (4 of 6) WORK_ORDER_DEPARTMENT Labeling
-- label: Pick it up at the library
+- label: Request for pick up at a library
+  summary: We'll find the item and send it to the library of your choice for pick up in 1-3 days.
   service_type: Library-to-library
   duration: Click to see additional details
   description:
@@ -189,7 +194,8 @@
       - not_game?
 
 # Pickup (5 of 6) WORK_ORDER_DEPARTMENT AcqTechServices for ISEEES
-- label: Pick it up at the library
+- label: Request for pick up at a library
+  summary: We'll find the item and send it to the library of your choice for pick up in 1-5 days.
   service_type: Library-to-library
   duration: Expected availability 1-5 days
   description:
@@ -219,7 +225,8 @@
       - can_request?
         
 # Pickup (6 of 6)
-- label: Pick it up at the library
+- label: Request for pick up at a library
+  summary: We'll find the item and send it to the library of your choice for pick up. Expected availability varies for in-process items.
   service_type: Library-to-library
   duration: Click to see additional details
   description:
@@ -252,7 +259,8 @@
       - not_game?
 
 # Departmental Delivery (1 of 2)
-- label: Have it delivered
+- label: Have it delivered to your department
+  summary: "Expected availability: 1-7 days"
   service_type: Document Delivery
   duration: Expected availability 1-7 days
   description:
@@ -279,7 +287,8 @@
       - not_game?
 
 # Departmental Delivery (2 of 2)
-- label: Have it delivered
+- label: Have it delivered to your department
+  summary: "Expected availability: 3-10 days"
   service_type: Document Delivery
   duration: Expected availability 3-10 days
   description:
@@ -306,7 +315,8 @@
       - not_game?
 
 # Scan a portion (1 of 1)
-- label: Request to have a small portion scanned (Document Delivery)
+- label: Request to have a small portion scanned
+  summary: "Expected availability: 1-5 days"
   service_type: Document Delivery
   duration: Expected availability 1-5 days
   description:
@@ -325,12 +335,12 @@
       - faculty_student_staff?
     holding:
       - can_scan?
-    holding:
       - not_game?
 
 
 # Interlibrary Loan (1 of 2)
-- label: Request a copy from another library (Interlibrary Loan (I.L.L.))
+- label: Request a copy from another institution (Interlibrary Loan (I.L.L.))
+  summary: "Expected availability: 5+ days"
   service_type: Document Delivery
   duration: Expected availability 5+ days
   description:
@@ -353,7 +363,8 @@
       - not_game?
 
 # Interlibrary Loan (2 of 2)
-- label: Request a copy from another library (Interlibrary Loan (I.L.L.))
+- label: Request a copy from another institution (Interlibrary Loan (I.L.L.))
+  summary: "Expected availability: 7+ days"
   service_type: Document Delivery
   duration: Expected availability 7+ days
   description:
@@ -378,6 +389,7 @@
 # Place a future reservation
 # Media Booking
 - label: Place a future reservation
+  summary: "Expected availability: 1-3 days"
   service_type: Media Reservations
   duration: Expected availability 1-3 days
   description: 
@@ -401,6 +413,7 @@
 
 # Recall (1 of 2)
 - label: Request that this copy be returned
+  summary: "Expected availability: 1-3 weeks"
   service_type: Library-to-library
   duration: Expected availability 1-3 weeks*
   description:
@@ -436,6 +449,7 @@
 
 # Recall (2 of 2)
 - label: Request that this copy be returned
+  summary: "Expected availability: 1-3 weeks"
   service_type: Library pick up
   duration: Expected availability 1-3 weeks*
   description:
