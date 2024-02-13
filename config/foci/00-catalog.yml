@@ -6,6 +6,7 @@ metadata:
 source: mirlyn
 
 new_parser: true
+transformer: MLibrarySearchParser::Transformer::Solr::LocalParams
 search_field_default: all_fields
 search_attr_defaults:
   mm: $default_mm

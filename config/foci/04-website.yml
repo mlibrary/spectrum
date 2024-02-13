@@ -5,6 +5,7 @@ metadata:
   short_desc: "Search the for Guides and more."
 source: website
 # https://stackoverflow.com/questions/20217686/multiple-boost-queries-in-solr
+transformer: MLibrarySearchParser::Transformer::Solr::LocalParams
 solr_params:
   # default
   qt: edismax
