@@ -246,7 +246,7 @@ module Spectrum
       # people out of the proxy server.  So add a campus-agnostic proxy prefix.
       def link
         return @holding["link"] if @holding["link"]&.include?("alma.exlibrisgroup")
-        "https://apps.lib.umich.edu/proxy-login/?url=#{@holding["link"]}"
+        "https://apps.lib.umich.edu/proxy-login/?qurl=#{URI::encode_www_form_component(@holding["link"])}"
       end
     end
 

@@ -1237,6 +1237,7 @@
   metadata_component:
     full:
       type: browse
+      text: Browse in call number list
       variant: callnumber
 
 - id: building
@@ -2053,6 +2054,9 @@
     name: Title
     short_desc: Title
   query_field: search_title
+  filters:
+    - id: bidi
+      method: bidi
 
 - id: marc_title
   uid: title
@@ -2279,11 +2283,14 @@
       text_field: display
       value_field: search
     full:
-      type: quoted_search2
-      variant: fielded
-      scope: author
+      type: search_browse
+      search_variant: fielded
+      search_scope: author
       text_field: display
       value_field: search
+      quoted_search: true
+      browse_variant: author
+      browse_text: Browse in author list
 
 - id: contributors
   metadata:
@@ -2336,11 +2343,19 @@
       text_field: display
       value_field: search
     full:
-      type: search2
-      variant: filtered
-      scope: author
+      type: search_browse
+      search_variant: fielded
+      search_scope: author
       text_field: display
       value_field: search
+      quoted_search: true
+      browse_variant: author
+      browse_text: Browse in author list
+#      type: search2
+#      variant: filtered
+#      scope: author
+#      text_field: display
+#      value_field: search
 
 - id: ris_contributors
   z3988:
@@ -3532,11 +3547,14 @@
         join: ' '
   metadata_component:
     full:
-      type: quoted_search2
-      variant: fielded
-      scope: subject
+      type: search_browse
+      search_variant: fielded
+      search_scope: subject
       text_field: display
       value_field: search
+      quoted_search: true
+      browse_text: Browse in subject list
+      browse_variant: subject
 
 - id: other_subjects
   ris:
@@ -3649,7 +3667,7 @@
             tag: "880"
             sub: "[abc]"
             join: ' '
-            prefix: "\u2067"
+            prefix: "\u2068"
             suffix: "\u2069"
             where:
               - sub: "6"
@@ -3685,7 +3703,7 @@
             tag: "880"
             sub: "[abc]"
             join: ' '
-            prefix: "\u2067"
+            prefix: "\u2068"
             suffix: "\u2069"
             where:
               - sub: '6'
@@ -3990,7 +4008,7 @@
   headings: [ 'Action', 'Description' ]
   link_text: Go to item
   openurl_root: https://mgetit.lib.umich.edu/resolve
-  proxy_prefix: https://proxy.lib.umich.edu/login?url=
+  proxy_prefix: https://proxy.lib.umich.edu/login?qurl=
 
 - id: retracted
   metadata:
@@ -4137,6 +4155,9 @@
   ris:
     - DA
     - PY
+  csl:
+    id: issued
+    type: date
   metadata:
     name: Date
     short_desc: Date

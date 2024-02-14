@@ -5,6 +5,7 @@ metadata:
   name: Online Journals
   short_desc: "Search for online journals."
 source: website
+transformer: MLibrarySearchParser::Transformer::Solr::LocalParams
 filters:
   - "+source:ejournals-mirlyn"
 highly_recommended:

@@ -4,6 +4,8 @@ metadata:
   name: Databases
   short_desc: "Search for databases"
 source: website
+new_parser: true
+transformer: MLibrarySearchParser::Transformer::Solr::SometimesQuotedLocalParams
 highly_recommended:
   field: academic_discipline
   sort_uid: title_asc
@@ -11,6 +13,12 @@ highly_recommended:
 href:
   field: path_alias
   prefix: http://www.lib.umich.edu/node/
+
+search_field_default: all_fields
+search_attr_defaults:
+  mm: $default_mm
+  mm.autoRelax: $mm.autoRelax
+  tie: $tie
 
 solr_params:
   # title
@@ -37,7 +45,7 @@ solr_params:
 
   # isn
   f.search_isn.qf: issn
-  f.search_isn.qf: ""
+  f.search_isn.pf: issn
   f.search_isn.mm: 100%
 
   # publisher
@@ -52,7 +60,40 @@ solr_params:
   pf: title all_titles content
   tie: 0.1
   defType: edismax
-  
+
+search_fields:
+  title:
+    qf: sort_title^12 stitle^12 title_unstemmed^6 all_titles_unstemmed^3 title^2 alt^1
+    pf: title alt
+    mm: 75%
+
+  title_starts_with:
+    pf: title_ngram
+    qf: title_ngram
+    mm: 100%
+  publisher:
+    qf: pvc_text
+    pf: pvc_text
+    mm: 50%
+  isn:
+    qf: issn
+    pf: issn
+    mm: 100%
+  academic_discipline:
+    qf: og_groups_both^5 tmfield_taxonomy_name
+    pf: og_groups_both^5 tmfield_taxonomy_name
+    mm: 50%
+
+  all_fields:
+    qf: title_unstemmed^10 title^7 all_titles_unstemmed^8 all_titles^6 issn^10 content^2
+    pf: title all_titles content
+    mm: 25%
+
+  allfields:
+    qf: title_unstemmed^10 title^7 all_titles_unstemmed^8 all_titles^6 issn^10 content^2
+    pf: title all_titles content
+    mm: 25%
+
 filters:
   - "+source:searchtools-drupal"
   - "+status:true"

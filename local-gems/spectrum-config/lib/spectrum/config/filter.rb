@@ -60,7 +60,7 @@ module Spectrum
         return value unless value
         return value if value.include?('proxy.lib.umich.edu')
         return value if value.include?('libproxy.umflint.edu')
-        prefix + value
+        prefix + URI::encode_www_form_component(value)
       end
 
       def <=>(other)
@@ -225,6 +225,15 @@ module Spectrum
         when String
           return nil if value.match(/[^A-Za-z0-9]/)
           value
+        end
+      end
+
+      def bidi(value, request)
+        case value
+        when Array
+          value.map { |val| bidi(val, request) }
+        when String
+          "\u2068" + value + "\u2069"
         end
       end
 

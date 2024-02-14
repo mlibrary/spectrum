@@ -22,7 +22,7 @@ module Spectrum
         fields.map do |field|
           if (count = [data.src[field['count']]].flatten.first)
             if (href = [data.src[field['href']]].flatten.first)
-              href = request.proxy_prefix + href if request
+              href = request.proxy_prefix + URI::encode_www_form_component(href) if request
               "#{encoder.encode(field['name'])}: <a href='#{encoder.encode(href)}'>#{encoder.encode(count)}</a>"
             else
               "#{encoder.encode(field['name'])}: #{encoder.encode(count)}"

@@ -1,15 +1,13 @@
 # frozen_string_literal: true
 
-require 'mlibrary_search_parser'
-
 module Spectrum
   module Request
     module Requesty
       extend ActiveSupport::Concern
 
       FLINT                = 'Flint'
-      FLINT_PROXY_PREFIX   = 'http://libproxy.umflint.edu:2048/login?url='
-      DEFAULT_PROXY_PREFIX = 'https://proxy.lib.umich.edu/login?url='
+      FLINT_PROXY_PREFIX   = 'http://libproxy.umflint.edu:2048/login?qurl='
+      DEFAULT_PROXY_PREFIX = 'https://proxy.lib.umich.edu/login?qurl='
       INSTITUTION_KEY      = 'dlpsInstitutionId'
 
       included do
@@ -187,7 +185,7 @@ module Spectrum
 
 
       def new_parser_query(query_map = {}, filter_map = {}, built_search = @psearch)
-        lp = MLibrarySearchParser::Transformer::Solr::LocalParams.new(built_search)
+        lp = @focus.transformer.new(built_search)
         base_query(query_map, filter_map).merge(lp.params)
       end
 
@@ -213,7 +211,7 @@ module Spectrum
       end
 
       def query(query_map = {}, filter_map = {})
-        if @is_new_parser
+        if @is_new_parser && @psearch
           new_parser_query(query_map, filter_map)
         else
           tree_query(query_map, filter_map)

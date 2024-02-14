@@ -9,7 +9,8 @@ module Spectrum
                     :placeholder, :warning, :description,
                     :category, :base,
                     :fields, :url, :filters, :sorts, :id_field, :solr_params,
-                    :highly_recommended, :base_url, :raw_config, :default_sort
+                    :highly_recommended, :base_url, :raw_config, :default_sort,
+                    :transformer
 
 
       HREF_DATA = {
@@ -113,6 +114,7 @@ module Spectrum
         @get_null_facets = nil
         @hierarchy       = Hierarchy.new(args['hierarchy']) if args['hierarchy']
         @new_parser      = args['new_parser']
+        @transformer     = args['transformer']&.constantize
         @highly_recommended = HighlyRecommended.new(args['highly_recommended'])
         @facet_values    = {}
       end

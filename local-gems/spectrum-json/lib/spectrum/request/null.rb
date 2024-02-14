@@ -4,7 +4,7 @@ module Spectrum
   module Request
     class Null
       def proxy_prefix
-        'https://proxy.lib.umich.edu/login?url='
+        'https://proxy.lib.umich.edu/login?qurl='
       end
 
       def messages

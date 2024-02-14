@@ -48,7 +48,7 @@ module Spectrum
         extra_headings = []
 
         url = if data.link_to_resource?
-          "#{proxy_prefix}#{data.link_to_resource}"
+          proxy_prefix + URI::encode_www_form_component(data.link_to_resource)
         else
           "#{openurl_root}?#{data.openurl}"
         end

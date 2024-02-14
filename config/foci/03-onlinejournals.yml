@@ -8,6 +8,7 @@ highly_recommended:
   field: academic_discipline
   sort_uid: title_asc
   suffix: _bb
+transformer: MLibrarySearchParser::Transformer::Solr::LocalParams
 solr_params:
 
   f.search_series.pf: series^500 series2^50
