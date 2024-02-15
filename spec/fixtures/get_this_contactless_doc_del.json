@@ -10,7 +10,6 @@
                 ],
                 "heading": "Policies and additional details"
             },
-            "duration": "Expected availability 2-7 days",
             "faq": null,
             "form": {
                 "action": "https://ill.lib.umich.edu/illiad/illiad.dll",
@@ -109,7 +108,6 @@
             },
             "label": "Request to have a small portion scanned (Document Delivery)",
             "orientation": "",
-            "service_type": "I.L.L./Document Delivery",
             "tip": null
         },
         {
@@ -120,7 +118,6 @@
                 ],
                 "heading": "Policies and additional details"
             },
-            "duration": "Expected availability within 7 days",
             "faq": null,
             "form": {
                 "action": "/spectrum/mirlyn/hold",
@@ -169,7 +166,6 @@
             },
             "label": "Contactless pickup at the library",
             "orientation": "",
-            "service_type": "Contactless pickup",
             "tip": null
         }
     ],

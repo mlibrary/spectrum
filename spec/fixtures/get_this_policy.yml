@@ -2,12 +2,10 @@
 # Options
 #log-in:
 - label: Log in to see more options
-  service_type: Weblogin
   description:
     heading: Policies and additional details
     content:
       - TBD
-  duration: TBD
   weight: 0
   form:
     method: post
@@ -29,7 +27,6 @@
       - Did you do a semester abroad?
       - Contact the circulation department for more information
       - TBD
-  duration: TBD
   weight: 0
   form:
     method: get
@@ -45,8 +42,6 @@
 
 # ETAS / All Users
 - label: Full text available online
-  service_type: HathiTrust Emergency Temporary Access
-  duration: simultaneous access is limited
   description:
     heading: Policies and additional details
     content:
@@ -66,8 +61,6 @@
 
 # Request a copy from another library - ann arbor
 - label: Request a copy from another library (Interlibrary Loan (I.L.L.))
-  service_type: Document Delivery
-  duration: Expected availability 6-10 days*
   description:
     heading: Policies and additional details
     content:
@@ -145,8 +138,6 @@
 
 # Request a copy from another library - flint
 - label: Request a copy from another library (Interlibrary Loan (I.L.L.))
-  service_type: Document Delivery
-  duration: Expected availability 2-4 weeks*
   description:
     heading: Policies and additional details
     content:
@@ -224,13 +215,11 @@
 
 # Request a digital copy:
 - label: Request a digital copy (Interlibrary Loan (I.L.L.))
-  service_type: Document Delivery
   description:
     heading: Policies and additional details
     content:
       - Requests are filled via equivalent electronic resources if available.
       - Loan terms and renewals vary by source.
-  duration: Delivery time varies by source
   weight: 144
   form:
     method: get
@@ -301,7 +290,6 @@
 
 - label: Request cannot be placed
   weight: 144
-  duration: Service unavailable
   orientation: >
     This service is limited to current affiliates of the University of
     Michigan. If you believe your status should allow access, please 
@@ -319,8 +307,6 @@
 
 # Have a small portion scanned -- local - ETAS
 - label: Request to have a small portion scanned (Document Delivery)
-  service_type: I.L.L./Document Delivery
-  duration: Expected availability 2-7 days
   description:
     heading: Policies and additional details
     content:
@@ -397,8 +383,6 @@
 
 # Have a small portion scanned -- local - not ETAS
 - label: Request to have a small portion scanned (Document Delivery)
-  service_type: I.L.L./Document Delivery
-  duration: Expected availability 2-7 days
   description:
     heading: Policies and additional details
     content:
@@ -476,8 +460,6 @@
 
 # Have a small portion scanned -- remote / On Order
 - label: Request to have a small portion scanned (Document Delivery)
-  service_type: I.L.L./Document Delivery
-  duration: Expected availability 1-10 days*
   description:
     heading: Policies and additional details
     content:
@@ -554,8 +536,6 @@
 
 # Have a small portion scanned -- remote / Flint
 - label: Request to have a small portion scanned (Document Delivery)
-  service_type: I.L.L./Document Delivery
-  duration: Expected availability 1-10 days*
   description:
     heading: Policies and additional details
     content:
@@ -631,8 +611,6 @@
 
 # Contactless Pickup @Flint with item from AA
 - label: Pick it up at the library (Library to Library)
-  service_type: Library pick up
-  duration: Expected availabiltiy 10 days
   description:
     heading: Policies and additional details
     content:
@@ -680,8 +658,6 @@
 
 # Contactless Pickup @Flint
 - label: Pick it up at the library
-  service_type: Library pick up
-  duration: Expected availabiltiy 1-2 days
   description:
     heading: Policies and additional details
     content:
@@ -729,8 +705,6 @@
 
 # On Order @Flint
 - label: Contactless Pickup at the library
-  service_type: Contactless pickup
-  duration: Click to see additional details
   description:
     heading: Policies and additional details
     content:
@@ -778,13 +752,11 @@
 
 # Contactless Pickup @Shapiro or @AAEL
 - label: Contactless pickup at the library
-  service_type: Contactless pickup
   description:
     heading: Policies and additional details
     content:
       - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
       - Learn more about <a href="https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup">contactless pickup</a>.
-  duration: Expected availability 2-4 days
   weight: 72
   form:
     type: ajax
@@ -831,8 +803,6 @@
 
 # On Order @Shapiro or @AAEL
 - label: Contactless Pickup at the library
-  service_type: Contactless pickup
-  duration: Click to see additional details
   description:
     heading: Policies and additional details
     content:
@@ -885,8 +855,6 @@
 
 # Contactless Pickup @Shapiro From Flint Campus
 - label: Contactless pickup at the library
-  service_type: Contactless pickup
-  duration: Expected availability within 10 days
   description:
     heading: Policies and additional details
     content:
@@ -935,8 +903,6 @@
 
 # On Order @Shapiro From Flint Campus
 - label: Contactless pickup at the library
-  service_type: Contactless pickup
-  duration: Click to see additional details
   description:
     heading: Policies and additional details
     content:
@@ -986,13 +952,11 @@
 
 # Contactless Pickup @Shapiro from AA
 - label: Contactless pickup at the library
-  service_type: Contactless pickup
   description:
     heading: Policies and additional details
     content:
       - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
       - Learn more about <a href="https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup">contactless pickup</a>.
-  duration: Expected availability within 7 days
   weight: 72
   form:
     type: ajax
@@ -1037,8 +1001,6 @@
 
 # On Order @Shapiro from AA
 - label: Contactless pickup at the library
-  service_type: Contactless pickup
-  duration: Click to see additional details
   description:
     heading: Policies and additional details
     content:
@@ -1089,13 +1051,11 @@
 
 # Contactless Pickup @AAEL
 - label: Contactless pickup at the library
-  service_type: Contactless pickup
   description:
     heading: Policies and additional details
     content:
       - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
       - Learn more about <a href="https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/contactless-pickup">contactless pickup</a>.
-  duration: Expected availability within 7 days
   weight: 72
   form:
     type: ajax
@@ -1140,8 +1100,6 @@
 
 # On Order @AAEL
 - label: Contactless pickup at the library
-  service_type: Contactless pickup
-  duration: Click to see additional details
   description:
     heading: Policies and additional details
     content:
@@ -1192,8 +1150,6 @@
 
 # Contactless Pickup @Music
 - label: Contactless pickup at the library
-  service_type: Contactless pickup
-  duration: Expected availability within 7 days
   description:
     heading: Policies and additional details
     content:
@@ -1243,8 +1199,6 @@
 
 # On Order @Music
 - label: Contactless pickup at the library
-  service_type: Contactless pickup
-  duration: Click to see additional details
   description:
     heading: Policies and additional details
     content:
@@ -1295,13 +1249,11 @@
 
 # Pickup @Mardigan
 - label: Pick it up at the library (Library to Library)
-  service_type: Library pick up
   description:
     heading: Policies and additional details
     content:
       - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
       - Pick up is available by appointment. See <a href="https://library.umd.umich.edu/pickup/">Mardigan Library - Schedule Pick-Up / Return</a> for details.
-  duration: Expected availability within 10 days
   weight: 72
   form:
     type: ajax
@@ -1346,13 +1298,11 @@
 
 # Contactless Pickup @Mardigan
 - label: Pick it up at the library (Library to Library)
-  service_type: Library pick up
   description:
     heading: Policies and additional details
     content:
       - Standard loan and renewal policies apply. Once checked-out, your item cannot be recalled by another user.
       - Pick up is available by appointment. See <a href="https://library.umd.umich.edu/pickup/">Mardigan Library - Schedule Pick-Up / Return</a> for details.
-  duration: Expected availability within 10 days
   weight: 72
   form:
     type: ajax
@@ -1396,8 +1346,6 @@
 
 # On Order @Mardigan
 - label: Pick it up at the library (Library to Library)
-  service_type: Library pick up
-  duration: Click to see additional details
   description:
     heading: Policies and additional details
     content:
