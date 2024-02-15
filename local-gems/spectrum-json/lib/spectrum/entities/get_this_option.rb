@@ -1,6 +1,5 @@
 class Spectrum::Entities::GetThisOption
-  attr_reader :label, :service_type, :duration, :description, :tip, :faq,
-    :grants, :weight, :orientation
+  attr_reader :label, :description, :tip, :faq, :grants, :weight, :orientation
   def initialize(option:, patron:, item:, now:)
     @now = now
     @option = option
@@ -9,10 +8,8 @@ class Spectrum::Entities::GetThisOption
 
     @weight = option["weight"] || 0
     @description = option["description"]
-    @duration = option["duration"]
     @faq = option["faq"]
     @label = option["label"]
-    @service_type = option["service_type"]
     @orientation = option["orientation"] || ""
     @tip = option["tip"]
   end
@@ -46,11 +43,9 @@ class Spectrum::Entities::GetThisOption
   def to_h
     {
       description: @description,
-      duration: @duration,
       faq: @faq,
       form: form,
       label: @label,
-      service_type: @service_type,
       orientation: @orientation,
       tip: @tip
     }.stringify_keys

@@ -12,7 +12,7 @@ describe Spectrum::Entities::GetThisOption do
   end
   context "No form" do
     subject do
-      option = option_for(field: ["service_type"], value: "Weblogin")
+      option = option_for(field: ["label"], value: "Log in to see more options")
       described_class.for(option: option, patron: @patron, item: @item)
     end
     it "returns a GetThisOption" do
