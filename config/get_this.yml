@@ -2,12 +2,10 @@
 # Options
 #log-in:
 - label: Log in to see more options
-  service_type: Weblogin
   description:
     heading: Policies and additional details
     content:
       - TBD
-  duration: TBD
   weight: 0
   grants:
     patron:
@@ -25,7 +23,6 @@
       - Did you do a semester abroad?
       - Contact the circulation department for more information
       - TBD
-  duration: TBD
   weight: 0
   form:
     type: link
@@ -38,9 +35,8 @@
       - can_request?
 
 # Self Service (1 of 1)
-- label: Find it in the library
-  service_type: Self Service
-  duration: Immediate access to a physical copy when the library is open
+- label: Get it off the shelves
+  summary: Self service. Visit the library location during open hours to find the item.
   description:
     heading: Policies and additional details
     content:
@@ -53,9 +49,8 @@
     - can_request?
 
 # Pickup (1 of 6)
-- label: Pick it up at the library
-  service_type: Library-to-library
-  duration: Expected availability 1-3 days
+- label: Request for pick up at a library
+  summary: We'll find the item and send it to the library of your choice for pick up in 1-3 days.
   description:
     heading: Policies and additional details
     content:
@@ -88,9 +83,8 @@
       - not_game?
 
 # Pickup (2 of 6)
-- label: Pick it up at the library
-  service_type: Library-to-library
-  duration: Expected availability 1-10 days
+- label: Request for pick up at a library
+  summary: We'll find the item and send it to the library of your choice for pick up in 1-10 days.
   description:
     heading: Policies and additional details
     content: 
@@ -123,9 +117,8 @@
       - not_game?
 
 # Pickup (3 of 6)
-- label: Pick it up at the library
-  service_type: Library-to-library
-  duration: Expected availability 1-2 days
+- label: Request for pick up at a library
+  summary: We'll find the item and send it to the library of your choice for pick up in 1-2 days.
   description:
     heading: Policies and additional details
     content:
@@ -157,9 +150,8 @@
       - not_building_use_only?
 
 # Pickup (4 of 6) WORK_ORDER_DEPARTMENT Labeling
-- label: Pick it up at the library
-  service_type: Library-to-library
-  duration: Click to see additional details
+- label: Request for pick up at a library
+  summary: We'll find the item and send it to the library of your choice for pick up in 1-3 days.
   description:
     heading: Policies and additional details
     content:
@@ -189,9 +181,8 @@
       - not_game?
 
 # Pickup (5 of 6) WORK_ORDER_DEPARTMENT AcqTechServices for ISEEES
-- label: Pick it up at the library
-  service_type: Library-to-library
-  duration: Expected availability 1-5 days
+- label: Request for pick up at a library
+  summary: We'll find the item and send it to the library of your choice for pick up in 1-5 days.
   description:
     heading: Policies and additional details
     content:
@@ -219,9 +210,8 @@
       - can_request?
         
 # Pickup (6 of 6)
-- label: Pick it up at the library
-  service_type: Library-to-library
-  duration: Click to see additional details
+- label: Request for pick up at a library
+  summary: We'll find the item and send it to the library of your choice for pick up. Expected availability varies for in-process items.
   description:
     heading: Policies and additional details
     content:
@@ -252,9 +242,8 @@
       - not_game?
 
 # Departmental Delivery (1 of 2)
-- label: Have it delivered
-  service_type: Document Delivery
-  duration: Expected availability 1-7 days
+- label: Have it delivered to your department
+  summary: "Expected availability: 1-7 days"
   description:
     heading: Policies and additional details
     content:
@@ -279,9 +268,8 @@
       - not_game?
 
 # Departmental Delivery (2 of 2)
-- label: Have it delivered
-  service_type: Document Delivery
-  duration: Expected availability 3-10 days
+- label: Have it delivered to your department
+  summary: "Expected availability: 3-10 days"
   description:
     heading: Policies and additional details
     content:
@@ -306,9 +294,8 @@
       - not_game?
 
 # Scan a portion (1 of 1)
-- label: Request to have a small portion scanned (Document Delivery)
-  service_type: Document Delivery
-  duration: Expected availability 1-5 days
+- label: Request to have a small portion scanned
+  summary: "Expected availability: 1-5 days"
   description:
     heading: Policies and additional details
     content:
@@ -325,14 +312,12 @@
       - faculty_student_staff?
     holding:
       - can_scan?
-    holding:
       - not_game?
 
 
 # Interlibrary Loan (1 of 2)
-- label: Request a copy from another library (Interlibrary Loan (I.L.L.))
-  service_type: Document Delivery
-  duration: Expected availability 5+ days
+- label: Request a copy from another institution (Interlibrary Loan (I.L.L.))
+  summary: "Expected availability: 5+ days"
   description:
     heading: Policies and additional details
     content:
@@ -353,9 +338,8 @@
       - not_game?
 
 # Interlibrary Loan (2 of 2)
-- label: Request a copy from another library (Interlibrary Loan (I.L.L.))
-  service_type: Document Delivery
-  duration: Expected availability 7+ days
+- label: Request a copy from another institution (Interlibrary Loan (I.L.L.))
+  summary: "Expected availability: 7+ days"
   description:
     heading: Policies and additional details
     content:
@@ -378,8 +362,7 @@
 # Place a future reservation
 # Media Booking
 - label: Place a future reservation
-  service_type: Media Reservations
-  duration: Expected availability 1-3 days
+  summary: "Expected availability: 1-3 days"
   description: 
     heading: Policies and additional details
     content:
@@ -401,8 +384,7 @@
 
 # Recall (1 of 2)
 - label: Request that this copy be returned
-  service_type: Library-to-library
-  duration: Expected availability 1-3 weeks*
+  summary: "Expected availability: 1-3 weeks"
   description:
     heading: Policies and additional details
     content:
@@ -436,8 +418,7 @@
 
 # Recall (2 of 2)
 - label: Request that this copy be returned
-  service_type: Library pick up
-  duration: Expected availability 1-3 weeks*
+  summary: "Expected availability: 1-3 weeks"
   description:
     heading: Policies and additional details
     content:
