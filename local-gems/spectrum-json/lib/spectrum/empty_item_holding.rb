@@ -37,7 +37,7 @@ module Spectrum
 
     # Things that respond with true
     [:closed_stacks?, :can_request?, :mobile?, :off_shelf?,
-      :ann_arbor?, :not_on_shelf?, :not_reservable_library?].each do |name|
+      :ann_arbor?, :not_on_shelf?, :not_game?, :not_reservable_library?].each do |name|
       define_method(name) do
         true
       end
