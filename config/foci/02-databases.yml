@@ -79,10 +79,16 @@ search_fields:
     qf: issn
     pf: issn
     mm: 100%
+
   academic_discipline:
     qf: og_groups_both^5 tmfield_taxonomy_name
     pf: og_groups_both^5 tmfield_taxonomy_name
     mm: 50%
+
+  browse_starts_with:
+    qf: title_initial
+    pf: title_initial
+    mm: 100%
 
   all_fields:
     qf: title_unstemmed^10 title^7 all_titles_unstemmed^8 all_titles^6 issn^10 content^2

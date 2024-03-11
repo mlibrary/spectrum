@@ -102,8 +102,7 @@ fields:
 - exact
 
 # COinS
-- primo_z3988_rft_val_fmt
-- primo_z3988_rft_genre
+- z3988_rft_val_fmt
 
 facets:
 - primo_is_scholarly
