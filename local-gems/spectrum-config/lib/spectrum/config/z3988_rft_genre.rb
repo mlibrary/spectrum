@@ -7,40 +7,23 @@ module Spectrum
 
       JOURNAL = "journal"
       BOOK = "book"
-      PATENT = 'patent'
-      DISSERTATION = 'thesis'
-      DOCUMENT = 'document'
-      CONFERENCE = 'conference'
-
-      JOURNAL_FORMATS = ['journal', 'serial']
-      BOOK_FORMATS = ['book', 'ebook', 'biography', 'dictionaries', 'encyclopedias']
-      PATENT_FORMATS = ['patent']
-      DISSERTATION_FORMATS = ['dissertation', 'thesis']
-      CONFERENCE_FORMATS = ['conference']
+      JOURNAL_FORMATS = ['Journal', 'Serial']
 
       def initialize(args)
-        self.id = (args || {})['id'] || 'rft.genre'
-        self.namespace = (args || {})['namespace'] || ''
+        self.id = args['id'] || 'rft.genre' if args
+        self.namespace = args['namespace'] || '' if args
       end
 
       def value(data)
         val = if id && data && data[:value]
-          formats = [data[:value]].flatten.map(&:downcase)
+          formats = [data[:value]].flatten
           if JOURNAL_FORMATS.any? { |fmt| formats.include?(fmt) }
             JOURNAL
-          elsif BOOK_FORMATS.any? { |fmt| formats.include?(fmt) }
-            BOOK
-          elsif PATENT_FORMATS.any? { |fmt| formats.include?(fmt) }
-            PATENT
-          elsif DISSERTATION_FORMATS.any? { |fmt| formats.include?(fmt) }
-            DISSERTATION
-          elsif CONFERENCE_FORMATS.any? { |fmt| formats.include?(fmt) }
-            CONFERENCE
           else
-            DOCUMENT
+            BOOK
           end
         else
-          DOCUMENT
+          BOOK
         end
         ["#{URI::encode_www_form_component(id)}=#{URI::encode_www_form_component(namespace.to_s + val.to_s)}"]
       end
