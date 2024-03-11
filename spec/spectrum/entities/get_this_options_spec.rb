@@ -27,7 +27,7 @@ describe Spectrum::Entities::GetThisOptions do
       allow(@account).to receive(:empty?).and_return(true)
       allow(@item).to receive(:can_request?).and_return(true)
       expect(subject.count).to eq(1)
-      expect(subject.first["service_type"]).to eq("Weblogin")
+      expect(subject.first["label"]).to eq("Log in to see more options")
     end
   end
   context "::all" do

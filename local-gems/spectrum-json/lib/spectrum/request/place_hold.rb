@@ -24,7 +24,7 @@ module Spectrum
             @patron = Spectrum::Entities::AlmaUser.for(username: user)
             @valid_account = @patron.active?
             @option = Spectrum::Policy::GetThis.new(@patron, fetch_bib_record, fetch_holdings_record).resolve.reject do |service|
-              ["Self Service", "Document Delivery"].include? service["service_type"]
+              ["Get it off the shelves", "Have it delivered to your department", "Request to have a small portion scanned", "Request a copy from another institution (Interlibrary Loan (I.L.L.))"].include? service["label"]
             end.first
           end
         rescue
@@ -35,8 +35,6 @@ module Spectrum
         return {} unless @option
         {
           label: @option["label"],
-          service_type: @option["service_type"],
-          duration: @option["duration"],
           description: {
             heading: @option["description"]["heading"],
             content: @option["description"]["content"].slice(0, @option["description"]["content"].length - 1)
