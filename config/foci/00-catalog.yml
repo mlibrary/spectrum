@@ -238,8 +238,8 @@ fields:
   - place
   - printer
   - association
-  - lcsh_subjects
-  - other_subjects
+  - lc_subject_display
+  - non_lc_subject_display
   - academic_discipline
   - contents_listing
   - bookplate
