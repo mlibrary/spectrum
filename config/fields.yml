@@ -3538,6 +3538,47 @@
       browse_text: Browse in subject list
       browse_variant: subject
 
+- id: lc_subject_display
+  ris:
+    - KW 
+  metadata:
+    name: Subjects (LCSH)
+  metadata_component:
+    full:
+      type: search_browse2
+      search_variant: fielded
+      search_scope: subject
+      quoted_search: true
+      browse_text: Browse in subject list
+      browse_variant: subject
+
+- id: remediated_lc_subject_display
+  ris:
+    - KW 
+  metadata:
+    name: Subjects (Local)
+  metadata_component:
+    full:
+      type: search_browse2
+      search_variant: fielded
+      search_scope: subject
+      quoted_search: true
+      browse_text: Browse in subject list
+      browse_variant: subject
+
+- id: non_lc_subject_display
+  ris:
+    - KW
+  metadata:
+    name: Subjects (Other)
+  metadata_component:
+    full:
+      type: quoted_search3
+      variant: fielded
+      scope: subject
+
+
+
 - id: other_subjects
   ris:
     - KW
