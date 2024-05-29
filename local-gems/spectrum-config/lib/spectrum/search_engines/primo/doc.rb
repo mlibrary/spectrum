@@ -68,6 +68,8 @@ module Spectrum
         # These are going to be brittle.  Long term I'll need to look them up and use that.
         def construct_link_to_resource
           case link_type
+          when 'naxos_video'
+            "https://umich.naxosvideolibrary.com/title/#{sourcerecordid}"
           when 'naxos_music_library', 'naxos_music_libray'
             "https://umich.naxosmusiclibrary.com/catalogue/item.asp?cid=#{sourcerecordid}"
           when 'gale_linking'
