@@ -1,23 +1,23 @@
-require_relative '../../rails_helper'
+require_relative "../../rails_helper"
 describe Spectrum::Entities::GetThisWorkOrderOption do
   before(:each) do
-     @item = double('Spectrum::Decorators::PhysicalItemDecorator', location: 'HATCH', process_type: "WORK_ORDER_DEPARTMENT", barcode: "BARCODE")
-     @alma_item = JSON.parse(File.read('./spec/fixtures/get_this/alma_work_order_item.json'))
+    @item = double("Spectrum::Decorators::PhysicalItemDecorator", location: "HATCH", process_type: "WORK_ORDER_DEPARTMENT", barcode: "BARCODE")
+    @alma_item = JSON.parse(File.read("./spec/fixtures/get_this/alma_work_order_item.json"))
   end
   subject do
-    stub_alma_get_request(url: "items", output: @alma_item.to_json, query: {item_barcode: 'BARCODE'})
+    stub_alma_get_request(url: "items", output: @alma_item.to_json, query: {item_barcode: "BARCODE"})
     described_class.for(@item)
   end
   context ".for" do
-    it "returns a GetThisWorkOrderOption object for an item with a WORK_ORDER_DEPARTMENT process type" do 
+    it "returns a GetThisWorkOrderOption object for an item with a WORK_ORDER_DEPARTMENT process type" do
       expect(subject.class.to_s).to include("GetThisWorkOrderOption")
     end
-    it "returns a GetThisWorkOrderNotApplicable object for an item with a non work order process type" do 
+    it "returns a GetThisWorkOrderNotApplicable object for an item with a non work order process type" do
       allow(@item).to receive(:process_type).and_return("IN_TRANSIT")
       expect(subject.class.to_s).to include("GetThisWorkOrderNotApplicable")
     end
-    it "returns a GetThisWorkOrderNotApplicable if the api response returns not 200" do 
-      stub_alma_get_request(url: "items", query: {item_barcode: 'BARCODE'}, status: 500)
+    it "returns a GetThisWorkOrderNotApplicable if the api response returns not 200" do
+      stub_alma_get_request(url: "items", query: {item_barcode: "BARCODE"}, status: 500)
       expect(described_class.for(@item).class.to_s).to include("GetThisWorkOrderNotApplicable")
     end
   end
