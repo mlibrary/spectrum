@@ -19,6 +19,10 @@ class Spectrum::Entities::GetThisWorkOrderOption
     ["Labeling"].include?(@data.dig("item_data", "work_order_type", "value"))
   end
 
+  def in_getable_acq_work_order?
+    in_international_studies_acquisitions_technical_services? || in_asia_backlog?
+  end
+
   def in_international_studies_acquisitions_technical_services?
     ["AcqWorkOrder"].include?(@data.dig("item_data", "work_order_type", "value")) &&
       ["IS-SEEES"].include?(@data.dig("item_data", "location", "value"))

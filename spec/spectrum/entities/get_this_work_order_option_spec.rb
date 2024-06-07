@@ -40,6 +40,10 @@ describe Spectrum::Entities::GetThisWorkOrderOption do
       @alma_item["item_data"]["work_order_type"]["value"] = "AcqWorkOrder"
       expect(subject.in_asia_backlog?).to eq(false)
     end
+    it "is false when in Asia library but not in AcqWorkorder" do
+      @alma_item["item_data"]["location"]["value"] = "ASIA"
+      expect(subject.in_asia_backlog?).to eq(false)
+    end
   end
   context "in_international_studies_acquisitions_technical_services?" do
     it "is true when an item is in international studies and is in AcqWorkOrder" do
@@ -54,6 +58,21 @@ describe Spectrum::Entities::GetThisWorkOrderOption do
     it "is false for an item is IS-SEES that isn't in the AcqWorkOrder" do
       @alma_item["item_data"]["location"]["value"] = "IS-SEEES"
       expect(subject.in_international_studies_acquisitions_technical_services?).to eq(false)
+    end
+  end
+  context "in_getable_acq_work_order?" do
+    it "is true when isees is true" do
+      @alma_item["item_data"]["work_order_type"]["value"] = "AcqWorkOrder"
+      @alma_item["item_data"]["location"]["value"] = "IS-SEEES"
+      expect(subject.in_getable_acq_work_order?).to eq(true)
+    end
+    it "is true when asia backlog is true" do
+      @alma_item["item_data"]["work_order_type"]["value"] = "AcqWorkOrder"
+      @alma_item["item_data"]["location"]["value"] = "ASIA"
+      expect(subject.in_getable_acq_work_order?).to eq(true)
+    end
+    it "is false when its in neither" do
+      expect(subject.in_getable_acq_work_order?).to eq(false)
     end
   end
 end
