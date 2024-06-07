@@ -44,5 +44,9 @@ class Spectrum::Entities::GetThisWorkOrderOption
     def in_labeling?
       false
     end
+
+    def in_getable_acq_work_order?
+      false
+    end
   end
 end

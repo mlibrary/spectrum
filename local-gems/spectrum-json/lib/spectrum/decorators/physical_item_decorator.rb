@@ -90,6 +90,10 @@ module Spectrum::Decorators
       !etas?
     end
 
+    def in_slower_pickup?
+      @work_order_option.in_getable_acq_work_order? || in_asia_transit?
+    end
+
     def music_pickup?
       MUSIC_PICKUP.include?(@item.library)
     end
@@ -169,6 +173,10 @@ module Spectrum::Decorators
 
     def not_in_labeling?
       !in_labeling?
+    end
+
+    def in_asia_transit?
+      @item.library == "HATCH" && @item.location == "ASIA" && @item.process_type == "TRANSIT"
     end
 
     def not_in_international_studies_acquisitions_technical_services?
