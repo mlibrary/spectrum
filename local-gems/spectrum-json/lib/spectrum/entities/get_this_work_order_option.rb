@@ -24,6 +24,11 @@ class Spectrum::Entities::GetThisWorkOrderOption
       ["IS-SEEES"].include?(@data.dig("item_data", "location", "value"))
   end
 
+  def in_asia_backlog?
+    ["AcqWorkOrder"].include?(@data.dig("item_data", "work_order_type", "value")) &&
+      ["ASIA"].include?(@data.dig("item_data", "location", "value"))
+  end
+
   class GetThisWorkOrderNotApplicable < self
     def initialize
     end
