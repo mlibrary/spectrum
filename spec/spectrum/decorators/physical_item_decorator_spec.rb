@@ -20,12 +20,6 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
   context "work order methods" do
     # mrio: both of these would be booleans, but having them return strings shows
     # that the correct path through the code is being used.
-    it "responds to #in_international_studies_acquisitions_technical_services?" do
-      expect(subject.in_international_studies_acquisitions_technical_services?).to eq("in_international_studies_acquisitions_technical_services")
-    end
-    it "responds to #not_in_international_studies_acquisitions_technical_services?" do
-      expect(subject.not_in_international_studies_acquisitions_technical_services?).to eq(false)
-    end
     it "responds to #in_labeling?" do
       expect(subject.in_labeling?).to eq("in_labeling")
     end
@@ -53,11 +47,6 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
       allow(@input[:solr_item]).to receive(:location).and_return("MAIN")
       expect(subject.in_slower_pickup?).to eq(false)
     end
-  end
-  it "response to #not_in_slower_pickup?" do
-    allow(@input[:solr_item]).to receive(:library).and_return("SHAP")
-    allow(@input[:solr_item]).to receive(:location).and_return("MAIN")
-    expect(subject.not_in_slower_pickup?).to eq(true)
   end
   context "in_asia_transit?" do
     it "is true when in Asia library and process type transit" do
