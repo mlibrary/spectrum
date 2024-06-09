@@ -48,7 +48,7 @@ module Spectrum
       :missing?, :known_off_shelf?, :open_stacks?, :checked_out?, :reopened?,
       :flint?, :in_labeling?, :in_acq?, :reservable_library?,
       :in_international_studies_acquisitions_technical_services?,
-      :recallable?].each do |name|
+      :recallable?, :can_scan?].each do |name|
       define_method(name) do
         false
       end
