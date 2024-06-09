@@ -5,13 +5,23 @@ module Spectrum
         attr_accessor :info, :highlights, :docs, :timelog, :facets
 
         def self.for_json(json)
-          return self.new(
-            info: Info.for_json(json['info']),
-            highlights: Highlights.for_json(json['highlights']),
-            docs: Docs.for_json(json['docs'], json['info']['first'].to_i),
-            timelog: Timelog.for_json(json['timelog']),
-            facets: Facets.for_json(json['facets'])
-          )
+          begin
+            return self.new(
+              info: Info.for_json(json['info']),
+              highlights: Highlights.for_json(json['highlights']),
+              docs: Docs.for_json(json['docs'], json['info']['first'].to_i),
+              timelog: Timelog.for_json(json['timelog']),
+              facets: Facets.for_json(json['facets'])
+            )
+          rescue MultiXml::ParseError => e
+            return self.new(
+              info: Info.for_json(nil),
+              highlights: Highlights.for_json(nil),
+              docs: Docs.for_json([], 0),
+              timelog: Timelog.for_json(nil),
+              facets: Facets.for_json([]),
+            )
+          end
         end
 
         def with_libkey(config)
