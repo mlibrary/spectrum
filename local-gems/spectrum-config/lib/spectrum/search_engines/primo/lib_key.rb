@@ -6,7 +6,7 @@ module Spectrum
 
         def self.for_data(config, type, data)
           return nil unless data
-          url = config['host'] + "/public/v1/libraries/#{config['library_id']}/articles/#{type}/#{data}"
+          url = config['host'] + "/public/v1/libraries/#{config['library_id']}/articles/#{type}/#{CGI.escape(data)}"
           headers = {'Authorization' => "Bearer #{config['key']}"}
           response = HTTParty.get(url, headers: headers)
           return nil unless response.code == 200
