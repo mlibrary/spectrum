@@ -8,7 +8,10 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
       solr_item: double("BibRecord::AlmaItem", process_type: nil, item_policy: "01", barcode: "somebarcode", fulfillment_unit: "General"),
       bib_record: instance_double(Spectrum::BibRecord)
     }
-    @get_this_work_order_double = instance_double(Spectrum::Entities::GetThisWorkOrderOption, in_labeling?: "in_labeling", in_international_studies_acquisitions_technical_services?: "in_international_studies_acquisitions_technical_services")
+    @get_this_work_order_double = instance_double(Spectrum::Entities::GetThisWorkOrderOption,
+      in_labeling?: "in_labeling",
+      in_international_studies_acquisitions_technical_services?: "in_international_studies_acquisitions_technical_services",
+      in_getable_acq_work_order?: false)
   end
   subject do
     item = Spectrum::Entities::AlmaItem.new(**@input)
@@ -17,18 +20,52 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
   context "work order methods" do
     # mrio: both of these would be booleans, but having them return strings shows
     # that the correct path through the code is being used.
-    it "responds to #in_international_studies_acquisitions_technical_services?" do
-      expect(subject.in_international_studies_acquisitions_technical_services?).to eq("in_international_studies_acquisitions_technical_services")
-    end
-    it "responds to #not_in_international_studies_acquisitions_technical_services?" do
-      expect(subject.not_in_international_studies_acquisitions_technical_services?).to eq(false)
-    end
     it "responds to #in_labeling?" do
       expect(subject.in_labeling?).to eq("in_labeling")
     end
 
     it "responds to #not_in_labeling?" do
       expect(subject.not_in_labeling?).to eq(false)
+    end
+  end
+  context "in_slower_pickup?" do
+    it "is true when in_getable_acq_work_order?" do
+      allow(@get_this_work_order_double).to receive(:in_getable_acq_work_order?).and_return(true)
+      expect(subject.in_slower_pickup?).to eq(true)
+    end
+
+    it "is true when in_asia_transit? is true" do
+      allow(@get_this_work_order_double).to receive(:in_getable_acq_work_order?).and_return(false)
+      allow(@input[:solr_item]).to receive(:library).and_return("HATCH")
+      allow(@input[:solr_item]).to receive(:location).and_return("ASIA")
+      allow(@input[:solr_item]).to receive(:process_type).and_return("TRANSIT")
+      expect(subject.in_slower_pickup?).to eq(true)
+    end
+
+    it "is false when neither in_getable_acq_work_order? or in_asia_transit?" do
+      allow(@input[:solr_item]).to receive(:library).and_return("SHAP")
+      allow(@input[:solr_item]).to receive(:location).and_return("MAIN")
+      expect(subject.in_slower_pickup?).to eq(false)
+    end
+  end
+  context "in_asia_transit?" do
+    it "is true when in Asia library and process type transit" do
+      allow(@input[:solr_item]).to receive(:library).and_return("HATCH")
+      allow(@input[:solr_item]).to receive(:location).and_return("ASIA")
+      allow(@input[:solr_item]).to receive(:process_type).and_return("TRANSIT")
+      expect(subject.in_asia_transit?).to eq(true)
+    end
+
+    it "is false when in Asia library and does not have process type transit" do
+      allow(@input[:solr_item]).to receive(:library).and_return("HATCH")
+      allow(@input[:solr_item]).to receive(:location).and_return("ASIA")
+      expect(subject.in_asia_transit?).to eq(false)
+    end
+    it "is false when not in Asia library and process type transit" do
+      allow(@input[:solr_item]).to receive(:library).and_return("SHAP")
+      allow(@input[:solr_item]).to receive(:location).and_return("MAIN")
+      allow(@input[:solr_item]).to receive(:process_type).and_return("TRANSIT")
+      expect(subject.in_asia_transit?).to eq(false)
     end
   end
   context "#can_scan?" do

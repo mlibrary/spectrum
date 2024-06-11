@@ -7,6 +7,7 @@ class Spectrum::Entities::GetThisOption
     @item = item
 
     @weight = option["weight"] || 0
+    @summary = option["summary"]
     @description = option["description"]
     @faq = option["faq"]
     @label = option["label"]
@@ -42,6 +43,7 @@ class Spectrum::Entities::GetThisOption
 
   def to_h
     {
+      summary: @summary,
       description: @description,
       faq: @faq,
       form: form,

@@ -180,7 +180,7 @@
       - not_building_use_only?
       - not_game?
 
-# Pickup (5 of 6) WORK_ORDER_DEPARTMENT AcqTechServices for ISEEES
+# Pickup (5 of 6) WORK_ORDER_DEPARTMENT AcqTechServices for ISEEES and ASIA transit
 - label: Request for pick up at a library
   summary: We'll find the item and send it to the library of your choice for pick up in 1-5 days.
   description:
@@ -206,7 +206,7 @@
   grants:
     holding:
       - ann_arbor?
-      - in_international_studies_acquisitions_technical_services?
+      - in_slower_pickup?
       - can_request?
         
 # Pickup (6 of 6)
