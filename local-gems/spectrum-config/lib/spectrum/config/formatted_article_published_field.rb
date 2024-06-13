@@ -4,12 +4,12 @@ module Spectrum
     class FormattedArticlePublishedField < Field
       type 'formatted_article_published'
 
-      attr_reader :fields, :pub_title_field, :volume_field, :issue_field, :ispartof_field, :pages_field
+      attr_reader :fields, :pub_title_fields, :volume_field, :issue_field, :ispartof_field, :pages_field
 
       def initialize_from_instance(i)
         super
         @fields = i.fields
-        @pub_title_field = i.pub_title_field
+        @pub_title_fields = i.pub_title_fields
         @volume_field = i.volume_field
         @issue_field = i.issue_field
         @ispartof_field = i.ispartof_field
@@ -18,7 +18,7 @@ module Spectrum
 
       def initialize_from_hash(args, config)
         super
-        @pub_title_field = args['pub_title_field'] || 'publication_title'
+        @pub_title_fields = args['pub_title_fields'] || ['publication_title']
         @volume_field = args['volume_field'] || 'volume'
         @issue_field = args['issue_field'] || 'issue'
         @ispartof_field = args['ispartof_field'] || 'ispartof'
@@ -34,7 +34,9 @@ module Spectrum
       end
 
       def value(data, request = nil)
-        pub_title = [@fields[pub_title_field].value(data)].flatten.first
+        pub_title = pub_title_fields.map do |pub_title_field|
+          @fields[pub_title_field].value(data)
+        end.flatten.compact.first
         volume = [@fields[volume_field].value(data)].flatten.first
         issue = [@fields[issue_field].value(data)].flatten.first
         ispartof = [@fields[ispartof_field].value(data)].flatten.first
@@ -51,13 +53,13 @@ module Spectrum
           pages_label = pages.include?('-') ? 'pp.' : 'p.'
         end
 
-        ret = String.new('')
-        ret << pub_title if pub_title
-        ret << ' Vol. ' + volume if volume
-        ret << ', Issue ' + issue if issue
-        ret << ", #{pages_label} #{pages}" if pages
+        ret = []
+        ret << pub_title if pub_title && (volume || issue || pages)
+        ret << "Vol. #{volume}" if volume
+        ret << "Issue #{issue}" if issue
+        ret << "#{pages_label} #{pages}" if pages
         ret << ispartof if ret.empty? && ispartof
-        ret
+        ret.join(", ")
       end
     end
   end

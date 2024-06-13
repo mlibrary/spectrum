@@ -4156,8 +4156,12 @@
   metadata:
     name: Published in
   type: formatted_article_published
-  pub_title_field: jtitle
+  pub_title_fields:
+  - jtitle
+  - btitle
   fields:
+    btitle:
+      field: btitle
     jtitle:
       field: jtitle
     volume:
