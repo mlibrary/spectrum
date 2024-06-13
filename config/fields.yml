@@ -4178,21 +4178,6 @@
     full:
       type: plain
 
-- id: published_in
-  metadata:
-    name: Published in
-  type: comma_separated
-  fields:
-    - jtitle
-    - volume
-    - issue
-    - pages
-  metadata_component:
-    medium:
-      type: plain
-    full:
-      type: plain
-
 - id: primo_pages
   uid: pages
   field: pages

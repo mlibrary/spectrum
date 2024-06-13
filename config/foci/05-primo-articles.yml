@@ -74,7 +74,6 @@ fields:
 - primo_author
 - primo_publication_date
 - primo_published_brief
-- published_in
 - primo_pages
 - publisher
 - jtitle
