@@ -37,7 +37,7 @@ require "spectrum/json/schema"
 require "spectrum/json/ris"
 require "spectrum/json/twilio"
 require "spectrum/json/email"
-require "spectrum/json/favorites"
+# require "spectrum/json/favorites"
 
 require "spectrum/response"
 require "spectrum/response/spectrumable"
@@ -57,12 +57,8 @@ require "spectrum/response/action"
 require "spectrum/response/text"
 require "spectrum/response/email"
 require "spectrum/response/file"
-require "spectrum/response/favorite"
-require "spectrum/response/unfavorite"
 require "spectrum/response/tag"
 require "spectrum/response/untag"
-require "spectrum/response/list_favorites"
-require "spectrum/response/suggest_favorites"
 require "spectrum/response/profile"
 require "spectrum/response/ids"
 require "spectrum/response/debug"
@@ -91,12 +87,8 @@ require "spectrum/request/action"
 require "spectrum/request/text"
 require "spectrum/request/email"
 require "spectrum/request/file"
-require "spectrum/request/favorite"
-require "spectrum/request/unfavorite"
 require "spectrum/request/tag"
 require "spectrum/request/untag"
-require "spectrum/request/list_favorites"
-require "spectrum/request/suggest_favorites"
 require "spectrum/request/profile"
 require "spectrum/request/ids"
 require "spectrum/request/debug"
@@ -202,27 +194,27 @@ module Spectrum
           defaults: {type: "Profile"},
           via: %i[get options]
 
-        app.match "profile/favorites/list",
-          to: "json#act",
-          defaults: {type: "ListFavorites"},
-          via: %i[get options]
+        # app.match "profile/favorites/list",
+        # to: "json#act",
+        # defaults: {type: "ListFavorites"},
+        # via: %i[get options]
 
-        app.match "profile/favorites/suggest",
-          to: "json#act",
-          defaults: {type: "SuggestFavorites"},
-          via: %i[get options]
+        # app.match "profile/favorites/suggest",
+        # to: "json#act",
+        # defaults: {type: "SuggestFavorites"},
+        # via: %i[get options]
 
         app.match "file",
           to: "json#file",
           defaults: {type: "File"},
           via: %i[post options]
 
-        %w[text email favorite unfavorite tag untag].each do |action|
-          app.match action,
-            to: "json#act",
-            defaults: {type: action.titlecase},
-            via: %i[post options]
-        end
+        # %w[text email favorite unfavorite tag untag].each do |action|
+        # app.match action,
+        # to: "json#act",
+        # defaults: {type: action.titlecase},
+        # via: %i[post options]
+        # end
       end
     end
   end
