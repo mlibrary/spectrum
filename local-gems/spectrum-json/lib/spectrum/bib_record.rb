@@ -90,7 +90,9 @@ module Spectrum
     end
 
     def date
-      fetch_marc("260", "c")
+      d = fetch_marc("260", "c")
+      d = fetch_marc("264", "c") if d == ""
+      d
     end
 
     def pub
@@ -246,7 +248,7 @@ module Spectrum
       # people out of the proxy server.  So add a campus-agnostic proxy prefix.
       def link
         return @holding["link"] if @holding["link"]&.include?("alma.exlibrisgroup")
-        "https://apps.lib.umich.edu/proxy-login/?qurl=#{URI::encode_www_form_component(@holding["link"])}"
+        "https://apps.lib.umich.edu/proxy-login/?qurl=#{URI.encode_www_form_component(@holding["link"])}"
       end
     end
 
