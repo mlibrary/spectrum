@@ -207,7 +207,7 @@ class Spectrum::Entities::GetThisOption
            "name" => "rft.au",
            "value" => @item.author},
           {"type" => "hidden",
-           "name" => "date",
+           "name" => "rft.date",
            "value" => @item.date},
           {"type" => "hidden",
            "name" => "rft.pub",

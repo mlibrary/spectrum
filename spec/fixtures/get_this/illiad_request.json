@@ -37,7 +37,7 @@
             "value": "AUTHOR"
         },
         {
-            "name": "date",
+            "name": "rft.date",
             "type": "hidden",
             "value": "DATE"
         },
