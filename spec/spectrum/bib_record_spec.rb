@@ -253,8 +253,12 @@ describe Spectrum::BibRecord do
   end
 
   context "#pub" do
-    it "returns a string" do
+    it "returns a string from 260" do
       expect(subject.pub).to eq("Jossey-Bass Publishers")
+    end
+    it "returns a string from 264" do
+      @solr_bib_alma = File.read("spec/fixtures/solr_bib_on_order_with_264.json")
+      expect(subject.pub).to eq("Classiques Garnier")
     end
   end
 
