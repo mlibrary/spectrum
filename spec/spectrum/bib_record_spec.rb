@@ -115,7 +115,7 @@ describe Spectrum::BibRecord do
         expect(subject.physical_holdings?).to eq(true)
       end
       it "returns false for only holdings with library ELEC" do
-        @solr_bib_alma = @solr_bib_alma.gsub(/HATCH/, "ELEC")
+        @solr_bib_alma = @solr_bib_alma.gsub("HATCH", "ELEC")
         expect(subject.physical_holdings?).to eq(false)
       end
     end
@@ -124,7 +124,7 @@ describe Spectrum::BibRecord do
         expect(subject.hathi_holding.class.name.to_s).to eq("Spectrum::BibRecord::HathiHolding")
       end
       it "returns nil for no Hathi Item" do
-        @solr_bib_alma = @solr_bib_alma.gsub(/HathiTrust/, "SomeOtherTrust")
+        @solr_bib_alma = @solr_bib_alma.gsub("HathiTrust", "SomeOtherTrust")
         expect(subject.hathi_holding).to be_nil
       end
     end
@@ -189,11 +189,11 @@ describe Spectrum::BibRecord do
           expect(subject.finding_aid).to be_nil
         end
         it "returns nil when no finding aid" do
-          @solr_elec = @solr_elec.gsub(/finding_aid\\":false,/, "")
+          @solr_elec = @solr_elec.gsub('finding_aid\\":false,', "")
           expect(subject.finding_aid).to be_nil
         end
         it "returns holding when there is a finding_aid" do
-          @solr_elec = @solr_elec.gsub(/finding_aid\\":false/, "finding_aid\\\":true")
+          @solr_elec = @solr_elec.gsub('finding_aid\\":false', "finding_aid\\\":true")
           expect(subject.finding_aid.class.name).to include("FindingAid")
         end
       end
@@ -243,14 +243,22 @@ describe Spectrum::BibRecord do
   end
 
   context "#date" do
-    it "returns a string" do
+    it "returns a string from 260" do
       expect(subject.date).to eq("1990")
+    end
+    it "returns a string from 264" do
+      @solr_bib_alma = File.read("spec/fixtures/solr_bib_on_order_with_264.json")
+      expect(subject.date).to eq("2024")
     end
   end
 
   context "#pub" do
-    it "returns a string" do
+    it "returns a string from 260" do
       expect(subject.pub).to eq("Jossey-Bass Publishers")
+    end
+    it "returns a string from 264" do
+      @solr_bib_alma = File.read("spec/fixtures/solr_bib_on_order_with_264.json")
+      expect(subject.pub).to eq("Classiques Garnier")
     end
   end
 
@@ -327,7 +335,7 @@ describe Spectrum::BibRecord::ElectronicHolding do
 
     context "When the holding has an non-Alma link" do
       let(:url) { "https://www.lib.umich.edu" }
-      let(:proxied_url) { "https://apps.lib.umich.edu/proxy-login/?qurl=#{URI::encode_www_form_component(url)}" }
+      let(:proxied_url) { "https://apps.lib.umich.edu/proxy-login/?qurl=#{URI.encode_www_form_component(url)}" }
 
       it "Returns the proxied link" do
         expect(subject.link).to eq(proxied_url)

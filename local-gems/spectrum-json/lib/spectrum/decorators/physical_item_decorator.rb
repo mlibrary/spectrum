@@ -71,6 +71,13 @@ module Spectrum::Decorators
       @work_order_option = work_order_option
     end
 
+    # mrio: 2024-06 Document Delivery wants alma_location to return the
+    # location code and the library display name.
+    # Example: GRAD Hatcher Graduate
+    def location_for_illiad
+      [@item.permanent_location, @item.library_display_name].compact.join(" ")
+    end
+
     # mrio: 2022-09 per request from Dave in CVGA that items in SHAP Game
     #      are only "Find it in the Library"; Media Fullfillment Unit is
     #      pretty inconsistent so we can't use that

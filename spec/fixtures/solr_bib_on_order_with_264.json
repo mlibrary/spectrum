@@ -1,0 +1,143 @@
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 0,
+    "params": {
+      "q": "id:99188004813606381"
+    }
+  },
+  "response": {
+    "numFound": 1,
+    "start": 0,
+    "docs": [
+      {
+        "indexing_date": 20240620,
+        "id": "99188004813606381",
+        "id_int": 99188004813606380,
+        "oclc": [
+          "1439828923"
+        ],
+        "record_source": "alma",
+        "fullrecord": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><collection><record><leader>00733nam a22002177i 4500</leader><controlfield tag=\"005\">20240619112532.0</controlfield><controlfield tag=\"008\">240508t20242024fr            000 0 fre d</controlfield><controlfield tag=\"001\">99188004813606381</controlfield><datafield tag=\"020\" ind1=\" \" ind2=\" \"><subfield code=\"a\">9782406166733</subfield><subfield code=\"q\">(paperback)</subfield></datafield><datafield tag=\"020\" ind1=\" \" ind2=\" \"><subfield code=\"a\">2406166732</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(OCoLC)1439828923</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(OCoLC)on1439828923</subfield></datafield><datafield tag=\"040\" ind1=\" \" ind2=\" \"><subfield code=\"a\">AUXAM</subfield><subfield code=\"b\">eng</subfield><subfield code=\"e\">rda</subfield><subfield code=\"c\">AUXAM</subfield></datafield><datafield tag=\"082\" ind1=\"1\" ind2=\"4\"><subfield code=\"a\">809</subfield></datafield><datafield tag=\"100\" ind1=\"1\" ind2=\" \"><subfield code=\"a\">Kovacshazy, Cécile,</subfield><subfield code=\"e\">author.</subfield><subfield code=\"0\">http://id.loc.gov/authorities/names/nb2010012539</subfield><subfield code=\"0\">http://viaf.org/viaf/232823993</subfield></datafield><datafield tag=\"245\" ind1=\"1\" ind2=\"0\"><subfield code=\"a\">Serpillières, mansardes et dominations :</subfield><subfield code=\"b\">femmes domestiques dans la littérature européenne /</subfield><subfield code=\"c\">Cécile Kovacshazy.</subfield></datafield><datafield tag=\"264\" ind1=\" \" ind2=\"1\"><subfield code=\"a\">Paris :</subfield><subfield code=\"b\">Classiques Garnier,</subfield><subfield code=\"c\">2024.</subfield></datafield><datafield tag=\"264\" ind1=\" \" ind2=\"4\"><subfield code=\"c\">©2024</subfield></datafield><datafield tag=\"300\" ind1=\" \" ind2=\" \"><subfield code=\"a\">344 pages ;</subfield><subfield code=\"c\">22 cm.</subfield></datafield><datafield tag=\"490\" ind1=\"0\" ind2=\" \"><subfield code=\"a\">Perspectives comparatistes,</subfield><subfield code=\"x\">2103-480X</subfield></datafield><datafield tag=\"938\" ind1=\" \" ind2=\" \"><subfield code=\"a\">AMALIVRE</subfield><subfield code=\"b\">AUXA</subfield><subfield code=\"n\">AAL08376666-0001</subfield></datafield><datafield tag=\"BIB\" ind1=\" \" ind2=\" \"><subfield code=\"u\">2024-06-19 11:25:32 US/Eastern</subfield><subfield code=\"c\">2024-06-19 11:25:31 US/Eastern</subfield><subfield code=\"s\">false</subfield></datafield><datafield tag=\"852\" ind1=\"0\" ind2=\" \"><subfield code=\"b\">HATCH</subfield><subfield code=\"a\">MiU</subfield><subfield code=\"c\">GRAD</subfield><subfield code=\"h\"></subfield><subfield code=\"8\">221303350300006381</subfield></datafield><datafield tag=\"974\" ind1=\" \" ind2=\" \"><subfield code=\"8\">221303350300006381</subfield><subfield code=\"f\">0</subfield><subfield code=\"t\">ACQ</subfield><subfield code=\"c\">GRAD</subfield><subfield code=\"m\">BOOK</subfield><subfield code=\"e\">GRAD</subfield><subfield code=\"7\">231303350290006381</subfield><subfield code=\"d\">HATCH</subfield><subfield code=\"b\">HATCH</subfield></datafield></record></collection>",
+        "format": [
+          "Book"
+        ],
+        "isbn": [
+          "9782406166733",
+          "2406166732"
+        ],
+        "isn_related": [
+          "2103-480X"
+        ],
+        "mainauthor": [
+          "Kovacshazy, Cécile,"
+        ],
+        "mainauthor_role": [
+          "author"
+        ],
+        "author": [
+          "Kovacshazy, Cécile,"
+        ],
+        "authorStr": [
+          "Kovacshazy, Cécile,"
+        ],
+        "author_top": [
+          "Kovacshazy, Cécile, author. http://id.loc.gov/authorities/names/nb2010012539 http://viaf.org/viaf/232823993",
+          "Cécile Kovacshazy."
+        ],
+        "author_browse_terms": [
+          "Kovacshazy, Cécile,"
+        ],
+        "author_browse_search": [
+          "kovacshazy cecile"
+        ],
+        "author_authoritative_browse": [
+          "Kovacshazy, Cécile,"
+        ],
+        "author_authoritative_search": [
+          "kovacshazy cecile"
+        ],
+        "main_author_display": [
+          "Kovacshazy, Cécile, author."
+        ],
+        "main_author": [
+          "Kovacshazy, Cécile,"
+        ],
+        "title": [
+          "Serpillières, mansardes et dominations : femmes domestiques dans la littérature européenne /"
+        ],
+        "title_a": [
+          "Serpillières, mansardes et dominations :"
+        ],
+        "title_ab": [
+          "Serpillières, mansardes et dominations : femmes domestiques dans la littérature européenne /"
+        ],
+        "title_c": [
+          "Cécile Kovacshazy."
+        ],
+        "title_common": [
+          "Serpillières, mansardes et dominations : femmes domestiques dans la littérature européenne /"
+        ],
+        "title_equiv": [
+          "Serpillières, mansardes et dominations : femmes domestiques dans la littérature européenne /"
+        ],
+        "title_top": [
+          "Serpillières, mansardes et dominations : femmes domestiques dans la littérature européenne /"
+        ],
+        "title_rest": [
+          "Perspectives comparatistes, 2103-480X"
+        ],
+        "series2": [
+          "Perspectives comparatistes, 2103-480X"
+        ],
+        "countryOfPubStr": [
+          "France"
+        ],
+        "place_of_publication": [
+          "France"
+        ],
+        "publishDate": [
+          "2024"
+        ],
+        "publishDateRange": [
+          "2024",
+          "2020-2029"
+        ],
+        "display_date": "2024",
+        "publisher": [
+          "Paris : Classiques Garnier, 2024."
+        ],
+        "publisher_display": [
+          "Paris : Classiques Garnier, 2024."
+        ],
+        "language": [
+          "French"
+        ],
+        "language008": "fre",
+        "title_display": [
+          "Serpillières, mansardes et dominations : femmes domestiques dans la littérature européenne / Cécile Kovacshazy."
+        ],
+        "cat_date": 20240508,
+        "building": [
+          "Hatcher Graduate"
+        ],
+        "ht_searchonly": false,
+        "ht_searchonly_intl": false,
+        "hol": "[{\"hol_mmsid\":\"221303350300006381\",\"callnumber\":\"\",\"library\":\"HATCH\",\"location\":\"GRAD\",\"info_link\":\"https://lib.umich.edu/locations-and-hours/hatcher-library\",\"display_name\":\"Hatcher Graduate\",\"floor_location\":\"\",\"public_note\":null,\"items\":[{\"barcode\":null,\"library\":\"HATCH\",\"location\":\"GRAD\",\"info_link\":\"https://lib.umich.edu/locations-and-hours/hatcher-library\",\"display_name\":\"Hatcher Graduate\",\"fulfillment_unit\":\"General\",\"location_type\":\"OPEN\",\"can_reserve\":false,\"permanent_library\":\"HATCH\",\"permanent_location\":\"GRAD\",\"temp_location\":false,\"callnumber\":null,\"public_note\":null,\"process_type\":\"ACQ\",\"item_policy\":null,\"description\":null,\"inventory_number\":null,\"item_id\":\"231303350290006381\",\"material_type\":\"BOOK\",\"record_has_finding_aid\":false}],\"summary_holdings\":null,\"record_has_finding_aid\":false}]",
+        "location": [
+          "HATCH",
+          "HATCH GRAD",
+          "MIU"
+        ],
+        "institution": [
+          "UM Ann Arbor Libraries",
+          "University Library"
+        ],
+        "callnosort": "\u001f}",
+        "callnumber_sort": "\u001f}",
+        "date_of_index": "2024-06-20T00:00:00Z",
+        "_version_": 1802365487708897300
+      }
+    ]
+  }
+}
