@@ -78,7 +78,7 @@ describe Spectrum::Entities::GetThisOption do
       allow(@item).to receive(:place).and_return("PLACE")
       allow(@item).to receive(:callnumber).and_return("CALLNUMBER")
       allow(@item).to receive(:edition).and_return("EDITION")
-      allow(@item).to receive(:library_display_name).and_return("LOCATION")
+      allow(@item).to receive(:location_for_illiad).and_return("LOCATION")
       allow(@item).to receive(:barcode).and_return("BARCODE")
       allow(@item).to receive(:oclc).and_return("OCLC")
       allow(@item).to receive(:cited_title).and_return("CITED_TITLE")

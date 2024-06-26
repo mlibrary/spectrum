@@ -67,12 +67,12 @@
             "value": ""
         },
         {
-            "name": "aleph_location",
+            "name": "alma_location",
             "type": "hidden",
             "value": "LOCATION"
         },
         {
-            "name": "aleph_item_status",
+            "name": "alma_item_status",
             "type": "hidden",
             "value": ""
         },

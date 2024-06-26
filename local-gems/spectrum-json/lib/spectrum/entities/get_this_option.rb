@@ -225,10 +225,10 @@ class Spectrum::Entities::GetThisOption
            "name" => "rft.issue",
            "value" => ""},
           {"type" => "hidden",
-           "name" => "aleph_location",
-           "value" => @item.library_display_name},
+           "name" => "alma_location",
+           "value" => @item.location_for_illiad},
           {"type" => "hidden",
-           "name" => "aleph_item_status",
+           "name" => "alma_item_status",
            "value" => ""},
           # this only exists for Spectrum::EmptyItemHolding
           {
