@@ -89,12 +89,20 @@ module Spectrum
       fetch_joined("oclc", ",")
     end
 
+    # Used for rft.date in the ILLiad get-this request form.
+    # @return [String]
     def date
-      fetch_marc("260", "c")
+      d = fetch_marc("260", "c")
+      d = fetch_marc("264", "c") if d == ""
+      d
     end
 
+    # Used for rft.pub in the ILLiad get-this request form
+    # @return [String]
     def pub
-      fetch_marc("260", "b")
+      p = fetch_marc("260", "b")
+      p = fetch_marc("264", "b") if p == ""
+      p
     end
 
     def place
@@ -246,7 +254,7 @@ module Spectrum
       # people out of the proxy server.  So add a campus-agnostic proxy prefix.
       def link
         return @holding["link"] if @holding["link"]&.include?("alma.exlibrisgroup")
-        "https://apps.lib.umich.edu/proxy-login/?qurl=#{URI::encode_www_form_component(@holding["link"])}"
+        "https://apps.lib.umich.edu/proxy-login/?qurl=#{URI.encode_www_form_component(@holding["link"])}"
       end
     end
 

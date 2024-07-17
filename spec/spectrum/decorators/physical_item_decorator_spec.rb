@@ -17,6 +17,13 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
     item = Spectrum::Entities::AlmaItem.new(**@input)
     described_class.new(item, [], @get_this_work_order_double)
   end
+  context "location_for_illiad" do
+    it "returns expected form of illiad location" do
+      allow(@input[:solr_item]).to receive(:permanent_location).and_return("GRAD")
+      allow(@input[:holding]).to receive(:display_name).and_return("Hatcher Graduate")
+      expect(subject.location_for_illiad).to eq("GRAD Hatcher Graduate")
+    end
+  end
   context "work order methods" do
     # mrio: both of these would be booleans, but having them return strings shows
     # that the correct path through the code is being used.
