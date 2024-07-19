@@ -21,12 +21,11 @@ module Spectrum
 
       def engine(focus, request, controller = nil)
         p = params(focus, request, controller)
-        p[:config] = ::Blacklight::Configuration.new do |config|
-          focus.configure_blacklight(config, request)
-        end
+        p[:focus] = focus
+        p[:request] = request
         p[:fq] += focus.filters
         p[:sort] = focus.get_sorts(request) if request.can_sort?
-        p[:config].default_solr_params = focus.solr_params
+        p[:default_solr_params] = focus.solr_params
         p[:qt] = focus.solr_params['qt'] if focus.solr_params['qt']
         p[:qf] = focus.solr_params['qf'] if focus.solr_params['qf']
         p[:pf] = focus.solr_params['pf'] if focus.solr_params['pf']

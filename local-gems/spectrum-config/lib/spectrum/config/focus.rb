@@ -412,31 +412,27 @@ module Spectrum
         }
       end
 
-      def configure_blacklight(config, request)
-        added = {}
-        @fields.each do |f|
-          fname = f.field
-          fname = fname.last if Array === fname
-          next if added[fname]
-          config.add_search_field fname, label: f.name if f.searchable?
-          config.add_index_field fname, label: f.name
-          config.add_show_field fname, label: f.name
-          added[fname] = true
-        end
+      def solr_field_list
+        {fl: '*,score'}
+      end
 
+      def solr_filter_query
+require 'pry'; require 'pry-byebug'
+binding.pry
+
+        {}
+      end
+
+      def solr_facets(request)
+        ret = {facet: true, :"facet.field" => [] }
         @facets.native_pair do |solr_name, facet|
-          config.add_facet_field solr_name,
-                                 label:  facet.name,
-                                 sort:   request.facet_sort || facet.sort,
-                                 include_in_request: true,
-                                 solr_params: {
-                                   'facet.mincount' => facet.mincount,
-                                   'facet.limit' => (request.facet_limit  || facet.limit),
-                                   'facet.offset' => request.facet_offset || facet.offset
-                                 }
+          ret[:"facet.field"] << solr_name
+          ret[:"f.#{solr_name}.facet.sort"] = request.facet_sort || facet.sort
+          ret[:"f.#{solr_name}.facet.limit"] = request.facet_limit || facet.limit
+          ret[:"f.#{solr_name}.facet.offset"] = request.facet_offset || facet.offset
+          ret[:"f.#{solr_name}.facet.mincount"] = facet.mincount
         end
-
-        config.max_per_page = @max_per_page
+        ret
       end
 
       def category_match(cat)
