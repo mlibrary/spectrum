@@ -43,11 +43,6 @@ source "https://rubygems.org" do
 
   gem "rails", "~> 4.2.0"
 
-  #  ###  BLACKLIGHT (begin)  ###
-  gem "blacklight", "~>5.3.0"
-  gem "blacklight-marc"
-  #  ###  BLACKLIGHT (end)  ###
-
   gem "json"
 
   gem "httpclient"

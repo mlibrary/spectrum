@@ -6,10 +6,6 @@ class ApplicationController < ActionController::Base
   helper_method :set_browser_option, :get_browser_option
 
   # Adds a few additional behaviors into the application controller
-  include Blacklight::Controller
-  include Blacklight::Catalog
-  include Blacklight::Configurable
-
   include BrowseSupport
 
   # Please be sure to impelement current_user and user_session. Blacklight depends on

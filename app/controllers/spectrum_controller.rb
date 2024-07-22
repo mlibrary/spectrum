@@ -12,9 +12,6 @@
 #   - does the same thing, but for AJAX calls, returning JSON
 #
 class SpectrumController < ApplicationController
-  include Blacklight::Controller
-  include Blacklight::Catalog
-  include Blacklight::Configurable
   layout 'quicksearch'
 
   attr_reader :active_source

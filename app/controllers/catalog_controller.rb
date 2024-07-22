@@ -3,7 +3,6 @@
 # (plus AcademicCommons - which uses Blacklight against a diff. Solr)
 # (and dcv - which uses Blacklight against a yet another Solr)
 # This was originally based on the Blacklight CatalogController.
-require 'blacklight/catalog'
 
 class CatalogController < ApplicationController
   layout 'quicksearch'
@@ -14,11 +13,6 @@ class CatalogController < ApplicationController
   prepend_before_filter :preprocess_search_params
   before_filter :add_custom_solr_search_params_logic
 
-  # Bring in endnote export, etc.
-  include Blacklight::Marc::Catalog
-
-  include Blacklight::Catalog
-  include Blacklight::Configurable
   # include BlacklightUnapi::ControllerExtension
 
   # load last, to override any BlackLight methods included above
