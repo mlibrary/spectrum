@@ -416,13 +416,6 @@ module Spectrum
         {fl: '*,score'}
       end
 
-      def solr_filter_query
-require 'pry'; require 'pry-byebug'
-binding.pry
-
-        {}
-      end
-
       def solr_facets(request)
         ret = {facet: true, :"facet.field" => [] }
         @facets.native_pair do |solr_name, facet|
