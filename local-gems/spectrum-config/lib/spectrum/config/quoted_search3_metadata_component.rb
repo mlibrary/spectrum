@@ -1,5 +1,7 @@
 module Spectrum
   module Config
+    # This is used for Subjects not in subject browse. The data to be
+    # transformed is an array of subject strings
     class QuotedSearch3MetadataComponent < MetadataComponent
       type "quoted_search3"
 
@@ -13,7 +15,7 @@ module Spectrum
       end
 
       def resolve_value(item)
-        item.gsub("--", " ")
+        item.split("--").map { |x| x.strip }.join(" ")
       end
 
       def resolve_description(data)
@@ -34,7 +36,7 @@ module Spectrum
       end
 
       def resolve(data)
-        return nil if data.nil?
+        return nil if data.class != Array
         description = resolve_description(data)
         return nil if description.empty?
         {
