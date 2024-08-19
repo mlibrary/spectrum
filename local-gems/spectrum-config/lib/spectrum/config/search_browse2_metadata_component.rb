@@ -1,5 +1,6 @@
 module Spectrum
   module Config
+    # This is used for subject fields that have links to subject browse.
     class SearchBrowse2MetadataComponent < MetadataComponent
       type "search_browse2"
 
@@ -18,7 +19,7 @@ module Spectrum
       end
 
       def resolve_value(item)
-        item.gsub("--", " ")
+        item.split("--").map { |x| x.strip }.join(" ")
       end
 
       def resolve_description(data)
@@ -46,7 +47,7 @@ module Spectrum
       end
 
       def resolve(data)
-        return nil if data.nil?
+        return nil if data.class != Array
         description = resolve_description(data)
         return nil if description.empty?
         {
