@@ -293,7 +293,7 @@ facets:
   - subject
   - date_of_publication
   - language
-  - availability
+  - new_availability
   - location
   - academic_discipline
   - author

@@ -194,7 +194,7 @@ module Spectrum
             page:     @page,
             start:    @start,
             rows:     @page_size,
-            fq:       @facets.query(filter_map, (@focus&.value_map) || {}),
+            fq:       @facets.query(filter_map, (@focus&.value_map) || {}, @focus, self),
             per_page: @page_size
         }
       end
