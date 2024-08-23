@@ -362,47 +362,76 @@ module Spectrum
 
       def routes(app)
 
-        app.match "#{@url}/ids",
-          to: 'json#ids',
-          defaults: {source: source, focus: @id, type: 'Ids' },
-          via: [:get, :options]
+        this_source = Spectrum::Json.sources[source]
+        this_focus = self
 
-        app.match "#{@url}/debug",
-          to: 'json#debug',
-          defaults: {source: source, focus: @id, type: 'Debug' },
-          via: [:get, :options]
-
-        app.match @url,
-                  to: 'json#search',
-                  defaults: { source: source, focus: @id, type: 'DataStore' },
-                  via: [:post, :options]
-
-        app.match "#{@url}/record/*id",
-                  to: 'json#record',
-                  defaults: { source: source, focus: @id, type: 'Record', id_field: id_field },
-                  via: [:get, :options]
-
-        if has_holdings?
-          app.match "#{url}/holdings/:id",
-                    to: 'json#holdings',
-                    defaults: { source: source, focus: @id, type: 'Holdings', id_field: id_field },
-                    via: [:get, :options]
-          app.match "#{url}/holdings/:record/:holding/:item/:pickup_location/:not_needed_after",
-                    to: 'json#hold',
-                    defaults: { source: source, focus: @id, type: 'PlaceHold', id_field: id_field },
-                    via: [:post, :options]
-          app.match "#{url}/get-this/:id/:barcode",
-                    to: 'json#get_this',
-                    defaults: { source: source, focus: @id, type: 'GetThis', id_field: id_field },
-                    via: [:get, :options]
-          app.match "#{url}/hold",
-                    to: 'json#hold_redirect',
-                    defaults: { source: source, focus: @id, type: 'PlaceHold', id_field: id_field },
-                    via: [:post, :options]
+        app.get("/spectrum/#{@url}/ids") do
+          ids(focus: this_focus, source: this_source)
         end
 
-        app.get @url, to: 'json#bad_request'
-        @facets.routes(source, @id, app)
+        # In Sinatra, request.params is a regular hash.
+        # In Rails, request.params was a hash with indifferent access.
+        # To accommodate code that was written expecting one vs the other I'm
+        # both symbols and strings.
+        app.post("/spectrum/#{@url}") do
+          request.params[:source] = request.params["source"] = this_source.id
+          request.params[:focus]  = request.params["focus"]  = this_focus.id
+          request.params[:type]   = request.params["type"]   = "DataStore"
+          search(source: this_source, focus: this_focus)
+        end
+
+        [:get, :post].each do |method|
+          app.send(method, "/spectrum/#{@url}/record/:id") do
+            request.params[:source]   = request.params["source"]   = this_source.id
+            request.params[:id_field] = request.params["id_field"] = this_focus.id_field
+            request.params[:type]     = request.params["type"]     = "Record"
+            request.params[:id]       = request.params["id"]       = params[:id]
+            record(source: this_source, focus: this_focus)
+          end
+        end
+
+        if has_holdings?
+          app.get("/spectrum/#{url}/holdings/:id") do
+            request.params[:source]   = request.params["source"]   = this_source.id
+            request.params[:focus]    = request.params["focus"]    = this_focus.id
+            request.params[:id_field] = request.params["id_field"] = this_focus.id_field
+            request.params[:type]     = request.params["type"]     = "Holdings"
+            request.params[:id]       = request.params["id"]       = params[:id]
+            holdings(source: this_source, focus: this_focus)
+          end
+
+          app.post("/spectrum/#{url}/holdings/:record/:holding/:item/:pickup_location/:not_needed_after") do
+            request.params[:source]   = request.params["source"]   = this_source.id
+            request.params[:focus]    = request.params["focus"]    = this_focus.id
+            request.params[:id_field] = request.params["id_field"] = this_focus.id_field
+            request.params[:type]     = request.params["type"]     = "PlaceHold"
+            request.params[:record]   = request.params["record"]   = params[:record]
+            request.params[:holding]  = request.params["holding"]  = params[:holding]
+            request.params[:item]     = request.params["item"]     = params[:item]
+            request.params[:pickup_location]  = request.params["pickup_location"]  = params[:pickup_location]
+            request.params[:not_needed_after] = request.params["not_needed_after"] = params[:not_needed_after]
+            hold(source: this_source, focus: this_focus)
+          end
+
+          app.get("/spectrum/#{url}/get-this/:id/:barcode") do
+            request.params[:source]   = request.params["source"]   = this_source.id
+            request.params[:focus]    = request.params["focus"]    = this_focus.id
+            request.params[:id_field] = request.params["id_field"] = this_focus.id_field
+            request.params[:type]     = request.params["type"]     = "PlaceHold"
+            request.params[:id]       = request.params["id"]       = params[:id]
+            request.params[:barcode]  = request.params["barcode"]  = params[:barcode]
+            get_this(source: this_source, focus: this_focus)
+          end
+
+          app.post("/spectrum/#{url}/hold") do
+            request.params[:source]   = request.params["source"]   = this_source.id
+            request.params[:focus]    = request.params["focus"]    = this_focus.id
+            request.params[:id_field] = request.params["id_field"] = this_focus.id_field
+            request.params[:type]     = request.params["type"]     = "PlaceHold"
+            hold_redirect(source: this_source, focus: this_focus)
+          end
+        end
+
       end
 
       def search_box

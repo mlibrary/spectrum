@@ -40,7 +40,7 @@ module Spectrum
 
       def unfiltered_id(request)
         path = request.path
-        original = request.original_fullpath
+        original = request.path
         id = request.params[:id]
         original.slice(path.length - id.length, original.length)
       end

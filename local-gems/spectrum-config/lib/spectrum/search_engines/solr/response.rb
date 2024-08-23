@@ -21,7 +21,11 @@ module Spectrum
         end
 
         def total_items
-          raw['response']['num_found']
+          raw['response']['numFound']
+        end
+
+        def first
+          raw['response']['docs'].first
         end
 
         def map(&block)

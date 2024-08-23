@@ -8,6 +8,7 @@ require "delegate"
 require "active_support"
 require "active_support/core_ext"
 require "httparty"
+require "htmlentities"
 
 require "spectrum/config/version"
 require "spectrum/config/hierarchy"

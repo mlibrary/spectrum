@@ -6,7 +6,8 @@ module Spectrum
       def initialize(request:, username:)
         @request = request
         if request.post?
-          @raw = CGI.unescape(request.raw_post)
+          request.env["rack.input"].rewind
+          @raw = CGI.unescape(request.env["rack.input"].read)
           @data = JSON.parse(@raw)
         end
         @username = username || ""

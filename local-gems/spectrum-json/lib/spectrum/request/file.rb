@@ -16,7 +16,8 @@ module Spectrum
       attr_reader :role, :request
       def initialize(request)
         @request = request
-        @raw = CGI.unescape(request.raw_post)
+        request.env["rack.input"].rewind
+        @raw = CGI.unescape(request.env["rack.input"].read)
         @data = JSON.parse(@raw)
         @username = request.env['HTTP_X_REMOTE_USER'] || ''
         @role = if request.env['dlpsInstitutionId'] &&

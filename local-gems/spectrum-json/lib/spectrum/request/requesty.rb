@@ -165,7 +165,8 @@ module Spectrum
 
       def get_data(request)
         if request&.respond_to?(:post?) && request&.post?
-          JSON.parse(request.raw_post)
+          request.env["rack.input"].rewind
+          JSON.parse(request.env["rack.input"].read)
         elsif Hash === request
           request
         else
