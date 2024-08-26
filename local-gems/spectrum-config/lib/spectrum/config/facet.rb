@@ -102,6 +102,7 @@ module Spectrum
       def conditional_query_map(request, value)
         return value unless @type == 'conditional_mapped_facet'
         if condition == 'request.search_only?'
+          return value unless request.respond_to?(:search_only?)
           key = request.search_only?.to_s
           mapping[key].invert.fetch(value, value)
         else
@@ -112,6 +113,7 @@ module Spectrum
       def conditional_map(request, values)
         return values unless @type == 'conditional_mapped_facet'
         if condition == 'request.search_only?'
+          return values unless request.respond_to?(:search_only?)
           condition_key = request.search_only?.to_s
           new_values = []
           i = 0;

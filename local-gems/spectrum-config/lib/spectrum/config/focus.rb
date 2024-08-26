@@ -288,7 +288,7 @@ module Spectrum
       end
 
       def apply(request, results)
-        clone.apply_request!(request).apply_facets!(request, results)
+        clone.apply_request!(request).apply_facets!(results, request)
       end
 
       def apply_request(request)
@@ -304,11 +304,11 @@ module Spectrum
         self
       end
 
-      def apply_facets(request, results)
-        clone.apply_facets!(request, results)
+      def apply_facets(results, request = nil)
+        clone.apply_facets!(results, request)
       end
 
-      def apply_facets!(request, results)
+      def apply_facets!(results, request = nil)
         if results.respond_to? :[]
           @facet_values = results['facet_counts']['facet_fields']
         elsif results.respond_to? :facets
