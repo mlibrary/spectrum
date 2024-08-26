@@ -286,7 +286,6 @@ fields:
   - indexing_date
 
 facets:
-  - available_online
   - search_only
   - new_availability
   - mirlyn_format
