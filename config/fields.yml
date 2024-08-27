@@ -1808,12 +1808,12 @@
   mapping:
     "true":
       physical: Physical
-      hathi_trust_full_text: HathiTrust
-      hathi_trust_full_text_or_electronic_holding: Available Online
-    "false":
-      physical: Physical
       hathi_trust: HathiTrust
       hathi_trust_or_electronic_holding: Available Online
+    "false":
+      physical: Physical
+      hathi_trust_full_text: HathiTrust
+      hathi_trust_full_text_or_electronic_holding: Available Online
 
 - id: available_online
   metadata:
@@ -1834,11 +1834,11 @@
 
 - id: search_only
   metadata:
-    name: Remove search-only HathiTrust materials
+    name: View HathiTrust search-only materials
     short_desc: Search Only
   type: pseudo_facet
   facet:
-    selected: true
+    selected: false
   values:
     - "true"
     - 1
