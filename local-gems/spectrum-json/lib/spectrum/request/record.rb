@@ -60,6 +60,10 @@ module Spectrum
         false
       end
 
+      def not_search_only?
+        false
+      end
+
       def search_only?
         false
       end

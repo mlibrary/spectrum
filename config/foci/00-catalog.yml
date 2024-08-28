@@ -287,13 +287,12 @@ fields:
   - indexing_date
 
 facets:
-  - available_online
   - search_only
+  - new_availability
   - mirlyn_format
   - subject
   - date_of_publication
   - language
-  - availability
   - location
   - academic_discipline
   - author

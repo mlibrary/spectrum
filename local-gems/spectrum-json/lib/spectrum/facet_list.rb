@@ -38,11 +38,17 @@ module Spectrum
       ret
     end
 
-    def query(filter_map = {}, value_map = {})
+    def query(filter_map = {}, value_map = {}, focus = nil, request = nil)
       ret = []
       @data&.each_pair do |original_key, value|
         key = filter_map.fetch(original_key, original_key)
         value = Array(value).map do |v|
+
+          facet = focus.facet_by_field_name(key)
+          if facet
+            v = facet.conditional_query_map(request, v)
+          end
+
           mapped_value = if value_map.has_key?(original_key)
             value_map.fetch(original_key, {}).fetch(v, v)
           else

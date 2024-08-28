@@ -9,7 +9,7 @@
   link_type: rebase
   link_base: http://mirlyn.lib.umich.edu/Record
   conditionals:
-    search_only?: '+(ht_searchonly:false OR availability:"Full text available (log in required)" OR availability:"Full text available (HathiTrust log in required)")'
+    not_search_only?: '+(new_availability:physical OR new_availability:hathi_trust_full_text_or_electronic_holding)'
     available_online?: '+availability:("Available online" OR "Full text available (log in required)" OR "Full text available (HathiTrust log in required)")'
 - id: website
   name: Website

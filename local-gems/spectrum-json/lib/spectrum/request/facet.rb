@@ -11,6 +11,10 @@ module Spectrum
         @facet_uid = @data['facet_uid'] || request.params[:facet]
       end
 
+      def not_search_only?
+        false
+      end
+
       def search_only?
         false
       end

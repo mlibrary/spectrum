@@ -118,8 +118,12 @@ module Spectrum
         pseudo_facet?('available_online')
       end
 
+      def not_search_only?
+        !search_only?
+      end
+
       def search_only?
-        @focus && @focus.id == 'mirlyn' && pseudo_facet?('search_only', true)
+        @focus && @focus.id == 'mirlyn' && pseudo_facet?('search_only', false)
       end
 
       def holdings_only?
@@ -194,7 +198,7 @@ module Spectrum
             page:     @page,
             start:    @start,
             rows:     @page_size,
-            fq:       @facets.query(filter_map, (@focus&.value_map) || {}),
+            fq:       @facets.query(filter_map, (@focus&.value_map) || {}, @focus, self),
             per_page: @page_size
         }
       end

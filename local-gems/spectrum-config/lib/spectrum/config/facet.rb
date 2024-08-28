@@ -3,7 +3,7 @@ module Spectrum
   module Config
     class NullFacet
       attr_accessor :weight, :id, :limit, :mincount, :offset
-      attr_reader :uid, :field, :type, :expanded
+      attr_reader :uid, :field, :type, :expanded, :condition
       DEFAULT_SORTS = {}.freeze
       def initialize
         @facet_field = @field = @uid = @id = 'null'
@@ -21,6 +21,7 @@ module Spectrum
         @sorts = SortList.new
         @default_sort = nil
         @ranges = nil
+        @condition = nil
       end
 
       [:pseudo_facet?, :rff, :routes, :sort, :label, :values, :spectrum, :name, :<=>, :more].each do |fn|
@@ -30,12 +31,20 @@ module Spectrum
       def mapping
         {}
       end
+
+      def conditional_map(_, values)
+        values
+      end
+
+      def conditional_query_map(_, value)
+        value
+      end
     end
 
     class Facet
       attr_accessor :weight, :id, :limit, :mincount, :offset
 
-      attr_reader :uid, :field, :type, :facet_field, :selected, :mapping, :transform
+      attr_reader :uid, :field, :type, :facet_field, :selected, :mapping, :transform, :condition
 
       DEFAULT_SORTS = { 'count' => 'count', 'index' => 'index' }.freeze
 
@@ -60,6 +69,7 @@ module Spectrum
         @selected     = args['facet'].selected || false
         @transform    = args['facet'].transform
         @mapping      = args['mapping'] || {}
+        @condition    = args['condition']
 
         sorts         = args['facet_sorts'] || DEFAULT_SORTS
         @sorts        = Spectrum::Config::SortList.new(sorts, sort_list)
@@ -87,6 +97,37 @@ module Spectrum
       # The mapped_pseudo_facet looks more like a true facet.
       def true_facet?
         @type != 'pseudo_facet'
+      end
+
+      def conditional_query_map(request, value)
+        return value unless @type == 'conditional_mapped_facet'
+        if condition == 'request.search_only?'
+          return value unless request.respond_to?(:search_only?)
+          key = request.search_only?.to_s
+          mapping[key].invert.fetch(value, value)
+        else
+          value
+        end
+      end
+
+      def conditional_map(request, values)
+        return values unless @type == 'conditional_mapped_facet'
+        if condition == 'request.search_only?'
+          return values unless request.respond_to?(:search_only?)
+          condition_key = request.search_only?.to_s
+          new_values = []
+          i = 0;
+          while i < values.length
+            mapped_value = mapping.dig(condition_key, values[i])
+            if mapped_value
+              new_values << mapped_value
+              new_values << values[i+1]
+            end
+            i += 2
+          end
+          return new_values
+        end
+        values
       end
 
       def rff(applied)

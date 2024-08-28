@@ -69,6 +69,11 @@ module Spectrum
         facets.select { |key, _| allowed_facet_uids.include?(key) }
       end
 
+      def facet_by_field_name(field_name)
+        return nill unless @facets
+        @facets.values.find { |f| f.facet_field == field_name }
+      end
+
       def names(fields)
         %w(names title).each do |name|
           fields.each do |field|
@@ -283,7 +288,7 @@ module Spectrum
       end
 
       def apply(request, results)
-        clone.apply_request!(request).apply_facets!(results)
+        clone.apply_request!(request).apply_facets!(results, request)
       end
 
       def apply_request(request)
@@ -299,11 +304,11 @@ module Spectrum
         self
       end
 
-      def apply_facets(results)
-        clone.apply_facets!(results)
+      def apply_facets(results, request = nil)
+        clone.apply_facets!(results, request)
       end
 
-      def apply_facets!(results)
+      def apply_facets!(results, request = nil)
         if results.respond_to? :[]
           @facet_values = results['facet_counts']['facet_fields']
         elsif results.respond_to? :facets
@@ -323,6 +328,12 @@ module Spectrum
           end
         else
           @facet_values = {}
+        end
+
+        @facet_values.each_pair do |field_name, values|
+          facet = facet_by_field_name(field_name)
+          next unless facet
+          @facet_values[field_name] = facet.conditional_map(request, values)
         end
 
         if results.respond_to?(:range_facets)
