@@ -3,8 +3,6 @@
 
 require "bundler"
 Bundler.require
-Bundler.require(:development)
-require "standard/rake"
 
 File.expand_path("lib", __dir__).tap do |libdir|
   $LOAD_PATH.unshift(libdir) unless $LOAD_PATH.include?(libdir)
