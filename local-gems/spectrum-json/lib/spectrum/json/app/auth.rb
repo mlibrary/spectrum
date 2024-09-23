@@ -43,20 +43,7 @@ module Spectrum
         end
 
         def auth_session_new
-          <<~HTML
-            <h1>Logging You In...<h1>
-            <script>
-              window.onload = function(){
-                document.forms['login_form'].submit();
-              }
-            </script>
-            <form id='login_form' method='post' action='/auth/openid_connect'>
-              <input type="hidden" name="authenticity_token" value='#{request.env["rack.session"]["csrf"]}'>
-              <noscript>
-                <button type="submit">Login</button>
-              </noscript>
-            </form>
-          HTML
+          erb :login
         end
 
         def auth_session_destroy
