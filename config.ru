@@ -3,6 +3,8 @@ File.expand_path("lib", __dir__).tap do |libdir|
   $LOAD_PATH.unshift(libdir) unless $LOAD_PATH.include?(libdir)
 end
 
+ENV['APP_ENV'] ||= ENV['RAILS_ENV']
+
 require "bundler"
 Bundler.require
 Spectrum::Json.configure(__dir__, ENV["RAILS_RELATIVE_URL_ROOT"])

@@ -1,21 +1,16 @@
 # Add your own tasks in files placed in lib/tasks ending in .rake,
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
-module Clio
-  def self.under_rake!
-    @under_rake = true
-  end
+require "bundler"
+Bundler.require
+Bundler.require(:development)
+require "standard/rake"
+
+File.expand_path("lib", __dir__).tap do |libdir|
+  $LOAD_PATH.unshift(libdir) unless $LOAD_PATH.include?(libdir)
 end
-Clio.under_rake!
 
-require File.expand_path('../config/application', __FILE__)
-require 'rake'
-
-# Load up .env file if we've got one
-require 'dotenv'
-Dotenv.load
-
-Clio::Application.load_tasks
+Spectrum::Json.configure(__dir__, ENV["RAILS_RELATIVE_URL_ROOT"])
 
 desc "Install versioned/flavored Search UI"
 task :search, [:version, :flavor] do |t, args|
@@ -37,6 +32,9 @@ task :search, [:version, :flavor] do |t, args|
 end
 
 namespace 'assets' do
+  desc "Assets:Precompile"
+  task :precompile do
+  end
   namespace 'precompile' do
     desc "Download profile photos"
     task :profile_photos do
@@ -87,21 +85,3 @@ end
 task :"assets:precompile" => [:"assets:precompile:search"]
 Rake::Task['assets:precompile:search'].enhance ['assets:precompile:profile_photos']
 
-
-# Doing this lets us test by just typing "rake", but that also means
-# rake will re-initialize the test db every time.
-# This is annoying, since we need a library_hours table synced up with
-# production data to validate tests.
-# So, omit this, run 'rspec' instead of 'rake'.
-# task :default  => :spec
-
-
-# This bit is for working with a CI server (e.g., Jenkins)
-# # https://github.com/nicksieger/ci_reporter
-# # To use CI::Reporter, simply add one of the following lines to your Rakefile:
-# #
-# require 'ci/reporter/rake/rspec'     # use this if you're using RSpec
-# # require 'ci/reporter/rake/cucumber'  # use this if you're using Cucumber
-# # require 'ci/reporter/rake/spinach'   # use this if you're using Spinach
-# # require 'ci/reporter/rake/test_unit' # use this if you're using Test::Unit
-# # require 'ci/reporter/rake/minitest'  # use this if you're using Ruby 1.9 or minitest

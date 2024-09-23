@@ -104,6 +104,7 @@ GEM
     csv (3.3.0)
     date (3.3.4)
     deep_merge (1.2.2)
+    diff-lcs (1.5.1)
     docile (1.4.1)
     dotenv (2.8.1)
     down (5.4.2)
@@ -245,6 +246,19 @@ GEM
     rsolr (2.6.0)
       builder (>= 2.1.2)
       faraday (>= 0.9, < 3, != 2.0.0)
+    rspec (3.13.0)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.1)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.1)
     rubocop (1.64.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
@@ -349,6 +363,7 @@ DEPENDENCIES
   rack-reverse-proxy!
   rack-utf8_sanitizer!
   rails-html-sanitizer!
+  rspec!
   simplecov!
   sinatra!
   sinatra-contrib!

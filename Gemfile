@@ -9,7 +9,7 @@ source "https://rubygems.org" do
   gem "dotenv", require: "dotenv/load"
   gem "activesupport", "~> 7.1.4"
   gem "sinatra"
-  gem "sinatra-contrib"
+  gem "sinatra-contrib", require: "sinatra/json"
 
   # Rails::Html::Sanitizer doesn't actually depend on Rails
   gem "rails-html-sanitizer"
@@ -61,13 +61,11 @@ source "https://rubygems.org" do
   # gem 'rack-utf8_sanitizer', :github => 'whitequark/rack-utf8_sanitizer'
   gem "rack-utf8_sanitizer", git: "https://github.com/whitequark/rack-utf8_sanitizer", branch: "main"
 
-  group :development do
-    gem "pry-byebug"
-  end
-
   group :test, :development do
+    gem "pry-byebug"
     gem "standard"
     gem "simplecov"
     gem "webmock"
+    gem "rspec"
   end
 end
