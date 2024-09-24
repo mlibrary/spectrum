@@ -54,8 +54,8 @@ module Spectrum
           data["records"].each do |id|
             record = focus.fetch_record(Spectrum::Json.sources, id, role, self)
             yield record + [
-              { uid: "base_url", value: data["base_url"] },
-              { uid: "holdings", value: get_holdings(focus, id) }
+              {uid: "base_url", value: data["base_url"]},
+              {uid: "holdings", value: get_holdings(focus, id)}
             ]
           end
         end

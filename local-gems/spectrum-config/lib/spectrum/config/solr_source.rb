@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Copyright (c) 2015, Regents of the University of Michigan.
 # All rights reserved. See LICENSE.txt for details.
 
@@ -8,7 +9,7 @@ module Spectrum
       attr_accessor :truncate
       def initialize(args)
         super
-        @truncate = args['truncate']
+        @truncate = args["truncate"]
       end
 
       def is_solr?
@@ -26,11 +27,11 @@ module Spectrum
         p[:fq] += focus.filters
         p[:sort] = focus.get_sorts(request) if request.can_sort?
         p[:default_solr_params] = focus.solr_params
-        p[:qt] = focus.solr_params['qt'] if focus.solr_params['qt']
-        p[:qf] = focus.solr_params['qf'] if focus.solr_params['qf']
-        p[:pf] = focus.solr_params['pf'] if focus.solr_params['pf']
-        p[:mm] = focus.solr_params['mm'] if focus.solr_params['mm']
-        p[:tie] = focus.solr_params['tie'] if focus.solr_params['tie']
+        p[:qt] = focus.solr_params["qt"] if focus.solr_params["qt"]
+        p[:qf] = focus.solr_params["qf"] if focus.solr_params["qf"]
+        p[:pf] = focus.solr_params["pf"] if focus.solr_params["pf"]
+        p[:mm] = focus.solr_params["mm"] if focus.solr_params["mm"]
+        p[:tie] = focus.solr_params["tie"] if focus.solr_params["tie"]
         engine = Spectrum::SearchEngines::Solr.new(p)
         engine.results.slice(*request.slice)
         engine
