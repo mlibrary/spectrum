@@ -1,4 +1,4 @@
-require_relative "../../rails_helper"
+require_relative "../../spec_helper"
 describe Spectrum::Entities::AlmaWorkflowStatusLabels do
   context "::options" do
     before(:each) do

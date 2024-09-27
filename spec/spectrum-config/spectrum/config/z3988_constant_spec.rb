@@ -1,5 +1,4 @@
-require_relative '../../../rails_helper'
-require 'spectrum/config/z3988_constant'
+require_relative "../../../spec_helper"
 
 describe Spectrum::Config::Z3988Constant do
   context "#value" do

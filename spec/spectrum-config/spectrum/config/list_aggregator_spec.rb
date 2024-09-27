@@ -1,8 +1,4 @@
-require_relative '../../../rails_helper'
-
-require 'spectrum/config/aggregator'
-require 'spectrum/config/collapsing_aggregator'
-require 'spectrum/config/list_aggregator'
+require_relative "../../../spec_helper"
 
 describe Spectrum::Config::ListAggregator do
   context "#add / #to_value" do

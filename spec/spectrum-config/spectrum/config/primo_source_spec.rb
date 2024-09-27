@@ -1,6 +1,4 @@
-require_relative '../../../rails_helper'
-require 'spectrum/config/base_source'
-require 'spectrum/config/primo_source'
+require_relative "../../../spec_helper"
 
 describe Spectrum::Config::PrimoSource do
   describe "#extract_query" do

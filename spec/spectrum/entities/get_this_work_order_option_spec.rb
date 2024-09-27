@@ -1,4 +1,4 @@
-require_relative "../../rails_helper"
+require_relative "../../spec_helper"
 describe Spectrum::Entities::GetThisWorkOrderOption do
   before(:each) do
     @item = double("Spectrum::Decorators::PhysicalItemDecorator", location: "HATCH", process_type: "WORK_ORDER_DEPARTMENT", barcode: "BARCODE")

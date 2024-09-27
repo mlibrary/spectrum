@@ -1,7 +1,5 @@
-require_relative '../../../rails_helper'
+require_relative "../../../spec_helper"
 require_relative '../../../config_stub'
-
-require 'spectrum/config/csl_aggregator'
 
 describe Spectrum::Config::CSLAggregator do
   context '#spectrum' do

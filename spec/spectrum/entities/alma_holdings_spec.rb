@@ -1,4 +1,4 @@
-require_relative "../../rails_helper"
+require_relative "../../spec_helper"
 describe Spectrum::Entities::AlmaHoldings do
   before(:each) do
     @mms_id = "990020578280106381"

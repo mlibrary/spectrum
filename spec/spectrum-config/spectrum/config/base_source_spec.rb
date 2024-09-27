@@ -1,5 +1,4 @@
-require_relative '../../../rails_helper'
-require 'spectrum/config/base_source'
+require_relative "../../../spec_helper"
 
 describe Spectrum::Config::BaseSource do
   context '#<=>' do

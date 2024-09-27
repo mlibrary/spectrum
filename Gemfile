@@ -67,5 +67,6 @@ source "https://rubygems.org" do
     gem "simplecov"
     gem "webmock"
     gem "rspec"
+    gem "rack-test"
   end
 end

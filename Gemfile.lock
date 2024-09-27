@@ -235,6 +235,8 @@ GEM
     rack-reverse-proxy (0.12.0)
       rack (>= 1.0.0)
       rack-proxy (~> 0.6, >= 0.6.1)
+    rack-test (2.1.0)
+      rack (>= 1.3)
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
@@ -361,6 +363,7 @@ DEPENDENCIES
   pry-byebug!
   puma!
   rack-reverse-proxy!
+  rack-test!
   rack-utf8_sanitizer!
   rails-html-sanitizer!
   rspec!

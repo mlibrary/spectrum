@@ -1,5 +1,4 @@
-require_relative "../../../rails_helper"
-require "spectrum/search_engines/primo/engine"
+require_relative "../../../spec_helper"
 
 describe Spectrum::SearchEngines::Primo::Engine do
   context "#query" do

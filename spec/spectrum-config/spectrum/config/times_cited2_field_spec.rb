@@ -1,11 +1,6 @@
-require_relative '../../../rails_helper'
+require_relative "../../../spec_helper"
 require_relative '../../../config_stub'
 require_relative '../../../summon_document_stub'
-
-require 'marc'
-
-require 'spectrum/config/field'
-require 'spectrum/config/times_cited2_field'
 
 describe Spectrum::Config::TimesCited2Field do
   context "When initialized this way" do

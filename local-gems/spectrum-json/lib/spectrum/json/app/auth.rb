@@ -23,7 +23,7 @@ module Spectrum
           end
 
           app.get("/logout") do
-            auth_session_destory
+            auth_session_destroy
           end
 
           app.get("/auth/openid_connect/callback") do

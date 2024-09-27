@@ -1,6 +1,4 @@
-require_relative '../../../rails_helper'
-require 'spectrum/config/base_source'
-require 'spectrum/config/solr_source'
+require_relative "../../../spec_helper"
 
 describe Spectrum::Config::SolrSource do
   context '#is_solr?' do

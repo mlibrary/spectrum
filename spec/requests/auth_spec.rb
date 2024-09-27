@@ -1,6 +1,8 @@
-require "rails_helper"
+require "spec_helper"
 
 RSpec.describe "Auth routes", type: :request do
+  include Rack::Test::Methods
+  let(:app) { Spectrum::Json::App }
   context "get /auth/openid_connect/callback" do
     before(:each) do
       @omniauth_auth = {
@@ -17,36 +19,36 @@ RSpec.describe "Auth routes", type: :request do
       get "/auth/openid_connect/callback"
     end
     it "sets the username from the callback" do
-      get "/spectrum/profile"
+      response = get "/spectrum/profile"
       expect(JSON.parse(response.body)["status"]).to eq("Not logged in")
       subject
-      get "/spectrum/profile"
+      response = get "/spectrum/profile"
       body = JSON.parse(response.body)
       expect(body["status"]).to eq("Logged in")
       expect(body["email"]).to eq("tutor@umich.edu")
     end
 
     it "redirects to the dest parameter" do
-      subject
-      expect(response).to redirect_to "/somewhere"
+      expect(subject.status).to eq(302)
+      expect(subject.header["Location"]).to end_with("/somewhere")
     end
 
     it "redirects to /everything if no dest parameter" do
       @origin = "/login?not_a_dest=not_used_anywhere"
-      subject
-      expect(response).to redirect_to "/everything"
+      expect(subject.status).to eq(302)
+      expect(subject.header["Location"]).to end_with("/everything")
     end
 
     it "redirects to /everything if no parameters whatsover" do
       @origin = "/login"
-      subject
-      expect(response).to redirect_to "/everything"
+      expect(subject.status).to eq(302)
+      expect(subject.header["Location"]).to end_with("/everything")
     end
   end
 
   context "get /login" do
     it "renders page with Logging you in" do
-      get "/login"
+      response = get "/login"
       expect(response.body).to include("Logging you in")
     end
   end
@@ -63,25 +65,27 @@ RSpec.describe "Auth routes", type: :request do
 
       get "/login"
       # verify that we are indeed logged in
-      get "/spectrum/profile"
+      response = get "/spectrum/profile"
       body = JSON.parse(response.body)
       expect(body["status"]).to eq("Logged in")
 
       # the actual thing we are testing
       get "/logout"
-      get "/spectrum/profile"
+      response = get "/spectrum/profile"
       body = JSON.parse(response.body)
       expect(body["status"]).to eq("Not logged in")
     end
 
     it "redirects to shibboleth logout url with search redirect" do
-      get "/logout"
-      expect(response).to redirect_to "https://shibboleth.umich.edu/cgi-bin/logout?#{ENV.fetch("REACT_APP_LOGIN_BASE_URL")}/"
+      response = get "/logout"
+      expect(response.status).to eq(302)
+      expect(response.header["Location"]).to eq "https://shibboleth.umich.edu/cgi-bin/logout?#{ENV.fetch("REACT_APP_LOGIN_BASE_URL")}/"
     end
 
     it "redirects to logout with redirect back to dest url" do
-      get "/logout?dest=/somewhere/"
-      expect(response).to redirect_to "https://shibboleth.umich.edu/cgi-bin/logout?#{ENV.fetch("REACT_APP_LOGIN_BASE_URL")}/somewhere/"
+      response = get "/logout?dest=/somewhere/"
+      expect(response.status).to eq(302)
+      expect(response.header["Location"]).to eq "https://shibboleth.umich.edu/cgi-bin/logout?#{ENV.fetch("REACT_APP_LOGIN_BASE_URL")}/somewhere/"
     end
   end
 end

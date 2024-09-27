@@ -87,7 +87,6 @@ module Spectrum
         'Visual Material' => 'remove_red_eye',
         'Website' => 'web',
         'Web Resource' => 'web',
-        'reference_entry' => 'document',
         'Reference Entry' => 'document',
       }
 

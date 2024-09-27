@@ -1,6 +1,4 @@
-require_relative '../../../rails_helper'
-
-require 'spectrum/config/filter'
+require_relative "../../../spec_helper"
 
 describe Spectrum::Config::Filter do
 

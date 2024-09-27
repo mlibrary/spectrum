@@ -1,7 +1,4 @@
-require_relative '../../../rails_helper'
-
-require 'spectrum/config/aggregator'
-require 'spectrum/config/advanced_filtering_aggregator'
+require_relative "../../../spec_helper"
 
 describe Spectrum::Config::AdvancedFilteringAggregator do
   context "When initialized a new title" do

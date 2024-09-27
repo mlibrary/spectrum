@@ -1,6 +1,4 @@
-require_relative '../../../rails_helper'
-require 'spectrum/config/metadata_component'
-require 'spectrum/config/quoted_search1_metadata_component'
+require_relative "../../../spec_helper"
 
 describe Spectrum::Config::QuotedSearch1MetadataComponent do
   subject { described_class.new('Name', config) }

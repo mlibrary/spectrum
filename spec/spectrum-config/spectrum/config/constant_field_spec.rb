@@ -1,9 +1,5 @@
-require_relative '../../../rails_helper'
+require_relative "../../../spec_helper"
 require_relative '../../../config_stub'
-
-require 'spectrum/config/field'
-require 'spectrum/config/basic_field'
-require 'spectrum/config/constant_field'
 
 describe Spectrum::Config::ConstantField do
   context "When initialized this way" do

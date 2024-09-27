@@ -1,6 +1,4 @@
-require_relative '../../../rails_helper'
-
-require 'spectrum/config/marc_matcher'
+require_relative "../../../spec_helper"
 
 describe Spectrum::Config::MarcMatcher do
   context "#metadata" do

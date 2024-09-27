@@ -1,10 +1,6 @@
-require_relative '../../../rails_helper'
-
+require_relative "../../../spec_helper"
 require_relative '../../../subfield_stub'
 require_relative '../../../field_stub'
-
-require 'spectrum/config/marc_matcher_where_clause'
-require 'spectrum/config/marc_matcher_where_exists'
 
 describe Spectrum::Config::MarcMatcherWhereExists do
   context "Configured with nil" do

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../rails_helper'
+require_relative "../../spec_helper"
 require_relative '../../stub_bib_record'
 
 describe Spectrum::Holding::RequestThisAction, ".match" do

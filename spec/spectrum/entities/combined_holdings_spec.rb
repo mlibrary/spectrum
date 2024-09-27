@@ -1,4 +1,4 @@
-require_relative "../../rails_helper"
+require_relative "../../spec_helper"
 describe Spectrum::Entities::CombinedHoldings do
   before(:each) do
     @elec_holdings = []

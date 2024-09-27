@@ -1,6 +1,8 @@
-require "rails_helper"
+require "spec_helper"
 
 RSpec.describe "Profile routes", type: :request do
+  include Rack::Test::Methods
+  let(:app) { Spectrum::Json::App }
   let(:log_in) do
     OmniAuth.config.add_mock(:openid_connect, {info: {nickname: "tutor"}})
     OmniAuth.config.before_callback_phase do |env|
@@ -25,16 +27,14 @@ RSpec.describe "Profile routes", type: :request do
     end
     context "not logged in" do
       it "shows a not logged in profile" do
-        subject
-        expect(JSON.parse(response.body)["status"]).to eq("Not logged in")
+        expect(JSON.parse(subject.body)["status"]).to eq("Not logged in")
       end
     end
     context "logged in" do
       it "shows a logged in profile" do
         stub_alma_get_request(url: "bibs/990020578280106381/loans", output: {total_record_count: 0}.to_json, query: {limit: 100, offset: 0})
         log_in
-        subject
-        expect(JSON.parse(response.body)["status"]).to eq("Success")
+        expect(JSON.parse(subject.body)["status"]).to eq("Success")
       end
     end
   end
