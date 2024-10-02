@@ -1,4 +1,4 @@
-FROM ruby:2.7.4
+FROM ruby:3.3
 
 #Set up variables for creating a user to run the app in the container
 ARG UID
@@ -24,8 +24,6 @@ WORKDIR $APP_HOME
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get install -y nodejs
 RUN mkdir -p ${BUNDLE_PATH} ${APP_HOME}/public ${APP_HOME}/tmp && chown -R ${UNAME} ${BUNDLE_PATH} ${APP_HOME}/public ${APP_HOME}/tmp
-
-RUN gem install bundler:1.17.3
 
 USER $UNAME
 
