@@ -22,7 +22,7 @@ task :search, [:version, :flavor] do |t, args|
     args.version
   end
   url = Shellwords.escape("https://github.com/mlibrary/search/releases/download/#{version}/search-#{args.flavor}.tar.gz")
-  pub = Shellwords.escape(File.join(Rails.root, 'public'))
+  pub = Shellwords.escape(File.join(__dir__, 'public'))
   strip = '--strip-components=1'
   xform = "'--transform=s%search/index.html%search/app.html%'"
   puts "Deploying Search UI #{version} for #{args.flavor}"
