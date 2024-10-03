@@ -1,6 +1,4 @@
-require_relative '../../../rails_helper'
-require 'spectrum/config/marc_matcher_where_clause'
-require 'spectrum/config/marc_matcher_where'
+require_relative "../../../spec_helper"
 
 describe Spectrum::Config::MarcMatcherWhere do
   context "Configured with nil" do

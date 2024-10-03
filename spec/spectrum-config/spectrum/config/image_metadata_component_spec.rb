@@ -1,6 +1,4 @@
-require_relative '../../../rails_helper'
-require 'spectrum/config/metadata_component'
-require 'spectrum/config/image_metadata_component'
+require_relative "../../../spec_helper"
 
 describe Spectrum::Config::ImageMetadataComponent do
   subject { described_class.new('Name', config) }

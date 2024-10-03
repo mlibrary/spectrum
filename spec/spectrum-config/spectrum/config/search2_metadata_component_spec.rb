@@ -1,6 +1,4 @@
-require_relative '../../../rails_helper'
-require 'spectrum/config/metadata_component'
-require 'spectrum/config/search2_metadata_component'
+require_relative "../../../spec_helper"
 
 describe Spectrum::Config::Search2MetadataComponent do
   subject { described_class.new('Name', config) }

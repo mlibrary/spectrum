@@ -1,7 +1,4 @@
-require_relative '../../../rails_helper'
-
-require 'spectrum/config/aggregator'
-require 'spectrum/config/filtered_labeling_aggregator'
+require_relative "../../../spec_helper"
 
 describe Spectrum::Config::FilteredLabelingAggregator do
   context "When initialized this way" do

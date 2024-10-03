@@ -1,6 +1,4 @@
-require_relative '../rails_helper.rb'
-
-require 'spectrum/config'
+require_relative "../spec_helper.rb"
 
 describe Spectrum::Config do
   context "require 'spetrum/config'" do

@@ -1,7 +1,5 @@
-require_relative '../../../rails_helper'
+require_relative "../../../spec_helper"
 require_relative '../../../config_stub'
-
-require 'spectrum/config/bookplate'
 
 describe Spectrum::Config::Bookplate do
   context "When initialized with args0/args1" do

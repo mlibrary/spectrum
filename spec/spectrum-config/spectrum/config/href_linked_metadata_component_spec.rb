@@ -1,6 +1,4 @@
-require_relative '../../../rails_helper'
-require 'spectrum/config/metadata_component'
-require 'spectrum/config/href_linked_metadata_component'
+require_relative "../../../spec_helper"
 
 describe Spectrum::Config::HrefLinkedMetadataComponent do
   subject { described_class.new('Name', {'type' => 'href_linked'}) }

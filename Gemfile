@@ -1,24 +1,27 @@
 source "https://rubygems.org" do
   # I'm getting deployment errors with capistrano about trying to load pry
   gem "pry"
-  gem "lograge"
   gem "down"
 
   gem "rack-reverse-proxy", require: "rack/reverse_proxy"
 
   # Allow dotenv configuration
-  gem "dotenv-rails", require: "dotenv/rails-now"
+  gem "dotenv", require: "dotenv/load"
+  gem "activesupport", "~> 7.1.4"
+  gem "sinatra"
+  gem "sinatra-contrib", require: "sinatra/json"
+
+  # Rails::Html::Sanitizer doesn't actually depend on Rails
+  gem "rails-html-sanitizer"
 
   gem "skylight"
   gem "net-ldap"
   gem "twilio-ruby"
   gem "puma"
   gem "parslet"
-  gem "execjs", "~> 2.7.0"
 
   gem "omniauth"
   gem "omniauth_openid_connect"
-  gem "omniauth-rails_csrf_protection"
 
   gem "ipresolver",
     git: "https://github.com/mlibrary/ipresolver",
@@ -39,26 +42,14 @@ source "https://rubygems.org" do
 
   gem "mlibrary_search_parser",
     git: "https://github.com/mlibrary/mlibrary_search_parser",
-    branch: "master"
-
-  gem "rails", "~> 4.2.0"
-
-  #  ###  BLACKLIGHT (begin)  ###
-  gem "blacklight", "~>5.3.0"
-  gem "blacklight-marc"
-  #  ###  BLACKLIGHT (end)  ###
+    branch: "main"
 
   gem "json"
 
   gem "httpclient"
-  gem "nokogiri", ">= 1.8.5"
+  gem "nokogiri"
 
   # HTML replacement language
-
-  gem "unicode"
-  gem "summon"
-  gem "cancan"
-  gem "exception_notification"
 
   # "Rack middleware which cleans up invalid UTF8 characters"
   # gem 'rack-utf8_sanitizer'
@@ -68,34 +59,14 @@ source "https://rubygems.org" do
   # We also still have invalid %-encoding w/submitted form fields.
   # This is an open issue at rack-utf8_sanitizer.
   # gem 'rack-utf8_sanitizer', :github => 'whitequark/rack-utf8_sanitizer'
-  gem "rack-utf8_sanitizer", git: "https://github.com/whitequark/rack-utf8_sanitizer"
-
-  # gives us jQuery and jQuery-ujs, but not jQuery UI
-  # (blacklight_range_limit brings this in anyway - no way to switch to CDN)
-  gem "jquery-rails"
-
-  # To build slugs for saved-list URLs
-  gem "stringex"
-
-  group :development do
-    gem "rbtrace"
-    gem "pry-byebug", platforms: :mri
-    gem "pry-rails"
-    gem "rerun"
-    gem "quiet_assets"
-
-    platforms :mri do
-      gem "binding_of_caller"
-
-      # "A fist full of code metrics"
-      gem "metric_fu"
-    end
-  end
+  gem "rack-utf8_sanitizer", git: "https://github.com/whitequark/rack-utf8_sanitizer", branch: "main"
 
   group :test, :development do
-    gem "rspec-rails"
+    gem "pry-byebug"
     gem "standard"
     gem "simplecov"
     gem "webmock"
+    gem "rspec"
+    gem "rack-test"
   end
 end

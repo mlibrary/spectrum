@@ -1,4 +1,4 @@
-require_relative "../../rails_helper"
+require_relative "../../spec_helper"
 
 describe Spectrum::Presenters::ElectronicItem do
   context "E56 or 856 electronic item" do

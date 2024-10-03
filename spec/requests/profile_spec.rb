@@ -1,14 +1,15 @@
-require "rails_helper"
+require "spec_helper"
 
 RSpec.describe "Profile routes", type: :request do
+  include Rack::Test::Methods
+  let(:app) { Spectrum::Json::App }
   context "get /profile" do
     subject do
       get "/spectrum/profile"
     end
     context "not logged in" do
       it "shows a not logged in profile" do
-        subject
-        expect(JSON.parse(response.body)["status"]).to eq("Not logged in")
+        expect(JSON.parse(subject.body)["status"]).to eq("Not logged in")
       end
     end
     context "logged in" do
@@ -19,9 +20,8 @@ RSpec.describe "Profile routes", type: :request do
         end
         stub_alma_get_request(url: "users/tutor", output: File.read("./spec/fixtures/alma_user.json"))
         get "/auth/openid_connect/callback"
-        subject
-        expect(JSON.parse(response.body)["status"]).to eq("Logged in")
-        expect(JSON.parse(response.body)["email"]).to eq("tutor@umich.edu")
+        expect(JSON.parse(subject.body)["status"]).to eq("Logged in")
+        expect(JSON.parse(subject.body)["email"]).to eq("tutor@umich.edu")
       end
     end
   end

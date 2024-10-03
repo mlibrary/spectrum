@@ -16,7 +16,8 @@ module Spectrum
       attr_reader :role, :request
       def initialize(request:, username:)
         @request = request
-        @raw = CGI.unescape(request.raw_post)
+        request.env["rack.input"].rewind
+        @raw = CGI.unescape(request.env["rack.input"].read)
         @data = JSON.parse(@raw)
         @username = username || ""
         @role = if request.env["dlpsInstitutionId"] &&
@@ -53,8 +54,8 @@ module Spectrum
           data["records"].each do |id|
             record = focus.fetch_record(Spectrum::Json.sources, id, role, self)
             yield record + [
-              { uid: "base_url", value: data["base_url"] },
-              { uid: "holdings", value: get_holdings(focus, id) }
+              {uid: "base_url", value: data["base_url"]},
+              {uid: "holdings", value: get_holdings(focus, id)}
             ]
           end
         end

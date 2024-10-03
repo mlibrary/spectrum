@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "../rails_helper"
+require_relative "../spec_helper"
 
 describe Spectrum::BibRecord do
   before(:each) do

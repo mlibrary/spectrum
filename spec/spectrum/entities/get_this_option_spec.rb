@@ -1,4 +1,4 @@
-require_relative "../../rails_helper"
+require_relative "../../spec_helper"
 describe Spectrum::Entities::GetThisOption do
   before(:each) do
     @patron = instance_double(Spectrum::Entities::AlmaUser)

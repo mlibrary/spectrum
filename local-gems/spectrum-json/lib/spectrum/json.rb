@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "rails" # so `bundle console` works
 require "json-schema"
 require "lru_redux"
 require "alma_rest_client"
@@ -9,6 +8,9 @@ require "mlibrary_search_parser/transformer/solr/sometimes_quoted_local_params"
 
 require "active_support"
 require "active_support/concern"
+
+require "sinatra"
+require "sinatra/json"
 
 require "spectrum/available_online_holding"
 require "spectrum/empty_item_holding"
@@ -31,8 +33,9 @@ require "spectrum/entities/alma_workflow_status_labels"
 require "spectrum/decorators/physical_item_decorator"
 
 require "spectrum/json/version"
-require "spectrum/json/engine"
 require "spectrum/json/schema"
+
+require "spectrum/json/monkey_patches"
 
 require "spectrum/json/ris"
 require "spectrum/json/twilio"
@@ -118,7 +121,6 @@ require "spectrum/holding/finding_aid_action"
 require "spectrum/holding/get_this_action"
 require "spectrum/holding/request_this_action"
 
-require "spectrum/json/railtie" if defined?(Rails)
 require "erb"
 
 module Spectrum
@@ -128,14 +130,32 @@ module Spectrum
 
       def configure(root, base_url)
         @base_url = base_url
-        @actions_file = root.join("config", "actions.yml")
-        @filters_file = root.join("config", "filters.yml")
-        @fields_file = root.join("config", "fields.yml")
-        @focus_files = root.join("config", "foci", "*.yml")
-        @sources_file = root.join("config", "source.yml")
-        @sorts_file = root.join("config", "sorts.yml")
-        @bookplates_file = root.join("config", "bookplates.yml")
+        @actions_file = File.join(root, "config", "actions.yml")
+        @filters_file = File.join(root, "config", "filters.yml")
+        @fields_file = File.join(root, "config", "fields.yml")
+        @focus_files = File.join(root, "config", "foci", "*.yml")
+        @sources_file = File.join(root, "config", "source.yml")
+        @sorts_file = File.join(root, "config", "sorts.yml")
+        @bookplates_file = File.join(root, "config", "bookplates.yml")
         Spectrum::Config::FacetParents.configure(root)
+
+        if File.exist?(location_labels_file = File.join(root, "config", "location_labels.yml"))
+          Spectrum::Entities::LocationLabels.configure(location_labels_file)
+        end
+        if File.exist?(labels_file = File.join(root, "config", "alma_workflow_status_labels.json"))
+          Spectrum::Entities::AlmaWorkflowStatusLabels.configure(labels_file)
+        end
+
+        if File.exist?(get_this_file = File.join(root, "config", "get_this.yml"))
+          Spectrum::Entities::GetThisOptions.configure(get_this_file)
+        end
+
+        if File.exist?(specialists_file = File.join(root, "config", "specialists.yml"))
+          Spectrum::Response::Specialists.configure(specialists_file)
+        end
+
+        MARC::ControlField.control_tags.add("FMT")
+
         configure!
       end
 
@@ -191,38 +211,13 @@ module Spectrum
           end
         end
 
+        require 'spectrum/json/app'
+
         self
       end
 
       def routes(app)
         foci.routes(app) if foci.respond_to?(:routes)
-
-        app.match "profile",
-          to: "json#profile",
-          defaults: {type: "Profile"},
-          via: %i[get options]
-
-        app.match "profile/favorites/list",
-          to: "json#act",
-          defaults: {type: "ListFavorites"},
-          via: %i[get options]
-
-        app.match "profile/favorites/suggest",
-          to: "json#act",
-          defaults: {type: "SuggestFavorites"},
-          via: %i[get options]
-
-        app.match "file",
-          to: "json#file",
-          defaults: {type: "File"},
-          via: %i[post options]
-
-        %w[text email favorite unfavorite tag untag].each do |action|
-          app.match action,
-            to: "json#act",
-            defaults: {type: action.titlecase},
-            via: %i[post options]
-        end
       end
     end
   end

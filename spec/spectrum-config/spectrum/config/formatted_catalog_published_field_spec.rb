@@ -1,12 +1,5 @@
-require_relative '../../../rails_helper'
+require_relative "../../../spec_helper"
 require_relative '../../../config_stub'
-
-require 'marc'
-
-require 'spectrum/config/field'
-require 'spectrum/config/basic_field'
-require 'spectrum/config/marcxml_field'
-require 'spectrum/config/formatted_catalog_published_field'
 
 describe Spectrum::Config::FormattedCatalogPublishedField do
   context "When initialized this way" do

@@ -3,11 +3,10 @@
 module Spectrum
   module Request
     class Record
-
-      FLINT = 'Flint'
-      FLINT_PROXY_PREFIX = 'http://libproxy.umflint.edu:2048/login?qurl='
-      DEFAULT_PROXY_PREFIX = 'https://proxy.lib.umich.edu/login?qurl='
-      INSTITUTION_KEY = 'dlpsInstitutionId'
+      FLINT = "Flint"
+      FLINT_PROXY_PREFIX = "http://libproxy.umflint.edu:2048/login?qurl="
+      DEFAULT_PROXY_PREFIX = "https://proxy.lib.umich.edu/login?qurl="
+      INSTITUTION_KEY = "dlpsInstitutionId"
 
       def proxy_prefix
         return FLINT_PROXY_PREFIX if @request.env[INSTITUTION_KEY]&.include?(FLINT)
@@ -20,17 +19,17 @@ module Spectrum
 
       def initialize(request)
         @request = request
-        if request.params[:source] == 'summon'
-          @query = "#{@request.params['id_field']}:#{unfiltered_id(request)}"
-        elsif request.params[:source] == 'mirlyn'
-          id_field = @request.params['id_field']
+        if request.params[:source] == "summon"
+          @query = "#{@request.params["id_field"]}:#{unfiltered_id(request)}"
+        elsif request.params[:source] == "mirlyn"
+          id_field = @request.params["id_field"]
           id = unfiltered_id(request)
           if id.length == 9
-            id_field = 'aleph_id'
+            id_field = "aleph_id"
           end
           @query = "#{id_field}:#{id}"
         else
-          @query = "#{@request.params['id_field']}:#{RSolr.solr_escape(unfiltered_id(request))}"
+          @query = "#{@request.params["id_field"]}:#{RSolr.solr_escape(unfiltered_id(request))}"
         end
       end
 
@@ -40,7 +39,7 @@ module Spectrum
 
       def unfiltered_id(request)
         path = request.path
-        original = request.original_fullpath
+        original = request.path
         id = request.params[:id]
         original.slice(path.length - id.length, original.length)
       end
@@ -50,10 +49,10 @@ module Spectrum
         return true unless @request&.env
 
         # If there's a @request.env, but not a dlpsInstitutionId then it's empty.
-        return false unless @request.env['dlpsInstitutionId']
+        return false unless @request.env["dlpsInstitutionId"]
 
         # If we found an institution we're authenticated.
-        @request.env['dlpsInstitutionId'].length > 0
+        @request.env["dlpsInstitutionId"].length > 0
       end
 
       def available_online?
@@ -65,10 +64,6 @@ module Spectrum
       end
 
       def search_only?
-        false
-      end
-
-      def holdings_only?
         false
       end
 
@@ -85,29 +80,30 @@ module Spectrum
       end
 
       def book_mark?
-        @request.params['type'] == 'Record' && @request.params['id_field'] == 'BookMark'
-      rescue StandardError
+        @request.params["type"] == "Record" && @request.params["id_field"] == "BookMark"
+      rescue
         false
       end
 
       def book_mark
-        @request.params['id']
-      rescue StandardError
+        @request.params["id"]
+      rescue
       end
 
       def holdings_only?
         # TODO: Check this for when we implement this completely.
 
-        if @data['facets']['holdings_only'].nil?
+        if @data["facets"]["holdings_only"].nil?
           true
         else
-          Array(@data['facets']['holdings_only']).include?('true')
+          Array(@data["facets"]["holdings_only"]).include?("true")
         end
-      rescue StandardError
+      rescue
         true
       end
 
-      def sort; end
+      def sort
+      end
 
       def slice
         [0, 1]

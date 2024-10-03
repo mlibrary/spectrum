@@ -1,4 +1,4 @@
-require_relative "../../rails_helper"
+require_relative "../../spec_helper"
 describe Spectrum::Entities::AlmaItem do
   before(:each) do
     @solr_bib_alma = File.read("./spec/fixtures/solr_bib_alma.json")

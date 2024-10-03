@@ -1,4 +1,4 @@
-require_relative "../../rails_helper"
+require_relative "../../spec_helper"
 describe Spectrum::Holding::PhysicalItemStatus do
   before(:each) do
     @solr_item = double("Spectrum::BibRecord:AlmaHolding::Item", process_type: nil, location: "GRAD", library: "HATCH", temp_location?: false, item_location_text: "Hatcher Graduate Library", can_reserve?: false, fulfillment_unit: "General", item_policy: nil)

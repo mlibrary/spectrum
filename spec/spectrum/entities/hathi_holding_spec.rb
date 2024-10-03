@@ -1,4 +1,4 @@
-require_relative '../../rails_helper'
+require_relative "../../spec_helper"
 describe Spectrum::Entities::HathiHolding do
   let(:mms_id) {'990020578280106381'}
   let(:etas_status) {"Search only (no full text)"}

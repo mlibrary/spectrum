@@ -1,4 +1,4 @@
-require_relative '../rails_helper'
+require_relative "../spec_helper"
 describe Spectrum::SpecialCollectionsBibRecord do
   before(:each) do
     @scrc_bib = File.read('./spec/fixtures/spec_rda_bib.json')

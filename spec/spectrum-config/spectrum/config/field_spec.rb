@@ -1,8 +1,5 @@
-require_relative '../../../rails_helper'
+require_relative "../../../spec_helper"
 require_relative '../../../config_stub'
-
-require 'spectrum/config/field'
-require 'spectrum/config/basic_field'
 
 describe Spectrum::Config::Field do
   let(:field_def1) {{

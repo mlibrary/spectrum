@@ -1,6 +1,4 @@
-require_relative '../../../rails_helper'
-require 'spectrum/config/metadata_component'
-require 'spectrum/config/plain_metadata_component'
+require_relative "../../../spec_helper"
 
 describe Spectrum::Config::PlainMetadataComponent do
   subject { described_class.new('Name', {'type' => 'plain'}) }

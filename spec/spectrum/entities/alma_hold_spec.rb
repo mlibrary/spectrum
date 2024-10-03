@@ -1,4 +1,4 @@
-require_relative '../../rails_helper'
+require_relative "../../spec_helper"
 describe Spectrum::Entities::AlmaHold do
   before(:each) do
     @params = {

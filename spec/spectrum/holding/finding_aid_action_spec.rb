@@ -1,4 +1,4 @@
-require_relative '../../rails_helper'
+require_relative "../../spec_helper"
 describe Spectrum::Holding::FindingAidAction do
   before(:each) do
     @item = instance_double(Spectrum::Entities::AlmaItem, record_has_finding_aid: true)

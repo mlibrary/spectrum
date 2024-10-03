@@ -1,10 +1,6 @@
-require_relative '../../../rails_helper'
+require_relative "../../../spec_helper"
 require_relative '../../../config_stub'
 require_relative '../../../spec_data'
-
-require 'spectrum/config/field'
-require 'spectrum/config/basic_field'
-require 'spectrum/config/concat_field'
 
 describe Spectrum::Config::ConcatField do
 

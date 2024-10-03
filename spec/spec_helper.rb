@@ -20,6 +20,7 @@
 
 require "pry"
 require "pry-byebug"
+require "rack/test"
 
 # require 'coveralls'
 require "simplecov"
@@ -30,6 +31,14 @@ RSolr::Client.default_wt = :json
 # configure some classes
 SimpleCov.start "rails"
 # Spectrum::Entities::GetThisOptions.configure('spec/fixtures/get_this_policy.yml')
+
+ENV["RAILS_ENV"] = "test"
+ENV["APP_ENV"] = "test"
+Bundler.require
+Spectrum::Json.configure(File.expand_path("..", __dir__), "http://localhost:3000")
+
+# Prevent database truncation if the environment is production
+OmniAuth.config.test_mode = true
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -107,7 +116,7 @@ RSpec.configure do |config|
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
   [:get, :post, :put, :delete].each do |name|
-    define_method("stub_alma_#{name}_request") do |url:, input: nil, output: "", status: 200, query: nil|
+    define_method(:"stub_alma_#{name}_request") do |url:, input: nil, output: "", status: 200, query: nil|
       req_attributes = {}
       req_attributes[:headers] = {
         :accept => "application/json",
