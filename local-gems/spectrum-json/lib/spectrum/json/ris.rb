@@ -4,10 +4,20 @@ module Spectrum
   module Json
     class Ris
       TYPES = Hash.new('GEN').merge(
+        'article' => 'JOUR',
+        'archival material manuscript' => 'MANSCPT',
         'book' => 'BOOK',
         'book / ebook' => 'BOOK',
+        'book chapter' => 'CHAP',
+        'government document' => 'GOVDOC',
+        'image' => 'ADVS',
         'journal article' => 'JOUR',
+        'patent' => 'PAT',
         'publication article' => 'JOUR',
+        'reference entry' => 'JOUR',
+        'report' => 'RPRT',
+        'review' => 'JOUR',
+        'text resource' => 'JOUR',
         'trade publication article' => 'JOUR',
         'journal / ejournal' => 'JFULL',
         'journal' => 'JFULL',
@@ -17,6 +27,7 @@ module Spectrum
         'atlas' => 'MAP',
         'ebook' => 'EBOOK',
         'motion picture' => 'VIDEO',
+        'video' => 'VIDEO',
         'video recording' => 'VIDEO',
         'video (blu-ray)' => 'VIDEO',
         'video (dvd)' => 'VIDEO',
@@ -56,7 +67,7 @@ module Spectrum
         'book chapter' => 'CHAP',
         'internet communication' => 'ICOMM',
         'electronic resource' => 'ICOMM',
-        'web resource' => 'ICOMM',
+        'web resource' => 'WEB',
         'gen' => 'GEN',
         '*' => 'GEN'
       )
