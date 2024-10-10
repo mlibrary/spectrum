@@ -187,7 +187,7 @@ module Spectrum
         if @sources && !(focus_files_list = Dir.glob(@focus_files)).empty?
           @foci = Spectrum::Config::FocusList.new(
             # aliases true for safe load
-            focus_files_list.map { |file| YAML.safe_load(ERB.new(File.read(file)).result, [], [], true) },
+            focus_files_list.map { |file| YAML.safe_load(ERB.new(File.read(file)).result, aliases: true) },
             self
           )
         end
