@@ -3,7 +3,7 @@
 module Spectrum
   module Json
     class Ris
-      TYPES = Hash.new("GEN").merge(
+      TYPES = Hash.new("JOUR").merge(
         "archival material manuscript" => "MANSCPT",
         "article" => "JOUR",
         "atlas" => "MAP",
@@ -256,7 +256,7 @@ module Spectrum
           when "website"
             "TY  - WEB"
           else
-            single_valued(item, "TY", "format", "gen", TYPES)
+            single_valued(item, "TY", "format", "article", TYPES)
           end
         end
 
