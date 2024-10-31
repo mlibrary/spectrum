@@ -36,7 +36,7 @@ module Spectrum
         end
 
         def fulltext?
-          @fulltext ||= @delivery['availability'].include?('fulltext')
+          @fulltext ||= !@delivery['availability'].include?('no_fulltext')
         end
 
         def link_to_resource?
