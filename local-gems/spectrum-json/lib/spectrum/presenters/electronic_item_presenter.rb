@@ -54,7 +54,7 @@ module Spectrum
       end
 
       def source
-        [@item.delivery_description, @item.public_note].compact.join("; ")
+        @item.public_note || ""
       end
 
       def link_text

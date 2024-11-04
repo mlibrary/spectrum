@@ -43,21 +43,15 @@ describe Spectrum::Presenters::ElectronicItem do
       expect(subject.to_a).to eq([
         {text: "Link text", href: "Link"},
         {text: "Label"},
-        {text: "Delivery description; Public note"}
+        {text: "Public note"}
       ])
     end
     context "source" do
-      it "handles empty public note" do
-        allow(@item).to receive(:public_note).and_return(nil)
-        expect(subject.source).to eq("Delivery description")
-      end
-      it "handles nil delivery_description" do
-        allow(@item).to receive(:delivery_description).and_return(nil)
+      it "shows the public note" do
         expect(subject.source).to eq("Public note")
       end
-      it "handles both nil public note and delivery description" do
+      it "handles nil public note" do
         allow(@item).to receive(:public_note).and_return(nil)
-        allow(@item).to receive(:delivery_description).and_return(nil)
         expect(subject.source).to eq("")
       end
     end
