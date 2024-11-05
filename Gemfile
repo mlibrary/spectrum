@@ -51,7 +51,10 @@ gem "json"
 gem "httpclient"
 gem "nokogiri"
 
-# HTML replacement language
+group :yabeda do
+  gem "yabeda-puma-plugin"
+  gem "yabeda-prometheus"
+end
 
 # "Rack middleware which cleans up invalid UTF8 characters"
 # gem 'rack-utf8_sanitizer'

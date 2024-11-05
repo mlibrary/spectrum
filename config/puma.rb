@@ -41,4 +41,22 @@ worker_timeout 120
   #ActiveRecord::Base.connection_pool.disconnect!
 #end
 
-activate_control_app ENV['PUMA_CONTROL_APP'], {no_token: true} if ENV['PUMA_CONTROL_APP']
+if ENV["PUMA_CONTROL_APP"]
+  activate_control_app ENV["PUMA_CONTROL_APP"], {no_token: true}
+
+  if ENV["PROMETHEUS_EXPORTER_URL"]
+    plugin :yabeda
+    plugin :yabeda_prometheus
+    prometheus_exporter_url ENV["PROMETHEUS_EXPORTER_URL"]
+
+    if (monitoring_dir = ENV["PROMETHEUS_MONITORING_DIR"])
+      before_fork do
+        Prometheus::Client.config.data_store =
+          Prometheus::Client::DataStores::DirectFileStore.new( dir: monitoring_dir )
+      end
+    end
+
+
+
+  end
+end
