@@ -5,25 +5,14 @@ end
 
 ENV["APP_ENV"] ||= ENV["RAILS_ENV"]
 
-require "bundler"
-
-monitoring_dir = ENV.fetch("PROMETHEUS_MONITORING_DIR")
-if ENV["PROMETHEUS_EXPORTER_URL"] && monitoring_dir
-  # Yabeda will try to use Railties if Rails is defined.
-  # rails-html-sanitizer defines Rails and is used in spectrum.
-  # Thus Yabeda has to be loaded before rails-html-sanitizer,
-  # so I put it in its own group to be loaded first.
-  Bundler.require :yabeda
-
-  require "prometheus/middleware/collector"
-
-  FileUtils.mkdir_p(monitoring_dir)
-  Dir[File.join(monitoring_dir, "*.bin")].each do |file_path|
-    File.unlink(file_path)
+if ENV["PROMETHEUS_EXPORTER_URL"]
+  # Prometheus::Middleware::Collector.new has side effects that registers
+  # metrics.  If they are already loaded it raises an exception.
+  if Prometheus::Client.registry.exist?(:http_server_requests_total)
+    Prometheus::Client.registry.unregister(:http_server_requests_total)
+    Prometheus::Client.registry.unregister(:http_server_request_duration_seconds)
+    Prometheus::Client.registry.unregister(:http_server_exceptions_total)
   end
-  Prometheus::Client.config.data_store =
-    Prometheus::Client::DataStores::DirectFileStore.new(dir: monitoring_dir)
-  Yabeda.configure!
   use Prometheus::Middleware::Collector
 end
 

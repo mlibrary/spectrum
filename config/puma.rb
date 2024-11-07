@@ -19,14 +19,16 @@ elsif ENV["PUMA_PRIVATE_IP"] && ENV["PUMA_PORT"]
     ip.ip_address.start_with?("10.")
   end.ip_address
   bind "tcp://#{private_ip}:#{ENV["PUMA_PORT"]}"
+elsif ENV["BIND_IP"] && ENV["BIND_PORT"]
+  bind "tcp://#{ENV["BIND_IP"]}:#{ENV["BIND_PORT"]}"
 end
 
 pidfile File.expand_path("../../log/search-puma.pid", __FILE__)
 
-on_restart do
-  # Code to run before doing a restart. This code should
-  # close log files, database connections, etc.
-end
+# on_restart do
+#   Code to run before doing a restart. This code should
+#   close log files, database connections, etc.
+# end
 
 workers ENV["PUMA_WORKERS"] || 2
 worker_timeout 120
@@ -45,9 +47,37 @@ if ENV["PUMA_CONTROL_APP"]
   activate_control_app ENV["PUMA_CONTROL_APP"], {no_token: true}
 
   if ENV["PROMETHEUS_EXPORTER_URL"]
+    Bundler.require :yabeda
+    require "prometheus/middleware/collector"
+
     plugin :yabeda
     plugin :yabeda_prometheus
     prometheus_exporter_url ENV["PROMETHEUS_EXPORTER_URL"]
+
+    on_prometheus_exporter_boot do
+      # In clustered mode, the worker processes get these registered, but the coordinating process does not.
+      # Ending up in these stats being collected, but not reported.
+      unless Prometheus::Client.registry.exist?(:http_server_requests_total)
+        # These are copied from Prometheus::Middleware::Collector#init_request_metrics
+        # and  Prometheus::Middleware::Collector#init_exception_metrics
+        Prometheus::Client.registry.counter(
+          :http_server_requests_total,
+          docstring: "The total number of HTTP requests handled by the Rack application.",
+          labels: %i[code method path]
+        )
+        Prometheus::Client.registry.histogram(
+          :http_server_request_duration_seconds,
+          docstring: "The HTTP response duration of the Rack application.",
+          labels: %i[method path]
+        )
+        Prometheus::Client.registry.histogram(
+          :http_server_exceptions_total,
+          docstring: "The total number of exceptions raised by the Rack application.",
+          labels: [:exception]
+        )
+        Yabeda.configure!
+      end
+    end
 
     if (monitoring_dir = ENV["PROMETHEUS_MONITORING_DIR"])
       before_fork do

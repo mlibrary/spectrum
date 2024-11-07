@@ -52,7 +52,8 @@ gem "httpclient"
 gem "nokogiri"
 
 group :yabeda do
-  gem "yabeda-puma-plugin"
+  # phased-restart only works once in the main branch.
+  gem "yabeda-puma-plugin", path: "local-gems/yabeda-puma-plugin"
   gem "yabeda-prometheus"
 end
 

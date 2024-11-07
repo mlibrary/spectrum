@@ -68,6 +68,14 @@ PATH
       rake (>= 12.3.3)
       rsolr
 
+PATH
+  remote: local-gems/yabeda-puma-plugin
+  specs:
+    yabeda-puma-plugin (0.7.1)
+      json
+      puma
+      yabeda (~> 0.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -184,7 +192,7 @@ GEM
       timeout
     net-smtp (0.5.0)
       net-protocol
-    nio4r (2.7.3)
+    nio4r (2.7.4)
     nokogiri (1.16.7)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
@@ -355,10 +363,6 @@ GEM
       prometheus-client (>= 3.0, < 5.0)
       rack
       yabeda (~> 0.10)
-    yabeda-puma-plugin (0.7.1)
-      json
-      puma
-      yabeda (~> 0.5)
 
 PLATFORMS
   ruby
@@ -399,7 +403,7 @@ DEPENDENCIES
   twilio-ruby
   webmock
   yabeda-prometheus
-  yabeda-puma-plugin
+  yabeda-puma-plugin!
 
 BUNDLED WITH
    2.5.16
