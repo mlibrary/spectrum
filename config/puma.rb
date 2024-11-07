@@ -76,7 +76,7 @@ if ENV["PUMA_CONTROL_APP"]
           labels: [:exception]
         )
 
-        Dir[File.join(monitoring_dir, "*.bin")].each do |file_path|
+        Dir[File.join(ENV["PROMETHEUS_MONITORING_DIR"], "*.bin")].each do |file_path|
           File.unlink(file_path)
         end
 
