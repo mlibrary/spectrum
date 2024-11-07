@@ -75,6 +75,11 @@ if ENV["PUMA_CONTROL_APP"]
           docstring: "The total number of exceptions raised by the Rack application.",
           labels: [:exception]
         )
+
+        Dir[File.join(monitoring_dir, "*.bin")].each do |file_path|
+          File.unlink(file_path)
+        end
+
         Yabeda.configure!
       end
     end
