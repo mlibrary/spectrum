@@ -6,13 +6,6 @@ end
 ENV["APP_ENV"] ||= ENV["RAILS_ENV"]
 
 if ENV["PROMETHEUS_EXPORTER_URL"]
-  # Prometheus::Middleware::Collector.new has side effects that registers
-  # metrics.  If they are already loaded it raises an exception.
-  if Prometheus::Client.registry.exist?(:http_server_requests_total)
-    Prometheus::Client.registry.unregister(:http_server_requests_total)
-    Prometheus::Client.registry.unregister(:http_server_request_duration_seconds)
-    Prometheus::Client.registry.unregister(:http_server_exceptions_total)
-  end
   use Prometheus::Middleware::Collector
 end
 

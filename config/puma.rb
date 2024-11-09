@@ -48,43 +48,61 @@ if ENV["PUMA_CONTROL_APP"]
 
   if ENV["PROMETHEUS_EXPORTER_URL"]
     Bundler.require :yabeda
-    require "prometheus/middleware/collector"
 
     plugin :yabeda
     plugin :yabeda_prometheus
     prometheus_exporter_url ENV["PROMETHEUS_EXPORTER_URL"]
 
-    on_prometheus_exporter_boot do
-      # In clustered mode, the worker processes get these registered, but the coordinating process does not.
-      # Ending up in these stats being collected, but not reported.
-      unless Prometheus::Client.registry.exist?(:http_server_requests_total)
-        # These are copied from Prometheus::Middleware::Collector#init_request_metrics
-        # and  Prometheus::Middleware::Collector#init_exception_metrics
-        Prometheus::Client.registry.counter(
-          :http_server_requests_total,
-          docstring: "The total number of HTTP requests handled by the Rack application.",
-          labels: %i[code method path]
-        )
-        Prometheus::Client.registry.histogram(
-          :http_server_request_duration_seconds,
-          docstring: "The HTTP response duration of the Rack application.",
-          labels: %i[method path]
-        )
-        Prometheus::Client.registry.histogram(
-          :http_server_exceptions_total,
-          docstring: "The total number of exceptions raised by the Rack application.",
-          labels: [:exception]
-        )
+    on_worker_boot do
+      # Prometheus::Middleware::Collector.new has side effects that registers
+      # metrics.  If they are already loaded it raises an exception.
+      if Prometheus::Client.registry.exist?(:http_server_requests_total)
+        Prometheus::Client.registry.unregister(:http_server_requests_total)
+        Prometheus::Client.registry.unregister(:http_server_request_duration_seconds)
+        Prometheus::Client.registry.unregister(:http_server_exceptions_total)
+      end
 
-        Dir[File.join(ENV["PROMETHEUS_MONITORING_DIR"], "*.bin")].each do |file_path|
-          File.unlink(file_path)
+      uri = URI(ENV["PROMETHEUS_EXPORTER_URL"])
+      ObjectSpace.each_object(TCPServer).each do |server|
+        next if server.closed?
+        family, port, host, _ = server.addr
+        if family == "AF_INET" && port == uri.port && host == uri.host
+          server.close
         end
-
-        Yabeda.configure!
       end
     end
 
     if (monitoring_dir = ENV["PROMETHEUS_MONITORING_DIR"])
+      on_prometheus_exporter_boot do
+        # In clustered mode, the worker processes get these registered, but the coordinating process does not.
+        # Ending up in these stats being collected, but not reported.
+        unless Prometheus::Client.registry.exist?(:http_server_requests_total)
+          # These are copied from Prometheus::Middleware::Collector#init_request_metrics
+          # and  Prometheus::Middleware::Collector#init_exception_metrics
+          Prometheus::Client.registry.counter(
+            :http_server_requests_total,
+            docstring: "The total number of HTTP requests handled by the Rack application.",
+            labels: %i[code method path]
+          )
+          Prometheus::Client.registry.histogram(
+            :http_server_request_duration_seconds,
+            docstring: "The HTTP response duration of the Rack application.",
+            labels: %i[method path]
+          )
+          Prometheus::Client.registry.histogram(
+            :http_server_exceptions_total,
+            docstring: "The total number of exceptions raised by the Rack application.",
+            labels: [:exception]
+          )
+
+          Dir[File.join(monitoring_dir, "*.bin")].each do |file_path|
+            File.unlink(file_path)
+          end
+
+          Yabeda.configure!
+        end
+      end
+
       before_fork do
         Prometheus::Client.config.data_store =
           Prometheus::Client::DataStores::DirectFileStore.new(dir: monitoring_dir)

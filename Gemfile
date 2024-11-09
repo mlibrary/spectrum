@@ -52,9 +52,9 @@ gem "httpclient"
 gem "nokogiri"
 
 group :yabeda do
-  # phased-restart only works once in the main branch.
-  gem "yabeda-puma-plugin", path: "local-gems/yabeda-puma-plugin"
+  gem "yabeda-puma-plugin"
   gem "yabeda-prometheus"
+  gem "prometheus-client", require: "prometheus/middleware/collector"
 end
 
 # "Rack middleware which cleans up invalid UTF8 characters"
