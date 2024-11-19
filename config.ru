@@ -3,9 +3,12 @@ File.expand_path("lib", __dir__).tap do |libdir|
   $LOAD_PATH.unshift(libdir) unless $LOAD_PATH.include?(libdir)
 end
 
-ENV['APP_ENV'] ||= ENV['RAILS_ENV']
+ENV["APP_ENV"] ||= ENV["RAILS_ENV"]
 
-require "bundler"
+if ENV["PROMETHEUS_EXPORTER_URL"]
+  use Prometheus::Middleware::Collector
+end
+
 Bundler.require
 Spectrum::Json.configure(__dir__, ENV["RAILS_RELATIVE_URL_ROOT"])
 
