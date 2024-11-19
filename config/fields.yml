@@ -2234,7 +2234,7 @@
 
 - id: main_author
   metadata:
-    name: Main Author
+    name: Author/Creator
   type: marcxml
   field: fullrecord
   marc:
