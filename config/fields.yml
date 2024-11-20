@@ -866,6 +866,9 @@
   filters:
     - id: sanitize
       method: sanitize
+  metadata_component:
+    medium:
+      type: plain
 
 - id: subject
   metadata:
@@ -1552,6 +1555,10 @@
     short_desc: Subject
   searchable: true
   metadata_component:
+    medium:
+      type: search1
+      scope: subject
+      variant: filtered
     full:
       type: search1
       scope: subject
@@ -2529,6 +2536,8 @@
         sub: '[abc3]'
         ind1: '[^4]'
   metadata_component:
+    medium:
+      type: plain
     full:
       type: plain
 
