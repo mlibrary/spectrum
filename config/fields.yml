@@ -3571,6 +3571,10 @@
   metadata:
     name: Subjects (LCSH)
   metadata_component:
+    medium:
+      type: quoted_search3
+      variant: fielded
+      scope: subject
     full:
       type: search_browse2
       search_variant: fielded
