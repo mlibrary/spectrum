@@ -4264,6 +4264,8 @@
     id: page
   z3988:
     id: rft.pages
+  ris:
+    - SP
   metadata:
     name: Pages
   metadata_component:
