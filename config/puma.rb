@@ -23,7 +23,7 @@ elsif ENV["BIND_IP"] && ENV["BIND_PORT"]
   bind "tcp://#{ENV["BIND_IP"]}:#{ENV["BIND_PORT"]}"
 end
 
-pidfile File.expand_path("../../log/search-puma.pid", __FILE__)
+pidfile ENV.fetch("PUMA_PIDFILE", File.expand_path("../../log/search-puma.pid", __FILE__))
 
 # on_restart do
 #   Code to run before doing a restart. This code should
