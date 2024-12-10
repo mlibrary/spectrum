@@ -52,4 +52,4 @@ ENV RAILS_RELATIVE_URL_ROOT=${BASE_URL}/spectrum \
     BIND_IP=${BIND_IP} \
     BIND_PORT=${BIND_PORT}
 
-CMD bundle exec puma -c config/puma.rb
+CMD bundle exec puma -C config/puma.rb
