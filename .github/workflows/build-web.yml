@@ -1,0 +1,28 @@
+name: Build web on push to main
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  build-unstable:
+    name: Build unstable ${{ github.sha }}
+    uses: mlibrary/platform-engineering-workflows/.github/workflows/build-unstable.yml@v1
+    with:
+      image_name: ${{ vars.IMAGE_NAME }}
+      tag: ${{ github.sha }}
+      dockerfile: Dockerfile
+    secrets: inherit
+
+  deploy-testing:
+    needs: build-unstable
+    name: Deploy to testing
+    uses: mlibrary/platform-engineering-workflows/.github/workflows/deploy.yml@v1
+    with:
+      image: ${{ needs.build-unstable.outputs.image }}
+      file: ${{ vars.CONFIG_REPO_TESTING_IMAGE_FILE }}
+      CONFIG_REPO_RW_APP_ID: ${{ vars.CONFIG_REPO_RW_APP_ID }}
+      CONFIG_REPO_RW_INSTALL_ID: ${{ vars.CONFIG_REPO_RW_INSTALL_ID }}
+      CONFIG_REPO_FULL_NAME: ${{ vars.CONFIG_REPO_FULL_NAME }}
+    secrets: inherit
