@@ -50,6 +50,9 @@ solr_params:
   f.search_title_starts_with.pf: serialTitle_common_l^10 title_l^5
   f.search_title_starts_with.qf: title_l
 
+  f.title_starts_with.pf: serialTitle_common_l^10 title_l^5
+  f.title_starts_with.qf: title_l
+
   f.search_call_number_starts_with.pf: callnosearch sudoc
   f.search_call_number_starts_with.qf: callnosearch sudoc
 
