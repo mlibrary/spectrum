@@ -74,6 +74,10 @@ if ENV["PUMA_CONTROL_APP"]
 
     if (monitoring_dir = ENV["PROMETHEUS_MONITORING_DIR"])
       on_prometheus_exporter_boot do
+        # http_server_exceptions_total was generating invalid metrics for us
+        if Prometheus::Client.registry.exist?(:http_server_exceptions_total)
+          Prometheus::Client.registry.unregister(:http_server_exceptions_total)
+        end
         # In clustered mode, the worker processes get these registered, but the coordinating process does not.
         # Ending up in these stats being collected, but not reported.
         unless Prometheus::Client.registry.exist?(:http_server_requests_total)
@@ -89,11 +93,12 @@ if ENV["PUMA_CONTROL_APP"]
             docstring: "The HTTP response duration of the Rack application.",
             labels: %i[method path]
           )
-          Prometheus::Client.registry.histogram(
-            :http_server_exceptions_total,
-            docstring: "The total number of exceptions raised by the Rack application.",
-            labels: [:exception]
-          )
+          # http_server_exceptions_total was generating invalid metrics for us.
+          # Prometheus::Client.registry.histogram(
+          #   :http_server_exceptions_total,
+          #   docstring: "The total number of exceptions raised by the Rack application.",
+          #   labels: [:exception]
+          # )
 
           Dir[File.join(monitoring_dir, "*.bin")].each do |file_path|
             File.unlink(file_path)
