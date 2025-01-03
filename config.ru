@@ -17,4 +17,9 @@ use Rack::ReverseProxy do
   reverse_proxy %r{^/catalog/browse/(.*)$}, "https://#{ENV["BROWSE_HOST"]}/$1"
 end
 
+use Rack::Attack
+ENV.fetch("RACK_IP_BLOCKLIST", "").split(/\s/).each do |ip|
+  Rack::Attack.blocklist_ip(ip)
+end
+
 run Spectrum::Json::App

@@ -6,6 +6,7 @@ gem "ostruct"
 gem "logger"
 
 gem "rack-reverse-proxy", require: "rack/reverse_proxy"
+gem "rack-attack"
 
 # Allow dotenv configuration
 gem "dotenv", require: "dotenv/load"
