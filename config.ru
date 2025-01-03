@@ -22,4 +22,15 @@ ENV.fetch("RACK_IP_BLOCKLIST", "").split(/\s/).each do |ip|
   Rack::Attack.blocklist_ip(ip)
 end
 
+if (redis_url =  ENV.fetch("RACK_ATTACK_REDIS_URL", false))
+  Rack::Attack.cache.store = Redis.new(url: redis_url)
+  Rack::Attack.throttle(
+    "requests by ip",
+    limit: ENV.fetch("RACK_ATTACK_THROTTLE_LIMIT", 10),
+    period: ENV.fetch("RACK_ATTACK_THROTLE_PERIOD", 15)
+  ) do |request|
+    request.ip
+  end
+end
+
 run Spectrum::Json::App

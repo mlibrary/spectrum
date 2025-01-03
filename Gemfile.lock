@@ -252,6 +252,10 @@ GEM
       nokogiri (>= 1.15.7, != 1.16.7, != 1.16.6, != 1.16.5, != 1.16.4, != 1.16.3, != 1.16.2, != 1.16.1, != 1.16.0.rc1, != 1.16.0)
     rainbow (3.1.1)
     rake (13.2.1)
+    redis (5.3.0)
+      redis-client (>= 0.22.0)
+    redis-client (0.23.0)
+      connection_pool
     regexp_parser (2.9.2)
     rexml (3.3.9)
     rsolr (2.6.0)
@@ -392,6 +396,7 @@ DEPENDENCIES
   rack-test
   rack-utf8_sanitizer!
   rails-html-sanitizer
+  redis
   rspec
   simplecov
   sinatra

@@ -20,6 +20,11 @@ services:
     - "3000:3000"
     user: ${UID}:${GID}
 
+  redis:
+    image: redis
+    ports:
+     - "6379:6379"
+
   catalog-solr:
     image: ghcr.io/mlibrary/catalog-solr-unstable:latest 
     ports:
