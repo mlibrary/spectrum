@@ -22,4 +22,13 @@ ENV.fetch("RACK_IP_BLOCKLIST", "").split(/\s/).each do |ip|
   Rack::Attack.blocklist_ip(ip)
 end
 
+if ENV.fetch("RACK_THROTTLE", false)
+  Rack::Attack.cache.store = ActiveSupport::Cache::MemoryStore.new
+  Rack::Attack.throttle('limit requests for /spectrum/.*/record', limit: 3, period: 60) do |req|
+    if req.path.match(%r{/spectrum/.*/record/})
+      req.ip
+    end
+  end
+end
+
 run Spectrum::Json::App
