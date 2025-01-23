@@ -28,6 +28,7 @@ module Spectrum
         'Trade Publication Article' => 'article',
         'Transcript'                => 'article',
         'Artifact'                  => 'article',
+        'Reference Entry'           => 'article',
 
         'Magazine Article'    => 'article-magazine',
         'Newspaper Article'   => 'article-newspaper',
@@ -37,6 +38,7 @@ module Spectrum
 
         'Biography'     => 'book',
         'Book / eBook'  => 'book',
+        'Book'          => 'book',
         'Dictionaries'  => 'book',
         'Directories'   => 'book',
         'Encyclopedias' => 'book',
@@ -51,6 +53,7 @@ module Spectrum
         'Data Set'       => 'dataset',
         'Software'       => 'dataset',
         'Statistics'     => 'dataset',
+        'Dataset'        => 'dataset',
 
         'entry'              => 'entry',
         'entry-dictionary'   => 'entry-dictionary',
@@ -76,6 +79,7 @@ module Spectrum
         'Play'       => 'manuscript',
         'Poem'       => 'manuscript',
         'Postcard'   => 'manuscript',
+        'Archival Material Manuscript' => 'manuscript',
 
         'Atlas'     => 'map',
         'Map'       => 'map',
@@ -110,6 +114,7 @@ module Spectrum
         'Motion Picture'  => 'motion_picture',
         'Streaming Video' => 'motion_picture',
         'Video Game'      => 'motion_picture',
+        'Video'           => 'motion_picture',
 
         'post'        => 'post',
         'post-weblog' => 'post-weblog',
@@ -122,6 +127,7 @@ module Spectrum
         'review' => 'review',
 
         'Book Review' => 'review-book',
+        'Review'      => 'review-book',
 
         'Presentation' => 'speech',
 
@@ -133,6 +139,8 @@ module Spectrum
         'Electronic Resource' => 'webpage',
         'Finding Aid'         => 'webpage',
         'Web Resource'        => 'webpage',
+        'Text Resource'       => 'misc',
+        'Newsletter Article'  => 'misc',
       )
       def value(data)
         if data && data[:value]

@@ -1394,6 +1394,9 @@
       type: icon
 
 - id: primo_format
+  csl:
+    id: type
+    type: type
   uid: format
   field: type
   facet_field: rtype
