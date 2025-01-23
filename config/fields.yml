@@ -1357,7 +1357,8 @@
 
 - id: mirlyn_format
   csl:
-    id: medium
+    id: type
+    type: type
   z3988:
     id: rft.format
   uid: format
