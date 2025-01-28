@@ -247,6 +247,7 @@ fields:
   - z3988_sid
   - catalog_rfr_id
   - highly_recommended_catalog
+  - indexing_date
 
 facets:
   - subject
