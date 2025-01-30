@@ -322,6 +322,99 @@ describe Spectrum::BibRecord do
 end
 
 describe Spectrum::BibRecord::ElectronicHolding do
+  context "#requires_authentication?" do
+    subject { described_class.new({"authentication_note" => authentication_note}) }
+    context "When 'Authorized U-M users (+ guests in U-M Libraries).'" do
+      let(:authentication_note) { ["Authorized U-M users (+ guests in U-M Libraries)."] }
+      it "Returns true" do
+        expect(subject.requires_authentication?).to be(true)
+      end
+    end
+    context "When authentication is required" do
+      let(:authentication_note) { ["authentication is required"] }
+      it "returns true" do
+        expect(subject.requires_authentication?).to be(true)
+      end
+    end
+    context "When open access" do
+      let(:authentication_note) { ["open access"] }
+      it "returns true" do
+        expect(subject.requires_authentication?).to be(false)
+      end
+    end
+  end
+
+  context "#access_restriction" do
+    subject { described_class.new({"authentication_note" => authentication_note, "campuses" => campuses}) }
+    context "When authentication is not required" do
+      let(:authentication_note) { ["open access"] }
+      let(:campuses) { [] }
+      it "Returns 'This resource is available to all users, no authentication required.'" do
+        expect(subject.access_restriction).to eq("This resource is available to all users, no authentication required.")
+      end
+    end
+
+    context "When authentication is required" do
+      let(:authentication_note) { ["authentication required"] }
+      context "And campus is empty" do
+        let(:campuses) { [] }
+        it "This resource is available to all U-M users. Authentication is required.'" do
+          expect(subject.access_restriction).to eq("This resource is available to all U-M users. Authentication is required.")
+        end
+      end
+      context "And campus only includes Ann Arbor" do
+        let(:campuses) { ["ann_arbor"] }
+        it "Returns 'This resource is available to authenticated users of the Ann Arbor library. Authentication is required.'" do
+          expect(subject.access_restriction).to eq("This resource is available to authenticated users of the Ann Arbor library. Authentication is required.")
+        end
+      end
+      context "And campus only includes Flint" do
+        let(:campuses) { ["flint"] }
+        it "Returns 'This resource is available to authenticated users of the Flint library. Authentication is required.'" do
+          expect(subject.access_restriction).to eq("This resource is available to authenticated users of the Flint library. Authentication is required.")
+        end
+      end
+      context "And campus includes both Ann Arbor and Flint" do
+        let(:campuses) { ["ann_arbor", "flint"] }
+        it "Returns 'This resource is available to authenticated users of the Ann Arbor, and Flint libraries. Authentication is required.'" do
+          expect(subject.access_restriction).to eq("This resource is available to authenticated users of the Ann Arbor, and Flint libraries. Authentication is required.")
+        end
+      end
+    end
+  end
+
+  context "#ann_arbor?" do
+    subject { described_class.new({"campuses" => campuses}) }
+    context "When the holding is from Ann Arbor" do
+      let(:campuses) { ["ann_arbor"] }
+      it "Returns true" do
+        expect(subject.ann_arbor?).to be(true)
+      end
+    end
+    context "When the holding is from Flint" do
+      let(:campuses) { ["flint"] }
+      it "Returns false" do
+        expect(subject.ann_arbor?).to be(false)
+      end
+    end
+  end
+
+  context "#flint?" do
+    subject { described_class.new({"campuses" => campuses}) }
+    context "When the holding is from Ann Arbor" do
+      let(:campuses) { ["ann_arbor"] }
+      it "Returns false to flint?" do
+        expect(subject.flint?).to be(false)
+      end
+    end
+    context "When the holding is from Flint" do
+      let(:campuses) { ["flint"] }
+      it "Returns true to flint?" do
+        expect(subject.flint?).to be(true)
+      end
+    end
+  end
+
   context "#link" do
     subject { described_class.new({"link" => url}) }
 

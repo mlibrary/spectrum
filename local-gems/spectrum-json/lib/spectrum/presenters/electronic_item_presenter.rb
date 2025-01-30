@@ -14,11 +14,20 @@ module Spectrum
       end
     end
 
+    def access_restriction
+      if @item.respond_to?(:access_restriction)
+        @item.access_restriction
+      else
+        ""
+      end
+    end
+
     def to_a
       [
         link,
         {text: description},
-        {text: note}
+        {text: note},
+        {text: access_restriction}
       ]
     end
 
@@ -69,11 +78,20 @@ module Spectrum
         @item.label || ""
       end
 
+      def access_restriction
+        if @item.respond_to?(:access_restriction)
+          @item.access_restriction
+        else
+          ""
+        end
+      end
+
       def to_a
         [
           link,
           {text: label},
-          {text: source}
+          {text: source},
+          {text: access_restriction}
         ]
       end
     end

@@ -31,23 +31,7 @@ module Spectrum
         extra_headings = []
 
         rows = bib_record.elec_holdings.map do |holding|
-          # TODO: Use Spectrum::Presenters::ElectronicItem.for(holding) instead
-          if holding.respond_to?(:description)
-            [
-              {href: holding.link, text: link_text || holding.link_text},
-              {text: [holding.description, holding.note].compact.join(' - ')}
-            ]
-          elsif holding.respond_to?(:delivery_description)
-            [
-              {href: holding.link, text: link_text || holding.link_text},
-              {text: [holding.delivery_description, holding.note].compact.join(' - ')}
-            ]
-          else
-            [
-              {href: holding.link, text: link_text || holding.link_text},
-              {text: holding.note}
-            ]
-          end
+          Spectrum::Presenters::ElectronicItem.for(holding).to_a.dup.tap { |list| list.delete_at(1) }
         end
 
         return nil if rows.nil? || rows.empty?

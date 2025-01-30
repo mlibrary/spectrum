@@ -16,7 +16,7 @@ describe Spectrum::Presenters::ElectronicItem do
       expect(subject.class).to eq(Spectrum::Presenters::ElectronicItem::UnavailableElectronicItem)
     end
     it "has appropriate available item #to_a" do
-      expect(subject.to_a).to eq([{text: "Link Text", href: "Link"}, {text: "Description"}, {text: "Note"}])
+      expect(subject.to_a).to eq([{text: "Link Text", href: "Link"}, {text: "Description"}, {text: "Note"}, {text: ""}])
     end
     it "has appropriate unavailable item #to_a" do
       allow(@item).to receive(:status).and_return("Not Available")
@@ -24,7 +24,8 @@ describe Spectrum::Presenters::ElectronicItem do
         [
           {text: "Coming soon."},
           {text: "Link will update when access is available. Description"},
-          {text: "Note"}
+          {text: "Note"},
+          {text: ""}
         ]
       )
     end
@@ -43,7 +44,8 @@ describe Spectrum::Presenters::ElectronicItem do
       expect(subject.to_a).to eq([
         {text: "Link text", href: "Link"},
         {text: "Label"},
-        {text: "Public note"}
+        {text: "Public note"},
+        {text: ""}
       ])
     end
     context "source" do

@@ -224,6 +224,10 @@ module Spectrum
           klass.match?(holding)
         end.new(holding)
       end
+
+      def access_restriction
+        ""
+      end
     end
 
     # passes through the data from a Digital Holding
@@ -245,6 +249,47 @@ module Spectrum
       ["status", "description", "link_text", "note", "finding_aid"].each do |name|
         define_method(name) do
           @holding[name]
+        end
+      end
+
+      def requires_authentication?
+        must_include = [
+          ["authentication", "required"],
+          ["authorized", "users"]
+        ]
+        @holding["authentication_note"]&.any? do |authentication_note|
+          authentication_note_downcase = authentication_note.downcase
+          must_include.any? do |words|
+            words.all? do |word|
+              authentication_note_downcase.include?(word)
+            end
+          end
+        end
+      end
+
+      def ann_arbor?
+        @holding["campuses"]&.include?("ann_arbor")
+      end
+
+      def flint?
+        @holding["campuses"]&.include?("flint")
+      end
+
+      def access_restriction
+        if requires_authentication?
+          if ann_arbor?
+            if flint?
+              "This resource is available to authenticated users of the Ann Arbor, and Flint libraries. Authentication is required."
+            else
+              "This resource is available to authenticated users of the Ann Arbor library. Authentication is required."
+            end
+          elsif flint?
+            "This resource is available to authenticated users of the Flint library. Authentication is required."
+          else
+            "This resource is available to all U-M users. Authentication is required."
+          end
+        else
+          "This resource is available to all users, no authentication required."
         end
       end
 

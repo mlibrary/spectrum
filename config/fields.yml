@@ -3999,27 +3999,7 @@
   type: holdings_resource_access
   link_text: Go to online journal
   field: hol
-  headings: [ 'Action', 'Description' ]
-
-- id: journal_resource_access
-  uid: resource_access
-  metadata:
-    name: Resource Access
-    short_desc: Resource Access
-  type: resource_access
-  name: online journals
-  headings: [ 'Action', 'Description' ]
-  fields:
-    - uid: href
-      parallel: access_url
-    - uid: link_text
-      value: Go to online journal
-    - uid: relationship
-      parallel: access_856_3
-  has_html: true
-  filters:
-    - id: proxy_prefix
-      method: proxy_prefix
+  headings: [ 'Action', 'Source', 'Access Restriction' ]
 
 - id: website_resource_access
   uid: resource_access
@@ -4095,57 +4075,6 @@
       type: structured_data_href_linked
       href_field: href
       text_field: text
-
-- id: summon_resource_access
-  metadata:
-    name: Resource Access
-    short_desc: Resource Access
-  uid: resource_access
-  type: summon_resource_access
-  headings: [ 'Action', 'Description' ]
-  model_field: open_url
-  direct_link_field: link
-  openurl_field: open_url
-  openurl_root: https://mgetit.lib.umich.edu/resolve
-
-- id: catalog_resource_access
-  uid: resource_access
-  metadata:
-    name: Resource Access
-    short_desc: Resource Access
-  type: marcxml
-  field: fullrecord
-  marc:
-    aggregator: online_resource
-    fields:
-      - label: link_text
-        tag: "E56|856"
-        sub: "y"
-        default: Available online
-      - label: href
-        tag: "E56|856"
-        sub: "u"
-      - label: source
-        tag: "E56|856"
-        sub: "z"
-      - label: description
-        tag: "E56|856"
-        sub: "3"
-      - label: id
-        tag: "001"
-      - label: "datastore"
-        tag: "E56|856"
-        sub: "^"
-        default: "mirlyn"
-      - label: format
-        tag: "970"
-        sub: "b"
-      - label: location
-        tag: "852"
-        sub: "[bc]"
-  filters:
-    - id: proxy_prefix
-      method: proxy_prefix
 
 - id: domain
   metadata:
