@@ -10,6 +10,7 @@ AAEL:
     AAEL SECD: '2nd Floor - 2321 M'
     AAEL RESI: 'Ask at 2nd Floor Desk'
     AAEL BKS: 'Book Collection'
+    AAEL MAIN: 'Main Collection'
     AAEL BSMT: 'Basement - B484'
     AAEL CAR: 'Career Collection - 2nd Floor'
     AAEL RESC: 'Course Reserve - 2nd Floor'
@@ -88,6 +89,7 @@ FINE:
   desc: 'Fine Arts'
   collections:
     ALL: All collections
+    FINE MAIN: 'Main Collection'
     FINE PERC: 'Current Journals'
     FINE FOL: 'Flat Folio Collection'
     FINE PER: 'Journals'
