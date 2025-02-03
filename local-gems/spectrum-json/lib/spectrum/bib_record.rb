@@ -279,7 +279,7 @@ module Spectrum
         if requires_authentication?
           if ann_arbor?
             if flint?
-              "This resource is available to authenticated users of the Ann Arbor, and Flint libraries. Authentication is required."
+              "This resource is available to authenticated users of the Ann Arbor and Flint libraries. Authentication is required."
             else
               "This resource is available to authenticated users of the Ann Arbor library. Authentication is required."
             end

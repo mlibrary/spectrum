@@ -376,8 +376,8 @@ describe Spectrum::BibRecord::ElectronicHolding do
       end
       context "And campus includes both Ann Arbor and Flint" do
         let(:campuses) { ["ann_arbor", "flint"] }
-        it "Returns 'This resource is available to authenticated users of the Ann Arbor, and Flint libraries. Authentication is required.'" do
-          expect(subject.access_restriction).to eq("This resource is available to authenticated users of the Ann Arbor, and Flint libraries. Authentication is required.")
+        it "Returns 'This resource is available to authenticated users of the Ann Arbor and Flint libraries. Authentication is required.'" do
+          expect(subject.access_restriction).to eq("This resource is available to authenticated users of the Ann Arbor and Flint libraries. Authentication is required.")
         end
       end
     end
