@@ -1,0 +1,336 @@
+---
+ALL:
+  desc: All locations
+  collections:
+    ALL: All collections
+AAEL:
+  desc: Art Architecture & Engineering
+  collections:
+    ALL: All collections
+    AAEL SECD: 2nd Floor - 2321 M
+    AAEL RESI: Ask at 2nd Floor Desk
+    AAEL BKS: Book Collection
+    AAEL MAIN: Main Collection
+    AAEL BSMT: Basement - B484
+    AAEL CAR: Career Collection - 2nd Floor
+    AAEL RESC: Course Reserve - 2nd Floor
+    AAEL PERU: Current Journals - 2nd floor
+    AAEL DISS: Dissertation - Basement
+    AAEL XOVR: Book Collection -- Oversize
+    AAEL STOF: Folio closed shelving
+    AAEL IEEE: IEEE - see current location
+    AAEL SLD: 2nd Floor Service Desk
+    AAEL PER: Journal Collecion
+    AAEL MICE: Microfiche - Basement
+    AAEL MICM: Microfilm - Basement
+    AAEL OPEN: Open Reserves - No Loan
+    AAEL OVR: Book Collection -- Oversize
+    AAEL FUN: Recreational Reading - 2nd Floor
+    AAEL REF: Reference - 2nd Floor
+    AAEL RESP: Reserves - 2nd Floor
+    AAEL ERES: Reserves - Electronic Resource
+    AAEL RAR: Special Coll. - By appt. only
+    AAEL STO: Closed shelving
+FVL:
+  desc: Askwith Media Library
+  collections:
+    ALL: All collections
+    FVL F2: Room 2002 Shapiro - Non-circulating
+    FVL H1: Room 2002 Shapiro
+    FVL BUH: Offsite Shelving
+    FVL ELL: Offsite Shelving
+    FVL RESC: University Reserves - 2002 Shapiro
+BENT:
+  desc: Bentley Historical
+  collections:
+    ALL: All collections
+    BENT ELEC: Electronic resources
+    BENT RR: Reading Room
+    BENT SF: Security File
+    BENT STOR: Storage
+BSTA:
+  desc: Biological Station
+  collections:
+    ALL: All collections
+    BSTA CAGE: Cage
+    BSTA RESC: Course Reserve
+    BSTA OVR: Oversize
+    BSTA REF: Reference
+    BSTA ERES: Reserves - Electronic Resource
+BUHR:
+  desc: Buhr Shelving Facility
+  collections:
+    ALL: All collections
+CSCAR:
+  desc: CSCAR - Rackham Building
+  collections:
+    ALL: All collections
+DHCL:
+  desc: Donald Hall Collection
+  collections:
+    ALL: All collections
+    DHCL BOOK: Monographs
+    DHCL DVD: DVDs
+    DHCL LASER: Laserdiscs
+    DHCL SCRN: Screenplays
+    DHCL VHS: VHS Tapes
+    DHCL DROM: CD-ROM
+    DHCL DVROM: DVD-ROM
+    DHCL TAPEC: Sound Cassette
+    DHCL DISC: Audio Disc
+    DHCL BRD: Blu-ray Disc
+    DHCL BRR: Blu-ray ROM
+    DHCL GAME: Video Games
+ELEC:
+  desc: Electronic Resources
+  collections:
+    ALL: All collections
+FINE:
+  desc: Fine Arts
+  collections:
+    ALL: All collections
+    FINE MAIN: Main Collection
+    FINE PERC: Current Journals
+    FINE FOL: Flat Folio Collection
+    FINE PER: Journals
+    FINE RESP: Open Reserves Shelving Area
+    FINE OSR: Oriental Seminar Rm.
+    FINE OSFF: Oriental Seminar Rm. Flat Folios
+    FINE OSRF: Oriental Seminar Rm. Folios
+    FINE OSRJ: Oriental Seminar Rm. Journals
+    FINE OSRR: Oriental Seminar Rm. Reference
+    FINE OVR: Oversize - 1st floor
+    FINE OVR2: Oversize - 2nd floor
+    FINE REF: Reference
+    FINE RESC: Reserves - Circulation Desk
+    FINE ERES: Reserves - Electronic Resource
+    FINE SPE: Special Collections
+    FINE SPO: Special Collections Oversize
+    FINE ADM: Staff Offices
+FLINT:
+  desc: Flint Thompson Library
+  collections:
+    ALL: All collections
+    FLINT MODEL: Anatomical Models
+    FLINT ARCH: Archives - Special Collections
+    FLINT ATLAS: Atlas Collection
+    FLINT BROWS: Browsing Collection
+    FLINT CHILD: Children's Literature
+    FLINT ELEC: Electronic resources
+    FLINT ELP: English Language Program
+    FLINT MAIN: Main Collection
+    FLINT MSTR: Masters Theses
+    FLINT MEDIA: Media Collection
+    FLINT MICRO: Microforms
+    FLINT OVERZ: Oversized Collection
+    FLINT FSPAM: Pamphlets
+    FLINT PERI: Periodicals
+    FLINT REF: Reference Collection
+    FLINT RESV: Reserved Readings
+HATCH:
+  desc: Hatcher Graduate
+  collections:
+    ALL: All collections
+    HATCH ACQ: Acquisitions
+    HATCH AMHC: The Azad and Margaret Hogikyan Armenian Studies Collection
+    HATCH ARGM: Argus - MoA
+    HATCH ASIA: Asia Library
+    HATCH CLC: Children's Literature Collection
+    HATCH CLATL: Clark Library Atlas Shelves
+    HATCH CLARK: Clark Library Book Shelves
+    HATCH CLFIL: Clark Library File Cabinets
+    HATCH CLFIR: Clark Library Rare File
+    HATCH CLFOL: Clark Library Folio
+    HATCH CLLAB: Clark Library Lab
+    HATCH CLMAP: Clark Library Map Cases
+    HATCH CLOFF: Clark Library Office
+    HATCH CLOVD: Clark Library Oversize Drawer
+    HATCH CLOVR: Clark Library Oversize
+    HATCH CLRAR: Clark Library Rare Cases
+    HATCH CLSOF: Clark Library Software
+    HATCH CLSTR: Clark Library Storage
+    HATCH GFOL: Folio
+    HATCH FAC: Graduate Library 2nd Floor U-M Faculty Authors
+    HATCH MIXM: Graduate Library Mixed Media - 203 North Hatcher
+    HATCH GRAD: Graduate Library Stacks
+    HATCH BACK: In process
+    HATCH MONO: MonoCat
+    HATCH NER: Middle East Reference - 1 West
+    HATCH SEM: Near East Seminar - Rm. 3020 Thayer Academic Bldg (Dept of Middle East
+      Studies)
+    HATCH PAPY: Papyrology
+    HATCH REF: Reference
+    HATCH GLMR: Serials and Microforms - 203 North Hatcher
+    HATCH SSBU: Serials Set - 1 East
+    HATCH SLVR: Slavic Reference - 1 West
+    HATCH SAR: South Asia Reference - 1 West
+    HATCH SEAR: Southeast Asia Reference - 1 West
+    HATCH TECH: Technical Services Backlog
+OFFS:
+  desc: Offsite Shelving
+  collections:
+    ALL: All collections
+    OFFS ELLS: ''
+    OFFS STATE: ''
+SDR:
+  desc: HathiTrust
+  collections:
+    ALL: All collections
+    SDR NNC: Columbia University
+    SDR INNC: Columbia University
+    SDR INU: Indiana University
+    SDR PST: Penn State University
+    SDR UCSD: University of California
+    SDR NRLF: University of California
+    SDR ISRLF: University of California
+    SDR UCSC: University of California
+    SDR MIU: University of Michigan
+    SDR GWLA: University of Michigan
+    SDR UMDL: University of Michigan
+    SDR UMLAW: University of Michigan
+    SDR UMN: University of Minnesota
+    SDR WU: University of Wisconsin
+HSRS:
+  desc: Health Sciences Remote Storage
+  collections:
+    ALL: All collections
+    HSRS PER: Journals
+    HSRS OVR: Oversize
+    HSRS IND: Indexes
+    HSRS STOR: ''
+MUSM:
+  desc: Museums
+  collections:
+    ALL: All collections
+    MUSM ANTE: Anthro. Div. - Ethnobotany Lab
+    MUSM ANTO: Anthro. Div. Lib. - Oversize
+    MUSM ANT: Anthropology Div. Library
+    MUSM BIRC: Birds Div. Lib. - Case
+    MUSM BIR: Birds Division Library
+    MUSM RESC: Course Reserves - Rm. 2500
+    MUSM FISO: Fish Div. Lib. - Oversize
+    MUSM FIS: Fish Division Library
+    MUSM HEPO: Herpetology Div. Lib. - Oversize
+    MUSM HEP: Herpetology Division Library
+    MUSM HERB: Herbarium Stacks
+    MUSM HEBC: Herbarium Cage - By appointment only
+    MUSM HEBO: Herbarium Oversize
+    MUSM HEBR: Herbarium Reference
+    MUSM INST: Insect Div. Lib. - Orthoptera
+    MUSM INSO: Insect Div. Lib. - Oversize
+    MUSM INS: Insect Division Library
+    MUSM PER: Journals - Rm. 2500
+    MUSM MAMO: Mammals Division - Oversize
+    MUSM MAM: Mammals Division Library
+    MUSM MIC: Microform Collection - Rm. 2500
+    MUSM MOLO: Mollusks Division - Oversize
+    MUSM MOL: Mollusks Division Library
+    MUSM PAL: Paleontology Div. Library
+    MUSM PALO: Paleontology Lib. - Oversize
+    MUSM PALR: Paleontology Lib. - Reference
+    MUSM RESP: Permanent Reserves - Rm. 2500
+    MUSM REF: Reference - Rm. 2500
+    MUSM ERES: Reserves - Electronic Resource
+    MUSM MAIN: Room 2500
+    MUSM CAGE: Room 2500 - Cage - By appointment only
+    MUSM OVR: Room 2500 - Oversize
+    MUSM SPE: Special Formats
+MUSIC:
+  desc: Music
+  collections:
+    ALL: All collections
+    MUSIC EDIS: American Sheet Music
+    MUSIC DIS: Dissertations - 2nd floor
+    MUSIC DVD: DVD Collection
+    MUSIC FOLIO: Folio Collection
+    MUSIC MINI: Miniature Scores - 2nd floor
+    MUSIC OVCD: Oversize Recordings - Circulation Desk
+    MUSIC OVR: Oversize Shelves - 2nd floor
+    MUSIC PER: Periodicals Rack
+    MUSIC RAR: Rare Book Rm.
+    MUSIC REC: Recordings - Circulation Desk
+    MUSIC REF: Reference
+    MUSIC RESC: Reserves - Circulation Desk
+    MUSIC SOFT: Software - Circulation Desk
+    MUSIC ADM: Staff Offices
+    MUSIC VID: Videos- Circulation Desk
+    MUSIC RARW: Women Composers Collection
+PUB:
+  desc: Public Health
+  collections:
+    ALL: All collections
+    PUB CDR: CD-ROM
+    PUB RESC: Course Reserves
+    PUB ERES: Health Reserves - Electronic Resource
+    PUB IND: Indexes
+    PUB PER: Journals
+    PUB OVR: Oversize
+    PUB RESP: Permanent Reserves
+    PUB RAR: Rare Materials
+    PUB RREF: Ready Reference
+    PUB REF: Reference
+    PUB SOFT: Software
+SHAP:
+  desc: Shapiro
+  collections:
+    ALL: All collections
+    SHAP SBCS: Basement Compact Shelving
+    SHAP ATL: Atlases & Maps - 4th floor
+    SHAP DIS: Dissertations/Masters - 4th floor
+    SHAP SCI: Science Book Stacks - 4th floor
+    SHAP MAS: Masters Theses Archival Collection
+    SHAP SOVR: Science Oversize Stacks - 4th floor
+    SHAP REFU: Reference - The Wu Reading Room - 3rd floor
+    SHAP RESP: Science Media Cabinet - 3rd floor
+    SHAP SER: Science Journals - 3rd floor
+    SHAP UGL: Undergraduate stacks
+    SHAP COLSC: College and Career Success Collection - 1st Floor
+    SHAP DLAB: Design Lab
+    SHAP OVR: Undergrad Oversize - basement
+    SHAP PER: Undergrad Periodical Shelves - 2nd Floor
+    SHAP PRON: 2nd floor Browsing Collection - Shelved by author
+    SHAP GAME: Video Games - 4th Floor
+    SHAP GAMEB: Video Games - 4th Floor - Books
+SPEC:
+  desc: Special Collections
+  collections:
+    ALL: All collections
+    SPEC SCB-ASG: Asa Gray Collection
+    SPEC CHIL: Children's Literature
+    SPEC FAUL: Faulkner Collection
+    SPEC RARE: General and Rare
+    SPEC TAUB: History of Medicine Collection
+    SPEC SCB-HUB: Hubbard Imaginary Voyages Collection
+    SPEC SCH-ISLM: Islamic Manuscripts
+    SPEC CUL: Janice Bluestein Longone Culinary Archive
+    SPEC JHC: Jewish Heritage Collection
+    SPEC LABD: Joseph A. Labadie Collection
+    SPEC SCB-PARS: Parsons-Rau Collection
+    SPEC WOR: Philippine History Collection
+    SPEC SCB-GOSL: Pop-Up and Movable Books
+    SPEC BIND: Publishers' Bindings
+    SPEC REF: Reference Collection
+    SPEC SCB-SCFI: Science Fiction Collection
+    SPEC SCB-SHA: Shakespeare Collection
+    SPEC THC: Transportation History Collection
+STATE:
+  desc: State Circle Remote Shelving
+  collections:
+    ALL: All collections
+    BUS: ''
+    GRAD: ''
+    UMTRI: ''
+TAUB:
+  desc: Taubman Health Sciences
+  collections:
+    ALL: All collections
+    TAUB REF: Reference
+    TAUB RESC: Reserves
+    TAUB ERES: Reserves - Electronic Resource
+    TAUB STOR: Storage
+CLEM:
+  desc: William L. Clements
+  collections:
+    ALL: All collections
+    CLEM RBR: Rare Book Room
+    CLEM RSTO: Remote Storage
