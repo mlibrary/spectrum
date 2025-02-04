@@ -1,0 +1,527 @@
+---
+ALL:
+  desc: All locations
+  collections:
+    ALL: All collections
+AAEL:
+  desc: Art Architecture & Engineering
+  collections:
+    ALL: All collections
+    AAEL SECD: 2nd Floor - 2321 M
+    AAEL SLD: 2nd Floor Service Desk
+    AAEL DISP: AAEL Display Cases
+    AAEL EQAAEL: AAEL Equipment - Service Desk
+    AAEL STUDIO: AAEL Studio Reserves
+    AAEL RESI: Ask at 2nd Floor Desk
+    AAEL OVR: Book Collection - Oversize
+    AAEL CAR: Career Collection - 2nd Floor
+    AAEL STO: Closed shelving - Ask at Circ
+    AAEL STNO: Closed shelving - ask at circ desk
+    AAEL RESC: Course Reserve - 2nd Floor
+    AAEL STOF: Folio closed shelving - Ask at Circ
+    AAEL MAIN: Main Collection
+    AAEL MICE: Microfiche - Basement
+    AAEL MICM: Microfilm - Basement
+    AAEL FUN: Recreational Reading - 2nd Floor - shelved by author
+    AAEL REF: Reference - 2nd Floor
+    AAEL RESP: Reserves - 2nd Floor
+    AAEL RAR: Special Coll. - By appt. only
+    AAEL SERU: Unbound serials
+FVL:
+  desc: Askwith Media Library
+  collections:
+    ALL: All collections
+    FVL 13478579870006381: Alberto, Paulina
+    FVL 2759070770006381: Allen, Natasha
+    FVL 13497068720006381: Alvey, Jennifer
+    FVL 13469538770006381: Anderson, Michele
+    FVL 13499042970006381: Archbold, Hilary
+    FVL 13491221700006381: Aribarg, Anocha
+    FVL 13508462560006381: Ashley, Ryan
+    FVL 13469213180006381: Askew, Kelly
+    FVL EQASKW: Askwith Equipment - Service Desk
+    FVL 32768059590006381: Austin, Neroli
+    FVL 13463245270006381: Bain, Bob
+    FVL 13462981840006381: Barham, Nicola
+    FVL 13490964590006381: Bell, Libby
+    FVL 13496798000006381: Blume, Brian
+    FVL 13498899040006381: Brewis, Laurie
+    FVL 13499462110006381: Brick, Howard
+    FVL BUH: BUH - Offsite Shelving
+    FVL 13467255980006381: Burde, Mark
+    FVL 13499742970006381: Carlsson, Sofia
+    FVL 2748314860006381: Carter, David
+    FVL 13475623780006381: Conway, Colleen
+    FVL 13472180820006381: Cortina, Lilia
+    FVL 13503094040006381: Coyle, Stacy
+    FVL 13496796640006381: Douglas, Chris
+    FVL 13501981480006381: earl, allison
+    FVL ELL: ELL - Offsite Shelving - please allow 3 days for delivery
+    FVL 13468599500006381: Fetters, Lisa
+    FVL 13505215850006381: Fhaner, Matthew
+    FVL 13462718260006381: Freidin, Anna
+    FVL 13501218930006381: Galerneau, Quentin
+    FVL 13460150880006381: Goldman, Rachel
+    FVL 13511405300006381: Goodenough, Elizabeth
+    FVL 2767304460006381: Grochowski, Paul
+    FVL 13461094150006381: Groden, Sheryl
+    FVL 13472166670006381: Hagen, Gottfried
+    FVL 13501516450006381: Hall, Patricia
+    FVL 13463220890006381: Harris, Lisa
+    FVL 13503426660006381: Hilliker, Bernadette
+    FVL 13502187970006381: Hollis-Etter, Karmen
+    FVL 13503746950006381: Jagos, Mark
+    FVL 13498678590006381: Jodl, Kathleen
+    FVL 13466243930006381: Kalmar, Pamela
+    FVL 13488104990006381: Karvonen-Gutierrez, Carrie
+    FVL 13505394570006381: katz, martin
+    FVL 13461091610006381: Kim, Woojong
+    FVL 13500542400006381: Kingsley, Nicholas
+    FVL 13511618190006381: Kirshner, Andrew
+    FVL 13496850470006381: Knezek, Suzanne
+    FVL 13502003270006381: Kodjebacheva, Gergana
+    FVL 13511602850006381: Kollman, Kenneth
+    FVL 13502200240006381: Koonmen, Keith
+    FVL 13456564940006381: Krasny, Robert
+    FVL 13478761680006381: Kufahl, Jack
+    FVL 24164068850006381: LaFray, Elizabeth
+    FVL LRC: Language Research Center
+    FVL 36906408370006381: Lavering, Emily
+    FVL 13478662420006381: Lehavy, Reuven
+    FVL LOA: Library staff loaners
+    FVL 13494105180006381: Lyon, Thomas
+    FVL 13510873280006381: Ma, Julie
+    FVL 13500258070006381: Mani, Murali
+    FVL 13505278450006381: McGinn, Terence
+    FVL 13460354630006381: Mehdian, Seyed
+    FVL 13469403110006381: Munroe, Derwin
+    FVL 13501429490006381: Murphy, Allen
+    FVL 13481894050006381: Newman, Mark
+    FVL 13505553350006381: Nickel-White, Kasie
+    FVL 13491575860006381: Preston, Stephanie
+    FVL 13488008550006381: Railton, Peter
+    FVL 13499936420006381: Rhode, Paul
+    FVL 13488064830006381: Roach, Stephanie
+    FVL H1: Room 2002 Shapiro
+    FVL F2: Room 2002 Shapiro - Non-circulating
+    FVL 13508641980006381: Rust, Elizabeth
+    FVL 13463239940006381: Sanders, Jerry
+    FVL 13460332550006381: Satterfield, Teresa
+    FVL 13508588850006381: Schreier, Shelly
+    FVL 2764070900006381: Shoecraft, Heather
+    FVL 2771772180006381: Slavens, Cara
+    FVL 13478707090006381: Spindler, Katherine
+    FVL 13500776350006381: Stark, Michele
+    FVL 2769362980006381: Svoboda, Liz
+    FVL 13503406850006381: Taylor, Amanda
+    FVL 13514638180006381: Tippen, Maureen
+    FVL 13475418030006381: Tischler, Jessica
+    FVL 13501403500006381: Turkelson, Carman
+    FVL 13511217310006381: Tuttle, Nicole
+    FVL 13466303120006381: Uhley, Virginia
+    FVL RESC: University Reserves - Askwith Media Lib, 2002 Shapiro
+    FVL 13503432460006381: Vidaillet Gelderloos, Stephanie
+    FVL 13499442860006381: Wade, James
+    FVL 13460188010006381: Ward, Lucretia
+    FVL 13500106530006381: Washington, Diane
+    FVL 13496784860006381: Wiess, Janelle
+    FVL 13510378150006381: Wolf, Beth
+    FVL 13497013940006381: Wrobel, Thomas
+    FVL 13505923600006381: Yambrick, Nicole
+    FVL 13508456070006381: Zurier, Rebecca
+BENT:
+  desc: Bentley Historical
+  collections:
+    ALL: All collections
+    BENT ELEC: Electronic resources
+    BENT RR: Reading Room
+    BENT SF: Security File
+    BENT STOR: Storage - Ask at library
+BSTA:
+  desc: Biological Station
+  collections:
+    ALL: All collections
+    BSTA CAGE: Cage - Ask Staff
+    BSTA RESC: Course Reserve
+    BSTA OVR: Oversize
+    BSTA REF: Reference
+BUHR:
+  desc: Buhr Shelving Facility
+  collections:
+    ALL: All collections
+    BUHR WARE: Buhr Warehouse
+    BUHR MAIN: Main
+DBRN:
+  desc: Dearborn Mardigian Library
+  collections:
+    ALL: All collections
+    DBRN UNASSIGNED: UNASSIGNED location
+DHCL:
+  desc: Donald Hall Collection
+  collections:
+    ALL: All collections
+    DHCL DISC: Audio Disc
+    DHCL BRD: Blu-ray Disc
+    DHCL BRR: Blu-ray ROM
+    DHCL CDROM: CD-ROM
+    DHCL DVROM: DVD-ROM
+    DHCL DVD: DVDs
+    DHCL LASER: Laserdiscs
+    DHCL BOOK: Monographs
+    DHCL OVR: Oversize
+    DHCL SCRN: Screenplays
+    DHCL TAPEC: Sound Cassette
+    DHCL VHS: VHS Tapes
+    DHCL GAME: Video Games
+ELEC:
+  desc: Electronic Resources
+  collections:
+    ALL: All collections
+    ELEC UNASSIGNED: UNASSIGNED location
+FINE:
+  desc: Fine Arts
+  collections:
+    ALL: All collections
+    FINE EQFINE: Fine Arts Equipment - Service Desk
+    FINE NEW: Fine Arts New Book Shelf
+    FINE FOL: Flat Folio Collection
+    FINE MAIN: Main Collection
+    FINE RESP: Open Reserves Shelving Area
+    FINE OSR: Oriental Seminar Rm.
+    FINE OSFF: Oriental Seminar Rm. Flat Folios
+    FINE OSRF: Oriental Seminar Rm. Folios
+    FINE OSRJ: Oriental Seminar Rm. Journals
+    FINE OSRR: Oriental Seminar Rm. Reference
+    FINE OVR: Oversize - 1st floor
+    FINE REF: Reference
+    FINE RESC: Reserves - Circulation Desk
+    FINE SER: Serials
+    FINE SPE: Special Collections
+    FINE SPO: Special Collections Oversize
+    FINE ADM: Staff Offices
+    FINE SERU: Unbound serials
+FLINT:
+  desc: Flint Frances Willson Thompson Library
+  collections:
+    ALL: All collections
+    FLINT MODEL: Anatomical Models
+    FLINT ARCH: Archives
+    FLINT SPEC: Archives - Special Collections
+    FLINT ATLAS: Atlas Collection
+    FLINT BROWS: Browsing Collection
+    FLINT CHILD: Children's Literature
+    FLINT ELEC: Electronic resources
+    FLINT ELP1: English Language Program 1
+    FLINT ELP2: English Language Program 2
+    FLINT ELP3: English Language Program 3
+    FLINT ABST: Indexes & Abstracts
+    FLINT MAIN: Main Collection
+    FLINT MSTR: Masters Theses
+    FLINT MEDIA: Media Collection
+    FLINT MCARD: Microcard
+    FLINT MFICH: Microfiche
+    FLINT MFILM: Microfilm
+    FLINT NEWB: New Books
+    FLINT DISP: On Display
+    FLINT OVERZ: Oversized Collection
+    FLINT FSPAM: Pamphlets
+    FLINT PERI: Periodicals
+    FLINT REF: Reference Collection
+    FLINT REFD: Reference, Ready
+    FLINT RESV: Reserved Readings
+    FLINT TECH: Technical Services Department
+    FLINT TIME: Time Capsule
+HATCH:
+  desc: Hatcher Graduate
+  collections:
+    ALL: All collections
+    HATCH ACQ: Acquisitions
+    HATCH AMIC: Asia Library Microforms - Ask at Office - Rm. 418 N
+    HATCH AOFF: Asia Library Office - Rm. 418 N - Circulating Collection
+    HATCH AOFFNC: Asia Library Office - Rm. 418 N - Non-Circulating Collection
+    HATCH AOVR: Asia Library Oversized - East Attic
+    HATCH AREF: Asia Library Reference - Rm. 421 N
+    HATCH ASPEC: Asia Library Special Collections
+    HATCH ASIA: Asia Library Stacks
+    HATCH AOKA: Asia Oka
+    HATCH CLC: Children's Literature Collection - 3rd floor S
+    HATCH CLARK: CLARK - Clark Library Book Shelves - 2nd floor S
+    HATCH DISP-C: Clark Display Cases
+    HATCH CLATL: Clark Library Atlas Shelves - 2nd floor S
+    HATCH CLBKS-CIRC: Clark Library Book Shelves - Circulating - 2nd Floor South
+    HATCH CLFIL: Clark Library File Cabinets - 2nd floor S
+    HATCH CLFOL: Clark Library Folio - Ask at Clark Library - 2nd floor S
+    HATCH CLLAB: Clark Library Lab - Ask at Clark Library - 2nd floor S
+    HATCH CLMAP: Clark Library Map Cases - Ask at Clark Library - 2nd floor S
+    HATCH CLOFF: Clark Library Office - Ask at Clark Library - 2nd floor S
+    HATCH CLOVR: Clark Library Oversize - Ask at Clark Library - 2nd floor S
+    HATCH CLOVD: Clark Library Oversize Drawer - Ask at Clark Library - 2nd floor
+      S
+    HATCH CLRAR: Clark Library Rare Cases - Ask at Clark Library - 2nd floor S
+    HATCH CLFIR: Clark Library Rare File - Ask at Clark Library - 2nd floor S
+    HATCH CLSOF: Clark Library Software - Ask at Clark Library - 2nd floor S
+    HATCH CLSTR: Clark Library Storage - Ask at Clark Library - 2nd floor S
+    HATCH CLBKS: CLBKS - Clark Library Book Shelves - 2nd floor S
+    HATCH CLOS: Closed Shelving
+    HATCH GFOL: Folio - Ask at Circ, Rm. 104 N
+    HATCH GRAD: GRAD
+    HATCH MIXM: Graduate Library Mixed Media - 203 N. Hatcher
+    HATCH EQHATC: Hatcher Equipment - Service Desk
+    HATCH IS-SEEES: International Studies In Process Closed Shelving
+    HATCH DISP-I: International Studies Reading Room Display Case
+    HATCH NER: Middle East Reference - 1 West
+    HATCH MONO: MonoCat
+    HATCH SEM: Near East Seminar - Rm. 3020 Thayer Academic Bldg (Dept of Middle East
+      Studies)
+    HATCH NELP: New England Literature Program
+    HATCH DISP-N: North Hatcher Display Cases
+    HATCH PAPY: Papyrology Collection (807 S. Hatcher)
+    HATCH GDESK: Reference Desk - 2nd floor N
+    HATCH GRNT: Reference - Grants collection - 2nd floor N
+    HATCH GLRF: Reference Rm. - 2nd floor N
+    HATCH GLMR: Serials and Microforms - 203 N. Hatcher
+    HATCH SLVR: Slavic Reference - 1 West
+    HATCH SLVRH: Slavic Reference - Holtzman - Restricted - Ask at Rm. 110F for access
+    HATCH SAR: South Asia Reference - 1 West
+    HATCH SEAR: Southeast Asia Reference - 1 West
+    HATCH AMHC: The Azad and Margaret Hogikyan Armenian Studies Collection - 100 Hatcher
+      North
+SDR:
+  desc: HathiTrust
+  collections:
+    ALL: All collections
+    SDR NBB: Brooklyn Museum
+    SDR EO: Electronic Only
+    SDR MIU: MIU - University of Michigan
+    SDR GWLA: Technical Report Archive & Image Library
+    SDR UMBUS: UMBUS - University of Michigan
+    SDR UMDB: UMDB - University of Michigan
+    SDR UMLAW: UMLAW - University of Michigan
+HSRS:
+  desc: HSRS
+  collections:
+    ALL: All collections
+    HSRS BUHR: Buhr Storage
+    HSRS IND: IND
+    HSRS OFFS: Offsite Storage
+    HSRS OVR: OVR
+    HSRS SCI: Science
+    HSRS SER: Serials
+    HSRS STOR: STOR
+MUSIC:
+  desc: Music
+  collections:
+    ALL: All collections
+    MUSIC EDIS: American Sheet Music
+    MUSIC DIS: Dissertations - 4th floor
+    MUSIC DVD: DVD Collection
+    MUSIC FOLIO: Folio Collection - 3rd floor
+    MUSIC MINI: Miniatures - 4th floor
+    MUSIC EQMUSI: Music Equipment - Service Desk
+    MUSIC NEW: Music New Book Shelf
+    MUSIC OVCD: Oversize Recordings - Circulation Desk
+    MUSIC OVR: Oversize Shelves - 4th floor
+    MUSIC RAR: Rare Book Rm.
+    MUSIC REC: Recordings - Circulation Desk
+    MUSIC REF: Reference - 3rd floor
+    MUSIC RESC: Reserves - Circulation Desk
+    MUSIC RARS: Sheet Music Collection
+    MUSIC SOFT: Software - Circulation Desk
+    MUSIC ADM: Staff Offices
+    MUSIC SERU: Unbound serials
+    MUSIC VID: Videos- Circulation Desk
+    MUSIC RARW: Women Composers Collection
+OFFS:
+  desc: Offsite Shelving
+  collections:
+    ALL: All collections
+    OFFS DEEP: Deep Storage
+    OFFS ELLS: ELLS
+    OFFS SPR: SPR
+    OFFS STATE: STATE
+    OFFS UNASSIGNED: UNASSIGNED location
+MUSM:
+  desc: Research Museums Center
+  collections:
+    ALL: All collections
+    MUSM ANTE: Anthro. Div. - Ethnobotany
+    MUSM ANTO: Anthro. Div. - Oversize
+    MUSM ANT: Anthropology Division
+    MUSM BIR: Birds Division
+    MUSM BIRC: Birds Division - Case
+    MUSM CAGE: Cage - by appointment only
+    MUSM FIS: Fish Division
+    MUSM FISO: Fish Division - Oversize
+    MUSM HEBC: Herbarium Cage
+    MUSM HEBO: Herbarium Oversize
+    MUSM HEBR: Herbarium Reference
+    MUSM HERB: Herbarium Stacks
+    MUSM HEP: Herpetology Division
+    MUSM HEPO: Herpetology Division - Oversize
+    MUSM INS: Insect Division
+    MUSM INST: Insect Division - Orthoptera
+    MUSM INSO: Insect Division - Oversize
+    MUSM MAM: Mammals Division
+    MUSM MAMO: Mammals Division - Oversize
+    MUSM MIC: Microform Collection - Rm. 2500
+    MUSM MOL: Mollusks Division
+    MUSM MOLO: Mollusks Division - Oversize
+    MUSM PAL: Paleontology Division
+    MUSM PALO: Paleontology - Oversize
+    MUSM PALR: Paleontology - Reference
+    MUSM MAIN: Room 2500
+    MUSM OVR: Room 2500 - Oversize
+    MUSM SPE: Special Formats - Ask Staff
+RES_SHARE:
+  desc: Resource Sharing Library
+  collections:
+    ALL: All collections
+    RES_SHARE OUT_RS_REQ: Borrowing Resource Sharing Requests
+    RES_SHARE IN_RS_REQ: Lending Resource Sharing Requests
+    RES_SHARE MELLONG: MEL Long Loan Outgoing
+    RES_SHARE MELREG: MEL Regular Loan Outgoing
+SHAP:
+  desc: Shapiro
+  collections:
+    ALL: All collections
+    SHAP PRON: 2nd floor Browsing Collection
+    SHAP ATL: Atlases & Maps - 4th floor
+    SHAP COLSC: College and Career Success Collection - 1st Floor
+    SHAP DLAB: Design Lab
+    SHAP DIS: Dissertations/Masters - 4th floor
+    SHAP MAS: Masters Theses Archival Collection
+    SHAP DISP: On Display - Hatcher/Shapiro
+    SHAP REFU: 'Reference - The Wu Reading Room '
+    SHAP SCI: Science Book Stacks
+    SHAP SER: Science Journals
+    SHAP RESP: Science Media Cabinet
+    SHAP SOVR: Science Oversize Stacks
+    SHAP GOV: Shapiro Basement Government Publications
+    SHAP EQSHAP: Shapiro Equipment - Service Desk
+    SHAP FLOW: Shapiro - Overflow Collection
+    SHAP UNASSIGNED: UNASSIGNED location
+    SHAP SERU: Unbound serials
+    SHAP OVR: Undergrad Oversize - basement
+    SHAP UGL: Undergraduate stacks
+    SHAP GAME: Video Games 4th Floor
+    SHAP GAMEB: Video Games 4th Floor - Books
+SPEC:
+  desc: Special Collections
+  collections:
+    ALL: All collections
+    SPEC SCB-AMS: Archival and Manuscript Collections (Building 550)
+    SPEC SCH-AMS: Archival and Manuscript Collections (Hatcher)
+    SPEC SCB-ASG: Asa Gray Collection
+    SPEC SCB-ASGO: Asa Gray Collection (Oversized)
+    SPEC SCB-CHIL: Children's Literature
+    SPEC SCB-CHILO: Children's Literature (Oversized)
+    SPEC SCB-WALP: Children's Literature (Walp)
+    SPEC SCB-WALPO: Children's Literature (Walp) (Oversized)
+    SPEC SCB-CUL: Culinary (Building 550)
+    SPEC SCH-CUL: Culinary (Hatcher)
+    SPEC SCB-CULO: Culinary (Oversized) (Building 550)
+    SPEC SCH-CULO: Culinary (Oversized) (Hatcher)
+    SPEC SCH-FAUL: Faulkner Collection (Display Cases)
+    SPEC SCH-FAULX: Faulkner Collection (Stacks)
+    SPEC SCH-BUHR: General and Rare (Buhr)
+    SPEC SCB-RARE: General and Rare (Building 550)
+    SPEC SCH-RARE: General and Rare (Hatcher)
+    SPEC SCB-RAREO: General and Rare (Oversized) (Building 550)
+    SPEC SCH-RAREO: General and Rare (Oversized) (Hatcher)
+    SPEC SCH-HAFTER: Hafter Collection
+    SPEC SCB-HAFTR: Hafter Collection (Building 550)
+    SPEC SCB-HAFTRO: Hafter Collection (Oversized) (Building 550)
+    SPEC SCB-TAUBS: History of Medicine Collection (Building 550)
+    SPEC SCH-TAUBC: History of Medicine Collection (Crummer)
+    SPEC SCH-TAUBD: History of Medicine Collection (Dock)
+    SPEC SCH-TAUBF: History of Medicine Collection (Folios)
+    SPEC SCH-TAUBR: History of Medicine Collection (Hatcher)
+    SPEC SCH-TAUBH: History of Medicine Collection (Huntley)
+    SPEC SCH-TAUBI: History of Medicine Collection (Incunables)
+    SPEC SCH-TAUBM: History of Medicine Collection (Miniatures)
+    SPEC SCH-TAUBO: History of Medicine Collection (Oversized)
+    SPEC SCB-TAUBSO: History of Medicine Collection (Oversized) (Building 550)
+    SPEC SCH-TAUBP: History of Medicine Collection (Pilcher)
+    SPEC SCH-TAUBW: History of Medicine Collection (Warthin)
+    SPEC SCH-TAUBL: History of Medicine Collection (Weller)
+    SPEC SCB-HUB: Hubbard Imaginary Voyages
+    SPEC SCB-HUBO: Hubbard Imaginary Voyages (Oversized)
+    SPEC SCH-ISLM: Islamic Manuscripts
+    SPEC SCB-JHC: Jewish Heritage Collection (Building 550)
+    SPEC SCH-JHC: Jewish Heritage Collection (Hatcher)
+    SPEC SCB-JHCO: Jewish Heritage Collection (Oversized) (Building 550)
+    SPEC SCB-LABD: Labadie Monographs (Building 550)
+    SPEC SCB-LASTR: 'Labadie Monographs (Building 550) '
+    SPEC SCB-LAOV: Labadie Monographs (Oversized) (Building 550)
+    SPEC SCH-LAFO: Labadie Monographs (Shelved Flat) (Hatcher)
+    SPEC SCH-LABD: Labadie Other (Hatcher)
+    SPEC SCH-LAPA: Labadie Pamphlets (Hatcher)
+    SPEC SCH-LABH1: Labadie Serials (Hatcher) (LABH1)
+    SPEC SCH-LABHC: Labadie Serials (Hatcher) (LABHC)
+    SPEC SCB-LABH2: Labadie Serials (Oversized) (Building 550) (LABH2)
+    SPEC SCB-LABS2: Labadie Serials (Oversized) (Building 550) (LABS2)
+    SPEC SCB-LABSF: Labadie Serials (Shelved Flat) (Building 550) (LABSF)
+    SPEC SCH-MICH: Michigan Manuscripts
+    SPEC SCB-MYERS: Myers Collection
+    SPEC SCB-PARS: Parsons-Rau
+    SPEC SCB-WOR: Philippine History (Building 550)
+    SPEC SCH-WOR: Philippine History (Hatcher)
+    SPEC SCB-WORO: Philippine History (Oversized) (Building 550)
+    SPEC SCH-WORO: Philippine History (Oversized) (Hatcher)
+    SPEC SCB-GOSL: Pop-Up and Movable Books
+    SPEC SCB-BIND: Publishers' Bindings
+    SPEC SCB-REF: Reference Collection (Building 550)
+    SPEC SCH-REF: Reference Collection (Hatcher)
+    SPEC SCB-REFO: Reference Collection (Oversized) (Building 550)
+    SPEC SCB-SCFI: Science Fiction Collection
+    SPEC SCB-SCI: Science Rare
+    SPEC SCB-SCIO: Science Rare (Oversized)
+    SPEC SCB-SHA: Shakespeare Collection
+    SPEC SCB-SHAO: Shakespeare Collection (Oversized)
+    SPEC SCB-THC: Transportation History
+    SPEC SCB-THCO: Transportation History (Oversized)
+STAFF:
+  desc: Staff
+  collections:
+    ALL: All collections
+    STAFF AAEL: AAEL
+    STAFF ASIA: ASIA
+    STAFF BSTA: BSTA
+    STAFF BUHR: BUHR
+    STAFF CLARK: CLARK
+    STAFF COPYR: Copyright
+    STAFF DEV: Development
+    STAFF FINE: FINE
+    STAFF FVL: FVL
+    STAFF GRAD: GRAD
+    STAFF HERB: HERB
+    STAFF IS: Intl Studies
+    STAFF MUSIC: MUSIC
+    STAFF MUSM: MUSM
+    STAFF NCRC: NCRC
+    STAFF OPS: Operations
+    STAFF PRES: Preservation
+    STAFF SCI: SCI
+    STAFF SPEC: SPEC
+    STAFF TAUB: TAUB
+    STAFF TSMDU: TS Metadata Unit
+    STAFF UGL: UGL
+    STAFF PRESS: UM Press
+TAUB:
+  desc: Taubman Health Sciences
+  collections:
+    ALL: All collections
+    TAUB INDA: Indexes - 5th floor alcove
+    TAUB IND: Indexes - Reference Rm.
+    TAUB ILL: Interlibrary Loan
+    TAUB OVR: Oversize - 6th floor
+    TAUB REF: Reference
+    TAUB RESC: Reserves - Ask at the Circulation Desk
+    TAUB EQTAUB: Taubman Equipment - Service Desk
+CLEM:
+  desc: William L. Clements
+  collections:
+    ALL: All collections
+    CLEM OVFL: Overflow
+    CLEM RBR: RBR
+    CLEM RSTO: Remote Storage - Ask in advance
