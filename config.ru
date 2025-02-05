@@ -5,8 +5,10 @@ end
 
 ENV["APP_ENV"] ||= ENV["RAILS_ENV"]
 
-require "prometheus/middleware/registered_collector"
-use Prometheus::Middleware::RegisteredCollector if ENV["PROMETHEUS_EXPORTER_URL"]
+if ENV["PUMA_CONTROL_APP"] && ENV["PROMETHEUS_EXPORTER_URL"]
+  require "prometheus/middleware/registered_collector"
+  use Prometheus::Middleware::RegisteredCollector
+end
 
 Bundler.require
 Spectrum::Json.configure(__dir__, ENV["RAILS_RELATIVE_URL_ROOT"])
