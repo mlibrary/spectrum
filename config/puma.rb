@@ -65,6 +65,12 @@ if ENV["PUMA_CONTROL_APP"]
       labels: %i[method path],
       buckets: Prometheus::Client::Histogram::DEFAULT_BUCKETS + [15, 20, 30]
     )
+    Prometheus::Client.registry.histogram(
+      :api_response_duration_seconds,
+      docstring: "The API response duration for requests made by Spectrum.",
+      labels: %i[source],
+      buckets: Prometheus::Client::Histogram::DEFAULT_BUCKETS + [15, 20, 30]
+    )
     Yabeda.configure!
 
     plugin :yabeda

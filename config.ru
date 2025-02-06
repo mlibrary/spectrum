@@ -13,6 +13,8 @@ end
 Bundler.require
 Spectrum::Json.configure(__dir__, ENV["RAILS_RELATIVE_URL_ROOT"])
 
+require 'alma_rest_client/monkey_patch'
+
 use Rack::ReverseProxy do
   reverse_proxy %r{^/browse.css}, "https://#{ENV["BROWSE_HOST"]}/$1"
   reverse_proxy %r{^/catalog/browse/(.*)$}, "https://#{ENV["BROWSE_HOST"]}/$1"

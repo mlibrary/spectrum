@@ -32,7 +32,11 @@ module Spectrum
 
         @params[:qq] ||= '"' + RSolr.solr_escape(@params[:q]) + '"'
 
-        @response = Response.for(@solr.post("select", params: @params))
+        @metrics = Prometheus::Client.registry.get(:api_response_duration_seconds)
+        duration = Benchmark.realtime do
+          @response = Response.for(@solr.post("select", params: @params))
+        end
+        @metrics.observe(duration, labels: {source: @source.id})
       end
 
       def total_items
