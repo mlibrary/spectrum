@@ -27,6 +27,39 @@ module Spectrum
           IPAddr.new("141.216.0.0/16")
         ]
 
+        KEEP_THESE_COOKIES = [
+          "skynet",
+          "STICKY",
+          "rack.session",
+          "_ga",
+          "_gid",
+          "_gat",
+          "_clck",
+          "_clsk",
+          "ezproxy",
+          "ezproxyl",
+          "ezproxyn",
+          "mod_auth_openidc_session",
+        ]
+
+        def manage_cookies
+          cookie_sizes = Prometheus::Client.registry.get(:cookie_size_bytes)
+          cookie_purges = Prometheus::Client.registry.get(:cookie_purges)
+
+          domain = ENV.fetch("SPECTRUM_COOKIE_PURGE_DOMAIN", false)
+          cookie_threshold = ENV.fetch("SPECTRUM_COOKIE_PURGE_THRESHOLD", 0).to_i
+          return unless domain
+          return unless cookie_threshold > 0
+          return unless env["HTTP_COOKIE"]
+          cookie_sizes.observe(env["HTTP_COOKIE"].bytesize)
+          return unless env["HTTP_COOKIE"].bytesize > cookie_threshold
+          cookie_purges.increment
+          request.cookies.keys.each do |name|
+            next if KEEP_THESE_COOKIES.include?(name)
+            response.delete_cookie(name, domain: domain)
+          end
+        end
+
         def get_origin
           env = request.env
           return env["HTTP_ORIGIN"] if env["HTTP_ORIGIN"]
@@ -36,6 +69,7 @@ module Spectrum
         end
 
         def cors
+          manage_cookies
           headers["Access-Control-Allow-Origin"] = get_origin
           headers["Access-Control-Allow-Headers"] = "Origin, X-Requested-With, Content-Type, Accept, Authorization, Referer"
           headers["Access-Control-Allow-Credentials"] = "true"
