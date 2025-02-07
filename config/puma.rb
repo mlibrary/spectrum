@@ -71,6 +71,17 @@ if ENV["PUMA_CONTROL_APP"]
       labels: %i[source],
       buckets: Prometheus::Client::Histogram::DEFAULT_BUCKETS + [15, 20, 30]
     )
+    Prometheus::Client.registry.histogram(
+      :cookie_size_bytes,
+      docstring: "The http request cookie sizes in bytes",
+      labels: [],
+      buckets: [500, 1_000, 2_000, 3_000, 4_000, 5_000, 6_000, 7_000, 7_500, 8_000 ]
+    )
+    Prometheus::Client.registry.counter(
+      :cookie_purges,
+      docstring: "The total number of cookie purges initiated by spectrum",
+      labels: [],
+    )
     Yabeda.configure!
 
     plugin :yabeda

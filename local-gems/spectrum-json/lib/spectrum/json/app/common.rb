@@ -43,12 +43,17 @@ module Spectrum
         ]
 
         def manage_cookies
+          cookie_sizes = Prometheus::Client.registry.get(:cookie_size_bytes)
+          cookie_purges = Prometheus::Client.registry.get(:cookie_purges)
+
           domain = ENV.fetch("SPECTRUM_COOKIE_PURGE_DOMAIN", false)
           cookie_threshold = ENV.fetch("SPECTRUM_COOKIE_PURGE_THRESHOLD", 0).to_i
           return unless domain
           return unless cookie_threshold > 0
           return unless env["HTTP_COOKIE"]
+          cookie_sizes.observe(env["HTTP_COOKIE"].bytesize)
           return unless env["HTTP_COOKIE"].bytesize > cookie_threshold
+          cookie_purges.increment
           request.cookies.keys.each do |name|
             next if KEEP_THESE_COOKIES.include?(name)
             response.delete_cookie(name, domain: domain)
