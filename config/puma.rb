@@ -48,40 +48,10 @@ if ENV["PUMA_CONTROL_APP"]
 
   if ENV["PROMETHEUS_EXPORTER_URL"]
     Bundler.require :yabeda
+    require_relative '../lib/metrics'
 
-    Prometheus::Client.config.data_store =
-      Prometheus::Client::DataStores::DirectFileStore.new(dir: ENV["PROMETHEUS_MONITORING_DIR"])
+    Metrics.load_config
 
-    # Set up the client registry here so everyone gets a copy
-    # We will use a RegisteredCollector so that we don't have to monkey with the registry
-    Prometheus::Client.registry.counter(
-      :http_server_requests_total,
-      docstring: "The total number of HTTP requests handled by the Rack application.",
-      labels: %i[code method path]
-    )
-    Prometheus::Client.registry.histogram(
-      :http_server_request_duration_seconds,
-      docstring: "The HTTP response duration of the Rack application.",
-      labels: %i[method path],
-      buckets: Prometheus::Client::Histogram::DEFAULT_BUCKETS + [15, 20, 30]
-    )
-    Prometheus::Client.registry.histogram(
-      :api_response_duration_seconds,
-      docstring: "The API response duration for requests made by Spectrum.",
-      labels: %i[source],
-      buckets: Prometheus::Client::Histogram::DEFAULT_BUCKETS + [15, 20, 30]
-    )
-    Prometheus::Client.registry.histogram(
-      :cookie_size_bytes,
-      docstring: "The http request cookie sizes in bytes",
-      labels: [],
-      buckets: [500, 1_000, 2_000, 3_000, 4_000, 5_000, 6_000, 7_000, 7_500, 8_000 ]
-    )
-    Prometheus::Client.registry.counter(
-      :cookie_purges,
-      docstring: "The total number of cookie purges initiated by spectrum",
-      labels: [],
-    )
     Yabeda.configure!
 
     plugin :yabeda

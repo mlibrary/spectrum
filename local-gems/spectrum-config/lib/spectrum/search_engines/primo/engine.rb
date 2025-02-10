@@ -24,7 +24,6 @@ module Spectrum
           if defined?(Rails) && Rails.respond_to?(:logger)
             @logger = Rails.logger
           end
-          @metrics = Prometheus::Client.registry.get(:api_response_duration_seconds)
         end
 
         def results
@@ -41,15 +40,17 @@ module Spectrum
           @logger&.info { url }
 
           response = nil
-          duration = Benchmark.realtime do
+          primo_duration = Benchmark.realtime do
             response = Response.for_json(HTTParty.get(url))
           end
-          @metrics.observe(duration, labels: {source: 'primo'})
 
-          duration = Benchmark.realtime do
+          libkey_duration = Benchmark.realtime do
             @results = response.with_libkey(libkey)
           end
-          @metrics.observe(duration, labels: {source: 'libkey'})
+          Metrics(:api_response_duration_seconds) do |metric|
+            metric.observe(primo_duration, labels: {source: 'primo'})
+            metric.observe(libkey_duration, labels: {source: 'libkey'})
+          end
 
           @results
         end

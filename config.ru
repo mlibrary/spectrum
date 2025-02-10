@@ -6,8 +6,7 @@ end
 ENV["APP_ENV"] ||= ENV["RAILS_ENV"]
 
 if ENV["PUMA_CONTROL_APP"] && ENV["PROMETHEUS_EXPORTER_URL"]
-  require "prometheus/middleware/registered_collector"
-  use Prometheus::Middleware::RegisteredCollector
+  use Metrics::Middleware
 end
 
 Bundler.require
