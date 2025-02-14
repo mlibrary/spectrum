@@ -14,8 +14,8 @@ class Spectrum::Entities::AlmaHoldings
     if bib_record.physical_holdings?
       begin
         response = client.get_all(url: "/bibs/#{bib_record.mms_id}/loans", record_key: "item_loan")
-        raise ::StandardError.new("problem with contacting alma") if response.code != 200
-        Spectrum::Entities::AlmaHoldings.new(alma: response.parsed_response, solr: bib_record)
+        raise ::StandardError.new("problem with contacting alma") if response.status != 200
+        Spectrum::Entities::AlmaHoldings.new(alma: response.body, solr: bib_record)
       rescue => e
         Logger.new($stdout).error "Cant'contact Alma: #{e}"
         Spectrum::Entities::AlmaHoldings.new(alma: {"item_loan" => []}, solr: bib_record)

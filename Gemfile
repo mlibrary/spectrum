@@ -41,7 +41,7 @@ gem "spectrum-json", path: "local-gems/spectrum-json"
 
 gem "alma_rest_client",
   git: "https://github.com/mlibrary/alma_rest_client",
-  tag: "1.0.1"
+  tag: "v2.0.0"
 
 gem "mlibrary_search_parser",
   git: "https://github.com/mlibrary/mlibrary_search_parser",
