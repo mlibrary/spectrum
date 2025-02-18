@@ -32,7 +32,11 @@ module Spectrum
 
         @params[:qq] ||= '"' + RSolr.solr_escape(@params[:q]) + '"'
 
-        @response = Response.for(@solr.post("select", params: @params))
+        ActiveSupport::Notifications.instrument("solr_search.spectrum_search_engine_solr", source_id: @source.id, params: @params) do
+          @response = Response.for(@solr.post("select", params: @params))
+        end
+        ActiveSupport::Notifications.instrument("solr_results.spectrum_search_engine_solr", results: @response) do
+        end
       end
 
       def total_items
