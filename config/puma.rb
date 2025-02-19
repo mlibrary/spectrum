@@ -1,6 +1,10 @@
 require "dotenv"
 Dotenv.load(File.expand_path(File.join("..", ".env"), __dir__))
 
+if (log_file_name = ENV.fetch("LOG_FILE", false))
+  stdout_redirect(log_file_name, log_file_name, true)
+end
+
 ENV["RAILS_RELATIVE_URL_ROOT"] ||= "http://localhost:3000"
 
 environment "production"

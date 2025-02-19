@@ -1,5 +1,6 @@
 require "yaml"
 require "erb"
+require "logger"
 require "prometheus/middleware/collector"
 require "active_support/notifications"
 
@@ -35,12 +36,8 @@ module Metrics
       configure_metrics(config["metrics"])
       configure_puma_variables(config["puma"])
       configure_subscriptions(config["subscriptions"])
+      configure_logger(config["logger"])
       Yabeda.configure!
-    end
-
-    def configure_subscriptions(config)
-      return unless config
-      require File.expand_path(config, File.expand_path('..', __dir__))
     end
 
     def configure_puma(puma)
@@ -71,7 +68,40 @@ module Metrics
       Prometheus::Client.registry
     end
 
+    def logger
+      @logger
+    end
+
     private
+
+    def configure_logger(config)
+      severity = case config["level"]
+      when "warn"
+        Logger::WARN
+      when "info"
+        Logger::INFO
+      when "debug"
+        Logger::DEBUG
+      when "error"
+        Logger::ERROR
+      when "fatal"
+        Logger::FATAL
+      when "unknown"
+        Logger::UNKNOWN
+      else
+        Logger::INFO
+      end
+
+      logger_target = config["file"] || $stdout
+
+      @logger = Logger.new(logger_target)
+      @logger.level = severity
+    end
+
+    def configure_subscriptions(config)
+      return unless config
+      require File.expand_path(config, File.expand_path('..', __dir__))
+    end
 
     def configure_puma_variables(config)
       @control_app_url = config["control_app_url"]

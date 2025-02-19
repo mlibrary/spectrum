@@ -6,6 +6,9 @@ subscriptions: "config/subscriptions.rb"
 puma:
   control_app_url: <%= ENV.fetch("PUMA_CONTROL_APP", "unix:///tmp/search.sock") %>
   prometheus_exporter_url: <%= ENV.fetch("PROMETHEUS_EXPORTER_URL", "tcp://0.0.0.0:9439/metrics") %>
+logger:
+  file: <%= ENV.fetch("METRICS_LOG_FILE", false) %>
+  level: <%= ENV.fetch("METRICS_LOG_LEVEL", "info") %>
 metrics:
 - type: counter
   name: http_server_requests_total

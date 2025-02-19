@@ -64,14 +64,17 @@ end
 
 ActiveSupport::Notifications.subscribe("primo_results.spectrum_search_engine_primo") do |event|
   # TODO: Add logging for primo search results
-  # event.payload[:results].docs do |record|
-  # begin
-  #   libkey_link = doc["bestIntegratorLink"]&.fetch("bestLink", nil)
-  #   primo_link = if doc.link_to_resource?
-  #     doc.link_to_resource
-  #   else
-  #     "https://mgetit.lib.umich.edu/resolve?#{doc.openurl}"
-  #   end
-  # rescue
-  # end
+  event.payload[:results].docs.each do |doc|
+    begin
+      libkey_link = doc["fullTextFile"] || doc["bestIntegratorLink"]&.fetch("bestLink", nil)
+      primo_link = if doc.link_to_resource?
+        doc.link_to_resource
+      else
+        "https://mgetit.lib.umich.edu/resolve?#{doc.openurl}"
+      end
+      Metrics.logger.info {"EZproxy:\tprimo-#{doc["id"]}\t#{libkey_link}"} if libkey_link
+      Metrics.logger.info {"EZproxy:\tprimo-#{doc["id"]}\t#{primo_link}"} if primo_link
+    rescue
+    end
+  end
 end
