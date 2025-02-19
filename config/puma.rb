@@ -1,5 +1,5 @@
 require "dotenv"
-Dotenv.load(File.expand_path("../../.env", __FILE__))
+Dotenv.load(File.expand_path(File.join("..", ".env"), __dir__))
 
 ENV["RAILS_RELATIVE_URL_ROOT"] ||= "http://localhost:3000"
 
