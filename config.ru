@@ -5,9 +5,7 @@ end
 
 ENV["APP_ENV"] ||= ENV["RAILS_ENV"]
 
-if ENV["PROMETHEUS_EXPORTER_URL"]
-  use Prometheus::Middleware::Collector
-end
+use Metrics::Middleware
 
 Bundler.require
 Spectrum::Json.configure(__dir__, ENV["RAILS_RELATIVE_URL_ROOT"])
@@ -19,7 +17,7 @@ end
 
 use Rack::Attack
 
-Rack::Attack.track("has_cookie") do |req|
+Rack::Attack.track("haz_cookie") do |req|
   req.env.has_key?("HTTP_COOKIE")
 end
 
