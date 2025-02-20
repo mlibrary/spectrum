@@ -288,6 +288,11 @@ SHAP:
     SHAP PRON: '2nd floor Browsing Collection - Shelved by author'
     SHAP GAME: 'Video Games - 4th Floor'
     SHAP GAMEB: 'Video Games - 4th Floor - Books'
+    SHAP DISP: 'On Display - Hatcher/Shapiro'
+    SHAP FLOW: 'Shapiro - Overflow Collection'
+    SHAP GOV: 'Shapiro Basement Government Publications'
+    SHAP SERU: 'Unbound serials'
+    SHAP UNASSIGNED: 'Unassigned location'
 SPEC: 
   desc: 'Special Collections' 
   collections: 
