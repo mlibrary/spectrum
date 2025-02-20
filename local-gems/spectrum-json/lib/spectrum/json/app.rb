@@ -24,6 +24,7 @@ module Spectrum
 
       configure do
         enable :sessions
+        enable :logging
         set :session_secret, ENV["RACK_SESSION_SECRET"]
         set :relative_url_root, ENV.fetch("RAILS_RELATIVE_URL_ROOT", "http://localhost:3000")
         set :public_folder, "public"

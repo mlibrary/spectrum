@@ -5,9 +5,7 @@ end
 
 ENV["APP_ENV"] ||= ENV["RAILS_ENV"]
 
-if ENV["PROMETHEUS_EXPORTER_URL"]
-  use Prometheus::Middleware::Collector
-end
+use Metrics::Middleware
 
 Bundler.require
 Spectrum::Json.configure(__dir__, ENV["RAILS_RELATIVE_URL_ROOT"])
@@ -18,14 +16,19 @@ use Rack::ReverseProxy do
 end
 
 use Rack::Attack
+
+Rack::Attack.track("haz_cookie") do |req|
+  req.env.has_key?("HTTP_COOKIE")
+end
+
 ENV.fetch("RACK_IP_BLOCKLIST", "").split(/\s/).each do |ip|
   Rack::Attack.blocklist_ip(ip)
 end
 
 if ENV.fetch("RACK_THROTTLE", false)
   Rack::Attack.cache.store = ActiveSupport::Cache::MemoryStore.new
-  Rack::Attack.throttle('limit requests for /spectrum/.*/record', limit: 3, period: 60) do |req|
-    if req.path.match(%r{/spectrum/.*/record/})
+  Rack::Attack.throttle("limit requests for /spectrum/.*/record", limit: 3, period: 60) do |req|
+    if %r{/spectrum/.*/record/}.match?(req.path)
       req.ip
     end
   end

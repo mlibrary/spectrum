@@ -23,8 +23,10 @@ module Spectrum
       def items
         return @items if @items
         ret = []
-        each_item do |item|
-          ret << item
+        ActiveSupport::Notifications.instrument("#{self.class.name.to_lower}.spectrum_json_act", data: @data, username: @username, role: @role) do
+          each_item do |item|
+            ret << item
+          end
         end
         @items = ret
       end
