@@ -273,7 +273,6 @@ SHAP:
   desc: 'Shapiro'
   collections:
     ALL: All collections
-    SHAP SBCS: 'Basement Compact Shelving'
     SHAP ATL: 'Atlases & Maps - 4th floor'
     SHAP DIS: 'Dissertations/Masters - 4th floor'
     SHAP SCI: 'Science Book Stacks - 4th floor'
@@ -286,7 +285,6 @@ SHAP:
     SHAP COLSC: 'College and Career Success Collection - 1st Floor'
     SHAP DLAB: 'Design Lab'
     SHAP OVR: 'Undergrad Oversize - basement'
-    SHAP PER: 'Undergrad Periodical Shelves - 2nd Floor'
     SHAP PRON: '2nd floor Browsing Collection - Shelved by author'
     SHAP GAME: 'Video Games - 4th Floor'
     SHAP GAMEB: 'Video Games - 4th Floor - Books'
