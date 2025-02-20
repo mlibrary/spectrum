@@ -49,9 +49,11 @@ module Spectrum
           return unless cookie_threshold > 0
           return unless env["HTTP_COOKIE"]
           return unless env["HTTP_COOKIE"].bytesize > cookie_threshold
-          request.cookies.keys.each do |name|
-            next if KEEP_THESE_COOKIES.include?(name)
-            response.delete_cookie(name, domain: domain)
+          ActiveSupport::Notifications.instrument("cookie_purge.spectrum", request: request, cookie_threshold: cookie_threshold) do
+            request.cookies.keys.each do |name|
+              next if KEEP_THESE_COOKIES.include?(name)
+              response.delete_cookie(name, domain: domain)
+            end
           end
         end
 
