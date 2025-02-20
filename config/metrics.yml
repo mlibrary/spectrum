@@ -35,5 +35,5 @@ metrics:
   docstring: "The http request cookie sizes in bytes"
   buckets: [500, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 7500, 8000]
 - type: counter
-  name: cookie_purges
+  name: cookie_purge
   docstring: "The total number of cookie purges initiated by spectrum"
