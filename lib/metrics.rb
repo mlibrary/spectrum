@@ -14,6 +14,9 @@ module Metrics
   end
 
   class Middleware < Prometheus::Middleware::Collector
+    KNOWN_PATHS = ["/everything", "/catalog", "/articles", "/onlinejournals", "/guidesandmore", "/index.html"]
+    APP_PATHS = ["/spectrum", "/auth", "/login", "/logout"]
+
     protected
 
     def init_request_metrics
@@ -26,6 +29,16 @@ module Metrics
     def init_exception_metrics
       exceptions_name = :"#{@metrics_prefix}_exceptions_total"
       @exceptions = @registry.get(exceptions_name) || NoOpMetric
+    end
+
+    def strip_ids_from_path(path)
+      p = super
+      return "/known-path" if KNOWN_PATHS.any? { |known_path| p.start_with?(known_path) }
+      return "/not-a-path" unless APP_PATHS.any? { |app_path| p.start_with?(app_path) }
+      p.gsub(%r{/record/[^/]+}, "/record/:recordid")
+        .gsub(%r{/get-this/.*}, "/get-this/:record/:barcode")
+        .gsub(%r{/holdings/[^/]+$}, "/holdings/:recordid")
+        .gsub(%r{/holdings/[^/]+/.*}, "/holdings/:record/:holding/:item/:pickup_location/:not_needed_after")
     end
   end
 
@@ -68,9 +81,7 @@ module Metrics
       Prometheus::Client.registry
     end
 
-    def logger
-      @logger
-    end
+    attr_reader :logger
 
     private
 
@@ -100,7 +111,7 @@ module Metrics
 
     def configure_subscriptions(config)
       return unless config
-      require File.expand_path(config, File.expand_path('..', __dir__))
+      require File.expand_path(config, File.expand_path("..", __dir__))
     end
 
     def configure_puma_variables(config)
