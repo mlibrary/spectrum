@@ -12,13 +12,9 @@ AAEL:
     AAEL EQAAEL: 'AAEL Equipment'
     AAEL OVR: 'Book Collection -- Oversize'
     AAEL CAR: 'Career Collection'
-    AAEL STNO: 'Closed Shelving'
-    AAEL STO: 'Closed Shelving'
-    AAEL RESC: 'Course Reserves'
-    AAEL RESI: 'Course Reserves'
-    AAEL RESP: 'Course Reserves'
+    AAEL CLOSD: 'Closed Shelving' #grouping for STNO, STO, STOF
+    AAEL RESRV: 'Course Reserves' #grouping for RESC, RESI, RESP
     AAEL SERU: 'Current Journals'
-    AAEL STOF: 'Folio Closed Shelving'
     AAEL MAIN: 'Main Collection'
     AAEL MICE: 'Microfiche - Basement'
     AAEL MICM: 'Microfilm - Basement'
@@ -140,10 +136,7 @@ HATCH:
     HATCH ASIA: 'Asia Library' #grouping for ASIA, AMIC, AREF, AOVR, AOFF, AOFFNC, AOKA, ASPEC
     HATCH AMHC: 'The Azad and Margaret Hogikyan Armenian Studies Collection'
     HATCH CLATL: 'Clark Library Atlas Shelves'
-    HATCH CLARK: 'Clark Library Book Shelves'
-    HATCH CLBKS: 'Clark Library Book Shelves'
-    HATCH CLBKS-CIRC: 'Clark Library Book Shelves - Circulating'
-    HATCH CLC: 'Children''s Literature Collection' #NOT in Clark
+    HATCH CLARKBKS: 'Clark Library Book Shelves' #grouping for CLARK, CLBKS, CLBKS-CIRC
     HATCH CLFIL: 'Clark Library File Cabinets'
     HATCH CLFOL: 'Clark Library Folio'
     HATCH CLMAP: 'Clark Library Map Cases'
@@ -154,6 +147,7 @@ HATCH:
     HATCH CLRAR: 'Clark Library Rare Cases'
     HATCH CLSOF: 'Clark Library Software'
     HATCH CLOS: 'Closed Shelving' #NOT in Clark
+    HATCH CLC: 'Children''s Literature Collection' #NOT in Clark
     HATCH GFOL: 'Folio'
     HATCH GRAD: 'Graduate Library Stacks'
     HATCH MIXM: 'Graduate Library Mixed Media'
