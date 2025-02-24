@@ -52,10 +52,10 @@ gem "json"
 gem "httpclient"
 gem "nokogiri"
 
-group :yabeda do
+group :metrics do
   gem "yabeda-puma-plugin"
   gem "yabeda-prometheus"
-  gem "prometheus-client", require: "prometheus/middleware/collector"
+  gem "prometheus-client", require: File.expand_path(File.join(["lib", "metrics"]), __dir__)
 end
 
 # "Rack middleware which cleans up invalid UTF8 characters"

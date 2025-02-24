@@ -7,10 +7,9 @@ module Spectrum
         def initialize(
           key:,
           host:,
-          tab: 'default_tab',
-          scope: 'default_scope',
-          view: 'Auto1',
-          libkey:,
+          libkey:, tab: "default_tab",
+          scope: "default_scope",
+          view: "Auto1",
           params: {}
         )
           @key = key
@@ -34,10 +33,19 @@ module Spectrum
           results.total_items
         end
 
-
         def search
+          return @results if @results
           @logger&.info { url }
-          @results ||= Response.for_json(HTTParty.get(url)).with_libkey(libkey)
+          primo_response = nil
+          ActiveSupport::Notifications.instrument("primo_search.spectrum_search_engine_primo", source_id: "primo", params: params, url: url) do
+            primo_response = Response.for_json(HTTParty.get(url))
+          end
+          ActiveSupport::Notifications.instrument("libkey_search.spectrum_search_engine_primo", source_id: "primo", params: params, url: url) do
+            @results = primo_response.with_libkey(libkey)
+          end
+          ActiveSupport::Notifications.instrument("primo_results.spectrum_search_engine_primo", results: @results) do
+          end
+          @results
         end
 
         def url
@@ -49,7 +57,7 @@ module Spectrum
             apikey: key,
             tab: tab,
             scope: scope,
-            vid: view,
+            vid: view
           }).to_query
         end
       end

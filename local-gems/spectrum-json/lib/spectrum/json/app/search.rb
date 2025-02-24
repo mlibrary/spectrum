@@ -77,10 +77,12 @@ module Spectrum
           )
 
           if source.holdings
-            full_response[:response].each do |record|
-              holdings_request = Spectrum::Request::Holdings.new({id: record[:uid]})
-              holdings_response = Spectrum::Response::Holdings.new(source, holdings_request)
-              record.merge!(holdings: holdings_response.renderable)
+            ActiveSupport::Notifications.instrument("search_results_holdings_retrieval.spectrum_json_search", full_response: full_response) do
+              full_response[:response].each do |record|
+                holdings_request = Spectrum::Request::Holdings.new({id: record[:uid]})
+                holdings_response = Spectrum::Response::Holdings.new(source, holdings_request)
+                record.merge!(holdings: holdings_response.renderable)
+              end
             end
           else
             full_response[:response].each do |record|
@@ -101,8 +103,10 @@ module Spectrum
               spectrum_request
             )
             holdings_response = if source.holdings
-              holdings_request = Spectrum::Request::Holdings.new(request)
-              Spectrum::Response::Holdings.new(source, holdings_request)
+              ActiveSupport::Notifications.instrument("single_record_holdings_retrieval.spectrum_json_search", spectrum_response: spectrum_response) do
+                holdings_request = Spectrum::Request::Holdings.new(request)
+                Spectrum::Response::Holdings.new(source, holdings_request)
+              end
             else
               Spectrum::Response::NullHoldings.new
             end
