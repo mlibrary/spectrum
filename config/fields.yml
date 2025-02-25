@@ -866,9 +866,6 @@
   filters:
     - id: sanitize
       method: sanitize
-  metadata_component:
-    medium:
-      type: plain
 
 - id: subject
   metadata:
