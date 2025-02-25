@@ -11,7 +11,7 @@ module Spectrum
         end
 
         def headings
-          ["Link", "Description", "Source"]
+          ["Link", "Description", "Source", "Access Restriction"]
         end
 
         def rows
