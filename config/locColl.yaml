@@ -261,6 +261,9 @@ SHAP:
     SHAP UGL: 'Undergraduate stacks'
     SHAP GAME: 'Video Games'
     SHAP GAMEB: 'Video Games - Books'
+    SHAP DISP: 'On Display - Hatcher/Shapiro'
+    SHAP SERU: 'Unbound serials'
+    SHAP UNASSIGNED: 'Unassigned location'
     #updated 2025-02-21
 SPEC: 
   desc: 'Special Collections' 
