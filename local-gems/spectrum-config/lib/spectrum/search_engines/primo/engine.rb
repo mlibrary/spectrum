@@ -40,7 +40,7 @@ module Spectrum
           ActiveSupport::Notifications.instrument("primo_search.spectrum_search_engine_primo", source_id: "primo", params: params, url: url) do
             primo_response = Response.for_json(HTTParty.get(url))
           end
-          ActiveSupport::Notifications.instrument("libkey_search.spectrum_search_engine_primo", source_id: "primo", params: params, url: url) do
+          ActiveSupport::Notifications.instrument("libkey_search.spectrum_search_engine_primo", source_id: "libkey", params: params, url: url) do
             @results = primo_response.with_libkey(libkey)
           end
           ActiveSupport::Notifications.instrument("primo_results.spectrum_search_engine_primo", results: @results) do
