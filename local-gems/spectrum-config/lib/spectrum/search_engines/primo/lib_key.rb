@@ -6,17 +6,17 @@ module Spectrum
 
         def self.for_data(config, type, data)
           return nil unless data
-          url = config['host'] + "/public/v1/libraries/#{config['library_id']}/articles/#{type}/#{CGI.escape(data)}"
+          url = config["host"] + "/public/v1/libraries/#{config['library_id']}/articles/#{type}/#{CGI.escape(data)}"
           headers = {'Authorization' => "Bearer #{config['key']}"}
           response = begin
-            HTTParty.get(url, headers: headers)
+            HTTParty.get(url, headers: headers, open_timeout: 0.5)
           rescue Net::OpenTimeout
             ActiveSupport::Notifications.instrument("open_timeout.spectrum_search_engine", source: "libkey")
-            nil
+            for_nothing
           end
-          return nil unless response.code == 200
-          return nil unless response['data']
-          self.new(response['data'])
+          return for_nothing unless response.code == 200
+          return for_nothing unless response['data']
+          new(response['data'])
         end
 
         def self.for_nothing
