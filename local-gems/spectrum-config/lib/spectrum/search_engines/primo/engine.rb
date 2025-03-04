@@ -38,7 +38,12 @@ module Spectrum
           @logger&.info { url }
           primo_response = nil
           ActiveSupport::Notifications.instrument("primo_search.spectrum_search_engine_primo", source_id: "primo", params: params, url: url) do
-            primo_response = Response.for_json(HTTParty.get(url))
+            primo_response = begin
+              Response.for_json(HTTParty.get(url))
+            rescue EOFError, Errno::ECONNRESET => e
+              ActiveSupport::Notifications.instrument("primo_exception.spectrum_search_engine_primo", source_id: "primo", params: params, url: url, exception: e)
+              Response.for_nothing
+            end
           end
           ActiveSupport::Notifications.instrument("libkey_search.spectrum_search_engine_primo", source_id: "libkey", params: params, url: url) do
             @results = primo_response.with_libkey(libkey)
