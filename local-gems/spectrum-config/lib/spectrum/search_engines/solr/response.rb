@@ -8,6 +8,10 @@ module Spectrum
           new(raw_response)
         end
 
+        def self.for_nothing
+          new({"response" => {"docs" => [], "numFound" => 0}, "facet_counts" => {"facet_fields" => {}}})
+        end
+
         def initialize(raw_response)
           @raw = raw_response
         end

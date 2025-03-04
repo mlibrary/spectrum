@@ -33,7 +33,11 @@ module Spectrum
         @params[:qq] ||= '"' + RSolr.solr_escape(@params[:q]) + '"'
 
         ActiveSupport::Notifications.instrument("solr_search.spectrum_search_engine_solr", source_id: @source.id, params: @params) do
-          @response = Response.for(@solr.post("select", params: @params))
+          @response = begin Response.for(@solr.post("select", params: @params))
+          rescue RSolr::Error::Http => e
+            ActiveSupport::Notifications.instrument("rsolr_exception.spectrum_search_engine_solr", exception: e)
+            Response.for_nothing
+          end
         end
         ActiveSupport::Notifications.instrument("solr_results.spectrum_search_engine_solr", results: @response) do
         end
