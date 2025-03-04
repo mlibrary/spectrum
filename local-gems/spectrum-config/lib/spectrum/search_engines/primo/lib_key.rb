@@ -5,22 +5,22 @@ module Spectrum
         attr_accessor :data
 
         def self.for_data(config, type, data)
-          return nil unless data
-          url = config["host"] + "/public/v1/libraries/#{config['library_id']}/articles/#{type}/#{CGI.escape(data)}"
-          headers = {'Authorization' => "Bearer #{config['key']}"}
+          return for_nothing unless data
+          url = config["host"] + "/public/v1/libraries/#{config["library_id"]}/articles/#{type}/#{CGI.escape(data)}"
+          headers = {"Authorization" => "Bearer #{config["key"]}"}
           response = begin
             HTTParty.get(url, headers: headers, open_timeout: 0.5)
           rescue Net::OpenTimeout
-            ActiveSupport::Notifications.instrument("open_timeout.spectrum_search_engine", source: "libkey")
+            ActiveSupport::Notifications.instrument("open_timeout.spectrum_search_engine_primo", source: "libkey", type: type, data: data)
             for_nothing
           end
           return for_nothing unless response.code == 200
-          return for_nothing unless response['data']
-          new(response['data'])
+          return for_nothing unless response["data"]
+          new(response["data"])
         end
 
         def self.for_nothing
-          self.new({})
+          new({})
         end
 
         def initialize(data)
