@@ -8,7 +8,12 @@ module Spectrum
           return nil unless data
           url = config['host'] + "/public/v1/libraries/#{config['library_id']}/articles/#{type}/#{CGI.escape(data)}"
           headers = {'Authorization' => "Bearer #{config['key']}"}
-          response = HTTParty.get(url, headers: headers)
+          response = begin
+            HTTParty.get(url, headers: headers)
+          rescue Net::OpenTimeout
+            ActiveSupport::Notifications.instrument("open_timeout.spectrum_search_engine", source: "libkey")
+            nil
+          end
           return nil unless response.code == 200
           return nil unless response['data']
           self.new(response['data'])
