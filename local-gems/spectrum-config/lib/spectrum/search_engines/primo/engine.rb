@@ -19,7 +19,7 @@ module Spectrum
           @view = view
           @libkey = libkey
           @params = params
-          @results = nil
+          @response = nil
           if defined?(Rails) && Rails.respond_to?(:logger)
             @logger = Rails.logger
           end
@@ -30,27 +30,48 @@ module Spectrum
         end
 
         def total_items
-          results.total_items
+          search.total_items
         end
 
         def search
-          return @results if @results
+          return @response if @response
           @logger&.info { url }
+          params_presenter = ParamsPresenter.new(params)
           primo_response = nil
-          ActiveSupport::Notifications.instrument("primo_search.spectrum_search_engine_primo", source_id: "primo", params: params, url: url) do
+          primo_duration = Benchmark.realtime do
             primo_response = begin
               Response.for_json(HTTParty.get(url))
             rescue EOFError, Errno::ECONNRESET => e
-              ActiveSupport::Notifications.instrument("primo_exception.spectrum_search_engine_primo", source_id: "primo", params: params, url: url, exception: e)
+              ActiveSupport::Notifications.instrument(
+                "primo_exception.spectrum_search_engine_primo",
+                source_id: "primo",
+                params: params_presenter,
+                url: url,
+                exception: e
+              )
               Response.for_nothing
             end
           end
-          ActiveSupport::Notifications.instrument("libkey_search.spectrum_search_engine_primo", source_id: "libkey", params: params, url: url) do
-            @results = primo_response.with_libkey(libkey)
+          libkey_duration = Benchmark.realtime do
+            @response = primo_response.with_libkey(libkey)
           end
-          ActiveSupport::Notifications.instrument("primo_results.spectrum_search_engine_primo", results: @results) do
-          end
-          @results
+          ActiveSupport::Notifications.instrument(
+            "primo_search.spectrum_search_engine_primo",
+            duration: primo_duration,
+            source_id: "primo",
+            params: params_presenter,
+            url: url,
+            response: @response
+          )
+          ActiveSupport::Notifications.instrument(
+            "libkey_search.spectrum_search_engine_primo",
+            duration: libkey_duration,
+            source_id: "libkey",
+            params: params_presenter,
+            url: url,
+            response: @response
+          )
+          @response
         end
 
         def url

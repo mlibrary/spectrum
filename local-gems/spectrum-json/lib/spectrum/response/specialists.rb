@@ -91,7 +91,17 @@ module Spectrum
           rows: rows.first,
           fl: fields.first
         )
-        client.first.get('select', params: params)
+        response = nil
+        duration = Benchmark.realtime do
+          response = client.first.post('select', params: params)
+        end
+        ActiveSupport::Notifications.instrument(
+          "fetch_records.spectrum_specialists",
+          duration: duration,
+          params: params,
+          response: response
+        )
+        response
       end
 
       def extract_terms(records)
@@ -133,7 +143,17 @@ module Spectrum
           fl: '*',
           wt: 'ruby'
         }
-        client.last.get('select', params: params)
+        response = nil
+        duration = Benchmark.realtime do
+          response = client.last.post('select', params: params)
+        end
+        ActiveSupport::Notifications.instrument(
+          "fetch_specialists_2step.spectrum_specialists",
+          duration: duration,
+          params: params,
+          response: response
+        )
+        response
       end
 
       def empty_results
@@ -177,7 +197,17 @@ module Spectrum
           fq: '+source:drupal-users +status:true',
           wt: 'ruby'
         }
-        client.last.get('select', params: params)
+        response = nil
+        duration = Benchmark.realtime do
+          response = client.last.post('select', params: params)
+        end
+        ActiveSupport::Notifications.instrument(
+          "fetch_specialists_1step.spectrum_specialists",
+          duration: duration,
+          params: params,
+          response: response
+        )
+        response
       end
 
       def find(_query)

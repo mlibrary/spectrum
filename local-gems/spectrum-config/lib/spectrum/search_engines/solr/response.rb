@@ -28,6 +28,10 @@ module Spectrum
           raw["response"]["numFound"]
         end
 
+        def total_items_magnitude
+          Math.log10(total_items).ceil
+        end
+
         def first
           raw["response"]["docs"].first
         end

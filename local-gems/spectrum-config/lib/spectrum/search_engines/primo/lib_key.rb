@@ -10,8 +10,8 @@ module Spectrum
           headers = {"Authorization" => "Bearer #{config["key"]}"}
           response = begin
             HTTParty.get(url, headers: headers, open_timeout: 0.5)
-          rescue Net::OpenTimeout
-            ActiveSupport::Notifications.instrument("open_timeout.spectrum_search_engine_primo", source: "libkey", type: type, data: data)
+          rescue => e
+            ActiveSupport::Notifications.instrument("libkey_exception.spectrum_search_engine_primo", source_id: "libkey", type: type, data: data, exception: e)
             for_nothing
           end
           return for_nothing unless response.code == 200

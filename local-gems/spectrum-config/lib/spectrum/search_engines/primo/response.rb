@@ -53,6 +53,14 @@ module Spectrum
           @info.total
         end
 
+        def total_items_magnitude
+          Math.log10(total_items).ceil
+        end
+
+        def length
+          @docs.length
+        end
+
         def first
           @docs.first
         end
