@@ -1146,33 +1146,6 @@
       fields:
         - ssfield_permalink
 
-- id: summon_links
-  uid: links
-  metadata:
-    name: Links
-  type: conditional_merge
-  conditions:
-    - field: LinkModel
-      value: DirectLink
-      fields:
-        - uid: text
-          name: text
-          field: title
-        - uid: href
-          name: href
-          field: openUrl
-          prepend: https://mgetit.lib.umich.edu/?
-    - field: LinkModel
-      value: OpenURL
-      fields:
-        - uid: text
-          name: text
-          field: title
-        - uid: href
-          name: href
-          field: openUrl
-          prepend: https://mgetit.lib.umich.edu/?
-
 - id: publisher
   csl:
     id: publisher
@@ -1353,6 +1326,14 @@
   sortable: false
 
 - id: mirlyn_format
+  type: conditional_merge
+  conditions:
+  - field: format
+    comparison: always
+  - field: availability
+    comparison: include
+    value: hathi_trust_full_text_or_electronic_holding
+    literal: "Available Online"
   csl:
     id: type
     type: type
