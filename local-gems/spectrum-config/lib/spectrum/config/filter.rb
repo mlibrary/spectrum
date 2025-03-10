@@ -13,6 +13,10 @@ module Spectrum
         @decoder = HTMLEntities.new
       end
 
+      def scalar(value, _)
+        [value].flatten.compact.first
+      end
+
       def boolean(value, request)
         case value
         when Array

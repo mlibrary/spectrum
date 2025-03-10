@@ -93,6 +93,7 @@ fields:
 - primo_times_cited
 - abstract
 - articles_edition
+- peer_reviewed
 
 # Searching
 - primo_all_fields
