@@ -1,8 +1,9 @@
 # frozen_string_literal: true
+
 module Spectrum
   module Config
     class ConditionalMergeField < Field
-      type 'conditional_merge'
+      type "conditional_merge"
 
       attr_reader :conditions
 
@@ -13,7 +14,7 @@ module Spectrum
 
       def initialize_from_hash(args, config = {})
         super
-        @conditions = (args['conditions'] || []).map do |condition|
+        @conditions = (args["conditions"] || []).map do |condition|
           Condition.new(condition)
         end
       end
@@ -23,7 +24,7 @@ module Spectrum
           condition.value do |key|
             resolve_key(data, key)
           end
-        end.compact
+        end.compact.flatten
       end
     end
   end

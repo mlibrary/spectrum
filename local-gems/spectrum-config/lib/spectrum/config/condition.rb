@@ -1,28 +1,23 @@
 # frozen_string_literal: true
+
 module Spectrum
   module Config
     class Condition
       def initialize(cond)
-        @field = cond['field']
-        @cmp   = cond['comparison'] || 'eq'
-        @value = cond['value']
-        @fields = cond['fields']
+        @field = cond["field"]
+        @comparison = cond["comparison"] || "eq"
+        @value = cond["value"]
+        @literal = cond["literal"]
       end
 
       def value
-        case @cmp
-        when 'eq'
+        case @comparison
+        when "always"
+          return yield(@field)
+        when "include"
           val = yield(@field)
-          val = val.first if Array === val
-          if @value == val
-            return @fields.map do |field_def|
-              {
-                'uid' =>  field_def['uid'],
-                'name' => field_def['name'],
-                'value' => (field_def['prepend'] || '') + yield(field_def['field']),
-                'value_has_html' => true
-              }
-            end
+          if val.include?(@value)
+            return @literal if @literal
           end
         end
         nil
