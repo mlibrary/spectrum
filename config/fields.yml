@@ -4320,6 +4320,18 @@
     short_desc: All fields
   viewable: false
 
+- id: peer_reviewed
+  metadata:
+    name: Peer reviewed
+    short_desc: Peer reviewed
+  field: lds50
+  filters:
+  - id: scalar
+    method: scalar
+  mapping:
+    peer_reviewed: "Y"
+    null: "N"
+
 - id: primo_is_scholarly
   uid: is_scholarly
   metadata:
