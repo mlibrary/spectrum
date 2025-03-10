@@ -1,21 +1,20 @@
 # frozen_string_literal: true
+
 module Spectrum
   module Config
     class FilteredLabelingAggregator < Aggregator
-      type 'filtered_labeling'
+      type "filtered_labeling"
 
       def add(metadata, field, subfield)
         @ret[field] ||= {}
-        @ret[field][metadata[:label]] ||= {}
-        @ret[field][metadata[:label]][metadata[:join]] ||= {}
-        @ret[field][metadata[:label]][metadata[:join]][metadata[:filters]] ||= []
-        @ret[field][metadata[:label]][metadata[:join]][metadata[:filters]] << {subfield.code => subfield.value}
+        @ret[field][metadata] ||= []
+        @ret[field][metadata] << {subfield.code => subfield.value}
       end
 
       def sub_exists_filter(code_match, sub_match, fields)
         return fields unless fields.any? { |field| sub_match.match(field.to_a.first.first) }
         fields.reject do |code_value|
-          code, value = code_value.to_a.first
+          code, _ = code_value.to_a.first
           code_match.match?(code)
         end
       end
@@ -45,15 +44,19 @@ module Spectrum
       end
 
       def to_value
-        @ret.values.map do |label_join_filters_fields|
-          label_join_filters_fields.map do |label, join_filters_fields|
-            join, filters_fields = join_filters_fields.to_a.first
-            filters, fields = filters_fields.to_a.first
-            filtered_fields = apply_filters(filters, fields)
+        @ret.values.map do |metadata_subfields|
+          metadata_subfields.map do |metadata, subfields|
+            label = metadata[:label]
+            join = metadata[:join]
+            filters = metadata[:filters]
+            prefix = metadata[:prefix] || ""
+            suffix = metadata[:suffix] || ""
+            filtered_subfields = apply_filters(filters, subfields)
+
             values = if join
-              filtered_fields.join(join)
+              prefix + filtered_subfields.join(join) + suffix
             else
-              filtered_fields
+              filtered_subfields.map { |subfield| prefix + subfield + suffix }
             end
 
             {
