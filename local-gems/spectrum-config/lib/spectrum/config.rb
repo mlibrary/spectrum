@@ -24,10 +24,12 @@ require "spectrum/search_engines/primo/facet"
 require "spectrum/search_engines/primo/facets"
 require "spectrum/search_engines/primo/response"
 require "spectrum/search_engines/primo/engine"
+require "spectrum/search_engines/primo/params_presenter"
 require "spectrum/search_engines/primo"
 
 require "spectrum/search_engines/solr/response"
 require "spectrum/search_engines/solr/results"
+require "spectrum/search_engines/solr/params_presenter"
 require "spectrum/search_engines/solr"
 
 require "spectrum/config/base_source"

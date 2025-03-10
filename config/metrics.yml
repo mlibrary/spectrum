@@ -29,11 +29,20 @@ metrics:
   docstring: "The API response duration for requests made by Spectrum."
   labels:
   - source
+  - query_requested_records
+  - query_word_count
+  - query_has_booleans
+  - query_has_quoted_phrases
+  - response_records_matched
+  - response_total_items_magnitude
   buckets: [0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5, 10, 15, 20, 30]
 - type: histogram
   name: cookie_size_bytes
   docstring: "The http request cookie sizes in bytes"
   buckets: [500, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 7500, 8000]
 - type: counter
-  name: cookie_purges
+  name: cookie_purges_total
   docstring: "The total number of cookie purges initiated by spectrum"
+- type: counter
+  name: exceptions_total
+  docstring: "The total number of exceptions caught by spectrum"

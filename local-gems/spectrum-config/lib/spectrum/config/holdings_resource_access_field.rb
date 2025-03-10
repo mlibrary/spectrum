@@ -37,10 +37,15 @@ module Spectrum
               {href: holding.link, text: link_text || holding.link_text},
               {text: [holding.description, holding.note].compact.join(' - ')}
             ]
-          elsif holding.respond_to?(:delivery_description)
+          elsif holding.respond_to?(:delivery_description) && holding.respond_to?(:note)
             [
               {href: holding.link, text: link_text || holding.link_text},
               {text: [holding.delivery_description, holding.note].compact.join(' - ')}
+            ]
+          elsif holding.respond_to?(:delivery_description)
+            [
+              {href: holding.link, text: link_text || holding.link_text},
+              {text: [holding.delivery_description].compact.join(' - ')}
             ]
           else
             [

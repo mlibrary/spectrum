@@ -16,7 +16,7 @@ module Spectrum
         result = driver.message(request.to, request.from, request.items)
         success
       rescue Exception => e
-        Rails.logger.error { e.to_s + e.backtrace.to_s}
+        ActiveSupport::Notifications.instrument("email_exception.spectrum_json", exception: e)
         failure
       end
 
