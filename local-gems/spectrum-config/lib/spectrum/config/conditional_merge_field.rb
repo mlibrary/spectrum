@@ -24,7 +24,7 @@ module Spectrum
           condition.value do |key|
             resolve_key(data, key)
           end
-        end.compact.flatten
+        end.flatten.compact
       end
     end
   end
