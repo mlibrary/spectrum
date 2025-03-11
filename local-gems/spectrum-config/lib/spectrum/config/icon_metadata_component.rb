@@ -88,7 +88,7 @@ module Spectrum
         "Website" => "web",
         "Web Resource" => "web",
         "Reference Entry" => "document",
-        "Available Online" => "web"
+        "Available Online" => "devices"
       }
 
       def initialize(name, config)
