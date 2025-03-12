@@ -29,6 +29,7 @@ module Spectrum
         end
 
         def total_items_magnitude
+          return 0 if total_items < 1
           Math.log10(total_items).ceil
         end
 
