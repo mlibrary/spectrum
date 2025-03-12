@@ -2791,14 +2791,15 @@
         join: ' '
         where:
           - sub: "6"
-            start_with: ['246', '247']
+            start_with: ['246', '247', '730', '740']
+
       - label: search
         tag: '880'
         sub: '[a-eghj-z]'
         join: ' '
         where:
           - sub: "6"
-            start_with: ['246', '247']
+            start_with: ['246', '247', '730', '740']
 
       - label: 'display'
         tag: '740'
