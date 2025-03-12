@@ -1782,13 +1782,6 @@
 - id: availability
   metadata:
     name: Availability
-    short_desc: Available online
-  facet:
-    expanded: true
-
-- id: new_availability
-  metadata:
-    name: Availability
     short_desc: Availability
   facet:
     expanded: true
