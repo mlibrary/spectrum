@@ -2226,6 +2226,8 @@
         sub: '[abcdefgjklnpqtu4]'
         label: display
         join: ' '
+        prefix: "\u2068"
+        suffix: "\u2069"
         filters:
           - sub: "[4]"
             value_match: "https?://"
@@ -2240,6 +2242,8 @@
         sub: '[abcdefgjklnpqtu4]'
         label: display
         join: ' '
+        prefix: "\u2068"
+        suffix: "\u2069"
         where:
           - sub: '6'
             start_with: ['100', '110', '111']
@@ -2287,6 +2291,8 @@
         label: display
         join: ' '
         ind2: '[^2]'
+        prefix: "\u2068"
+        suffix: "\u2069"
         where:
           - sub: t
             exists: false
@@ -2307,6 +2313,8 @@
         sub: '[abcdefgjklnpqu4]'
         label: display
         join: ' '
+        prefix: "\u2068"
+        suffix: "\u2069"
         where:
           - sub: '6'
             start_with: ['700', '710', '711']
@@ -2333,11 +2341,6 @@
       quoted_search: true
       browse_variant: author
       browse_text: Browse in author list
-#      type: search2
-#      variant: filtered
-#      scope: author
-#      text_field: display
-#      value_field: search
 
 - id: ris_contributors
   z3988:
