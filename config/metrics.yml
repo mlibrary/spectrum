@@ -46,3 +46,5 @@ metrics:
 - type: counter
   name: exceptions_total
   docstring: "The total number of exceptions caught by spectrum"
+  labels:
+  - source
