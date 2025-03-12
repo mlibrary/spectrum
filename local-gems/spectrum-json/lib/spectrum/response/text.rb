@@ -28,7 +28,7 @@ module Spectrum
           }
         )
       rescue Exception => e
-        Rails.logger.error { e.to_s + e.backtrace.to_s}
+        ActiveSupport::Notifications.instrument("text_exception.spectrum_json", exception: e)
         failure
       end
 

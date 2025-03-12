@@ -6,22 +6,26 @@ module Spectrum
 
         def self.for_json(json)
           begin
-            return self.new(
+            new(
               info: Info.for_json(json['info']),
               highlights: Highlights.for_json(json['highlights']),
-              docs: Docs.for_json(json['docs'], json['info']['first'].to_i),
+              docs: Docs.for_json(json['docs'], json.dig("info", "first").to_i),
               timelog: Timelog.for_json(json['timelog']),
               facets: Facets.for_json(json['facets'])
             )
           rescue MultiXml::ParseError => e
-            return self.new(
-              info: Info.for_json(nil),
-              highlights: Highlights.for_json(nil),
-              docs: Docs.for_json([], 0),
-              timelog: Timelog.for_json(nil),
-              facets: Facets.for_json([]),
-            )
+            for_nothing
           end
+        end
+
+        def self.for_nothing
+          new(
+            info: Info.for_json(nil),
+            highlights: Highlights.for_json(nil),
+            docs: Docs.for_json([], 0),
+            timelog: Timelog.for_json(nil),
+            facets: Facets.for_json([])
+          )
         end
 
         def with_libkey(config)
@@ -47,6 +51,14 @@ module Spectrum
 
         def total_items
           @info.total
+        end
+
+        def total_items_magnitude
+          Math.log10(total_items).ceil
+        end
+
+        def length
+          @docs.length
         end
 
         def first

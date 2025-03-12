@@ -8,6 +8,10 @@ module Spectrum
           new(raw_response)
         end
 
+        def self.for_nothing
+          new({"response" => {"docs" => [], "numFound" => 0}, "facet_counts" => {"facet_fields" => {}}})
+        end
+
         def initialize(raw_response)
           @raw = raw_response
         end
@@ -22,6 +26,10 @@ module Spectrum
 
         def total_items
           raw["response"]["numFound"]
+        end
+
+        def total_items_magnitude
+          Math.log10(total_items).ceil
         end
 
         def first
