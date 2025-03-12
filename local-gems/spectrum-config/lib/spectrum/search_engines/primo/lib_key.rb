@@ -12,7 +12,7 @@ module Spectrum
             HTTParty.get(url, headers: headers, open_timeout: 0.5)
           rescue => e
             ActiveSupport::Notifications.instrument("libkey_exception.spectrum_search_engine_primo", source_id: "libkey", type: type, data: data, exception: e)
-            for_nothing
+            return for_nothing
           end
           return for_nothing unless response.code == 200
           return for_nothing unless response["data"]
