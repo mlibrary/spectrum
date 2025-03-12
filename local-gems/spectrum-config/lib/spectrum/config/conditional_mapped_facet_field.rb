@@ -22,7 +22,9 @@ module Spectrum
       def value(data, request)
         condition_status = case condition
         when "request.search_only?"
-          request.search_only?.to_s
+          if request.respond_to?(:search_only?)
+            request.search_only?.to_s
+          end
         end
         super.map { |val| mapping.dig(condition_status, val) }.compact
       end

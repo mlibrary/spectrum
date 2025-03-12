@@ -16,6 +16,7 @@ module Spectrum
           return yield(@field)
         when "include"
           val = yield(@field)
+          return nil unless val
           if val.include?(@value)
             return @literal if @literal
           end
