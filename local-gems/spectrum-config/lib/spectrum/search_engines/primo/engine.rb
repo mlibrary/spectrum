@@ -41,7 +41,7 @@ module Spectrum
           primo_duration = Benchmark.realtime do
             primo_response = begin
               Response.for_json(HTTParty.get(url))
-            rescue EOFError, Errno::ECONNRESET => e
+            rescue EOFError, Errno::ECONNRESET, Net::ReadTimeout => e
               ActiveSupport::Notifications.instrument(
                 "primo_exception.spectrum_search_engine_primo",
                 source_id: "primo",
