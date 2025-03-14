@@ -7,6 +7,7 @@ gem "logger"
 
 gem "rack-reverse-proxy", require: "rack/reverse_proxy"
 gem "rack-attack"
+gem "rack-timeout"
 
 # Allow dotenv configuration
 gem "dotenv", require: "dotenv/load"
