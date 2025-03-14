@@ -71,6 +71,12 @@ module Metrics
       if @data_store_dir
         puma.on_prometheus_exporter_boot do
           Dir[File.join(@data_store_dir, "*.bin")].each do |file_path|
+            next if file_path.end_with?("___#{$$}.bin")
+            File.unlink(file_path)
+          end
+        end
+        puma.on_worker_shutdown do
+          Dir[File.join(@data_store_dir, "*___#{$$}.bin")].each do |file_path|
             File.unlink(file_path)
           end
         end
