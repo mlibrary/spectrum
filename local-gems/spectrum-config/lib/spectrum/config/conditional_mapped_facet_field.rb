@@ -26,7 +26,9 @@ module Spectrum
             request.search_only?.to_s
           end
         end
-        super.map { |val| mapping.dig(condition_status, val) }.compact
+        values = super
+        return nil if values.nil?
+        [values].flatten.map { |val| mapping.dig(condition_status, val) }.compact
       end
     end
   end
