@@ -1536,6 +1536,9 @@
     name: Subject
     short_desc: Subject
   searchable: true
+  filters:
+    - id: sanitize
+      method: sanitize
   metadata_component:
     medium:
       type: search1
