@@ -29,7 +29,7 @@ module Spectrum
             @holding.public_note,
             @holding.summary_holdings,
             @holding.floor_location
-          ].compact.reject(&:empty?)
+          ].flatten.compact.reject(&:empty?)
         end
 
         def rows

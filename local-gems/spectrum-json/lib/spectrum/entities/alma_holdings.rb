@@ -72,8 +72,20 @@ class Spectrum::Entities::AlmaHolding
   def_delegators :@bib_record, :mms_id, :doc_id, :title, :author,
     :issn, :isbn, :pub_date
   def_delegators :@solr_holding, :holding_id, :floor_location,
-    :callnumber, :public_note, :library, :location,
+    :callnumber, :library, :location,
     :summary_holdings, :display_name, :info_link, :can_reserve?
+
+  # This may only need to be temporary.
+  # The data structure in @solr_holding for public_note might be made multi-valued.
+  # Then public_note could be delegated to @solr_holding again.
+  def public_note
+    @bib_record.fullrecord.find_all do |field|
+      field.tag == "852" && field["b"] == library && field["c"] == location && field["8"] == holding_id
+    end.map(&:subfields).flatten.select do |subfield|
+      subfield.code == "z"
+    end.map(&:value)
+  end
+
   def initialize(bib:, alma_loans: [], solr_holding: nil)
     @bib_record = bib # now is solr BibRecord
 
