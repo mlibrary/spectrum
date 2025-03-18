@@ -5,9 +5,12 @@ end
 
 ENV["APP_ENV"] ||= ENV["RAILS_ENV"]
 
+Bundler.require
+use Rack::Timeout, service_timeout: 600
+Rack::Timeout::Logger.logger = Logger.new(STDOUT)
+Rack::Timeout::Logger.logger.level = Logger::Severity::WARN
 use Metrics::Middleware
 
-Bundler.require
 Spectrum::Json.configure(__dir__, ENV["RAILS_RELATIVE_URL_ROOT"])
 
 use Rack::ReverseProxy do
