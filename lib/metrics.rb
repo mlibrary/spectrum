@@ -164,6 +164,15 @@ module Metrics
           Prometheus::Client::DataStores::DirectFileStore.new(dir: @data_store_dir)
       end
     end
+
+    def results_count_bucketing(count)
+      count = count.to_i
+      return "<10" if count < 10
+      return "10" if count == 10
+      return "11-29" if count < 30
+      return "30" if count == 30
+      return ">30"
+    end
   end
 end
 
