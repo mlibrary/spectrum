@@ -73,7 +73,7 @@ describe Spectrum::Entities::AlmaHolding do
     expect(subject.items[0].class.to_s).to eq("Spectrum::Entities::AlmaItem")
   end
   it "has public_note" do
-    expect(subject.public_note).to eq("")
+    expect(subject.public_note).to eq([])
   end
   it "has summary_holdings" do
     expect(subject.summary_holdings).to eq("")
