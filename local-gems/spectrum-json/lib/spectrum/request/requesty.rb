@@ -69,33 +69,34 @@ module Spectrum
           @settings = @data["settings"]
           @request_id = @data["request_id"]
 
-          if @page || @count == 0
+          page_number = 0
+          if @count == 0
+            @slice = [0, @count]
             @page_size = @count
+            page_number = 0
+          elsif @start % @count == 0
+            @slice = [0, @count]
+            @page_size = @count
+            page_number = @start/@count
           elsif @start < @count
             @slice = [@start, @count]
             @page_size = @start + @count
-            @page_number = 0
+            page_number = 0
           else
-            last_record = @start + @count
             @page_size = @count
-            @page_number = (@start / @page_size).floor
-
-            while @page_number > 0 && @page_size * (@page_number + 1) < last_record
-              first_record = @page_size * @page_number
-              if @start - first_record < @page_number
-                @page_size = (last_record / @page_number).ceil
-              else
-                @page_size += (@start - first_record).floor
-              end
-              @page_number = (@start / @page_size).floor
+            page_number = (@start / @page_size).floor
+            last_record = @start + @count
+            while @page_size <= 3 * @count && (page_number + 1) * @page_size < last_record
+              @page_size += 1
+              page_number = (@start / @page_size).floor
             end
-            @slice = [@start - @page_size * @page_number, @count]
+            @slice = [@start - page_number * @page_size, @count]
           end
-
           validate!
         end
-        @page = (@page_number || 0) + 1
 
+        @page = (page_number || 0) + 1
+        @page_size ||= 0
         @start ||= 0
         @count ||= 0
         @slice ||= [0, @count]
