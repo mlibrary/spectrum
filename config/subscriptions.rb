@@ -50,11 +50,11 @@ ActiveSupport::Notifications.subscribe("primo_search.spectrum_search_engine_prim
   Metrics(:api_response_duration_seconds) do |metric|
     metric.observe(event.payload[:duration], labels: {
       source: event.payload[:source_id],
-      query_requested_records: event.payload[:params].requested_records,
+      query_requested_records: Metrics.results_count_bucketing(event.payload[:params].requested_records),
       query_word_count: event.payload[:params].keyword_count,
       query_has_booleans: event.payload[:params].has_booleans?,
       query_has_quoted_phrases: event.payload[:params].has_quotes?,
-      response_records_matched: event.payload[:response].length,
+      response_records_matched: Metrics.results_count_bucketing(event.payload[:response].length),
       response_total_items_magnitude: event.payload[:response].total_items_magnitude
     })
   end
@@ -78,11 +78,11 @@ ActiveSupport::Notifications.subscribe("libkey_search.spectrum_search_engine_pri
   Metrics(:api_response_duration_seconds) do |metric|
     metric.observe(event.payload[:duration], labels: {
       source: event.payload[:source_id],
-      query_requested_records: event.payload[:params].requested_records,
+      query_requested_records: Metrics.results_count_bucketing(event.payload[:params].requested_records),
       query_word_count: event.payload[:params].keyword_count,
       query_has_booleans: event.payload[:params].has_booleans?,
       query_has_quoted_phrases: event.payload[:params].has_quotes?,
-      response_records_matched: event.payload[:response].length,
+      response_records_matched: Metrics.results_count_bucketing(event.payload[:response].length),
       response_total_items_magnitude: event.payload[:response].total_items_magnitude
     })
   end
@@ -92,11 +92,11 @@ ActiveSupport::Notifications.subscribe("solr_search.spectrum_search_engine_solr"
   Metrics(:api_response_duration_seconds) do |metric|
     metric.observe(event.payload[:duration], labels: {
       source: event.payload[:source_id],
-      query_requested_records: event.payload[:params].requested_records,
+      query_requested_records: Metrics.results_count_bucketing(event.payload[:params].requested_records),
       query_word_count: event.payload[:params].keyword_count,
       query_has_booleans: event.payload[:params].has_booleans?,
       query_has_quoted_phrases: event.payload[:params].has_quotes?,
-      response_records_matched: event.payload[:response].length,
+      response_records_matched: Metrics.results_count_bucketing(event.payload[:response].length),
       response_total_items_magnitude: event.payload[:response].total_items_magnitude
     })
   end
