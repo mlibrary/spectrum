@@ -149,6 +149,7 @@ solr_params:
   default_mm: "2<-1 5<67%"
   mm.autoRelax: true
   tie: 0.1
+  facet.threads: 5
 
 qt: standard
 has_holdings: true

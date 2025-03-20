@@ -116,6 +116,7 @@ solr_params:
 
   ps2: 2
 
+  facet.threads: 5
 
 qt: edismax
 has_holdings: true
