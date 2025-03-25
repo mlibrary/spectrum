@@ -4,7 +4,7 @@ metadata:
   name: Databases
   short_desc: "Search for databases"
 source: website
-new_parser: true
+new_parser: false
 transformer: MLibrarySearchParser::Transformer::Solr::SometimesQuotedLocalParams
 highly_recommended:
   field: academic_discipline
