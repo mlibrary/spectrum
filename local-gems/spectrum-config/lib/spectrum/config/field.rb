@@ -115,7 +115,7 @@ module Spectrum
         @query_field = args['query_field'] || @field
         @query_precision = args['query_precision'] || "contains"
         @query_feedback = args['query_feedback'] || @field
-        @facet_field = args['facet_field'] || @query_field
+        @facet_field = args['facet_field'] || @field
         @facet_query_field = args['facet_query_field'] || @facet_field
         @uid = args['uid'] || args['id']
         @query_params = args['query_params'] || {}
