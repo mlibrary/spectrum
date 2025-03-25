@@ -33,7 +33,7 @@ module Spectrum
         @params[:qq] ||= '"' + RSolr.solr_escape(@params[:q]) + '"'
 
         duration = Benchmark.realtime do
-          @response = begin Response.for(@solr.post("select", params: @params))
+          @response = begin Response.for(@solr.post("select", data: @params))
           rescue RSolr::Error::Http => e
             ActiveSupport::Notifications.instrument("rsolr_exception.spectrum_search_engine_solr", exception: e)
             Response.for_nothing

@@ -4149,7 +4149,8 @@
     id: rft.au
   ris:
     - AU
-  field: creator
+  field: au
+  query_field: creator
   metadata:
     name: Author
     short_desc: Creator
