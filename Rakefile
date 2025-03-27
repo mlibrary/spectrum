@@ -3,6 +3,7 @@
 
 require "bundler"
 Bundler.require
+require "rubygems/package"
 
 File.expand_path("lib", __dir__).tap do |libdir|
   $LOAD_PATH.unshift(libdir) unless $LOAD_PATH.include?(libdir)
@@ -34,8 +35,26 @@ namespace 'assets' do
   task :precompile do
   end
   namespace 'precompile' do
+    desc "Download cached profile photos"
+    task :cached_profile_photos do
+      profile_photos = Faraday.get("http://cached-photos/profile-photos.tar")
+      # From https://stackoverflow.com/questions/34358926/how-to-extract-tar-file
+      Gem::Package::TarReader.new(StringIO.new(profile_photos.body)) do |tar|
+        tar.each do |entry|
+          if entry.file?
+            FileUtils.mkdir_p(File.dirname(entry.full_name))
+            File.open(entry.full_name, "wb") do |file|
+              file.write(entry.read)
+            end
+            File.chmod(entry.header.mode, entry.full_name)
+          end
+        end
+      end
+    end
+
     desc "Download profile photos"
     task :profile_photos do
+      photo_dir = ENV.fetch("SPECTRUM_PHOTO_DIR", "public/photos")
       if ENV.fetch('SPECTRUM_BUILDS_SEARCH', false)
         puts "Downloading profile photos ..."
         HTTParty.get('https://cms.lib.umich.edu/api/solr/staff').parsed_response.each do |profile|
@@ -43,7 +62,8 @@ namespace 'assets' do
           next unless url_string
           next if url_string.empty?
           url_parsed = URI(url_string)
-          dest_file = CGI.unescape('public' + '/photos' + url_parsed.path)
+          dest_file = photo_dir + CGI.unescape(url_parsed.path)
+          next if File.exist?(dest_file)
           FileUtils.mkdir_p(File.dirname(dest_file))
           retries = 3
           begin
