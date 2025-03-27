@@ -33,14 +33,18 @@ module Keycard
     class InstitutionFinder
       ConnectionConfig = Struct.new(:host, :port, :encryption, :method, :username, :password)
 
-      attr_reader :config, :connection, :cache
+      attr_reader :config, :cache
 
       def initialize(config: 'config/keycard.yml')
         @config = configure(YAML.load(ERB.new(File.read(config)).result)['ldap'])
 
         #initialize cache and ldap connection.
         @cache      = init_cache
-        @connection = connect
+        @connection = nil
+      end
+
+      def connection
+        @connection ||= connect
       end
 
       def attributes_for(request)
