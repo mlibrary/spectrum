@@ -6,8 +6,15 @@ module Spectrum
       attr_reader :id, :username, :barcode
 
       def initialize(request:, username:)
-        @id = request[:id]
-        @barcode = request[:barcode]
+        data = if request.respond_to?(:[])
+          request
+        elsif request.respond_to?(:params)
+          request.params
+        else
+          {}
+        end
+        @id = data[:id]
+        @barcode = data[:barcode]
         @username = username || ""
       end
 
