@@ -1,0 +1,30 @@
+Rails:
+  Enabled: true
+
+Rails/Delegate:
+  Enabled: false
+
+# inherit_gem:
+#   rubocop-rails:
+#     - config/rails.yml
+
+AllCops:
+  DisplayCopNames: true
+  TargetRubyVersion: 2.4
+  Exclude:
+    - 'bin/**/*'
+    - 'vendor/**/*'
+
+Layout/MultilineMethodDefinitionBraceLayout:
+  EnforcedStyle: same_line
+
+Metrics/LineLength:
+  Max: 110
+
+Metrics/BlockLength:
+  Exclude:
+    - '*.gemspec'
+  ExcludedMethods: ['describe', 'context']
+
+Style/StringLiterals:
+  Enabled: false
