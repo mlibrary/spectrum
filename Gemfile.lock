@@ -50,7 +50,6 @@ PATH
       activesupport
       alma_rest_client (~> 1.0.1)
       dotenv
-      execjs
       httparty
       json-schema
       lru_redux
@@ -111,7 +110,6 @@ GEM
       activemodel
     erb (4.0.4)
       cgi (>= 0.3.3)
-    execjs (2.10.0)
     faraday (2.12.2)
       faraday-net_http (>= 2.0, < 3.5)
       json
