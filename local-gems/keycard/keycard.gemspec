@@ -18,9 +18,33 @@ Gem::Specification.new do |spec|
   SUMMARY
   spec.homepage = "https://github.com/mlibrary/keycard"
 
-  spec.files = `git ls-files -z`.split("\x0").reject do |f|
-    f.match(%r{^(test|spec|features)/})
-  end
+  spec.files = [
+    ".envrc",
+    ".gitignore",
+    ".rspec",
+    ".rubocop.yml",
+    ".travis.yml",
+    "Gemfile",
+    "LICENSE.md",
+    "README.md",
+    "Rakefile",
+    "bin/console",
+    "bin/setup",
+    "db/migrations/1_create_tables.rb",
+    "keycard.gemspec",
+    "lib/keycard.rb",
+    "lib/keycard/db.rb",
+    "lib/keycard/institution_finder.rb",
+    "lib/keycard/rack.rb",
+    "lib/keycard/rack/inject_attributes.rb",
+    "lib/keycard/rack/require_institution.rb",
+    "lib/keycard/railtie.rb",
+    "lib/keycard/request_attributes.rb",
+    "lib/keycard/version.rb",
+    "lib/keycard/yaml/institution.rb",
+    "lib/keycard/yaml/institution_finder.rb",
+    "lib/tasks/migrate.rake",
+  ]
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
