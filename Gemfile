@@ -22,7 +22,6 @@ gem "skylight"
 gem "net-ldap"
 gem "twilio-ruby"
 gem "puma"
-gem "parslet"
 
 gem "omniauth"
 gem "omniauth_openid_connect"
@@ -32,8 +31,7 @@ gem "ipresolver",
   branch: "master"
 
 gem "keycard",
-  git: "https://github.com/bertrama/keycard",
-  branch: "rack-yaml-institution-finder",
+  path: "local-gems/keycard",
   require: ["keycard/rack", "keycard/yaml/institution_finder"]
 
 gem "spectrum-config", path: "local-gems/spectrum-config"
@@ -58,16 +56,6 @@ group :metrics do
   gem "yabeda-prometheus"
   gem "prometheus-client", require: File.expand_path(File.join(["lib", "metrics"]), __dir__)
 end
-
-# "Rack middleware which cleans up invalid UTF8 characters"
-# gem 'rack-utf8_sanitizer'
-# Use github master branch, to pick up a few new patches.
-# Maybe this will fix one of our outstanding issues:
-#    application#catch_404s (ArgumentError) "invalid %-encoding"
-# We also still have invalid %-encoding w/submitted form fields.
-# This is an open issue at rack-utf8_sanitizer.
-# gem 'rack-utf8_sanitizer', :github => 'whitequark/rack-utf8_sanitizer'
-gem "rack-utf8_sanitizer", git: "https://github.com/whitequark/rack-utf8_sanitizer", branch: "main"
 
 group :test, :development do
   gem "pry-byebug"

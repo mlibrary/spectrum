@@ -30,19 +30,19 @@ RSpec.describe "Auth routes", type: :request do
 
     it "redirects to the dest parameter" do
       expect(subject.status).to eq(302)
-      expect(subject.header["Location"]).to end_with("/somewhere")
+      expect(subject.headers["Location"]).to end_with("/somewhere")
     end
 
     it "redirects to /everything if no dest parameter" do
       @origin = "/login?not_a_dest=not_used_anywhere"
       expect(subject.status).to eq(302)
-      expect(subject.header["Location"]).to end_with("/everything")
+      expect(subject.headers["Location"]).to end_with("/everything")
     end
 
     it "redirects to /everything if no parameters whatsover" do
       @origin = "/login"
       expect(subject.status).to eq(302)
-      expect(subject.header["Location"]).to end_with("/everything")
+      expect(subject.headers["Location"]).to end_with("/everything")
     end
   end
 
@@ -79,13 +79,13 @@ RSpec.describe "Auth routes", type: :request do
     it "redirects to shibboleth logout url with search redirect" do
       response = get "/logout"
       expect(response.status).to eq(302)
-      expect(response.header["Location"]).to eq "https://shibboleth.umich.edu/cgi-bin/logout?#{ENV.fetch("REACT_APP_LOGIN_BASE_URL")}/"
+      expect(response.headers["Location"]).to eq "https://shibboleth.umich.edu/cgi-bin/logout?#{ENV.fetch("REACT_APP_LOGIN_BASE_URL")}/"
     end
 
     it "redirects to logout with redirect back to dest url" do
       response = get "/logout?dest=/somewhere/"
       expect(response.status).to eq(302)
-      expect(response.header["Location"]).to eq "https://shibboleth.umich.edu/cgi-bin/logout?#{ENV.fetch("REACT_APP_LOGIN_BASE_URL")}/somewhere/"
+      expect(response.headers["Location"]).to eq "https://shibboleth.umich.edu/cgi-bin/logout?#{ENV.fetch("REACT_APP_LOGIN_BASE_URL")}/somewhere/"
     end
   end
 end

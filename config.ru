@@ -37,4 +37,5 @@ if ENV.fetch("RACK_THROTTLE", false)
   end
 end
 
+use Rack::RewindableInput::Middleware
 run Spectrum::Json::App
