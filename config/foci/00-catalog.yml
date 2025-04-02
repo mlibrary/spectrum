@@ -305,8 +305,8 @@ facets:
   - building
 
 hierarchy:
-  load_inst: <%= ENV['SPECTRUM_INST_LOCATION_FILES_DIR'] || "/www/vufind/web/mirlyn/web/conf" %>/instLocs.yaml
-  load_coll: <%= ENV['SPECTRUM_INST_LOCATION_FILES_DIR'] || "/www/vufind/web/mirlyn/web/conf" %>/locColl.yaml
+  load_inst: <%= ENV['SPECTRUM_INST_LOCATION_FILES_DIR'] || "config" %>/instLocs.yaml
+  load_coll: <%= ENV['SPECTRUM_INST_LOCATION_FILES_DIR'] || "config" %>/locColl.yaml
   field: Library
   uid: institution
   aliases:
