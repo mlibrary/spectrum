@@ -34,6 +34,13 @@ PATH
       sequel
 
 PATH
+  remote: local-gems/rack-reverse-proxy
+  specs:
+    rack-reverse-proxy (1.0.0.pre.unreleased)
+      rack (>= 1.0.0)
+      rack-proxy (~> 0.6, >= 0.6.1)
+
+PATH
   remote: local-gems/spectrum-config
   specs:
     spectrum-config (1.0.0)
@@ -242,9 +249,6 @@ GEM
       rack (>= 3.0.0, < 4)
     rack-proxy (0.7.7)
       rack
-    rack-reverse-proxy (0.12.0)
-      rack (>= 1.0.0)
-      rack-proxy (~> 0.6, >= 0.6.1)
     rack-session (2.1.0)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
@@ -399,7 +403,7 @@ DEPENDENCIES
   pry-byebug
   puma
   rack-attack
-  rack-reverse-proxy
+  rack-reverse-proxy!
   rack-test
   rack-timeout
   rails-html-sanitizer

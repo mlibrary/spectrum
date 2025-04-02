@@ -5,7 +5,6 @@ gem "down"
 gem "ostruct"
 gem "logger"
 
-gem "rack-reverse-proxy", require: "rack/reverse_proxy"
 gem "rack-attack"
 gem "rack-timeout"
 
@@ -33,6 +32,10 @@ gem "ipresolver",
 gem "keycard",
   path: "local-gems/keycard",
   require: ["keycard/rack", "keycard/yaml/institution_finder"]
+
+gem "rack-reverse-proxy",
+    path: "local-gems/rack-reverse-proxy",
+    require: "rack/reverse_proxy"
 
 gem "spectrum-config", path: "local-gems/spectrum-config"
 
