@@ -50,11 +50,11 @@ class Spectrum::Entities::AlmaUser
     @data = data
   end
 
-  def self.for(username:, client: Spectrum::AlmaClient.client(httparty_on: true))
+  def self.for(username:, client: Spectrum::AlmaClient.client)
     return Spectrum::Entities::AlmaUser::Empty.new if username.nil? || username.empty?
     response = client.get("/users/#{username}")
-    if response.code == 200
-      Spectrum::Entities::AlmaUser.new(data: response.parsed_response)
+    if response.status == 200
+      Spectrum::Entities::AlmaUser.new(data: response.body)
     else
       Spectrum::Entities::AlmaUser::Empty.new
     end

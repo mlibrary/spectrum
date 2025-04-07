@@ -17,7 +17,7 @@ class Spectrum::Entities::AlmaHold
     @patron_id = patron_id
     @pickup_location = pickup_location
     @last_interest_date = last_interest_date
-    @client = Spectrum::AlmaClient.client(httparty_on: true)
+    @client = Spectrum::AlmaClient.client
     @response = nil
   end
 
@@ -49,20 +49,19 @@ class Spectrum::Entities::AlmaHold
   end
 
   def error_fetch(type)
-    return nil unless @response&.parsed_response
-    @response.parsed_response.dig("errorList", "error")&.map { |error| error.dig(type) } ||
-      @response.parsed_response.dig("web_service_result", "errorList", "error", type)
+    return nil unless @response&.body
+    @response.body.dig("errorList", "error")&.map { |error| error.dig(type) } ||
+      @response.body.dig("web_service_result", "errorList", "error", type)
   end
 
   def error?
-    @response&.code != 200 ||
+    @response&.status != 200 ||
       @response&.body.nil? ||
-      @response&.parsed_response.nil? ||
-      !@response&.parsed_response&.dig("errorsExist").nil? ||
-      !@response&.parsed_response&.dig("web_service_result", "errorsExist").nil?
+      !@response&.body&.dig("errorsExist").nil? ||
+      !@response&.body&.dig("web_service_result", "errorsExist").nil?
   end
 
   def success?
-    @response&.code == 200 && !@response&.parsed_response&.dig("request_id").nil?
+    @response&.status == 200 && !@response&.body&.dig("request_id").nil?
   end
 end
