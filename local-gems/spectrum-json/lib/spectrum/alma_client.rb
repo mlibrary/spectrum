@@ -11,32 +11,28 @@ class Spectrum::AlmaClient
 
   def get(path, kwargs = {})
     response = @client.get(path, **kwargs)
-    if return_httparty?
-      httparty_response(response)
-    else
-      response
-    end
+    process_response(response)
   end
 
   def post(path, kwargs = {})
     response = @client.post(path, **kwargs)
-    if return_httparty?
-      httparty_response(response)
-    else
-      response
-    end
+    process_response(response)
   end
 
   def get_all(kwargs)
     response = @client.get_all(**kwargs)
-    if return_httparty?
+    process_response(response)
+  end
+
+  def process_response(response)
+    if @httparty_on && response.class.to_s == "Faraday::Response"
       httparty_response(response)
     else
       response
     end
   end
 
-  def return_httparty?
+  def return_httparty?(response)
     @httparty_on && response.class.to_s == "Faraday::Response"
   end
 

@@ -17,7 +17,7 @@ class Spectrum::Entities::AlmaHold
     @patron_id = patron_id
     @pickup_location = pickup_location
     @last_interest_date = last_interest_date
-    @client = Spectrum::AlmaClient.client
+    @client = Spectrum::AlmaClient.client(httparty_on: true)
     @response = nil
   end
 

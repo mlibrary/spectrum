@@ -10,7 +10,7 @@ class Spectrum::Entities::AlmaHoldings
     @holdings = load_holdings
   end
 
-  def self.for(bib_record:, client: Spectrum::AlmaClient.client)
+  def self.for(bib_record:, client: Spectrum::AlmaClient.client(httparty_on: true))
     if bib_record.physical_holdings?
       begin
         response = client.get_all(url: "/bibs/#{bib_record.mms_id}/loans", record_key: "item_loan")
