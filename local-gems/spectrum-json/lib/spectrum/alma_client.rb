@@ -25,18 +25,14 @@ class Spectrum::AlmaClient
   end
 
   def process_response(response)
-    if @httparty_on && response.class.to_s == "Faraday::Response"
+    if @httparty_on && ["Faraday::Response", "AlmaRestClient::Response"].include?(response.class.to_s)
       httparty_response(response)
     else
       response
     end
   end
 
-  def return_httparty?(response)
-    @httparty_on && response.class.to_s == "Faraday::Response"
-  end
-
   def httparty_response(response)
-    Ostruct.new(code: response.status, parsed_response: response.body)
+    OpenStruct.new(code: response.status, parsed_response: response.body, body: response.body)
   end
 end

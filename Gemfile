@@ -10,7 +10,7 @@ gem "rack-timeout"
 
 # Allow dotenv configuration
 gem "dotenv", require: "dotenv/load"
-gem "activesupport", "~> 7.1.4"
+# gem "activesupport", "~> 7.1.4"
 gem "sinatra"
 gem "sinatra-contrib", require: "sinatra/json"
 
@@ -34,8 +34,8 @@ gem "keycard",
   require: ["keycard/rack", "keycard/yaml/institution_finder"]
 
 gem "rack-reverse-proxy",
-    path: "local-gems/rack-reverse-proxy",
-    require: "rack/reverse_proxy"
+  path: "local-gems/rack-reverse-proxy",
+  require: "rack/reverse_proxy"
 
 gem "spectrum-config", path: "local-gems/spectrum-config"
 
@@ -43,7 +43,7 @@ gem "spectrum-json", path: "local-gems/spectrum-json"
 
 gem "alma_rest_client",
   git: "https://github.com/mlibrary/alma_rest_client",
-  tag: "1.0.1"
+  tag: "alma_rest_client/v2.1.0"
 
 gem "mlibrary_search_parser",
   git: "https://github.com/mlibrary/mlibrary_search_parser",

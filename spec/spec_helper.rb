@@ -119,10 +119,7 @@ RSpec.configure do |config|
     define_method(:"stub_alma_#{name}_request") do |url:, input: nil, output: "", status: 200, query: nil|
       req_attributes = {}
       req_attributes[:headers] = {
-        :accept => "application/json",
-        :Authorization => "apikey #{ENV["ALMA_API_KEY"]}",
-        "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-        "User-Agent" => "Ruby"
+        Authorization: "apikey #{ENV["ALMA_API_KEY"]}"
       }
       req_attributes[:body] = input unless input.nil?
       req_attributes[:query] = query unless query.nil?
