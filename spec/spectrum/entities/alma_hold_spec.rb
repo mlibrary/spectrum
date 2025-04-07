@@ -2,20 +2,20 @@ require_relative "../../spec_helper"
 describe Spectrum::Entities::AlmaHold do
   before(:each) do
     @params = {
-      doc_id: 'mms_id',
-      holding_id: 'holding_id',
-      item_id: 'item_id',
-      patron_id: 'patron_id',
-      pickup_location: 'pickup_location',
-      last_interest_date: '2022-01-01',
+      doc_id: "mms_id",
+      holding_id: "holding_id",
+      item_id: "item_id",
+      patron_id: "patron_id",
+      pickup_location: "pickup_location",
+      last_interest_date: "2022-01-01"
     }
 
     @hold_body = {
-          "request_type" => "HOLD",
-          "pickup_location_type" => "LIBRARY",
-          "pickup_location_library" => "pickup_location",
-          "pickup_location_institution" => "01UMICH_INST",
-          "last_interest_date" => "2022-01-01",
+      "request_type" => "HOLD",
+      "pickup_location_type" => "LIBRARY",
+      "pickup_location_library" => "pickup_location",
+      "pickup_location_institution" => "01UMICH_INST",
+      "last_interest_date" => "2022-01-01"
     }
   end
   subject do
@@ -23,7 +23,7 @@ describe Spectrum::Entities::AlmaHold do
   end
   context "#item_hold_url" do
     it "returns appropriate string" do
-      expect(subject.item_hold_url).to eq( "/bibs/mms_id/holdings/holding_id/items/item_id/requests?user_id=patron_id")
+      expect(subject.item_hold_url).to eq("/bibs/mms_id/holdings/holding_id/items/item_id/requests?user_id=patron_id")
     end
   end
   context "#item_hold_body" do
@@ -75,5 +75,4 @@ describe Spectrum::Entities::AlmaHold do
       end
     end
   end
-
 end
