@@ -17,6 +17,8 @@ require "spectrum/empty_item_holding"
 require "spectrum/bib_record"
 require "spectrum/special_collections_bib_record"
 
+require "spectrum/alma_client"
+
 require "spectrum/entities/entities"
 require "spectrum/entities/alma_holdings"
 require "spectrum/entities/alma_item"
@@ -209,7 +211,7 @@ module Spectrum
           end
         end
 
-        require 'spectrum/json/app'
+        require "spectrum/json/app"
 
         self
       end

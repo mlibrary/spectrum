@@ -1,6 +1,6 @@
 class Spectrum::Entities::AlmaHold
-  def self.for(request: )
-    self.new(
+  def self.for(request:)
+    new(
       doc_id: request.record_id,
       holding_id: request.holding_id,
       item_id: request.item_id,
@@ -17,7 +17,7 @@ class Spectrum::Entities::AlmaHold
     @patron_id = patron_id
     @pickup_location = pickup_location
     @last_interest_date = last_interest_date
-    @client = AlmaRestClient.client
+    @client = Spectrum::AlmaClient.client
     @response = nil
   end
 
@@ -31,7 +31,7 @@ class Spectrum::Entities::AlmaHold
       "pickup_location_type" => "LIBRARY",
       "pickup_location_library" => @pickup_location,
       "pickup_location_institution" => "01UMICH_INST",
-      "last_interest_date" => @last_interest_date,
+      "last_interest_date" => @last_interest_date
     }
   end
 
@@ -41,29 +41,28 @@ class Spectrum::Entities::AlmaHold
   end
 
   def error_code
-    error_fetch('errorCode')
+    error_fetch("errorCode")
   end
 
   def error_message
-    error_fetch('errorMessage')
+    error_fetch("errorMessage")
   end
 
   def error_fetch(type)
     return nil unless @response&.parsed_response
-    @response.parsed_response.dig('errorList', 'error')&.map {|error| error.dig(type)} ||
-      @response.parsed_response.dig('web_service_result', 'errorList', 'error', type)
+    @response.parsed_response.dig("errorList", "error")&.map { |error| error.dig(type) } ||
+      @response.parsed_response.dig("web_service_result", "errorList", "error", type)
   end
 
   def error?
     @response&.code != 200 ||
       @response&.body.nil? ||
       @response&.parsed_response.nil? ||
-      !@response&.parsed_response&.dig('errorsExist').nil? ||
-      !@response&.parsed_response&.dig('web_service_result', 'errorsExist').nil?
+      !@response&.parsed_response&.dig("errorsExist").nil? ||
+      !@response&.parsed_response&.dig("web_service_result", "errorsExist").nil?
   end
 
   def success?
-    @response&.code == 200 && !@response&.parsed_response&.dig('request_id').nil?
+    @response&.code == 200 && !@response&.parsed_response&.dig("request_id").nil?
   end
-  
 end
