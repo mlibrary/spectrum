@@ -3,15 +3,28 @@ require_relative "../../../spec_helper"
 describe Spectrum::Config::PrimoSource do
   describe "#extract_query" do
     subject { described_class.new({}) }
-    let(:marshal1) { File.expand_path(
-      '../../../../fixtures/spectrum/config/primo_source_01.marshal',
-      __FILE__
-    ) }
-    let(:args1) { Marshal.load(IO.binread(marshal1)) }
-    let(:response1) { subject.extract_query(*args1) }
-    let(:ideal1) { "any,exact,apple,NOT;any,exact,orange" }
-    it "generates parameters" do
-      expect(response1).to eq(ideal1)
+    let(:marshals) { [ File.expand_path(
+        '../../../../fixtures/spectrum/config/primo_source_01.marshal',
+        __FILE__
+      ),
+      File.expand_path(
+        '../../../../fixtures/spectrum/config/primo_source_02.marshal',
+        __FILE__
+      )
+    ]}
+    let(:argses) { marshals.map {|marshal| Marshal.load(IO.binread(marshal)) } }
+    let(:responses) { argses.map { |args| subject.extract_query(*args) } }
+    let(:ideals) { [
+      "any,exact,apple,NOT;any,exact,orange",
+      "any,exact,(\"mitt romney\" OR \"Romney, Mitt\"),NOT;any,exact,\"Standalone Media Collections\""
+    ] }
+
+    it "generates parameters for negation" do
+      expect(responses[0]).to eq(ideals[0])
+    end
+
+    it "generates disjunction-friendly parameters" do
+      expect(responses[1]).to eq(ideals[1])
     end
   end
 end
