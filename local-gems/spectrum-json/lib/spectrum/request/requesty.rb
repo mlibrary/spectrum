@@ -35,6 +35,9 @@ module Spectrum
         @data = get_data(@request)
         @messages = []
         if @data
+          if @data["raw_query"]
+            @data["raw_query"] = preprocess_raw_query(@data["raw_query"])
+          end
           bad_request "Request json did not validate" unless Spectrum::Json::Schema.validate(:request, @data)
 
           @is_new_parser = is_new_parser?(@focus, @data)
@@ -255,6 +258,12 @@ module Spectrum
       end
 
       private
+
+      def preprocess_raw_query(raw_query)
+        doi = %r{https?:\/\/(dx\.)doi\.org\/([^ ]*)}
+        pubmed = %r{https?://pubmed\.ncbi\.nlm\.nih\.gov/(\d+)/?}
+        raw_query.gsub(doi, "doi:\\2").gsub(pubmed, "pmid:\\1")
+      end
 
       def bad_request(message)
         raise ActionController::BadRequest.new("input", Exception.new(message))
