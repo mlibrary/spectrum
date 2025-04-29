@@ -367,10 +367,6 @@ module Spectrum
         this_source = Spectrum::Json.sources[source]
         this_focus = self
 
-        app.get("/spectrum/#{@url}/ids") do
-          ids(focus: this_focus, source: this_source)
-        end
-
         # In Sinatra, request.params is a regular hash.
         # In Rails, request.params was a hash with indifferent access.
         # To accommodate code that was written expecting one vs the other I'm
