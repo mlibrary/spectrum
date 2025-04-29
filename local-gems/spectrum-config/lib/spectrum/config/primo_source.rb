@@ -44,9 +44,35 @@ module Spectrum
         )
       end
 
-      def extract_query(fields, field, conjunction, tree )
+      def extract_keywords(tree)
+        if tree.is_type?('tokens')
+          return tree.text
+        elsif ["and", "or", "not"].any? {|type| tree.is_type?(type)}
+          return "(" + tree.children.map {|child| extract_keywords(child)}.join(" #{tree.operator.to_s.upcase} ") +")"
+        end
+      end
+
+      def tree_has_fielded_children?(tree)
+        return true if tree.is_type?("fielded")
+        return false if tree.is_type?("tokens")
+        return tree.children.any? { |child| tree_has_fielded_children?(child) }
+      end
+
+      def extract_query(fields, field, conjunction, tree)
         if tree.is_type?('tokens')
           return "#{fields[field]&.query_field || field},#{fields[field]&.query_precision || 'exact'},#{tree.text}"
+        elsif tree.is_type?('or')
+          if tree_has_fielded_children?(tree)
+            op = tree.operator.to_s.upcase
+            return tree.children.map do |child|
+              extract_query(fields, field, op, child)
+            end.join(",#{op};")
+          else
+            return "#{fields[field]&.query_field || field},#{fields[field]&.query_precision || 'exact'},(" +
+              tree.children.map do |child|
+              extract_keywords(child)
+            end.join(" OR ") + ")"
+          end
         elsif ['and', 'or'].any? { |type| tree.is_type?(type) }
           op = tree.operator.to_s.upcase
           return tree.children.map do |child|
@@ -157,7 +183,6 @@ module Spectrum
           limit: extract_limit(request),
           sort: extract_sort(focus, request),
         }.merge(extract_facets(request))
-
       end
     end
   end
