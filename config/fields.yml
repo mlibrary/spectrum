@@ -91,36 +91,6 @@
     - id: trim
       method: trim
 
-- id: summon_title
-  csl:
-    id: title
-  z3988:
-    id: rft.btitle
-  ris:
-  - T1
-  - TI
-  uid: title
-  field:
-  - title
-  - subtitle
-  join: ' : '
-  type: concat
-  query_field: title
-  metadata:
-    name: Title
-    short_desc: Record title
-  filters:
-    - id: sanitize
-      method: sanitize
-    - id: trim
-      method: trim
-
-- id: summon_openurl
-  uid: openurl
-  field: open_url
-  metadata:
-    name: OpenURL
-
 - id: alt_title
   ris:
     - J2
@@ -157,44 +127,6 @@
       method: trim
   has_html: true
 
-- id: ap_author
-  csl:
-    id: author
-    type: author
-  z3988:
-    id: rft.au
-  ris:
-    - AU
-  uid: author
-  field: authors
-  query_field: author
-  metadata:
-    name: Author
-    short_desc: Record author
-  filters:
-    - id: fullname
-      method: fullname
-    - id: trim
-      method: trim
-  facet:
-    sorts:
-      - count
-      - index
-  has_html: true
-  metadata_component:
-    preview:
-      type: search1
-      variant: fielded
-      scope: author
-    medium:
-      type: search1
-      variant: fielded
-      scope: author
-    full:
-      type: search1
-      variant: fielded
-      scope: author
-
 - id: fullrecord
   metadata:
     name: MARC-XML data
@@ -229,65 +161,12 @@
       - count
       - index
 
-- id: body
-  metadata:
-    name: Description
-    short_desc: Resource description
-
-- id: category
-  metadata:
-    name: Category
-    short_desc: Resource category
-  facet:
-    sorts:
-      - count
-      - index
-
 - id: institution
   metadata:
     name: Institution Name
     short_desc: Institution name
   facet:
     type: hidden
-    sorts:
-      - count
-      - index
-
-- id: summon_date
-  uid: publication_date
-  type: summon_date
-  field: publication_date
-  query_field: PublicationDate
-  metadata:
-    name: Date
-    short_desc: Publication date
-  facet:
-    sorts:
-      - count
-      - index
-  metadata_component:
-    preview:
-      type: plain
-    medium:
-      type: plain
-    full:
-      type: plain
-
-- id: publish_date
-  csl:
-    id: issued
-    type: date
-  z3988:
-    id: rft.date
-  ris:
-    - DA
-    - PY
-  field: publishDate
-  uid: publication_date
-  metadata:
-    name: Date
-    short_desc: Publication date
-  facet:
     sorts:
       - count
       - index
@@ -357,14 +236,6 @@
       - index
   has_html: true
 
-- id: journal_coverage
-  field: access_856_3
-  uid: coverage
-  metadata:
-    name: Coverage
-    short_desc: Coverage
-  has_html: true
-
 - id: coverage
   field: smfield_coverage
   metadata:
@@ -375,31 +246,6 @@
       type: plain
     full:
       type: plain
-
-- id: access_url
-  ris:
-    - L2
-    - UR
-  metadata:
-    name: Access Url
-    short_desc: Access url
-  has_html: true
-  filters:
-    - id: proxy_prefix
-      method: proxy_prefix
-
-- id: summon_access_url
-  csl:
-    id: URL
-  z3988:
-    id: rft_id
-  ris:
-    - L2
-    - UR
-  metadata:
-    name:  Access Url
-    short_desc: Access url
-  type: summon_access_url
 
 - id: issn
   csl:
@@ -436,44 +282,6 @@
     full:
       type: plain
 
-- id: summon_isbn
-  csl:
-    id: ISBN
-    type: array
-  z3988:
-    id: rft_id
-    namespace: "urn:ISBN:"
-  ris:
-    - SN
-  uid: isbn
-  field: ISBN
-  searchable: false
-  metadata:
-    name: ISBN
-    short_desc: ISBN
-  metadata_component:
-    full:
-      type: plain
-
-- id: summon_eisbn
-  csl:
-    id: ISBN
-    type: array
-  ris:
-    - SN
-  z3988:
-    id: rft_id
-    namespace: "urn:ISBN:"
-  field: EISBN
-  uid: eisbn
-  searchable: false
-  metadata:
-    name: EISBN
-    short_desc: EISBN
-  metadata_component:
-    full:
-      type: plain
-
 - id: primo_eisbn
   csl:
     id: ISBN
@@ -493,23 +301,6 @@
     full:
       type: plain
 
-- id: summon_issn
-  csl:
-    id: ISSN
-    type: array
-  z3988:
-    id: rft_id
-    namespace: "urn:ISSN:"
-  uid: issn
-  field: ISSN
-  searchable: false
-  metadata:
-    name: ISSN
-    short_desc: ISSN
-  metadata_component:
-    full:
-      type: plain
-
 - id: primo_issn
   csl:
     id: ISSN
@@ -522,23 +313,6 @@
   metadata:
     name: ISSN
     short_desc: ISSN
-  metadata_component:
-    full:
-      type: plain
-
-- id: summon_eissn
-  csl:
-    id: ISSN
-    type: array
-  z3988:
-    id: rft_id
-    namespace: "urn:ISSN:"
-  field: EISSN
-  uid: eissn
-  searchable: false
-  metadata:
-    name: EISSN
-    short_desc: EISSN
   metadata_component:
     full:
       type: plain
@@ -739,29 +513,6 @@
     full:
       type: plain
 
-- id: mobile_url
-  field: smfield_mobile_url
-  metadata:
-    name: Mobile url
-    short_desc: Mobile url
-
-- id: mobile_available
-  field: mobile
-  metadata:
-    name: Mobile site available
-    short_desc: Mobile available
-  facet:
-    type: hidden
-    sorts:
-      - count
-      - index
-
-- id: tags
-  searchable: false
-  metadata:
-    name: Tags
-    short_desc: Tags
-
 - id: new
   metadata:
     name: New
@@ -814,14 +565,6 @@
     name: Z3988 SID
   field: id
 
-- id: journals_rfr_id
-  z3988:
-    id: rfr_id
-    namespace: https://search.lib.umich.edu/journals/record/
-  metadata:
-    name: Z3988 SID
-  field: id
-
 - id: databases_rfr_id
   z3988:
     id: rfr_id
@@ -829,28 +572,6 @@
   metadata:
     name: Z3988 SID
   field: id
-
-- id: entity_id
-  ris:
-    - ID
-  uid: id
-  metadata:
-    name: ID
-    short_desc: Record ID (Transient)
-  searchable: false
-  facet:
-    sorts:
-      - count
-      - index
-
-- id: subtitle
-  metadata:
-    name: Subtitle
-    short_desc: The subtitle for the record
-  facet:
-    sorts:
-      - count
-      - index
 
 - id: abstract
   ris:
@@ -1056,21 +777,6 @@
     full:
       type: plain
 
-- id: summon_language
-  ris:
-    - LA
-  uid: language
-  field: Language
-  searchable: false
-  metadata:
-    name: Language
-    short_desc: Language
-  facet:
-    expanded: true
-  metadata_component:
-    full:
-      type: plain
-
 - id: bookplate
   metadata:
     name: Donor Information
@@ -1079,24 +785,6 @@
   metadata_component:
     full:
       type: plain
-
-- id: ejournal_links
-  uid: links
-  metadata:
-    name: Links
-    short_desc: Links
-  type: parallel_merge
-  fields:
-    - uid: text
-      field: access_856_3
-      name: text
-    - uid: href
-      field: access_url
-      name: href
-  has_html: true
-  filters:
-    - id: proxy_prefix
-      method: proxy_prefix
 
 - id: website_links
   uid: links
@@ -1115,21 +803,6 @@
       fields:
         - site
         - path_alias
-
-- id: url_links
-  uid: links
-  metadata:
-    name: Links
-  type: concatenate_merge
-  fields:
-    - uid: text
-      name: text
-      fields:
-        - title
-    - uid: href
-      name: href
-      fields:
-        - url
 
 - id: permalink_links
   uid: links
@@ -1230,30 +903,6 @@
   searchable: true
   sortable: false
 
-- id: summon_access_url
-  ris:
-    - L2
-    - UR
-  metadata:
-    name: Access URL
-    short_desc: Access URL
-  uid: access_url
-  type: summon_access_url
-  model_field: open_url
-  direct_link_field: link
-  openurl_field: open_url
-  openurl_root: https://mgetit.lib.umich.edu/resolve
-
-- id: publication_place
-  csl:
-    id: publisher-place
-  field: PublicationPlace
-  ris:
-    - CY
-  metadata:
-    name: Publication Place
-    short_desc: Publication Place
-
 - id: jtitle
   csl:
     id: container-title
@@ -1268,62 +917,6 @@
   metadata_component:
     preview:
       type: plain
-
-- id: publication_title
-  csl:
-    id: container-title
-  z3988:
-    id: rft.jtitle
-  ris:
-    - JF
-    - JO
-  metadata:
-    name: Publication Title
-    short_desc: Publication Title
-  query_field: PublicationTitle
-  searchable: true
-  sortable: false
-  metadata_component:
-    preview:
-      type: plain
-
-- id: publication_title_abbrev
-  field: PublicationTitleAbbrev
-  ris:
-    - J2
-  metadata:
-    name: Publication Title Abbrev
-    short_desc: Publication Title Abbrev
-
-- id: publication_title_alternate
-  field: PublicationTitleAlternate
-  ris:
-    - JA
-  metadata:
-    name: Publication Title Alternate
-    short_desc: Publication Title Alternate
-
-- id: start_page
-  csl:
-    id: page-first
-  z3988:
-    id: rft.spage
-  ris:
-    - SP
-  metadata:
-    name: Start Page
-    short_desc: Start Page
-  searchable: false
-  sortable: false
-
-- id: end_page
-  ris:
-    - EP
-  metadata:
-    name: End Page
-    short_desc: End Page
-  searchable: false
-  sortable: false
 
 - id: mirlyn_format
   type: conditional_merge
@@ -1474,14 +1067,6 @@
     - id: uniq
       method: uniq
 
-- id: summon_csl_type
-  csl:
-    id: type
-    type: type
-  field: ContentType
-  metadata:
-    name: CSL Type
-
 - id: genre
   csl:
     id: genre
@@ -1492,37 +1077,6 @@
   metadata_component:
     full:
       type: plain
-
-- id: scopus_cited
-  field: ScopusCitedReferencesCount
-  metadata:
-    name: Scopus Times Cited
-    short_desc: Scopus Times Cited
-  searchable: false
-
-- id: isi_cited
-  field: ISICitedReferencesCount
-  metadata:
-    name: ISI Times Cited
-    short_desc: ISI Times Cited
-  searchable: false
-
-- id: summon_subject
-  ris:
-    - KW
-  field: SubjectTerms
-  facet:
-    expanded: true
-  uid: subject
-  metadata:
-    name: Subject
-    short_desc: Subject
-  searchable: true
-  metadata_component:
-    full:
-      type: search1
-      scope: subject
-      variant: filtered
 
 - id: primo_subject
   uid: subject
@@ -1548,12 +1102,6 @@
       type: search1
       scope: subject
       variant: filtered
-
-- id: snippet
-  field: Snippet
-  metadata:
-    name: Snippet
-    short_desc: Snippet
 
 - id: trial
   field: bsfield_trial
@@ -1581,22 +1129,6 @@
   metadata:
     name: Help
     short_desc: Help
-
-- id: bookmark
-  ris:
-    - ID
-  field: BookMark
-  uid: id
-  metadata:
-    name: ID
-    short_desc: ID
-
-- id: recordid
-  field: recordid
-  uid: id
-  metadata:
-    name: ID
-    short_desc: ID
 
 - id: oclc
   metadata:
@@ -1629,38 +1161,6 @@
       type: icon
     medium:
       type: icon
-
-- id: online_journal_format
-  metadata:
-    name: Format
-  type: constant
-  constant: Online Journal
-  metadata_component:
-    preview:
-      type: icon
-    medium:
-      type: icon
-
-- id: journal_academic_discipline
-  ris:
-    - KW
-  uid: academic_discipline
-  metadata:
-    name: Academic Discipline
-    short_desc: Academic Discipline
-  field: og_groups_both
-  query_field: search_academic_discipline
-  facet:
-    expanded: true
-  metadata_component:
-    medium:
-      type: search1
-      variant: filtered
-      scope: academic_discipline
-    full:
-      type: search1
-      variant: filtered
-      scope: academic_discipline
 
 - id: db_academic_discipline
   ris:
@@ -1708,28 +1208,6 @@
   metadata_component:
     medium:
       type: plain
-
-- id: page_title
-  metadata:
-    name: Page Title
-    short_desc: Page Title
-  field: ssfield_page_title
-
-- id: page_description
-  ris:
-    - N2
-  field: tmfield_page_content
-  metadata:
-    name: Page Description
-    short_desc: Page description
-
-- id: lg_academic_discipline
-  ris:
-    - KW
-  field: smfield_academic_discipline
-  metadata:
-    name: Academic Discipline
-    short_desc: Academic discipline
 
 - id: url
   csl:
@@ -1881,11 +1359,6 @@
   facet:
     type: checkbox
 
-- id: fulltext
-  metadata:
-    name: Full Text Available
-    short_desc: The library has access to full text of this item
-
 - id: publication_date
   csl:
     id: issued
@@ -1931,16 +1404,6 @@
       type: plain
     full:
       type: plain
-
-- id: TBD
-  metadata:
-    name: TBD
-    short_desc: Field name TBD
-  searchable: false
-  facet:
-    sorts:
-      - count
-      - index
 
 # MARCXML fields
 - id: links
@@ -3062,21 +2525,6 @@
     - id: trim2
       method: trim2
 
-- id: summon_source
-  field: Source
-  metadata:
-    name: Source
-
-- id: summon_source_type
-  field: SourceType
-  metadata:
-    name: Source Type
-
-- id: summon_database_xml
-  field: Database_xml
-  metadata:
-    name: Database Info
-
 - id: source_of_description_note
   metadata:
     name: Source of Description Note
@@ -3634,35 +3082,6 @@
     full:
       type: plain
 
-- id: summon_year
-  uid: published_year
-  csl:
-    id: issued
-    type: date
-  z3988:
-    id: rft.date
-  ris:
-    - DA
-    - PY
-  field: publication_date
-  type: summon_year
-  metadata:
-    name: Published Year
-
-- id: summon_month
-  uid: published_month
-  field: publication_date
-  type: summon_month
-  metadata:
-    name: Published Month
-
-- id: summon_day
-  uid: published_day
-  field: publication_date
-  type: summon_day
-  metadata:
-    name: Published Day
-
 - id: mirlyn_published_year
   uid: published_year
   field: publishDate
@@ -3752,43 +3171,6 @@
     full:
       type: plain
 
-- id: article_published_brief
-  uid: published_brief
-  metadata:
-    name: Published
-  type: formatted_article_published
-  fields:
-    publication_title:
-      field: publication_title
-    volume:
-      field: volume
-    issue:
-      field: issue
-  metadata_component:
-    medium:
-      type: plain
-    full:
-      type: plain
-
-- id: page_range
-  csl:
-    id: page
-  z3988:
-    id: rft.pages
-  metadata:
-    name: Pages
-  type: formatted_page_range
-  fields:
-    start_page:
-      field: start_page
-    end_page:
-      field: end_page
-  metadata_component:
-    medium:
-      type: plain
-    full:
-      type: plain
-
 - id: page_type
   field: ssfield_page_type
   metadata:
@@ -3841,27 +3223,6 @@
   facet:
     type: hidden
 
-- id: summon_isn
-  uid: isn
-  query_field:
-    - issn
-    - eissn
-    - isbn
-    - eisbn
-  metadata:
-    name: ISBN/ISSN
-
-- id: summon_series
-  csl:
-    id: collection-title
-  z3988:
-    id: rft.series
-  uid: series
-  field: PublicationSeriesTitle
-  query_field: PublicationSeriesTitle
-  metadata:
-    name: Series
-
 - id: year_of_publication
   ris:
     - PY
@@ -3878,16 +3239,6 @@
   query_field: search_publisher
   metadata:
     name: Publisher
-
-- id: isi_cited_references_uri
-  field:  ISICitedReferencesURI
-  metadata:
-    name: ISI Cited References URI
-
-- id: link_model
-  field: LinkModel
-  metadata:
-    name: Link Model
 
 - id: highly_recommended
   field: isfield-order-*
@@ -3915,27 +3266,6 @@
     - name: Scopus
       href: ScopusCitedReferencesURI
       count: ScopusCitedReferencesCount
-
-- id: times_cited2
-  type: times_cited2
-  metadata:
-    name: Times Cited
-  fields:
-    - name: Web of Science
-      href: ISICitedReferencesURI
-      count: ISICitedReferencesCount
-    - name: Scopus
-      href: ScopusCitedReferencesURI
-      count: ScopusCitedReferencesCount
-  metadata_component:
-    medium:
-      type: href_linked
-      href_field: href
-      text_field: text
-    full:
-      type: href_linked
-      href_field: href
-      text_field: text
 
 - id: pmid
   metadata:
@@ -3978,26 +3308,6 @@
   link_text: Go to online journal
   field: hol
   headings: [ 'Action', 'Description' ]
-
-- id: journal_resource_access
-  uid: resource_access
-  metadata:
-    name: Resource Access
-    short_desc: Resource Access
-  type: resource_access
-  name: online journals
-  headings: [ 'Action', 'Description' ]
-  fields:
-    - uid: href
-      parallel: access_url
-    - uid: link_text
-      value: Go to online journal
-    - uid: relationship
-      parallel: access_856_3
-  has_html: true
-  filters:
-    - id: proxy_prefix
-      method: proxy_prefix
 
 - id: website_resource_access
   uid: resource_access
@@ -4074,18 +3384,6 @@
       href_field: href
       text_field: text
 
-- id: summon_resource_access
-  metadata:
-    name: Resource Access
-    short_desc: Resource Access
-  uid: resource_access
-  type: summon_resource_access
-  headings: [ 'Action', 'Description' ]
-  model_field: open_url
-  direct_link_field: link
-  openurl_field: open_url
-  openurl_root: https://mgetit.lib.umich.edu/resolve
-
 - id: catalog_resource_access
   uid: resource_access
   metadata:
@@ -4124,21 +3422,6 @@
   filters:
     - id: proxy_prefix
       method: proxy_prefix
-
-- id: domain
-  metadata:
-    name: Domain
-    short_desc: Name
-
-- id: tlevel
-  metadata:
-    name: Top Level
-    short_desc: Top Level
-
-- id: newrecords
-  metadata:
-    name: New Records
-    short_desc: New Records
 
 - id: primo_author
   uid: author
