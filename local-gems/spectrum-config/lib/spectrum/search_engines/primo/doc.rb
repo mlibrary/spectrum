@@ -98,7 +98,7 @@ module Spectrum
         end
 
         def openurl
-          @delivery['almaOpenurl'].sub(/^.*\?/,'')
+          @delivery['almaOpenurl'].sub(/^.*\?/,'')  + "&rft_id=info%3Aprimo%2F#{self["id"]}"
         end
 
         def empty?
