@@ -38,6 +38,11 @@ if ENV.fetch("RACK_THROTTLE", false)
   end
 end
 
+limits = RLimit.get(RLimit::NOFILE)
+if limits[0] < limits[1]
+  RLimit.set(RLimit::NOFILE, limits[1])
+end
+
 use RedirectMiddleware
 use Rack::RewindableInput::Middleware
 run Spectrum::Json::App

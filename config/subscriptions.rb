@@ -216,3 +216,15 @@ ActiveSupport::Notifications.subscribe("fetch_specialists_1step.spectrum_special
     })
   end
 end
+
+ActiveSupport::Notifications.subscribe("request.redirect_middleware") do |event|
+  begin
+    index = 0
+    ObjectSpace.each_object(Puma::Cluster::Worker) { |w| index = w.index }
+    fds = Dir.glob("/proc/#{Process.pid}/fd/*").length
+    Metrics(:open_file_descriptors_total) do |metric|
+      metric.observe(fds, labels: { index: index })
+    end
+  rescue
+  end
+end

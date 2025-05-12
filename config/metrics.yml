@@ -46,3 +46,8 @@ metrics:
   docstring: "The total number of exceptions caught by spectrum"
   labels:
   - source
+- type: gauge
+  name: open_file_descriptors_total
+  docstring: "The total number of open file descriptors"
+  labels:
+  - index
