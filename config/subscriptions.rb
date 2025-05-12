@@ -223,7 +223,7 @@ ActiveSupport::Notifications.subscribe("request.redirect_middleware") do |event|
     ObjectSpace.each_object(Puma::Cluster::Worker) { |w| index = w.index }
     fds = Dir.glob("/proc/#{Process.pid}/fd/*").length
     Metrics(:open_file_descriptors_total) do |metric|
-      metric.observe(fds, labels: { index: index })
+      metric.set(fds, labels: { index: index })
     end
   rescue
   end
