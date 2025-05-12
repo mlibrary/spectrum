@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/mlibrary/alma_rest_client
-  revision: 47b9e9b67b70dc66abb0f81dfb1ad6aa44f50224
-  tag: alma_rest_client/v2.1.0
+  revision: f94276a6e83d1526f7ec91c66aad1cee8b80f97d
+  tag: alma_rest_client/v2.2.0
   specs:
-    alma_rest_client (2.1.0)
+    alma_rest_client (2.2.0)
       activesupport (~> 8.0)
       faraday
       faraday-retry
