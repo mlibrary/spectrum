@@ -225,6 +225,30 @@ ActiveSupport::Notifications.subscribe("request.redirect_middleware") do |event|
     Metrics(:open_file_descriptors_total) do |metric|
       metric.set(fds, labels: { index: index })
     end
+
+    cgroup = File.read("/proc/self/cgroup")
+    # This default might work outside kubernetes
+    path = "/sys/fs/cgroup" + cgroup.each_line.first.chomp.split(":")[2] + "cpu.stat"
+    cgroup.each_line do |line|
+      if line.include?("cpu,cpuacct")
+        # This might work in kubernetes
+        path = "/sys/fs/cgroup/cpu/cpuacct.usage"
+      end
+    end
+    if File.exist?(path)
+      cpu = nil
+      if path.end_with?(".usage")
+        cpu = (File.read(path).lines.first.chomp.to_i / 1000).to_i
+      elsif path.end_with?(".stat")
+        # I think this one is microseconds
+        cpu = File.read(path).lines.first.chomp.split(' ').last.to_i
+      end
+      if cpu
+        Metrics(:application_cpu_usage_usec) do |metric|
+          metric.set(cpu)
+        end
+      end
+    end
   rescue
   end
 end
