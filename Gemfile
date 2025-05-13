@@ -53,6 +53,7 @@ gem "json"
 
 gem "httpclient"
 gem "nokogiri"
+gem "rlimit"
 
 group :metrics do
   gem "yabeda-puma-plugin"

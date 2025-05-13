@@ -5,6 +5,7 @@ class RedirectMiddleware
   end
 
   def call(env)
+    ActiveSupport::Notifications.instrument("request.redirect_middleware", env: env)
     location = if env["QUERY_STRING"].include?("inst=bentley")
       "https://search.lib.umich.edu/catalog?library=Bentley+Historical+Library"
     elsif env["QUERY_STRING"].include?("inst=clements")
