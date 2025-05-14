@@ -228,7 +228,7 @@ ActiveSupport::Notifications.subscribe("request.redirect_middleware") do |event|
 
     cgroup = File.read("/proc/self/cgroup")
     # This default might work outside kubernetes
-    path = "/sys/fs/cgroup" + cgroup.each_line.first.chomp.split(":")[2] + "cpu.stat"
+    path = "/sys/fs/cgroup" + cgroup.each_line.first.chomp.split(":")[2] + "/cpu.stat"
     cgroup.each_line do |line|
       if line.include?("cpu,cpuacct")
         # This might work in kubernetes
@@ -241,7 +241,7 @@ ActiveSupport::Notifications.subscribe("request.redirect_middleware") do |event|
         cpu = (File.read(path).lines.first.chomp.to_i / 1000).to_i
       elsif path.end_with?(".stat")
         # I think this one is microseconds
-        cpu = File.read(path).lines.first.chomp.split(' ').last.to_i
+        cpu = File.read(path).lines.first.chomp.split(" ").last.to_i
       end
       if cpu
         Metrics(:application_cpu_usage_usec) do |metric|
