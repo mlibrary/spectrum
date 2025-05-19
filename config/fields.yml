@@ -4043,7 +4043,7 @@
   type: primo_resource_access
   headings: [ 'Action', 'Description' ]
   link_text: Go to item
-  openurl_root: https://mgetit.lib.umich.edu/resolve
+  openurl_root: https://mgetit.workshop.dnd.lib.umich.edu/resolve
   proxy_prefix: https://proxy.lib.umich.edu/login?qurl=
 
 - id: retracted
