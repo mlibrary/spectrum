@@ -26,6 +26,11 @@ WORKDIR $APP_HOME
 
 RUN mkdir -p ${BUNDLE_PATH} ${APP_HOME}/public ${APP_HOME}/tmp && chown -R ${UNAME} ${BUNDLE_PATH} ${APP_HOME}/public ${APP_HOME}/tmp
 
+RUN curl -s -L https://github.com/rbspy/rbspy/releases/download/v0.33.0/rbspy-x86_64-unknown-linux-gnu.tar.gz | \
+  tar xzf - && \
+  mv rbspy-x86_64-unknown-linux-gnu /usr/bin/rbspy && \
+  chmod +x /usr/bin/rbspy
+
 CMD bundle exec puma -C config/puma.rb
 
 ###############
@@ -46,5 +51,5 @@ COPY --chown=${UNAME}:${UNAME} local-gems/ ${APP_HOME}/local-gems/
 
 RUN bundle install
 
-COPY --chown=${UNAME}:${UNAME} . ${APP_HOME} 
+COPY --chown=${UNAME}:${UNAME} . ${APP_HOME}
 
