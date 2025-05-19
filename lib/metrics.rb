@@ -142,7 +142,7 @@ module Metrics
     def configure_metrics(metrics)
       metrics.each do |metric|
         case metric["type"]
-        when "counter", "summary", "gague"
+        when "counter", "summary", "gauge"
           registry.send(
             metric["type"],
             metric["name"].to_sym,

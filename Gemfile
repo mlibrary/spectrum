@@ -43,7 +43,7 @@ gem "spectrum-json", path: "local-gems/spectrum-json"
 
 gem "alma_rest_client",
   git: "https://github.com/mlibrary/alma_rest_client",
-  tag: "alma_rest_client/v2.1.0"
+  tag: "alma_rest_client/v2.2.0"
 
 gem "mlibrary_search_parser",
   git: "https://github.com/mlibrary/mlibrary_search_parser",
@@ -53,6 +53,7 @@ gem "json"
 
 gem "httpclient"
 gem "nokogiri"
+gem "rlimit"
 
 group :metrics do
   gem "yabeda-puma-plugin"
