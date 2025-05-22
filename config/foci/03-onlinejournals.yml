@@ -4,121 +4,136 @@ metadata:
   name: Online Journals
   short_desc: Journals from the library catalog.
 source: mirlyn
-highly_recommended:
-  field: academic_discipline
-  sort_uid: title_asc
-  suffix: _bb
+
+new_parser: true
 transformer: MLibrarySearchParser::Transformer::Solr::LocalParams
-solr_params:
+search_field_default: all_fields
+search_attr_defaults:
+  mm: $default_mm
+  mm.autoRelax: $mm.autoRelax
+  tie: $tie
 
-  f.search_series.pf: series^500 series2^50
-  f.search_series.qf: series^200 series2^50
+search_fields:
+  title:
+    qf: title_common_exact^1000 title_common^120 title_equiv^60 title_rest^30 series^10 series2^5
+    pf: serialTitle_common_exact^600 title_common_exact^500 title_l^150 title_common^100 title_a_exact^50 title_top^30 title_rest^20 series^3 series2^2
 
-  f.search_serial_title.pf: serialTitle_common_exact^600 serialTitle_common_l^300 serialTitle_common^100 serialTitle_a_exact^200 serialTitle_equiv^250
-  f.search_serial_title.qf: serialTitle_common^30 serialTitle_equiv^15 serialTitle_rest^10
+  author:
+    qf: mainauthor^20 author_authoritative_search^15 author^10 author2^5 author_top^2 author_rest^1
+    pf: mainauthor^100 author^50 author2^20 author_top^5 author_rest^2
 
-  f.search_journal_title.pf: serialTitle_ab^25000 serialTitle_a^15000 serialTitleProper^1200 seialTitle_restProper^400
-  f.search_journal_title.qf: serialTitleProper^120 serialTitleRestProper^40 serialTitle^30 serialTitle_rest^10
+  all_fields: &ALL_FIELDS
+    qf: >-
+      allfieldsProper^2
+      allfields^1
+      title_common^50
+      title_equiv^10
+      mainauthor^80
+      author^50
+      isbn
+      issn
+      oclc
+      lccn
+      barcode
+      htid
+      callnosearch
+      bookplate
 
-  f.search_title.pf: serialTitle_common_exact^600 title_common_exact^500 title_l^150 title_common^100 title_a_exact^50 title_top^30 title_rest^20 series^3 series2^2
-  f.search_title.qf: title_common_exact^1000 title_common^120 title_equiv^60 title_rest^30 series^10 series2^5
+    pf: >-
+      title_equiv^40
+      title_top^20
+      title_rest^10
 
-  f.title.pf: serialTitle_common_exact^600 title_common_exact^500 title_l^150 title_common^100 title_a_exact^50 title_top^30 title_rest^20 series^3 series2^2
-  f.title.qf: title_common_exact^1000 title_common^120 title_equiv^60 title_rest^30 series^10 series2^5
+      author^80
+      author_top^30
+      author_rest^20
 
-  f.search_subject2.pf: topicProper^5 topic^1
-  f.search_subject2.qf: topicProper^5 topic^1
 
-  f.search_subject.pf: topicProper^5 topic^1 fullgeographic^1 fullgenre^1 era^1
-  f.search_subject.qf: topicProper^5 topic^1 fullgeographic^1 fullgenre^1 era^1
+    pf2: >-
+      title_author^500
+      title_equiv^80
+      title_l^50
 
-  f.search_academic_discipline.pf: hlb3^10
-  f.search_academic_discipline.qf: hlb3^1
+    ps2: 2
 
-  f.search_realauth.pf: authorStr^10
-  f.search_realauth.qf: authorStr^1
-
-  f.search_isn.pf: issn isbn barcode lccn oclc sdrnum ctrlnum ht_id isn_related rptnum id id_int
-  f.search_isn.qf: issn isbn barcode lccn oclc sdrnum ctrlnum ht_id isn_related rptnum id id_int
-
-  f.search_publisher.pf: publisher
-  f.search_publisher.qf: publisher
-
-  f.search_publication_date.pf: publishDate
-  f.search_publication_date.qf: publishDate
-
-  f.search_title_starts_with.pf: serialTitle_common_l^10 title_l^5
-  f.search_title_starts_with.qf: title_l
-
-  f.title_starts_with.pf: serialTitle_common_l^10 title_l^5
-  f.title_starts_with.qf: title_l
-
-  f.search_call_number_starts_with.pf: callnosearch sudoc
-  f.search_call_number_starts_with.qf: callnosearch sudoc
-
-  f.search_author.pf: author^25000 author2^20000 author_top^5000 author_rest^1000
-  f.search_author.qf: author^10 author2^5 author_top^2 author_rest^1
-
-  boost: >-
-    product(
-      if(termfreq('format', 'Journal'), 1.4, 1),
-      max(
-        map(
-        query({!field f=title_common_exact v=$q}, 1), 0, 1, 1, 180
-      ),
-      map(
-        query({!field f=title_equiv_exact v=$q}, 1), 0, 1, 1, 50
-      ),
-      map(
-        query({!field f=title_a_exact v=$q}, 1), 0, 1, 1, 10
-      )),
-      map(
-          query({!dismax f=title_author v=$q mm="100%"}, 1), 0, 1, 1, 50
+    boost: >-
+      product(
+        if(termfreq('format', 'Journal'), 1.4, 1),
+        max(
+          map(
+          query({!field f=title_common_exact v=$q}, 1), 0, 1, 1, 180
         ),
-    )
+        map(
+          query({!field f=title_equiv_exact v=$q}, 1), 0, 1, 1, 50
+        ),
+        map(
+          query({!field f=title_a_exact v=$q}, 1), 0, 1, 1, 10
+        )),
+        map(
+            query({!dismax f=title_author v=$q mm="100%"}, 1), 0, 1, 1, 50
+          ),
+      )
+  keyword: *ALL_FIELDS
 
+  series:
+    pf: series^500 series2^50
+    qf: series^200 series2^50
 
-  qt: edismax
-  defType: edismax
-  mm: "2<-1 5<67%"
+  serial_title:
+    pf: serialTitle_common_exact^600 serialTitle_common_l^300 serialTitle_common^100 serialTitle_a_exact^40  serialTitle_equiv^20
+    qf: serialTitle_common^30 serialTitle_equiv^15 serialTitle_rest^10
+
+  journal_title:
+    pf: serialTitle_common_exact^600 serialTitle_common_l^300 serialTitle_common^100 serialTitle_a_exact^40  serialTitle_equiv^20
+    qf: serialTitle_common^30 serialTitle_equiv^15 serialTitle_rest^10
+
+  subject:
+    pf: topicProper^5 topic^1 fullgeographic^1 fullgenre^1 era^1
+    qf: topicProper^5 topic^1 fullgeographic^1 fullgenre^1 era^1
+
+  subject2:
+    pf: topicProper^5 topic^1
+    qf: topicProper^5 topic^1
+
+  academic_discipline:
+    pf: hlb3^10
+    qf: hlb3^1
+
+  realauth:
+    pf: authorStr^10
+    qf: authorStr^1
+
+  isn:
+    pf: issn^10 isbn^10 lccn^5 oclc^5 sdrnum^2 isn_related^2 rptnum ctrlnum ht_id  id id_int barcode
+    qf: issn^10 isbn^10 lccn^5 oclc^5 sdrnum^2 isn_related^2 rptnum ctrlnum ht_id  id id_int barcode
+
+  publisher:
+    pf: publisher^10
+    qf: publisher
+
+  publication_date:
+    pf: publishDate
+    qf: publishDate
+
+  title_starts_with:
+    pf: serialTitle_common_l^10 title_l^5
+    qf: title_l
+
+  call_number_starts_with:
+    pf: callnosearch sudoc
+    qf: callnosearch sudoc
+
+  lc_subject_starts_with:
+    pf: subject_browse_leftanchored
+    qf: subject_browse_leftanchored
+
+solr_params:
+  default_mm: "2<-1 5<67%"
   mm.autoRelax: true
   tie: 0.1
+  facet.threads: 10
 
-  qf: >-
-    allfieldsProper^2
-    allfields^1
-    title_common^50
-    title_equiv^10
-    mainauthor^80
-    author^50
-    isbn
-    issn
-    oclc
-    lccn
-    barcode
-    htid
-    callnosearch
-
-  pf: >-
-    title_equiv^40
-    title_top^20
-    title_rest^10
-
-    author^80
-    author_top^30
-    author_rest^20
-
-
-  pf2: >-
-    title_author^500
-    title_equiv^80
-    title_l^50
-
-  ps2: 2
-
-  facet.threads: 5
-
-qt: edismax
+qt: standard
 has_holdings: true
 has_get_this: true
 href:
@@ -289,3 +304,7 @@ hierarchy:
 filters:
  - "location:ELEC"
  - "format:Serial"
+highly_recommended:
+  field: academic_discipline
+  sort_uid: title_asc
+  suffix: _bb

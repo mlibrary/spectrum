@@ -4,14 +4,56 @@ metadata:
   name: Guides and more
   short_desc: "Search the for Guides and more."
 source: website
-# https://stackoverflow.com/questions/20217686/multiple-boost-queries-in-solr
+new_parser: true
 transformer: MLibrarySearchParser::Transformer::Solr::LocalParams
+# https://stackoverflow.com/questions/20217686/multiple-boost-queries-in-solr
+search_field_default: all_fields
+search_fields:
+  title:
+    qf: sort_title^12 stitle^12 title_unstemmed^6 all_titles_unstemmed^3 title^2 alt^1
+    pf: title alt
+    mm: 75%
+
+  title_starts_with:
+    pf: title_ngram
+    qf: title_ngram
+    mm: 100%
+
+  publisher:
+    qf: pvc_text
+    pf: pvc_text
+    mm: 50%
+
+  isn:
+    qf: issn
+    pf: issn
+    mm: 100%
+
+  academic_discipline:
+    qf: og_groups_both^5 tmfield_taxonomy_name
+    pf: og_groups_both^5 tmfield_taxonomy_name
+    mm: 50%
+
+  browse_starts_with:
+    qf: title_initial
+    pf: title_initial
+    mm: 100%
+
+  all_fields:
+    qf: title_unstemmed^10 title^7 all_titles_unstemmed^8 all_titles^6 issn^10 content^2
+    pf: title all_titles content
+    mm: 25%
+
+  allfields:
+    qf: title_unstemmed^10 title^7 all_titles_unstemmed^8 all_titles^6 issn^10 content^2
+    pf: title all_titles content
+    mm: 25%
+
 solr_params:
   # default
   qt: edismax
   qf: title_unstemmed^10 title^7 all_titles_unstemmed^8 all_titles^6 content^2 keywords^10
   bq:
-    - _val_:"{!edismax pf=$pf qf=$qf mm=100% v=$q bq=}"^100
     - "important:true^500"
   mm: 25%
   pf: title all_titles content
