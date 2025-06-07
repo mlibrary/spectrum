@@ -19,6 +19,15 @@ use Rack::ReverseProxy do
   reverse_proxy %r{^/catalog/browse/(.*)$}, "https://#{ENV["BROWSE_HOST"]}/$1"
 end
 
+if ENV.fetch("PROXY_ACME_CHALLENGE", false)
+  use Rack::ReverseProxy do
+    reverse_proxy_options verify_mode: OpenSSL::SSL::VERIFY_NONE
+    reverse_proxy %r{^/.well-known/acme-challenge/(.*)$},
+      "https://141.213.128.214/.well-known/acme-challenge/$1",
+       preserve_host: false
+  end
+end
+
 use Rack::Attack
 
 Rack::Attack.track("haz_cookie") do |req|
