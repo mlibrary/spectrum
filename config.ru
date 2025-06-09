@@ -19,6 +19,28 @@ use Rack::ReverseProxy do
   reverse_proxy %r{^/catalog/browse/(.*)$}, "https://#{ENV["BROWSE_HOST"]}/$1"
 end
 
+if ENV.fetch("PROXY_ACME_CHALLENGE", false)
+  class SetHostHeader
+    def initialize(app)
+      @app = app
+    end
+    def call(env)
+      if env["PATH_INFO"].start_with?("/.well-known/acme-challenge/")
+        env["SERVER_NAME"] = "search.lib.umich.edu"
+        env["HTTP_HOST"] = "search.lib.umich.edu"
+      end
+      @app.call(env)
+    end
+  end
+  use SetHostHeader
+  use Rack::ReverseProxy do
+    reverse_proxy_options verify_mode: OpenSSL::SSL::VERIFY_NONE
+    reverse_proxy %r{^/.well-known/acme-challenge/(.*)$},
+      "https://141.213.128.214/.well-known/acme-challenge/$1",
+       preserve_host: false
+  end
+end
+
 use Rack::Attack
 
 Rack::Attack.track("haz_cookie") do |req|
