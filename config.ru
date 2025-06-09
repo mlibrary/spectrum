@@ -20,6 +20,19 @@ use Rack::ReverseProxy do
 end
 
 if ENV.fetch("PROXY_ACME_CHALLENGE", false)
+  class SetHostHeader
+    def initialize(app)
+      @app = app
+    end
+    def call(env)
+      if env["PATH_INFO"].start_with?("/.well-known/acme-challenge/")
+        env["SERVER_NAME"] = "search.lib.umich.edu"
+        env["HTTP_HOST"] = "search.lib.umich.edu"
+      end
+      @app.call(env)
+    end
+  end
+  use SetHostHeader
   use Rack::ReverseProxy do
     reverse_proxy_options verify_mode: OpenSSL::SSL::VERIFY_NONE
     reverse_proxy %r{^/.well-known/acme-challenge/(.*)$},
