@@ -22,6 +22,10 @@ search_fields:
     qf: mainauthor^20 author_authoritative_search^15 author^10 author2^5 author_top^2 author_rest^1
     pf: mainauthor^100 author^50 author2^20 author_top^5 author_rest^2
 
+  browse_starts_with:
+    qf: title_initial
+    pf: title_initial
+
   all_fields: &ALL_FIELDS
     qf: >-
       allfieldsProper^2
