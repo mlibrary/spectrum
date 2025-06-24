@@ -1977,15 +1977,8 @@
   marc:
     fields:
       - tag: '110|111'
-        sub: 'a'
-        ind1: '1'
-        join: ' '
-        where:
-          - sub: e
-            not: ['ed', 'ed.', 'editor', 'editor.', 'translator', 'trans.', 'translator.']
-      - tag: '110|111'
         sub: '[ab]'
-        ind1: '[02]'
+        ind1: '[012]'
         join: ' '
         where:
           - sub: e
@@ -2009,15 +2002,8 @@
   marc:
     fields:
       - tag: '710|711'
-        sub: 'a'
-        ind1: '1'
-        join: ' '
-        where:
-          - sub: e
-            not: ['ed', 'ed.', 'editor', 'editor.', 'translator', 'trans.', 'translator.']
-      - tag: '710|711'
         sub: '[ab]'
-        ind1: '[02]'
+        ind1: '[012]'
         join: ' '
         where:
           - sub: e
