@@ -72,6 +72,8 @@ fields:
 - primo_format
 - retracted
 - primo_author
+- primo_author_csl
+- primo_corporate_author_csl
 - primo_publication_date
 - primo_published_brief
 - primo_pages

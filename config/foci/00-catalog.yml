@@ -276,7 +276,9 @@ fields:
   - ris_main_author
   - ris_contributors
   - csl_main_author
+  - csl_corporate_main_author
   - csl_contributor
+  - csl_corporate_contributor
   - csl_editor
   - csl_publisher
   - csl_publisher_place

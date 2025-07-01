@@ -1907,7 +1907,7 @@
   z3988:
     id: rft.au
   metadata:
-    name: Main Author
+    name: CSL Main Author
   type: marcxml
   field: fullrecord
   marc:
@@ -1939,7 +1939,7 @@
   z3988:
     id: rft.au
   metadata:
-    name: Main Author
+    name: CSL Contributor
   type: marcxml
   field: fullrecord
   marc:
@@ -1954,6 +1954,56 @@
       - tag: '700'
         sub: '[ab]'
         ind1: '0'
+        join: ' '
+        where:
+          - sub: e
+            not: ['ed', 'ed.', 'editor', 'editor.', 'translator', 'trans.', 'translator.']
+  filters:
+    - id: trim
+      method: trim
+    - id: trim2
+      method: trim2
+
+- id: csl_corporate_main_author
+  csl:
+    id: author
+    type: corporate-author
+  z3988:
+    id: rft.aucorp
+  metadata:
+    name: CSL Corporate Author
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '110|111'
+        sub: '[ab]'
+        ind1: '[012]'
+        join: ' '
+        where:
+          - sub: e
+            not: ['ed', 'ed.', 'editor', 'editor.', 'translator', 'trans.', 'translator.']
+  filters:
+    - id: trim
+      method: trim
+    - id: trim2
+      method: trim2
+
+- id: csl_corporate_contributor
+  csl:
+    id: author
+    type: corporate-author
+  z3988:
+    id: rft.aucorp
+  metadata:
+    name: CSL Corporate Author
+  type: marcxml
+  field: fullrecord
+  marc:
+    fields:
+      - tag: '710|711'
+        sub: '[ab]'
+        ind1: '[012]'
         join: ' '
         where:
           - sub: e
@@ -3423,16 +3473,34 @@
     - id: proxy_prefix
       method: proxy_prefix
 
-- id: primo_author
-  uid: author
+- id: primo_author_csl
+  metadata:
+    name: Author CSL
+    short_desc: Creator CSL
   csl:
     id: author
     type: author
+  field: au
+
+- id: primo_corporate_author_csl
+  metadata:
+    name: Corp Author CSL
+    short_desc: Corp Creator CSL
+  csl:
+    id: author
+    type: corporate-author
+  field: aucorp
+
+- id: primo_author
+  uid: author
   z3988:
     id: rft.au
   ris:
     - AU
-  field: au
+  fields:
+  - au
+  - aucorp
+  type: multi
   query_field: creator
   metadata:
     name: Author
