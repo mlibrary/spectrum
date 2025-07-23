@@ -179,11 +179,16 @@ module Spectrum
           text_content = text_format(messages)
           html_content = html_format(messages)
           subject_content = service.subject
+          email_delivery_method = service.delivery_method
           client.deliver do
             to   email_to
             from email_from
             subject subject_content
-            delivery_method :sendmail
+            if email_delivery_method.empty? || email_delivery_method == 'sendmail'
+              delivery_method :sendmail
+            else
+              delivery_method :smtp, address: email_delivery_method
+            end
 
             text_part do
               content_type 'text/plain; charset=UTF-8'
