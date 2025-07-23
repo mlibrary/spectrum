@@ -4,9 +4,9 @@
   driver: Spectrum::Json::Twilio
   credentials:
     type: twilio
-    account: <%= ENV['SPECTRUM_TWILIO_ACCOUNT'] %>
-    token: <%= ENV['SPECTRUM_TWILIO_TOKEN'] %>
-    service: <%= ENV['SPECTRUM_TWILIO_SERVICE'] %>
+    account: <%= ENV["SPECTRUM_TWILIO_ACCOUNT"] %>
+    token: <%= ENV["SPECTRUM_TWILIO_TOKEN"] %>
+    service: <%= ENV["SPECTRUM_TWILIO_SERVICE"] %>
 - id: file
   type: file
   driver: Spectrum::Json::Ris
@@ -14,6 +14,7 @@
   type: email
   driver: Spectrum::Json::Email
   credentials:
+    delivery_method: <%= ENV["SPECTRUM_EMAIL_DELIVERY_METHOD"] %>
     subject: Items sent from U-M Library Search
     text_header: Items sent from U-M Library Search
     text_footer: >-
