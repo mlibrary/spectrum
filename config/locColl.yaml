@@ -89,6 +89,7 @@ FLINT:
     FLINT BROWS: 'Browsing Collection'
     FLINT CHILD: 'Children''s Literature'
     FLINT ELP: 'English Language Program' #ELP 1-3 grouping
+    FLINT GRAPH: 'Graphic Novels' 
     FLINT MAIN: 'Main Collection'
     FLINT MSTR: 'Masters Theses'
     FLINT MEDIA: 'Media Collection'
