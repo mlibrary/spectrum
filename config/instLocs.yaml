@@ -19,7 +19,6 @@ aa:
     BSTA: Biological Station
     BUHR: Buhr Shelving Facility
     CSCAR: CSCAR - Rackham Building
-    DHCL: Donald Hall Collection
     FINE: Fine Arts
     HATCH: Hatcher Graduate
     HSRS: Health Sciences Remote Shelving
@@ -37,7 +36,6 @@ all:
     BSTA: Biological Station
     BUHR: Buhr Shelving Facility
     CSCAR: CSCAR - Rackham Building
-    DHCL: Donald Hall Collection
     FINE: Fine Arts
     FLINT: Flint Thompson Library
     HATCH: Hatcher Graduate

@@ -1,8 +1,6 @@
 get_this:
   - code: "AAEL"
     text: "Art, Architecture, & Engineering Library"
-  - code: "DHCL"
-    text: "Donald Hall Collection"
   - code: "FINE"
     text: "Fine Arts"
   - code: "HATCH"

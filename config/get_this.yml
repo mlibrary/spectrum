@@ -63,7 +63,6 @@
     pickup_locations:
       -  SHAP
       -  AAEL
-      -  DHCL
       -  FINE
       -  HATCH
       -  MUSM
@@ -97,7 +96,6 @@
     pickup_locations:
       -  SHAP
       -  AAEL
-      -  DHCL
       -  FINE
       -  HATCH
       -  MUSM
@@ -132,7 +130,6 @@
       -  FLINT
       -  SHAP
       -  AAEL
-      -  DHCL
       -  FINE
       -  HATCH
       -  MUSM
@@ -164,7 +161,6 @@
     pickup_locations:
       -  SHAP
       -  AAEL
-      -  DHCL
       -  FINE
       -  HATCH
       -  MUSM
@@ -195,7 +191,6 @@
     pickup_locations:
       -  SHAP
       -  AAEL
-      -  DHCL
       -  FINE
       -  HATCH
       -  MUSM
@@ -224,7 +219,6 @@
     pickup_locations:
       -  SHAP
       -  AAEL
-      -  DHCL
       -  FINE
       -  HATCH
       -  MUSM
@@ -397,7 +391,6 @@
     pickup_locations:
       -  SHAP
       -  AAEL
-      -  DHCL
       -  FINE
       -  HATCH
       -  MUSM
@@ -432,7 +425,6 @@
       -  FLINT
       -  SHAP
       -  AAEL
-      -  DHCL
       -  FINE
       -  HATCH
       -  MUSM

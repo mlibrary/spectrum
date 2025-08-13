@@ -56,23 +56,6 @@ CLEM:
     CLEM RBR: 'Rare Book Room'
     CLEM RSTO: 'Remote Storage'
     #updated 2025-02-21
-DHCL:
-  desc: 'Donald Hall Collection'
-  collections:
-    ALL: All collections
-    DHCL DISC: 'Audio Disc'
-    DHCL BRD: 'Blu-ray Disc'
-    DHCL CDROM: 'CD-ROM'
-    DHCL DVD: 'DVDs'
-    DHCL DVROM: 'DVD-ROM'
-    DHCL LASER: 'Laserdiscs'
-    DHCL BOOK: 'Monographs'
-    DHCL OVR: 'Oversize'
-    DHCL SCRN: 'Screenplays'
-    DHCL TAPEC: 'Sound Cassette'
-    DHCL VHS: 'VHS Tapes'
-    DHCL GAME: 'Video Games'
-    #updated 2025-02-21
 FINE:
   desc: 'Fine Arts'
   collections:
