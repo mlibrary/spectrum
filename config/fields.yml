@@ -2208,17 +2208,33 @@
   type: marcxml
   field: fullrecord
   marc:
+    aggregator: labeling
     fields:
       - tag: '130|240|243'
         sub: '[a-z]'
+        label: display
+        join: ' '
+      - tag: '130|240|243'
+        sub: '[aps]'
+        label: search
+        join: ' '
       - tag: '730'
         ind2: '2'
         sub: '[a-hj-z]'
+        label: display
+        join: ' '
+      - tag: '730'
+        ind2: '2'
+        sub: '[aps]'
+        join: ' '
+        label: search
   metadata_component:
     full:
-      type: quoted_search1
+      type: search2
       variant: fielded
       scope: title
+      text_field: display
+      value_field: search
 
 - id: related_title
   metadata:
@@ -3232,10 +3248,6 @@
       type: icon
     medium:
       type: icon
-
-- id: source
-  metadata:
-    name: Source
 
 - id: journal_title
   query_field: search_journal_title
