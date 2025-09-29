@@ -13,11 +13,13 @@ module Spectrum
 
             ["/", "/index.html"].each do |path|
               app.send(method, path) do
+                manage_cookies
                 redirect "/everything"
               end
             end
 
             app.send(method, "*") do
+              manage_cookies
               send_file("public/app.html")
             end
           end
