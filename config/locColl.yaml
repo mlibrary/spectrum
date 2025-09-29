@@ -226,7 +226,7 @@ SHAP:
   desc: 'Shapiro'
   collections:
     ALL: All collections
-    SHAP PRON: '2nd floor Browsing Collection'
+    SHAP PRON: 'Shapiro 2nd floor Leisure Reading Collection'
     SHAP ATL: 'Atlases & Maps'
     SHAP SBCS: 'Basement Compact Shelving'
     SHAP COLSC: 'College and Career Success Collection'
