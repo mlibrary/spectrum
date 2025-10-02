@@ -45,12 +45,13 @@ module Spectrum
         def manage_cookies
           domain = ENV.fetch("SPECTRUM_COOKIE_PURGE_DOMAIN", false)
           cookie_threshold = ENV.fetch("SPECTRUM_COOKIE_PURGE_THRESHOLD", 0).to_i
+          max_cookies = ENV.fetch("SPECTRUM_COOKIE_PURGE_MAX_COOKIES", 30).to_i
           return unless domain
           return unless cookie_threshold > 0
           return unless env["HTTP_COOKIE"]
           return unless env["HTTP_COOKIE"].bytesize > cookie_threshold
           ActiveSupport::Notifications.instrument("cookie_purge.spectrum_json")
-          request.cookies.keys.each do |name|
+          request.cookies.keys.sort { |a, b| request.cookies[b].length <=> request.cookies[a].length }.slice(0, max_cookies).each do |name|
             next if KEEP_THESE_COOKIES.include?(name)
             response.delete_cookie(name, domain: domain)
           end
