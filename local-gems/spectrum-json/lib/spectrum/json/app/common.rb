@@ -45,7 +45,7 @@ module Spectrum
         def manage_cookies
           domain = ENV.fetch("SPECTRUM_COOKIE_PURGE_DOMAIN", false)
           cookie_threshold = ENV.fetch("SPECTRUM_COOKIE_PURGE_THRESHOLD", 0).to_i
-          max_cookies = ENV.fetch("SPECTRUM_COOKIE_PURGE_MAX_COOKIES", 30).to_i
+          max_cookies = ENV.fetch("SPECTRUM_COOKIE_PURGE_MAX_COOKIES", 90).to_i
           return unless domain
           return unless cookie_threshold > 0
           return unless env["HTTP_COOKIE"]
