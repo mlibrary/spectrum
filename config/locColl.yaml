@@ -253,6 +253,7 @@ SPEC:
   desc: 'Special Collections' 
   collections: 
     ALL: All collections 
+    SPEC ART: 'Artists'' Books'
     SPEC SCB-ASG: 'Asa Gray Collection' 
     SPEC CHIL: 'Children''s Literature' 
     SPEC FAUL: 'Faulkner Collection' 
