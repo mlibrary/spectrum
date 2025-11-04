@@ -17,6 +17,8 @@ require "spectrum/empty_item_holding"
 require "spectrum/bib_record"
 require "spectrum/special_collections_bib_record"
 
+require "spectrum/alma_client"
+
 require "spectrum/entities/entities"
 require "spectrum/entities/alma_holdings"
 require "spectrum/entities/alma_item"
@@ -67,7 +69,6 @@ require "spectrum/response/untag"
 require "spectrum/response/list_favorites"
 require "spectrum/response/suggest_favorites"
 require "spectrum/response/profile"
-require "spectrum/response/ids"
 require "spectrum/response/debug"
 
 require "spectrum/field_tree"
@@ -101,7 +102,6 @@ require "spectrum/request/untag"
 require "spectrum/request/list_favorites"
 require "spectrum/request/suggest_favorites"
 require "spectrum/request/profile"
-require "spectrum/request/ids"
 require "spectrum/request/debug"
 
 require "spectrum/presenters"
@@ -211,7 +211,7 @@ module Spectrum
           end
         end
 
-        require 'spectrum/json/app'
+        require "spectrum/json/app"
 
         self
       end

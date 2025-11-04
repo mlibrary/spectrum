@@ -6,6 +6,8 @@ module Spectrum
         case hsh['type']
         when 'array'
           CSLArray
+        when 'corporate-author'
+          CSLCorporateAuthor
         when 'author'
           CSLAuthor
         when 'date'

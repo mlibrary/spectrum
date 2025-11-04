@@ -10,7 +10,7 @@ module Spectrum
         value.each_pair do |key, val|
           next if val.empty?
           if @fields.has_key?(key) && Array === @fields[key]
-            @fields[key] = @fields[key] + val
+            @fields[key] = @fields[key] + [val].flatten.compact
           else
             @fields[key] = val
           end

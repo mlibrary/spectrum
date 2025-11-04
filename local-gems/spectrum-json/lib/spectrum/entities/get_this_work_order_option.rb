@@ -1,9 +1,9 @@
 class Spectrum::Entities::GetThisWorkOrderOption
-  def self.for(item, client = AlmaRestClient.client)
+  def self.for(item, client = Spectrum::AlmaClient.client)
     if item.process_type == "WORK_ORDER_DEPARTMENT"
       response = client.get("/items", query: {item_barcode: item.barcode})
-      raise StandardError if response.code != 200
-      new(response.parsed_response)
+      raise StandardError if response.status != 200
+      new(response.body)
     else
       GetThisWorkOrderNotApplicable.new
     end

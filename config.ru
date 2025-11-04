@@ -6,6 +6,7 @@ end
 ENV["APP_ENV"] ||= ENV["RAILS_ENV"]
 
 Bundler.require
+require 'redirect_middleware'
 use Rack::Timeout, service_timeout: ENV.fetch("RACK_TIMEOUT", 60).to_i
 Rack::Timeout::Logger.logger = Logger.new(STDOUT)
 Rack::Timeout::Logger.logger.level = Logger::Severity::WARN
@@ -16,6 +17,28 @@ Spectrum::Json.configure(__dir__, ENV["RAILS_RELATIVE_URL_ROOT"])
 use Rack::ReverseProxy do
   reverse_proxy %r{^/browse.css}, "https://#{ENV["BROWSE_HOST"]}/$1"
   reverse_proxy %r{^/catalog/browse/(.*)$}, "https://#{ENV["BROWSE_HOST"]}/$1"
+end
+
+if ENV.fetch("PROXY_ACME_CHALLENGE", false)
+  class SetHostHeader
+    def initialize(app)
+      @app = app
+    end
+    def call(env)
+      if env["PATH_INFO"].start_with?("/.well-known/acme-challenge/")
+        env["SERVER_NAME"] = "search.lib.umich.edu"
+        env["HTTP_HOST"] = "search.lib.umich.edu"
+      end
+      @app.call(env)
+    end
+  end
+  use SetHostHeader
+  use Rack::ReverseProxy do
+    reverse_proxy_options verify_mode: OpenSSL::SSL::VERIFY_NONE
+    reverse_proxy %r{^/.well-known/acme-challenge/(.*)$},
+      "https://141.213.128.214/.well-known/acme-challenge/$1",
+       preserve_host: false
+  end
 end
 
 use Rack::Attack
@@ -37,4 +60,11 @@ if ENV.fetch("RACK_THROTTLE", false)
   end
 end
 
+limits = RLimit.get(RLimit::NOFILE)
+if limits[0] < limits[1]
+  RLimit.set(RLimit::NOFILE, limits[1])
+end
+
+use RedirectMiddleware
+use Rack::RewindableInput::Middleware
 run Spectrum::Json::App

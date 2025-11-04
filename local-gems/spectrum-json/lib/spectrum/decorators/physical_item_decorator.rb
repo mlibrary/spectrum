@@ -61,6 +61,7 @@ module Spectrum::Decorators
     ETAS_START = "Full text available,"
 
     extend Forwardable
+
     def_delegators :@work_order_option, :in_labeling?
 
     attr_reader :hathi_holding

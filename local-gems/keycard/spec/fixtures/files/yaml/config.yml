@@ -1,0 +1,19 @@
+---
+yaml:
+  institution_finder:
+    institutions:
+      - name: 1
+        network: '10.0.0.0/16'
+        access: allow
+      - name: 1
+        network: '10.0.2.0/24'
+        access: deny
+      - name: 2
+        network: '10.0.1.0/24'
+        access: allow
+      - name: 1
+        network: '10.0.3.0/24'
+        access: deny
+      - name: 2
+        network: '10.0.3.0/24'
+        access: allow

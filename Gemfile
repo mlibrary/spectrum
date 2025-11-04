@@ -5,13 +5,12 @@ gem "down"
 gem "ostruct"
 gem "logger"
 
-gem "rack-reverse-proxy", require: "rack/reverse_proxy"
 gem "rack-attack"
 gem "rack-timeout"
 
 # Allow dotenv configuration
 gem "dotenv", require: "dotenv/load"
-gem "activesupport", "~> 7.1.4"
+# gem "activesupport", "~> 7.1.4"
 gem "sinatra"
 gem "sinatra-contrib", require: "sinatra/json"
 
@@ -22,7 +21,6 @@ gem "skylight"
 gem "net-ldap"
 gem "twilio-ruby"
 gem "puma"
-gem "parslet"
 
 gem "omniauth"
 gem "omniauth_openid_connect"
@@ -32,9 +30,12 @@ gem "ipresolver",
   branch: "master"
 
 gem "keycard",
-  git: "https://github.com/bertrama/keycard",
-  branch: "rack-yaml-institution-finder",
+  path: "local-gems/keycard",
   require: ["keycard/rack", "keycard/yaml/institution_finder"]
+
+gem "rack-reverse-proxy",
+  path: "local-gems/rack-reverse-proxy",
+  require: "rack/reverse_proxy"
 
 gem "spectrum-config", path: "local-gems/spectrum-config"
 
@@ -42,7 +43,9 @@ gem "spectrum-json", path: "local-gems/spectrum-json"
 
 gem "alma_rest_client",
   git: "https://github.com/mlibrary/alma_rest_client",
-  tag: "1.0.1"
+  tag: "alma_rest_client/v2.2.0"
+
+gem "faraday-follow_redirects"
 
 gem "mlibrary_search_parser",
   git: "https://github.com/mlibrary/mlibrary_search_parser",
@@ -52,22 +55,13 @@ gem "json"
 
 gem "httpclient"
 gem "nokogiri"
+gem "rlimit"
 
 group :metrics do
   gem "yabeda-puma-plugin"
   gem "yabeda-prometheus"
   gem "prometheus-client", require: File.expand_path(File.join(["lib", "metrics"]), __dir__)
 end
-
-# "Rack middleware which cleans up invalid UTF8 characters"
-# gem 'rack-utf8_sanitizer'
-# Use github master branch, to pick up a few new patches.
-# Maybe this will fix one of our outstanding issues:
-#    application#catch_404s (ArgumentError) "invalid %-encoding"
-# We also still have invalid %-encoding w/submitted form fields.
-# This is an open issue at rack-utf8_sanitizer.
-# gem 'rack-utf8_sanitizer', :github => 'whitequark/rack-utf8_sanitizer'
-gem "rack-utf8_sanitizer", git: "https://github.com/whitequark/rack-utf8_sanitizer", branch: "main"
 
 group :test, :development do
   gem "pry-byebug"

@@ -56,23 +56,6 @@ CLEM:
     CLEM RBR: 'Rare Book Room'
     CLEM RSTO: 'Remote Storage'
     #updated 2025-02-21
-DHCL:
-  desc: 'Donald Hall Collection'
-  collections:
-    ALL: All collections
-    DHCL DISC: 'Audio Disc'
-    DHCL BRD: 'Blu-ray Disc'
-    DHCL CDROM: 'CD-ROM'
-    DHCL DVD: 'DVDs'
-    DHCL DVROM: 'DVD-ROM'
-    DHCL LASER: 'Laserdiscs'
-    DHCL BOOK: 'Monographs'
-    DHCL OVR: 'Oversize'
-    DHCL SCRN: 'Screenplays'
-    DHCL TAPEC: 'Sound Cassette'
-    DHCL VHS: 'VHS Tapes'
-    DHCL GAME: 'Video Games'
-    #updated 2025-02-21
 FINE:
   desc: 'Fine Arts'
   collections:
@@ -106,6 +89,7 @@ FLINT:
     FLINT BROWS: 'Browsing Collection'
     FLINT CHILD: 'Children''s Literature'
     FLINT ELP: 'English Language Program' #ELP 1-3 grouping
+    FLINT GRAPH: 'Graphic Novels' 
     FLINT MAIN: 'Main Collection'
     FLINT MSTR: 'Masters Theses'
     FLINT MEDIA: 'Media Collection'
@@ -242,7 +226,7 @@ SHAP:
   desc: 'Shapiro'
   collections:
     ALL: All collections
-    SHAP PRON: '2nd floor Browsing Collection'
+    SHAP PRON: 'Shapiro 2nd floor Leisure Reading Collection'
     SHAP ATL: 'Atlases & Maps'
     SHAP SBCS: 'Basement Compact Shelving'
     SHAP COLSC: 'College and Career Success Collection'
@@ -269,6 +253,7 @@ SPEC:
   desc: 'Special Collections' 
   collections: 
     ALL: All collections 
+    SPEC ART: 'Artists'' Books'
     SPEC SCB-ASG: 'Asa Gray Collection' 
     SPEC CHIL: 'Children''s Literature' 
     SPEC FAUL: 'Faulkner Collection' 
