@@ -396,6 +396,7 @@ DEPENDENCIES
   alma_rest_client!
   dotenv
   down
+  faraday-follow_redirects
   fiddle
   httpclient
   ipresolver!
