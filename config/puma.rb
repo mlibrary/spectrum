@@ -8,7 +8,7 @@ end
 ENV["RAILS_RELATIVE_URL_ROOT"] ||= "http://localhost:3000"
 
 environment "production"
-threads ENV.fetch("PUMA_THREADS_MIN", 4), ENV.fetch("PUMA_THREADS_MAX", 32)
+threads ENV.fetch("PUMA_THREADS_MIN", 4).to_i, ENV.fetch("PUMA_THREADS_MAX", 32).to_i
 
 # Use tcp as the http server (apache) is on a different host.
 if ENV["PUMA_BIND"]
