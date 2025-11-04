@@ -7,7 +7,7 @@ ENV["APP_ENV"] ||= ENV["RAILS_ENV"]
 
 Bundler.require
 require 'redirect_middleware'
-use Rack::Timeout, service_timeout: 600
+use Rack::Timeout, service_timeout: ENV.fetch("RACK_TIMEOUT", 60).to_i
 Rack::Timeout::Logger.logger = Logger.new(STDOUT)
 Rack::Timeout::Logger.logger.level = Logger::Severity::WARN
 use Metrics::Middleware
