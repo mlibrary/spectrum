@@ -45,6 +45,8 @@ gem "alma_rest_client",
   git: "https://github.com/mlibrary/alma_rest_client",
   tag: "alma_rest_client/v2.2.0"
 
+gem "faraday-follow_redirects"
+
 gem "mlibrary_search_parser",
   git: "https://github.com/mlibrary/mlibrary_search_parser",
   branch: "main"
