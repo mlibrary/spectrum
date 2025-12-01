@@ -91,6 +91,16 @@ describe Spectrum::Entities::AlmaItem do
       expect(subject.in_reserves?).to eq(true)
     end
   end
+  context "#in_deep_storage?" do
+    it "is false for an item not in deep storage" do
+      expect(subject.in_deep_storage?).to eq(false)
+    end
+    it "is true for an item in a reserve location (temporary or permanent)" do
+      @solr_bib_alma.gsub!('\"library\":\"HATCH\"', '\"library\":\"OFFS\"')
+      @solr_bib_alma.gsub!('\"location\":\"GRAD\"', '\"location\":\"DEEP\"')
+      expect(subject.in_deep_storage?).to eq(true)
+    end
+  end
   context "reservable_library?" do
     it "is true if the library is \"FVL\"" do
       @solr_bib_alma.gsub!('\"library\":\"HATCH\"', '\"library\":\"FVL\"')
