@@ -228,7 +228,7 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
   end
   context "#checked_out?" do
     it "is true if item has a due date" do
-      @input[:alma_loan] = Hash.new("due_date" => "2021-10-01T03:59:00Z")
+      @input[:alma_loan] = Hash.new({"due_date" => "2021-10-01T03:59:00Z"})
       expect(subject.checked_out?).to eq(true)
     end
     it "is false if item does not have a due date" do
@@ -240,7 +240,7 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
       expect(subject.not_checked_out?).to eq(true)
     end
     it "is false if item does has a due date" do
-      @input[:alma_loan] = Hash.new("due_date" => "2021-10-01T03:59:00Z")
+      @input[:alma_loan] = Hash.new({"due_date" => "2021-10-01T03:59:00Z"})
       expect(subject.not_checked_out?).to eq(false)
     end
   end
@@ -323,7 +323,7 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
     end
     it "is true if item is checked out" do
       allow(@input[:solr_item]).to receive(:library).and_return("HATCH")
-      @input[:alma_loan] = Hash.new("due_date" => "2021-10-01T03:59:00Z")
+      @input[:alma_loan] = Hash.new({"due_date" => "2021-10-01T03:59:00Z"})
       expect(subject.not_pickup_or_checkout?).to eq(true)
     end
     it "is true if item is missing" do
@@ -425,6 +425,13 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
     it "is false if item has on order status" do
       allow(@input[:solr_item]).to receive(:process_type).and_return("ACQ")
       expect(subject.not_in_acq?).to eq(false)
+    end
+  end
+  context "#not_on_shelf?" do
+    it "is true when item is deep storage" do
+      allow(@input[:solr_item]).to receive(:library).and_return("OFFS")
+      allow(@input[:solr_item]).to receive(:location).and_return("DEEP")
+      expect(subject.not_on_shelf?).to eq(true)
     end
   end
   context "#closed_stacks?" do
