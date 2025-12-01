@@ -51,6 +51,14 @@ describe Spectrum::Holding::PhysicalItemStatus do
         expect(subject.text).to eq("Reading Room use only")
       end
     end
+    context "deep storage" do
+      it "shows warning unavailable for deep storage item" do
+        allow(@solr_item).to receive(:library).and_return("OFFS")
+        allow(@solr_item).to receive(:location).and_return("DEEP")
+        expect(subject.class.to_s).to include("Warning")
+        expect(subject.text).to eq("Item unavalable: Use Get This to request a copy")
+      end
+    end
     context "Fulfillment Unit: Limited" do
       before(:each) do
         allow(@alma_item).to receive(:fulfillment_unit).and_return("Limited")
