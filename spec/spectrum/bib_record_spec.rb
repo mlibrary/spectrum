@@ -185,6 +185,18 @@ describe Spectrum::BibRecord do
           @hol[0]["library"] = "ALMA_DIGITAL"
           expect(subject.elec_holdings.count).to eq(1)
         end
+        it "returns alma digital holdings first" do
+          @hol.push({
+            "library" => "ALMA_DIGITAL",
+            "link" => "https://somelink.doesnotwork",
+            "link_text" => "Available online",
+            "delivery_description" => "some delivery description",
+            "label" => "some label",
+            "public_note" => "some note"
+
+          })
+          expect(subject.elec_holdings.first.library).to eq("ALMA_DIGITAL")
+        end
       end
       context "finding_aid" do
         it "returns nil when finding_aid is false" do
