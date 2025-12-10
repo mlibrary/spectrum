@@ -1,6 +1,7 @@
 # TBD #status, #temp_location?
 class Spectrum::Entities::AlmaItem
   extend Forwardable
+
   def_delegators :@holding, :holding_id, :public_note
 
   def_delegators :@bib_record, :mms_id, :doc_id, :etas?, :title, :author,
@@ -85,6 +86,10 @@ class Spectrum::Entities::AlmaItem
 
   def not_in_reserves?
     !in_reserves?
+  end
+
+  def in_deep_storage?
+    @solr_item.library == "OFFS" && @solr_item.location == "DEEP"
   end
 
   def in_game?

@@ -236,7 +236,7 @@ module Spectrum::Decorators
     end
 
     def not_on_shelf?
-      in_process? || in_reserves?
+      in_process? || in_reserves? || in_deep_storage?
     end
 
     def recallable?
