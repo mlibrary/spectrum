@@ -164,10 +164,12 @@ describe Spectrum::BibRecord do
     end
     context "bib record with ELEC holdings" do
       before(:each) do
-        @solr_elec = File.read("./spec/fixtures/solr_elec.json")
+        @solr_elec = JSON.parse(File.read("./spec/fixtures/solr_elec.json"))
+        @hol = JSON.parse(@solr_elec["response"]["docs"][0]["hol"])
       end
       subject do
-        described_class.new(JSON.parse(@solr_elec))
+        @solr_elec["response"]["docs"][0]["hol"] = @hol.to_json
+        described_class.new(@solr_elec)
       end
       it "has holdings" do
         expect(subject.holdings.count).to eq(1)
@@ -180,8 +182,20 @@ describe Spectrum::BibRecord do
           expect(subject.elec_holdings.count).to eq(1)
         end
         it "returns electronic holdings for library ALMA_DIGITAL" do
-          @solr_elec = @solr_elec.gsub('library\":\"ELEC\"', 'library\":\"ALMA_DIGITAL\"')
+          @hol[0]["library"] = "ALMA_DIGITAL"
           expect(subject.elec_holdings.count).to eq(1)
+        end
+        it "returns alma digital holdings first" do
+          @hol.push({
+            "library" => "ALMA_DIGITAL",
+            "link" => "https://somelink.doesnotwork",
+            "link_text" => "Available online",
+            "delivery_description" => "some delivery description",
+            "label" => "some label",
+            "public_note" => "some note"
+
+          })
+          expect(subject.elec_holdings.first.library).to eq("ALMA_DIGITAL")
         end
       end
       context "finding_aid" do
@@ -189,11 +203,11 @@ describe Spectrum::BibRecord do
           expect(subject.finding_aid).to be_nil
         end
         it "returns nil when no finding aid" do
-          @solr_elec = @solr_elec.gsub('finding_aid\\":false,', "")
+          @hol[0].delete("finding_aid")
           expect(subject.finding_aid).to be_nil
         end
         it "returns holding when there is a finding_aid" do
-          @solr_elec = @solr_elec.gsub('finding_aid\\":false', "finding_aid\\\":true")
+          @hol[0]["finding_aid"] = true
           expect(subject.finding_aid.class.name).to include("FindingAid")
         end
       end

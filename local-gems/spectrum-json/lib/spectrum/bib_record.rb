@@ -179,7 +179,7 @@ module Spectrum
 
     # non-HathiTrust Electronic Holdings or Digital Holdings
     def elec_holdings
-      holdings.select { |x| ["ELEC", "ALMA_DIGITAL"].any? { |y| x.library == y } }
+      holdings.select { |x| ["ELEC", "ALMA_DIGITAL"].any? { |y| x.library == y } }.sort_by(&:order)
     end
 
     def physical_holdings?
@@ -211,6 +211,12 @@ module Spectrum
         ""
       end
 
+      # for ordering in holding results when there's a mix of holdings. Default
+      # is at the bottom of the list
+      def order
+        999999
+      end
+
       def finding_aid
         false
       end
@@ -230,6 +236,11 @@ module Spectrum
     class DigitalHolding < Holding
       def self.match?(holding)
         holding["library"] == "ALMA_DIGITAL"
+      end
+
+      # These should be prioritized over Electronic Holdings
+      def order
+        1
       end
       ["public_note", "link", "link_text", "delivery_description", "label"].each do |name|
         define_method(name) do
