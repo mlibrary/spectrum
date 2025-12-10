@@ -56,7 +56,7 @@ describe Spectrum::Holding::PhysicalItemStatus do
         allow(@solr_item).to receive(:library).and_return("OFFS")
         allow(@solr_item).to receive(:location).and_return("DEEP")
         expect(subject.class.to_s).to include("Warning")
-        expect(subject.text).to eq("Item unavalable: Use Get This to request a copy")
+        expect(subject.text).to eq("Item unavailable: Use Get This to request a copy")
       end
     end
     context "Fulfillment Unit: Limited" do
