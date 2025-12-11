@@ -99,7 +99,7 @@ module Spectrum::Decorators
     end
 
     def in_slower_pickup?
-      @work_order_option.in_getable_acq_work_order? || in_asia_transit?
+      @work_order_option.in_getable_acq_work_order? || in_asia_transit? || in_asia_technical_migration?
     end
 
     def music_pickup?
@@ -185,6 +185,10 @@ module Spectrum::Decorators
 
     def in_asia_transit?
       @item.library == "HATCH" && @item.location == "ASIA" && @item.process_type == "TRANSIT"
+    end
+
+    def in_asia_technical_migration?
+      @item.library == "HATCH" && @item.location == "ASIA" && @item.process_type == "TECHNICAL"
     end
 
     def building_use_only?
