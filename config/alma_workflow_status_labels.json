@@ -7,7 +7,7 @@
   "LOST_LOAN": "Item unavailable: Lost",
   "LOST_LOAN_AND_PAID": "Item unavailable: Lost",
   "MISSING": "Item unavailable: Missing",
-  "TECHNICAL": "Item unavailable: In process",
+  "TECHNICAL": "In Process: Use Get This to request a copy",
   "TRANSIT": "Item in transit between U-M libraries",
   "TRANSIT_TO_REMOTE_STORAGE": "Item in transit between U-M libraries",
   "WORK_ORDER_DEPARTMENT": "In Process: Use Get This to request a copy"
