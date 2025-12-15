@@ -99,7 +99,11 @@ module Spectrum::Decorators
     end
 
     def in_slower_pickup?
-      @work_order_option.in_getable_acq_work_order? || in_asia_transit? || in_asia_technical_migration?
+      in_getable_acq_work_order? || in_asia_transit? || in_asia_technical_migration?
+    end
+
+    def in_getable_acq_work_order?
+        @work_order_option.in_getable_acq_work_order?
     end
 
     def music_pickup?
