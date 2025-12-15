@@ -49,7 +49,15 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
       expect(subject.in_slower_pickup?).to eq(true)
     end
 
-    it "is false when neither in_getable_acq_work_order? or in_asia_transit?" do
+    it "is true when in_asia_technical_migration? is true" do
+      allow(@get_this_work_order_double).to receive(:in_getable_acq_work_order?).and_return(false)
+      allow(@input[:solr_item]).to receive(:library).and_return("HATCH")
+      allow(@input[:solr_item]).to receive(:location).and_return("ASIA")
+      allow(@input[:solr_item]).to receive(:process_type).and_return("TECHNICAL")
+      expect(subject.in_slower_pickup?).to eq(true)
+    end
+
+    it "is false when neither in_getable_acq_work_order? or in_asia_transit? or in_asia_tehnical_migration?" do
       allow(@input[:solr_item]).to receive(:library).and_return("SHAP")
       allow(@input[:solr_item]).to receive(:location).and_return("MAIN")
       expect(subject.in_slower_pickup?).to eq(false)
@@ -75,6 +83,27 @@ describe Spectrum::Decorators::PhysicalItemDecorator do
       expect(subject.in_asia_transit?).to eq(false)
     end
   end
+  context "in_asia_technical_migration?" do
+    it "is true when in Asia library and process type transit" do
+      allow(@input[:solr_item]).to receive(:library).and_return("HATCH")
+      allow(@input[:solr_item]).to receive(:location).and_return("ASIA")
+      allow(@input[:solr_item]).to receive(:process_type).and_return("TECHNICAL")
+      expect(subject.in_asia_technical_migration?).to eq(true)
+    end
+
+    it "is false when in Asia library and does not have process type transit" do
+      allow(@input[:solr_item]).to receive(:library).and_return("HATCH")
+      allow(@input[:solr_item]).to receive(:location).and_return("ASIA")
+      expect(subject.in_asia_technical_migration?).to eq(false)
+    end
+    it "is false when not in Asia library and process type transit" do
+      allow(@input[:solr_item]).to receive(:library).and_return("SHAP")
+      allow(@input[:solr_item]).to receive(:location).and_return("MAIN")
+      allow(@input[:solr_item]).to receive(:process_type).and_return("TECHNICAL")
+      expect(subject.in_asia_technical_migration?).to eq(false)
+    end
+  end
+
   context "#can_scan?" do
     it "is true for a scannable material type" do
       allow(@input[:solr_item]).to receive(:material_type).and_return("BOOK")
