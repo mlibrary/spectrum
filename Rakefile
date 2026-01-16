@@ -19,8 +19,13 @@ task :search, [:version, :flavor] do |t, args|
     next
   end
   version = if args.version == 'latest'
-   response = Faraday.get('http://api.github.com/repos/mlibrary/search/releases/latest')
-   JSON.parse(response.body)['tag_name']
+   begin
+     response = Faraday.get('http://api.github.com/repos/mlibrary/search/releases/latest')
+     JSON.parse(response.body)['tag_name']
+   rescue JSON::ParserError => e
+     puts "Failed to parse GitHub API response: #{e.message}"
+     abort("Unable to fetch latest release version")
+   end
   else
     args.version
   end
@@ -59,8 +64,14 @@ namespace 'assets' do
       photo_dir = ENV.fetch("SPECTRUM_PHOTO_DIR", "public/photos")
       if ENV.fetch('SPECTRUM_BUILDS_SEARCH', false)
         puts "Downloading profile photos ..."
-        response = Faraday.get('https://cms.lib.umich.edu/api/solr/staff')
-        JSON.parse(response.body).each do |profile|
+        begin
+          response = Faraday.get('https://cms.lib.umich.edu/api/solr/staff')
+          profiles = JSON.parse(response.body)
+        rescue JSON::ParserError => e
+          puts "Failed to parse CMS API response: #{e.message}"
+          abort("Unable to fetch profile photos")
+        end
+        profiles.each do |profile|
           url_string = profile.dig('field_user_photo_display', 0, 'url')
           next unless url_string
           next if url_string.empty?

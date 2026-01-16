@@ -42,7 +42,7 @@ module Spectrum
             primo_response = begin
               response = Faraday.get(url)
               Response.for_json(JSON.parse(response.body))
-            rescue EOFError, Errno::ECONNRESET, Net::ReadTimeout => e
+            rescue EOFError, Errno::ECONNRESET, Net::ReadTimeout, JSON::ParserError => e
               ActiveSupport::Notifications.instrument(
                 "primo_exception.spectrum_search_engine_primo",
                 source_id: "primo",
