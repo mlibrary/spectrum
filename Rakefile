@@ -45,18 +45,23 @@ namespace 'assets' do
   namespace 'precompile' do
     desc "Download cached profile photos"
     task :cached_profile_photos do
-      profile_photos = Faraday.get("http://cached-photos/profile-photos.tar")
-      # From https://stackoverflow.com/questions/34358926/how-to-extract-tar-file
-      Gem::Package::TarReader.new(StringIO.new(profile_photos.body)) do |tar|
-        tar.each do |entry|
-          if entry.file?
-            FileUtils.mkdir_p(File.dirname(entry.full_name))
-            File.open(entry.full_name, "wb") do |file|
-              file.write(entry.read)
+      begin
+        profile_photos = Faraday.get("http://cached-photos/profile-photos.tar")
+        # From https://stackoverflow.com/questions/34358926/how-to-extract-tar-file
+        Gem::Package::TarReader.new(StringIO.new(profile_photos.body)) do |tar|
+          tar.each do |entry|
+            if entry.file?
+              FileUtils.mkdir_p(File.dirname(entry.full_name))
+              File.open(entry.full_name, "wb") do |file|
+                file.write(entry.read)
+              end
+              File.chmod(entry.header.mode, entry.full_name)
             end
-            File.chmod(entry.header.mode, entry.full_name)
           end
         end
+      rescue Faraday::Error => e
+        puts "Failed to download cached profile photos: #{e.message}"
+        abort("Unable to download cached profile photos")
       end
     end
 
