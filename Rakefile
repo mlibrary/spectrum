@@ -5,6 +5,7 @@ require "bundler"
 ENV["ALMA_API_HOST"] ||= ""
 Bundler.require
 require "rubygems/package"
+require "json"
 
 File.expand_path("lib", __dir__).tap do |libdir|
   $LOAD_PATH.unshift(libdir) unless $LOAD_PATH.include?(libdir)
