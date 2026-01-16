@@ -7,7 +7,7 @@ require "yaml"
 require "delegate"
 require "active_support"
 require "active_support/core_ext"
-require "httparty"
+require "faraday"
 require "htmlentities"
 
 require "spectrum/config/version"

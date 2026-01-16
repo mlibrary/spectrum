@@ -19,7 +19,8 @@ task :search, [:version, :flavor] do |t, args|
     next
   end
   version = if args.version == 'latest'
-   HTTParty.get('http://api.github.com/repos/mlibrary/search/releases/latest').parsed_response['tag_name']
+   response = Faraday.get('http://api.github.com/repos/mlibrary/search/releases/latest')
+   JSON.parse(response.body)['tag_name']
   else
     args.version
   end
@@ -58,7 +59,8 @@ namespace 'assets' do
       photo_dir = ENV.fetch("SPECTRUM_PHOTO_DIR", "public/photos")
       if ENV.fetch('SPECTRUM_BUILDS_SEARCH', false)
         puts "Downloading profile photos ..."
-        HTTParty.get('https://cms.lib.umich.edu/api/solr/staff').parsed_response.each do |profile|
+        response = Faraday.get('https://cms.lib.umich.edu/api/solr/staff')
+        JSON.parse(response.body).each do |profile|
           url_string = profile.dig('field_user_photo_display', 0, 'url')
           next unless url_string
           next if url_string.empty?

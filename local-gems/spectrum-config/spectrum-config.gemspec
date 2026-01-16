@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'htmlentities'
   spec.add_dependency 'activesupport'
   spec.add_dependency 'rails-html-sanitizer'
-  spec.add_dependency 'httparty'
+  spec.add_dependency 'faraday'
 
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'pry-byebug'

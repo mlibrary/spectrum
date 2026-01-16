@@ -9,14 +9,18 @@ module Spectrum
           url = config["host"] + "/public/v1/libraries/#{config["library_id"]}/articles/#{type}/#{CGI.escape(data)}"
           headers = {"Authorization" => "Bearer #{config["key"]}"}
           response = begin
-            HTTParty.get(url, headers: headers, open_timeout: 0.5)
+            conn = Faraday.new do |f|
+              f.options.open_timeout = 0.5
+            end
+            conn.get(url, {}, headers)
           rescue => e
             ActiveSupport::Notifications.instrument("libkey_exception.spectrum_search_engine_primo", source_id: "libkey", type: type, data: data, exception: e)
             return for_nothing
           end
-          return for_nothing unless response.code == 200
-          return for_nothing unless response["data"]
-          new(response["data"])
+          return for_nothing unless response.status == 200
+          parsed = JSON.parse(response.body)
+          return for_nothing unless parsed["data"]
+          new(parsed["data"])
         end
 
         def self.for_nothing

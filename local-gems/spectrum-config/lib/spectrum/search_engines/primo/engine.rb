@@ -40,7 +40,8 @@ module Spectrum
           primo_response = nil
           primo_duration = Benchmark.realtime do
             primo_response = begin
-              Response.for_json(HTTParty.get(url))
+              response = Faraday.get(url)
+              Response.for_json(JSON.parse(response.body))
             rescue EOFError, Errno::ECONNRESET, Net::ReadTimeout => e
               ActiveSupport::Notifications.instrument(
                 "primo_exception.spectrum_search_engine_primo",
