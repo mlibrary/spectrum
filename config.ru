@@ -63,7 +63,7 @@ end
 if ENV.fetch("RACK_THROTTLE_IPS", false)
   ::THROTTLED_ADDRESSES = ENV["RACK_THROTTLE_IPS"].split(/\s/).map { |ip| IPAddr.new(ip) }
   Rack::Attack.cache.store = ActiveSupport::Cache::MemoryStore.new
-  Rack::Attack.throttle("limit requests by IP", limit: 10, period: 60) do |req|
+  Rack::Attack.throttle("limit requests by IP", limit: 1, period: 360) do |req|
     this_ip = IPAddr.new(req.ip)
     if ::THROTTLED_ADDRESSES.any? { |addr| addr.include?(this_ip) }
       "THROTTLED_ADDRESS"
