@@ -22,8 +22,8 @@ task :search, [:version, :flavor] do |t, args|
    begin
      response = Faraday.get('http://api.github.com/repos/mlibrary/search/releases/latest')
      JSON.parse(response.body)['tag_name']
-   rescue JSON::ParserError => e
-     puts "Failed to parse GitHub API response: #{e.message}"
+   rescue Faraday::Error, JSON::ParserError => e
+     puts "Failed to fetch latest release version: #{e.message}"
      abort("Unable to fetch latest release version")
    end
   else
@@ -67,8 +67,8 @@ namespace 'assets' do
         begin
           response = Faraday.get('https://cms.lib.umich.edu/api/solr/staff')
           profiles = JSON.parse(response.body)
-        rescue JSON::ParserError => e
-          puts "Failed to parse CMS API response: #{e.message}"
+        rescue Faraday::Error, JSON::ParserError => e
+          puts "Failed to fetch profile photos: #{e.message}"
           abort("Unable to fetch profile photos")
         end
         profiles.each do |profile|
