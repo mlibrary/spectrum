@@ -50,3 +50,4 @@ token.txt
 
 public/*
 !public/bookplates/
+/vendor/

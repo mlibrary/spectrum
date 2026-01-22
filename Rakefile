@@ -5,6 +5,7 @@ require "bundler"
 ENV["ALMA_API_HOST"] ||= ""
 Bundler.require
 require "rubygems/package"
+require "json"
 
 File.expand_path("lib", __dir__).tap do |libdir|
   $LOAD_PATH.unshift(libdir) unless $LOAD_PATH.include?(libdir)
@@ -19,7 +20,13 @@ task :search, [:version, :flavor] do |t, args|
     next
   end
   version = if args.version == 'latest'
-   HTTParty.get('http://api.github.com/repos/mlibrary/search/releases/latest').parsed_response['tag_name']
+   begin
+     response = Faraday.get('http://api.github.com/repos/mlibrary/search/releases/latest')
+     JSON.parse(response.body)['tag_name']
+   rescue Faraday::Error, JSON::ParserError => e
+     puts "Failed to fetch latest release version: #{e.message}"
+     abort("Unable to fetch latest release version")
+   end
   else
     args.version
   end
@@ -38,18 +45,23 @@ namespace 'assets' do
   namespace 'precompile' do
     desc "Download cached profile photos"
     task :cached_profile_photos do
-      profile_photos = Faraday.get("http://cached-photos/profile-photos.tar")
-      # From https://stackoverflow.com/questions/34358926/how-to-extract-tar-file
-      Gem::Package::TarReader.new(StringIO.new(profile_photos.body)) do |tar|
-        tar.each do |entry|
-          if entry.file?
-            FileUtils.mkdir_p(File.dirname(entry.full_name))
-            File.open(entry.full_name, "wb") do |file|
-              file.write(entry.read)
+      begin
+        profile_photos = Faraday.get("http://cached-photos/profile-photos.tar")
+        # From https://stackoverflow.com/questions/34358926/how-to-extract-tar-file
+        Gem::Package::TarReader.new(StringIO.new(profile_photos.body)) do |tar|
+          tar.each do |entry|
+            if entry.file?
+              FileUtils.mkdir_p(File.dirname(entry.full_name))
+              File.open(entry.full_name, "wb") do |file|
+                file.write(entry.read)
+              end
+              File.chmod(entry.header.mode, entry.full_name)
             end
-            File.chmod(entry.header.mode, entry.full_name)
           end
         end
+      rescue Faraday::Error => e
+        puts "Failed to download cached profile photos: #{e.message}"
+        abort("Unable to download cached profile photos")
       end
     end
 
@@ -58,7 +70,14 @@ namespace 'assets' do
       photo_dir = ENV.fetch("SPECTRUM_PHOTO_DIR", "public/photos")
       if ENV.fetch('SPECTRUM_BUILDS_SEARCH', false)
         puts "Downloading profile photos ..."
-        HTTParty.get('https://cms.lib.umich.edu/api/solr/staff').parsed_response.each do |profile|
+        begin
+          response = Faraday.get('https://cms.lib.umich.edu/api/solr/staff')
+          profiles = JSON.parse(response.body)
+        rescue Faraday::Error, JSON::ParserError => e
+          puts "Failed to fetch profile photos: #{e.message}"
+          abort("Unable to fetch profile photos")
+        end
+        profiles.each do |profile|
           url_string = profile.dig('field_user_photo_display', 0, 'url')
           next unless url_string
           next if url_string.empty?

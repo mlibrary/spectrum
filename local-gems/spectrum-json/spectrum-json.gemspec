@@ -41,6 +41,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "lru_redux"
   spec.add_dependency "marc"
   spec.add_dependency "rsolr"
-  spec.add_dependency "httparty"
+  spec.add_dependency "faraday"
   spec.add_dependency "dotenv"
 end
