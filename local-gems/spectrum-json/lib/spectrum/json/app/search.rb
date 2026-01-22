@@ -58,13 +58,9 @@ module Spectrum
           datastore = Spectrum::Response::DataStore.new(
             this_datastore(focus: focus, spectrum_request: spectrum_request, engine: engine)
           )
-          specialists = if spectrum_request.retrieve_specialists?
-            Spectrum::Response::Specialists.new(
-              specialist_base(spectrum_request: spectrum_request, source: source, focus: focus)
-            )
-          else
-            Spectrum::Response::Specialists.new({request: spectrum_request})
-          end
+          specialists = Spectrum::Response::Specialists.new(
+            specialist_base(spectrum_request: spectrum_request, source: source, focus: focus)
+          )
           spectrum_response = Spectrum::Response::RecordList.new(
             fetch_records(engine: engine, source: source, focus: focus, specialists: specialists),
             spectrum_request
