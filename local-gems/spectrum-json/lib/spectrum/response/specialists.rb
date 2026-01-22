@@ -256,6 +256,7 @@ module Spectrum
       end
 
       def spectrum
+        return [] unless data[:request]&.retrieve_specialists?
         return [] if data[:request].instance_eval { @request&.env&.fetch('dlpsInstitutionId', nil)&.include?('Flint') }
         specialist_focus = Spectrum::Json.foci['mirlyn']
         # catalog/mirlyn is on new parser

@@ -67,7 +67,7 @@ module Spectrum
           @count = @data["count"].to_i
           @page = @data["page"]
           @tree = Spectrum::FieldTree.new(@data["field_tree"])
-          @facets = Spectrum::FacetList.new(@focus.default_facets.merge(@focus.filter_facets(@data["facets"] || {})))
+          @facets = Spectrum::FacetList.new(@focus&.default_facets&.merge(@focus&.filter_facets(@data["facets"] || {})) || {})
           @sort = @data["sort"]
           @settings = @data["settings"]
           @request_id = @data["request_id"]
@@ -129,6 +129,21 @@ module Spectrum
 
       def holdings_only?
         pseudo_facet?("holdings_only", true)
+      end
+
+      def retrieve_specialists?
+        return true if @settings.nil? || !@settings.key?("specialists")
+        @settings["specialists"] != false
+      end
+
+      def retrieve_facets?
+        return true if @settings.nil? || !@settings.key?("facets")
+        @settings["facets"] != false
+      end
+
+      def retrieve_holdings?
+        return true if @settings.nil? || !@settings.key?("holdings")
+        @settings["holdings"] != false
       end
 
       def exclude_newspapers?

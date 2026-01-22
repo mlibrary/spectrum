@@ -46,6 +46,18 @@ module Spectrum
       def is_open_access?
         false
       end
+
+      def retrieve_specialists?
+        true
+      end
+
+      def retrieve_facets?
+        true
+      end
+
+      def retrieve_holdings?
+        true
+      end
     end
   end
 end

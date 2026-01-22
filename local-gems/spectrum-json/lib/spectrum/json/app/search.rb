@@ -76,7 +76,7 @@ module Spectrum
             new_spectrum_request: new_spectrum_request
           )
 
-          if source.holdings
+          if source.holdings && spectrum_request.retrieve_holdings?
             ActiveSupport::Notifications.instrument("search_results_holdings_retrieval.spectrum_json_search", full_response: full_response) do
               full_response[:response].each do |record|
                 holdings_request = Spectrum::Request::Holdings.new({id: record[:uid]})

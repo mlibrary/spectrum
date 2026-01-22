@@ -313,7 +313,7 @@ module Spectrum
 
       def apply_facets!(results, request = nil)
         if results.respond_to? :[]
-          @facet_values = results["facet_counts"]["facet_fields"]
+          @facet_values = results.fetch("facet_counts", {}).fetch("facet_fields", {})
         elsif results.respond_to? :facets
           @facet_values = {}
           # TODO: Make a facet values object or something.
@@ -443,6 +443,9 @@ module Spectrum
       end
 
       def solr_facets(request)
+        # Skip facets if retrieve_facets? is false
+        return {facet: false} unless request.retrieve_facets?
+        
         ret = {facet: true, "facet.field": []}
         @facets.native_pair do |solr_name, facet|
           ret[:"facet.field"] << solr_name
