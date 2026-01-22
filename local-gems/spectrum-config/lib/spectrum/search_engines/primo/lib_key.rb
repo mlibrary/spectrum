@@ -18,8 +18,8 @@ module Spectrum
             return for_nothing
           end
           return for_nothing unless response.status == 200
-          begin
-            parsed = JSON.parse(response.body)
+          parsed = begin
+            JSON.parse(response.body)
           rescue JSON::ParserError => e
             ActiveSupport::Notifications.instrument("libkey_exception.spectrum_search_engine_primo", source_id: "libkey", type: type, data: data, exception: e)
             return for_nothing
