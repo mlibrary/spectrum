@@ -67,7 +67,7 @@ module Spectrum
           @count = @data["count"].to_i
           @page = @data["page"]
           @tree = Spectrum::FieldTree.new(@data["field_tree"])
-          @facets = Spectrum::FacetList.new(@focus.default_facets.merge(@focus.filter_facets(@data["facets"] || {})))
+          @facets = Spectrum::FacetList.new(@focus&.default_facets&.merge(@focus&.filter_facets(@data["facets"] || {})) || {})
           @sort = @data["sort"]
           @settings = @data["settings"]
           @request_id = @data["request_id"]
