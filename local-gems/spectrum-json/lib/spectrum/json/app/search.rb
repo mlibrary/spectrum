@@ -58,9 +58,13 @@ module Spectrum
           datastore = Spectrum::Response::DataStore.new(
             this_datastore(focus: focus, spectrum_request: spectrum_request, engine: engine)
           )
-          specialists = Spectrum::Response::Specialists.new(
-            specialist_base(spectrum_request: spectrum_request, source: source, focus: focus)
-          )
+          specialists = if spectrum_request.retrieve_specialists?
+            Spectrum::Response::Specialists.new(
+              specialist_base(spectrum_request: spectrum_request, source: source, focus: focus)
+            )
+          else
+            Spectrum::Response::Specialists.new({request: spectrum_request})
+          end
           spectrum_response = Spectrum::Response::RecordList.new(
             fetch_records(engine: engine, source: source, focus: focus, specialists: specialists),
             spectrum_request
@@ -76,7 +80,7 @@ module Spectrum
             new_spectrum_request: new_spectrum_request
           )
 
-          if source.holdings
+          if source.holdings && spectrum_request.retrieve_holdings?
             ActiveSupport::Notifications.instrument("search_results_holdings_retrieval.spectrum_json_search", full_response: full_response) do
               full_response[:response].each do |record|
                 holdings_request = Spectrum::Request::Holdings.new({id: record[:uid]})

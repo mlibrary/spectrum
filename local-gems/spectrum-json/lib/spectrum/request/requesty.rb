@@ -131,6 +131,21 @@ module Spectrum
         pseudo_facet?("holdings_only", true)
       end
 
+      def retrieve_specialists?
+        return true if @settings.nil? || !@settings.key?("specialists")
+        @settings["specialists"] != false
+      end
+
+      def retrieve_facets?
+        return true if @settings.nil? || !@settings.key?("facets")
+        @settings["facets"] != false
+      end
+
+      def retrieve_holdings?
+        return true if @settings.nil? || !@settings.key?("holdings")
+        @settings["holdings"] != false
+      end
+
       def exclude_newspapers?
         pseudo_facet?("exclude_newspapers")
       end

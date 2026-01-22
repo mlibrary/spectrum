@@ -443,6 +443,9 @@ module Spectrum
       end
 
       def solr_facets(request)
+        # Skip facets if retrieve_facets? is false
+        return {facet: false} unless request.retrieve_facets?
+        
         ret = {facet: true, "facet.field": []}
         @facets.native_pair do |solr_name, facet|
           ret[:"facet.field"] << solr_name

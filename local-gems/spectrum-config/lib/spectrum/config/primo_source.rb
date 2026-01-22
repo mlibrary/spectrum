@@ -120,6 +120,9 @@ module Spectrum
       end
 
       def extract_facets(request)
+        # Skip facets if retrieve_facets? is false
+        return {} unless request.retrieve_facets?
+        
         return {} if request.facets.data.nil? || request.facets.data.empty?
 
         retval = { qInclude: [], qExclude: [], pcAvailability: []}
