@@ -39,6 +39,18 @@ module Spectrum
         false
       end
 
+      def retrieve_specialists?
+        false
+      end
+
+      def retrieve_facets?
+        true
+      end
+
+      def retrieve_holdings?
+        false
+      end
+
       def facet_sort
         @sort
       end

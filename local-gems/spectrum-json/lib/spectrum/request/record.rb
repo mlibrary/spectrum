@@ -17,6 +17,18 @@ module Spectrum
         []
       end
 
+      def retrieve_specialists?
+        false
+      end
+
+      def retrieve_facets?
+        false
+      end
+
+      def retrieve_holdings?
+        true
+      end
+
       def initialize(request)
         @request = request
         if request.params[:source] == "summon"
