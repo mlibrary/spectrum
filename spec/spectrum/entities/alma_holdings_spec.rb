@@ -76,7 +76,7 @@ describe Spectrum::Entities::AlmaHolding do
     expect(subject.public_note).to eq([])
   end
   it "has summary_holdings" do
-    expect(subject.summary_holdings).to eq("")
+    expect(subject.summary_holdings).to eq([])
   end
 
   context "solr process type Loan; alma has empty loan response; (i.e. item checked in today)" do

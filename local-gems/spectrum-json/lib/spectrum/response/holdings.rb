@@ -25,7 +25,7 @@ module Spectrum
           hash[nil] = "AAAC"
           hash["Online Resources"] = "AAAA"
           hash["HathiTrust Digital Library"] = "AAAB"
-          hash["- Offsite Shelving -"] = "zzzz"
+          hash["Offsite Shelving"] = "zzzz"
         end
         @holdings.each do |holding|
           holding_presenter = @holding_factory.call(holding)

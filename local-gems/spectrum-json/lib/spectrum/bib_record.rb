@@ -313,12 +313,21 @@ module Spectrum
       def holding_id
         @holding["hol_mmsid"]
       end
-      ["location", "callnumber", "public_note", "summary_holdings", "display_name",
+      ["location", "callnumber", "display_name",
         "floor_location", "info_link"].each do |name|
         define_method(name) do
           @holding[name].to_s&.strip
         end
       end
+
+      def summary_holdings
+        @holding["summary_holdings"] || []
+      end
+
+      def public_note
+        @holding["public_note"] || []
+      end
+
       def items
         @holding["items"].map { |x| Item.new(x) }
       end
