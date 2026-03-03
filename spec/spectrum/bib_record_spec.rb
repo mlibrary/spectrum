@@ -32,7 +32,10 @@ describe Spectrum::BibRecord do
         expect(alma_holding.callnumber).to eq("LB 2331.72 .S371 1990")
       end
       it "has a public_note" do
-        expect(alma_holding.public_note).to eq("")
+        expect(alma_holding.public_note).to eq([])
+      end
+      it "has summary_holdings" do
+        expect(alma_holding.summary_holdings).to eq([])
       end
       it "has items" do
         expect(alma_holding.items.count).to eq(1)
