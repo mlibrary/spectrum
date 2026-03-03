@@ -3,6 +3,19 @@ File.expand_path("lib", __dir__).tap do |libdir|
   $LOAD_PATH.unshift(libdir) unless $LOAD_PATH.include?(libdir)
 end
 
+class RackDebug
+  def initialize(app)
+    @app = app
+  end
+
+  def call(env)
+    puts "RackDebug: #{env["REQUEST_METHOD"]} #{env["PATH_INFO"]}"
+    puts "RackDebug: Headers: #{env.select { |k, _| k.start_with?("HTTP_") }.map { |k, v| "#{k}: #{v}" }.join(", ")}"
+    @app.call(env)
+  end
+end
+use RackDebug
+
 ENV["APP_ENV"] ||= ENV["RAILS_ENV"]
 
 Bundler.require
@@ -11,6 +24,7 @@ use Rack::Timeout, service_timeout: ENV.fetch("RACK_TIMEOUT", 60).to_i
 Rack::Timeout::Logger.logger = Logger.new(STDOUT)
 Rack::Timeout::Logger.logger.level = Logger::Severity::WARN
 use Metrics::Middleware
+
 
 Spectrum::Json.configure(__dir__, ENV["RAILS_RELATIVE_URL_ROOT"])
 
