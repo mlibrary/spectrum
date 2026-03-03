@@ -79,7 +79,7 @@ A lot of these configuration files ended up being mappings from catalog codes to
 
 * `config/actions.yml`
 
-    Defines actions a user can take on a record, like exporting to email, sms, a file download or library favorites.
+    Defines actions a user can take on a record, like exporting to email, sms, or a file download.
 
 * `config/aleph.yml`
 
