@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Fetch Library Collections Yaml
         working-directory: ./config
-        run: wget https://raw.githubusercontent.com/mlibrary/search.catalog-index/refs/heads/main/umich_catalog_indexing/lib/translation_maps/umich/collection_map.yaml
+        run: wget -O collection_map.yaml https://raw.githubusercontent.com/mlibrary/search.catalog-index/refs/heads/main/umich_catalog_indexing/lib/translation_maps/umich/collection_map.yaml
       - name: Get PR title
         run: echo "PR_TITLE=$(date +'%B %Y') update config" >> $GITHUB_ENV
       - name: Create Pull Request
