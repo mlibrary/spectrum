@@ -28,7 +28,7 @@ module Spectrum
         set :session_secret, ENV["RACK_SESSION_SECRET"]
         set :relative_url_root, ENV.fetch("RAILS_RELATIVE_URL_ROOT", "http://localhost:3000")
         set :public_folder, "public"
-        set :protection, except: [:json_csrf]
+        set :protection, except: [:json_csrf, :ip_spoofing]
         set :views, File.expand_path(File.join('app', 'views'), __dir__)
       end
     end
