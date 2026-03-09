@@ -1,3 +1,7 @@
+# This is structured for Advanced Search in Spectrum. The "ALL" collections and
+# the "desc" field are needed for spectrum but not for indexing. It lives in
+# search.catalog-indexing because this has more to do with Alma and indexing
+# than the library search front end. mrio 2026-03-06
 ---
 ALL:
   desc: 'All locations'
