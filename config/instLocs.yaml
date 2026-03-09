@@ -5,9 +5,6 @@ clements:
 bentley:
   sublibs:
     BENT: Bentley Historical
-#umtri:
-#  sublibs:
-#    UMTRI: Transportation Research Institute Library
 flint:
   sublibs:
     FLINT: Flint Thompson Library
@@ -17,11 +14,11 @@ aa:
     AAEL: Art Architecture & Engineering
     FVL: Askwith Media Library
     BSTA: Biological Station
-    BUHR: Buhr Shelving Facility
-    CSCAR: CSCAR - Rackham Building
+#    BUHR: Buhr Shelving Facility
+#    CSCAR: CSCAR - Rackham Building
     FINE: Fine Arts
     HATCH: Hatcher Graduate
-    HSRS: Health Sciences Remote Shelving
+#    HSRS: Health Sciences Remote Shelving
     MUSM: Research Museums Center
     MUSIC: Music
     SHAP: Shapiro
@@ -34,12 +31,12 @@ all:
     FVL: Askwith Media Library
     BENT: Bentley Historical
     BSTA: Biological Station
-    BUHR: Buhr Shelving Facility
-    CSCAR: CSCAR - Rackham Building
+#    BUHR: Buhr Shelving Facility
+#    CSCAR: CSCAR - Rackham Building
     FINE: Fine Arts
     FLINT: Flint Thompson Library
     HATCH: Hatcher Graduate
-    HSRS: Health Sciences Remote Shelving
+#    HSRS: Health Sciences Remote Shelving
     MUSM: Research Museums Center
     MUSIC: Music
     SHAP: Shapiro
