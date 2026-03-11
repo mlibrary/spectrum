@@ -1,18 +1,22 @@
 class Spectrum::Entities::GetThisWorkOrderOption
   def self.for(item, client = Spectrum::AlmaClient.client)
+    response = client.get("/items", query: {item_barcode: item.barcode})
+    raise StandardError if response.status != 200
     if item.process_type == "WORK_ORDER_DEPARTMENT"
-      response = client.get("/items", query: {item_barcode: item.barcode})
-      raise StandardError if response.status != 200
       new(response.body)
     else
-      GetThisWorkOrderNotApplicable.new
+      GetThisWorkOrderNotApplicable.new(response.body)
     end
   rescue
-    GetThisWorkOrderNotApplicable.new
+    GetThisWorkOrderNotApplicable.new({})
   end
 
   def initialize(data)
     @data = data
+  end
+
+  def holding_id
+    @data.dig("holding_data", "holding_id")
   end
 
   def in_labeling?
@@ -34,9 +38,6 @@ class Spectrum::Entities::GetThisWorkOrderOption
   end
 
   class GetThisWorkOrderNotApplicable < self
-    def initialize
-    end
-
     def in_international_studies_acquisitions_technical_services?
       false
     end

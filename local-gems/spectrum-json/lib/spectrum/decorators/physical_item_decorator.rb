@@ -90,6 +90,10 @@ module Spectrum::Decorators
       SCANNABLE_MATERIAL_TYPES.include?(@item.material_type)
     end
 
+    def holding_id
+      @work_order_option.holding_id
+    end
+
     def not_game?
       !game?
     end
@@ -103,7 +107,7 @@ module Spectrum::Decorators
     end
 
     def in_getable_acq_work_order?
-        @work_order_option.in_getable_acq_work_order?
+      @work_order_option.in_getable_acq_work_order?
     end
 
     def music_pickup?

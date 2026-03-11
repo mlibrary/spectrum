@@ -78,7 +78,7 @@ describe Spectrum::Entities::GetThisWorkOrderOption do
 end
 describe Spectrum::Entities::GetThisWorkOrderOption::GetThisWorkOrderNotApplicable do
   subject do
-    described_class.new
+    described_class.new({})
   end
   context "#in_international_studies_acquisitions_technical_services?" do
     it "is false" do
