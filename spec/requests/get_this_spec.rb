@@ -2,6 +2,7 @@ require "spec_helper"
 
 RSpec.describe "Profile routes", type: :request do
   include Rack::Test::Methods
+
   let(:app) { Spectrum::Json::App }
   let(:log_in) do
     OmniAuth.config.add_mock(:openid_connect, {info: {nickname: "tutor"}})
@@ -33,6 +34,7 @@ RSpec.describe "Profile routes", type: :request do
     context "logged in" do
       it "shows a logged in profile" do
         stub_alma_get_request(url: "bibs/990020578280106381/loans", output: {total_record_count: 0}.to_json, query: {limit: 100, offset: 0})
+        stub_alma_get_request(url: "items", output: "{}", query: {item_barcode: @barcode})
         log_in
         expect(JSON.parse(subject.body)["status"]).to eq("Success")
       end

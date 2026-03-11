@@ -15,10 +15,12 @@ end
 describe Spectrum::Response::GetThis do
   describe "renderable" do
     before(:each) do
+      @barcode = "39015017893416"
       stub_alma_get_request(url: "bibs/990020578280106381/loans", output: {total_record_count: 0}.to_json, query: {limit: 100, offset: 0})
+      stub_alma_get_request(url: "items", output: "{}", query: {item_barcode: @barcode})
       @init = {
         source: double("HoldingsSource", holdings: "http://localhost", url: "mirlyn_solr_url"),
-        request: instance_double(Spectrum::Request::GetThis, id: "123456789", barcode: "39015017893416", logged_in?: true, username: "username"),
+        request: instance_double(Spectrum::Request::GetThis, id: "123456789", barcode: @barcode, logged_in?: true, username: "username"),
 
         get_this_policy_factory: lambda { |patron, bib_record, holdings_record| GetThisPolicyDouble.new(patron, bib_record, holdings_record) },
         user: instance_double(Spectrum::Entities::AlmaUser, empty?: false, expired?: false),
