@@ -328,8 +328,12 @@ module Spectrum
         @holding["public_note"] || []
       end
 
+      def has_id?(item_id)
+        items.any? { |item| item.id == item_id }
+      end
+
       def items
-        @holding["items"].map { |x| Item.new(x) }
+        @items ||= @holding["items"].map { |x| Item.new(x) }
       end
 
       class Item

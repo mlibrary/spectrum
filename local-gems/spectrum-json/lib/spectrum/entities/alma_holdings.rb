@@ -50,7 +50,7 @@ class Spectrum::Entities::AlmaHoldings
 
   def load_holdings
     @solr.alma_holdings.map do |solr_holding|
-      alma_loans = @alma["item_loan"]&.select { |loan| loan["holding_id"] == solr_holding.holding_id }
+      alma_loans = @alma["item_loan"]&.select { |loan| solr_holding.has_id?(loan["item_id"]) }
       Spectrum::Entities::AlmaHolding.new(bib: @solr, alma_loans: alma_loans, solr_holding: solr_holding)
     end
   end
@@ -69,6 +69,7 @@ end
 class Spectrum::Entities::AlmaHolding
   attr_reader :items, :bib_record, :solr_holding
   extend Forwardable
+
   def_delegators :@bib_record, :mms_id, :doc_id, :title, :author,
     :issn, :isbn, :pub_date
   def_delegators :@solr_holding, :holding_id, :floor_location,
