@@ -93,7 +93,7 @@ module Spectrum
         )
         response = nil
         duration = Benchmark.realtime do
-          response = client.first.post('select', params: params)
+          response = client.first.post('select', params: params, headers: { 'Content-type' => 'application/json' })
         end
         ActiveSupport::Notifications.instrument(
           "fetch_records.spectrum_specialists",
@@ -145,7 +145,7 @@ module Spectrum
         }
         response = nil
         duration = Benchmark.realtime do
-          response = client.last.post('select', params: params)
+          response = client.last.post('select', params: params, headers: { 'Content-type' => 'application/json' })
         end
         ActiveSupport::Notifications.instrument(
           "fetch_specialists_2step.spectrum_specialists",
