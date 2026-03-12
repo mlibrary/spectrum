@@ -1,3 +1,7 @@
+# This is structured for Advanced Search in Spectrum. The "ALL" collections and
+# the "desc" field are needed for spectrum but not for indexing. It lives in
+# search.catalog-indexing because this has more to do with Alma and indexing
+# than the library search front end. mrio 2026-03-06
 ---
 ALL:
   desc: 'All locations'
@@ -43,11 +47,6 @@ BSTA:
     BSTA OVR: 'Oversize'
     BSTA REF: 'Reference'
     #updated 2025-02-21
-BUHR:
-  desc: 'Buhr Shelving Facility'
-  collections:
-    ALL: All collections
-    #all locations combined in grouping
 CLEM:
   desc: 'William L. Clements'
   collections:
@@ -148,14 +147,6 @@ HATCH:
     HATCH SAR: 'South Asia Reference'
     HATCH SEAR: 'Southeast Asia Reference'
     #updated 2025-02-21
-HSRS:
-  desc: 'Health Sciences Remote Storage'
-  collections:
-    ALL: All collections
-    HSRS IND: 'Indexes'
-    HSRS OVR: 'Oversize'
-    HSRS PER: 'Journals'
-    HSRS STOR: ''
 MUSIC:
   desc: 'Music'
   collections:
@@ -216,12 +207,6 @@ MUSM:
     MUSM CAGE: 'Room 2500 - Cage - By appointment only'
     MUSM OVR: 'Room 2500 - Oversize'
     MUSM SPE: 'Special Formats'
-OFFS:
-  desc: 'Offsite Shelving'
-  collections:
-    ALL: All collections
-    OFFS ELLS: ''
-    OFFS STATE: ''
 SHAP:
   desc: 'Shapiro'
   collections:
