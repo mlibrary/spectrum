@@ -26,9 +26,9 @@ module Spectrum
 
         def notes
           [
+            @holding.floor_location,
             @holding.public_note,
-            @holding.summary_holdings,
-            @holding.floor_location
+            @holding.summary_holdings
           ].flatten.compact.reject(&:empty?)
         end
 
