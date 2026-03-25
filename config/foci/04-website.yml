@@ -39,15 +39,16 @@ search_fields:
     pf: title_initial
     mm: 100%
 
-  all_fields:
+  all_fields: &ALL_FIELDS
     qf: title_unstemmed^10 title^7 all_titles_unstemmed^8 all_titles^6 issn^10 content^2
     pf: title all_titles content
     mm: 25%
 
-  allfields:
-    qf: title_unstemmed^10 title^7 all_titles_unstemmed^8 all_titles^6 issn^10 content^2
-    pf: title all_titles content
-    mm: 25%
+  allfields: *ALL_FIELDS
+  keyword: *ALL_FIELDS
+  keywords: *ALL_FIELDS
+  exact: *ALL_FIELDS
+  contains: *ALL_FIELDS
 
 solr_params:
   # default

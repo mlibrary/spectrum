@@ -15,45 +15,23 @@ sorts:
 new_parser: true
 transformer: MLibrarySearchParser::Transformer::Solr::LocalParams
 search_fields:
-  all_fields:
+  all_fields: &ALL_FIELDS
     pf: .
     qf: .
-  author:
-    pf: .
-    qf: .
-  title:
-    pf: .
-    qf: .
-  contributor:
-    pf: .
-    qf: .
-  subject:
-    pf: .
-    qf: .
-  isbn:
-    pf: .
-    qf: .
-  issn:
-    pf: .
-    qf: .
-  date:
-    pf: .
-    qf: .
-  keyword:
-    pf: .
-    qf: .
-  exact:
-    pf: .
-    qf: .
-  contains:
-    pf: .
-    qf: .
-  pmid:
-    pf: .
-    qf: .
-  any:
-    pf: .
-    qf: .
+  author: *ALL_FIELDS
+  title: *ALL_FIELDS
+  contributor: *ALL_FIELDS
+  subject: *ALL_FIELDS
+  isbn: *ALL_FIELDS
+  issn: *ALL_FIELDS
+  date: *ALL_FIELDS
+  allfields: *ALL_FIELDS
+  keyword: *ALL_FIELDS
+  keywords: *ALL_FIELDS
+  exact: *ALL_FIELDS
+  contains: *ALL_FIELDS
+  pmid: *ALL_FIELDS
+  any: *ALL_FIELDS
 search_field_default: any
 search_attr_defaults:
   mm: $default_mm

@@ -17,9 +17,11 @@ search_fields:
   title:
     qf: title_common_exact^1000 title_common^120 title_equiv^60 title_rest^30 series^10 series2^5
     pf: serialTitle_common_exact^600 title_common_exact^500 title_l^150 title_common^100 title_a_exact^50 title_top^30 title_rest^20 series^3 series2^2
+
   author:
     qf: mainauthor^20 author_authoritative_search^15 author^10 author2^5 author_top^2 author_rest^1
     pf: mainauthor^100 author^50 author2^20 author_top^5 author_rest^2
+
   all_fields: &ALL_FIELDS
     qf: >-
       allfieldsProper^2
@@ -70,7 +72,11 @@ search_fields:
             query({!dismax f=title_author v=$q mm="100%"}, 1), 0, 1, 1, 50
           ),
       )
+  allfields: *ALL_FIELDS
   keyword: *ALL_FIELDS
+  keywords: *ALL_FIELDS
+  exact: *ALL_FIELDS
+  contains: *ALL_FIELDS
 
   series:
     pf: series^500 series2^50
