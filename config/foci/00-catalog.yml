@@ -314,7 +314,7 @@ facets:
 
 hierarchy:
   load_inst: <%= ENV['SPECTRUM_INST_LOCATION_FILES_DIR'] || "config" %>/instLocs.yaml
-  load_coll: <%= ENV['SPECTRUM_INST_LOCATION_FILES_DIR'] || "config" %>/locColl.yaml
+  load_coll: <%= ENV['SPECTRUM_INST_LOCATION_FILES_DIR'] || "config" %>/collection_map.yaml
   field: Library
   uid: institution
   aliases:
