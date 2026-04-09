@@ -7,13 +7,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
       - name: Create .env file
         run: cat .env-example .env-dev-values > .env
       - name: Load .env file
-        uses: xom9ikk/dotenv@v1.0.2
+        uses: xom9ikk/dotenv@d3ff95524814ceac377510f30f4af6296ea612c1 # v1.0.2
       - name: Set up Ruby 3.3.5
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@b8d447ba7506ac7e0c8fbc50762276fb3b7df731 # v1
         with:
           ruby-version: 3.3.5
           bundler-cache: true
