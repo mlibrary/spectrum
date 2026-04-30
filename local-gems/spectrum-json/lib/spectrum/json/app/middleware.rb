@@ -13,6 +13,7 @@ module Spectrum
           app.use Keycard::Rack::InjectAttributes, Keycard::Yaml::InstitutionFinder.new
           app.use Keycard::Rack::InjectAttributes, Keycard::Cookie::InstitutionFinder.new
           app.use Keycard::Rack::InjectAttributes, Keycard::Ldap::InstitutionFinder.new
+          app.use Rack::Static, urls: ["/robots.txt"], root: File.expand_path("../public", __FILE__)
         end
       end
     end

@@ -1,0 +1,6 @@
+User-agent: SiteimproveBot
+User-agent: SiteimproveBot-Crawler
+Allow: /
+
+User-Agent: *
+Disallow: /
