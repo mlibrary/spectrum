@@ -104,13 +104,11 @@ FVL:
   desc: 'Askwith Media Library'
   collections:
     ALL: All collections
-    FVL BUH: 'Offsite Shelving'
-    FVL ELL: 'Offsite Shelving'
+    FVL MAIN: 'Room 2002 Shapiro'
     FVL EQASKW: 'Askwith Equipment'
-    FVL H1: 'Room 2002 Shapiro'
-    FVL F2: 'Room 2002 Shapiro - Non-circulating'
     FVL RESC: 'University Reserves'
-    #updated 2025-02-21
+    FVL OFFS: 'Offsite Shelving'
+    #updated 2026-04-30
 HATCH:
   desc: 'Hatcher Graduate'
   collections:
