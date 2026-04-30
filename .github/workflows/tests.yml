@@ -13,7 +13,7 @@ jobs:
       - name: Load .env file
         uses: xom9ikk/dotenv@d3ff95524814ceac377510f30f4af6296ea612c1 # v1.0.2
       - name: Set up Ruby 3.3.10
-        uses: ruby/setup-ruby@b8d447ba7506ac7e0c8fbc50762276fb3b7df731 # v1
+        uses: ruby/setup-ruby@c4e5b1316158f92e3d49443a9d58b31d25ac0f8f # v1
         with:
           ruby-version: 3.3.10
           bundler-cache: true
