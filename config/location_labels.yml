@@ -4,7 +4,7 @@ get_this:
   - code: "FINE"
     text: "Fine Arts"
   - code: "HATCH"
-    text: "Hatcher Library (Use south entrance for wheelchair access)"
+    text: "Hatcher Library (North Information Desk)"
   - code: "MUSM"
     text: "Museums"
   - code: "MUSIC"
@@ -17,4 +17,3 @@ get_this:
     text: "Thompson Library (UM-Flint)"
   - code: "DBRN"
     text: "Mardigian Library (UM-Dearborn)"
-
