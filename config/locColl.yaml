@@ -115,7 +115,6 @@ HATCH:
     ALL: All collections
     HATCH ARGM: 'Argus - MoA'
     HATCH ASIA: 'Asia Library' #grouping for ASIA, AMIC, AREF, AOVR, AOFF, AOFFNC, AOKA, ASPEC
-    HATCH AMHC: 'The Azad and Margaret Hogikyan Armenian Studies Collection'
     HATCH CLATL: 'Clark Library Atlas Shelves'
     HATCH CLARKBKS: 'Clark Library Book Shelves' #grouping for CLARK, CLBKS, CLBKS-CIRC
     HATCH CLFIL: 'Clark Library File Cabinets'
@@ -252,6 +251,7 @@ SPEC:
     ALL: All collections
     SPEC ART: 'Artists'' Books'
     SPEC SCB-ASG: 'Asa Gray Collection'
+    SPEC SCH-ISAMHC: 'The Azad and Margaret Hogikyan Armenian Studies Collection'
     SPEC CHIL: 'Children''s Literature'
     SPEC FAUL: 'Faulkner Collection'
     SPEC RARE: 'General and Rare'
