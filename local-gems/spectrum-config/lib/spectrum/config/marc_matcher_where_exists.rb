@@ -7,12 +7,16 @@ module Spectrum
       def initialize(cfg)
         cfg ||= {}
         self.sub = cfg['sub']
-        self.values = Struct.new(:ret) { def include?(val) ret end }.new(true)
+        self.values = cfg['exists']
       end
 
       def match?(field)
         return true unless sub
-        !find_all(field).empty?
+        if find_all(field).empty?
+          return !values
+        else
+          return values
+        end
       end
     end
   end

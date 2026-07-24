@@ -21,7 +21,7 @@ module Spectrum
 
         def get_type(config)
           return nil unless config&.respond_to?(:[])
-          registry.find {|item| config[item.type] }
+          registry.find {|item| config.has_key?(item.type) }
         end
 
         def registry
