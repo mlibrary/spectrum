@@ -1,0 +1,29 @@
+---
+version: 2
+
+multi-ecosystem-groups:
+  maintenance:
+    schedule:
+      interval: "weekly"
+      time: "06:00"
+      day: "monday"
+      timezone: "America/Detroit"
+    commit-message:
+      prefix: "Weekly dependency updates: "
+      assignees: ["bertrama"]
+
+updates:
+- package-ecosystem: "bundler"
+  directory: "/"
+  multi-ecosystem-group: "maintenance"
+  patterns: ["*"]
+
+- package-ecosystem: "docker"
+  directory: "/"
+  multi-ecosystem-group: "maintenance"
+  patterns: ["*"]
+
+- package-ecosystem: "github-actions"
+  directory: "/"
+  multi-ecosystem-group: "maintenance"
+  patterns: ["*"]
