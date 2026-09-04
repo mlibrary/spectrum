@@ -1,0 +1,71 @@
+#!/bin/bash
+# Live end-to-end test of the Spectrum MCP server's Streamable HTTP transport.
+# Exercises: tools/list, spectrum_search, spectrum_get_record, spectrum_export_ris.
+#
+# Requires: curl, jq
+# Usage: bin/live-test [MCP_HTTP_URL] [FOCUS] [QUERY]
+#   MCP_HTTP_URL defaults to http://localhost:8925/
+#   FOCUS        defaults to mirlyn (the library catalog)
+#   QUERY        defaults to "psychology"
+set -e
+
+URL="${1:-${MCP_HTTP_URL:-http://localhost:8925/}}"
+FOCUS="${2:-mirlyn}"
+QUERY="${3:-psychology}"
+
+for cmd in curl jq; do
+  command -v "$cmd" >/dev/null 2>&1 || { echo "error: $cmd is required" >&2; exit 1; }
+done
+
+rpc() {
+  # rpc <method> <params-json>
+  method="$1"
+  params="$2"
+  body=$(jq -n --arg method "$method" --argjson params "$params" \
+    '{jsonrpc: "2.0", id: 1, method: $method, params: $params}')
+  curl -sS -X POST "$URL" \
+    -H 'Content-Type: application/json' \
+    -H 'Accept: application/json, text/event-stream' \
+    -d "$body"
+}
+
+call_tool() {
+  # call_tool <tool-name> <arguments-json>
+  name="$1"
+  arguments="$2"
+  rpc "tools/call" "$(jq -n --arg name "$name" --argjson arguments "$arguments" '{name: $name, arguments: $arguments}')"
+}
+
+tool_text() {
+  # extracts the first text content block from a tools/call response
+  jq -r '.result.content[0].text'
+}
+
+echo "== initialize =="
+rpc "initialize" '{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"live-test","version":"0"}}' | jq .
+echo
+
+echo "== tools/list =="
+rpc "tools/list" '{}' | jq '.result.tools[].name'
+echo
+
+echo "== spectrum_search (focus=$FOCUS query=$QUERY) =="
+search_result=$(call_tool "spectrum_search" "$(jq -n --arg focus "$FOCUS" --arg query "$QUERY" '{focus: $focus, query: $query, count: 1}')")
+echo "$search_result" | jq .
+record_id=$(echo "$search_result" | tool_text | jq -r '.response[0].uid')
+echo "found record id: $record_id"
+echo
+
+if [ -z "$record_id" ] || [ "$record_id" = "null" ]; then
+  echo "error: search returned no records to fetch/export" >&2
+  exit 1
+fi
+
+echo "== spectrum_get_record (focus=$FOCUS id=$record_id) =="
+call_tool "spectrum_get_record" "$(jq -n --arg focus "$FOCUS" --arg id "$record_id" '{focus: $focus, id: $id}')" | jq .
+echo
+
+echo "== spectrum_export_ris (focus=$FOCUS id=$record_id) =="
+ris_result=$(call_tool "spectrum_export_ris" "$(jq -n --arg focus "$FOCUS" --arg id "$record_id" '{focus: $focus, ids: [$id]}')")
+echo "$ris_result" | jq .
+echo "$ris_result" | tool_text

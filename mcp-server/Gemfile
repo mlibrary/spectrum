@@ -3,3 +3,8 @@ source "https://rubygems.org"
 gem "mcp", "~> 1.4"
 gem "rack", "~> 3.0"
 gem "puma"
+
+group :test do
+  gem "rspec"
+  gem "webmock"
+end
