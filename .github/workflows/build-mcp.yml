@@ -5,6 +5,7 @@ on:
     branches:
     - main
     paths:
+    - '.github/workflows/build-mcp.yml'
     - 'mcp-server/**'
     - '!mcp-server/README.md'
     - '!mcp-server/bin/live-test'
@@ -17,8 +18,8 @@ jobs:
     with:
       image_name: ${{ vars.IMAGE_NAME }}-mcp
       tag: ${{ github.sha }}
-      docker_context: mcp-server
-      dockerfile: Dockerfile
+      docker_context: mcp-server/.
+      dockerfile: mcp-server/Dockerfile
     secrets: inherit
 
   deploy-testing:
