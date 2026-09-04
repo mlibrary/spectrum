@@ -50,7 +50,7 @@ module SpectrumMcp
         def call(datastore:, query:, start: 0, count: 10, sort: nil, filters: {}, server_context: nil)
           client = SpectrumMcp::Client.new
           result = client.search(datastore: datastore, query: query, start: start, count: count, sort: sort, filters: filters)
-          MCP::Tool::Response.new([{type: "text", text: result.to_json}])
+          MCP::Tool::Response.new([{type: "text", text: result.to_json}], structured_content: result)
         rescue SpectrumMcp::Client::RequestError => e
           MCP::Tool::Response.new([{type: "text", text: e.message}], error: true)
         end

@@ -17,6 +17,7 @@ RSpec.describe SpectrumMcp::Tools::GetRecord do
     expect(result.error?).to be false
     parsed = JSON.parse(result.content.first[:text])
     expect(parsed["data"]["uid"]).to eq("990000000001")
+    expect(result.structured_content["data"]["uid"]).to eq("990000000001")
   end
 
   it "percent-encodes ids that contain special characters" do

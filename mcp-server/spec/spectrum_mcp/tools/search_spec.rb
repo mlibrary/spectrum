@@ -19,6 +19,7 @@ RSpec.describe SpectrumMcp::Tools::Search do
     parsed = JSON.parse(result.content.first[:text])
     expect(parsed["total_available"]).to eq(1)
     expect(parsed["response"].first["uid"]).to eq("990000000001")
+    expect(result.structured_content["total_available"]).to eq(1)
   end
 
   it "passes facet filters through to Spectrum" do

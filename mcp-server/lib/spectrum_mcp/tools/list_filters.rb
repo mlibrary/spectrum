@@ -22,7 +22,7 @@ module SpectrumMcp
         def call(datastore:, server_context: nil)
           client = SpectrumMcp::Client.new
           result = client.list_filters(datastore: datastore)
-          MCP::Tool::Response.new([{type: "text", text: result.to_json}])
+          MCP::Tool::Response.new([{type: "text", text: result.to_json}], structured_content: result)
         rescue SpectrumMcp::Client::RequestError => e
           MCP::Tool::Response.new([{type: "text", text: e.message}], error: true)
         end

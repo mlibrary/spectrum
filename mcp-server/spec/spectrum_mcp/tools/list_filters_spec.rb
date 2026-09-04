@@ -33,6 +33,7 @@ RSpec.describe SpectrumMcp::Tools::ListFilters do
     expect(filters.map { |f| f["name"] }).to eq(["format"])
     expect(filters.first["values"]).to eq([{"value" => "Book", "count" => 100}, {"value" => "CDROM", "count" => 10}])
     expect(filters.first["more_values"]).to be false
+    expect(result.structured_content.map { |f| f["name"] }).to eq(["format"])
   end
 
   it "caps the number of values returned and flags when there are more" do
