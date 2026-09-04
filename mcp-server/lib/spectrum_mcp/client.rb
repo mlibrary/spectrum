@@ -72,6 +72,28 @@ module SpectrumMcp
       post_text("/spectrum/file", body)
     end
 
+    # Number of values returned per filter; the full list can run into the thousands.
+    VALUES_LIMIT = 20
+
+    def list_filters(datastore:)
+      uid = resolve_uid(datastore)
+      data = get_json("/spectrum")
+      entry = data.fetch("response").find { |datastore_entry| datastore_entry["uid"] == uid }
+      raise RequestError, "Unknown datastore: #{datastore}" unless entry
+
+      Array(entry["facets"]).map do |facet|
+        values = Array(facet["values"])
+        {
+          "name" => facet["uid"],
+          "label" => facet.dig("metadata", "name"),
+          "description" => facet.dig("metadata", "short_desc"),
+          "type" => facet["type"],
+          "values" => values.first(VALUES_LIMIT).map { |value| {"value" => value["value"], "count" => value["count"]} },
+          "more_values" => values.size > VALUES_LIMIT
+        }
+      end
+    end
+
     private
 
     def resolve_uid(datastore_name)

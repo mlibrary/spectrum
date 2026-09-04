@@ -1,6 +1,7 @@
 #!/bin/bash
 # Live end-to-end test of the Spectrum MCP server's Streamable HTTP transport.
-# Exercises: tools/list, spectrum_search, spectrum_get_record, spectrum_export_ris.
+# Exercises: tools/list, spectrum_search, spectrum_get_record, spectrum_export_ris,
+# spectrum_list_filters.
 #
 # Requires: curl, jq
 # Usage: bin/live-test [MCP_HTTP_URL] [DATASTORE] [QUERY]
@@ -47,6 +48,10 @@ echo
 
 echo "== tools/list =="
 rpc "tools/list" '{}' | jq '.result.tools[].name'
+echo
+
+echo "== spectrum_list_filters (datastore=$DATASTORE) =="
+call_tool "spectrum_list_filters" "$(jq -n --arg datastore "$DATASTORE" '{datastore: $datastore}')" | jq .
 echo
 
 echo "== spectrum_search (datastore=$DATASTORE query=$QUERY) =="
