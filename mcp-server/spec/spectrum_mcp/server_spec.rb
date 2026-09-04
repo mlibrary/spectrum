@@ -14,17 +14,17 @@ RSpec.describe "tools/list" do
 
   it "describes the search tool's required arguments" do
     tool = tools_list["result"]["tools"].find { |t| t["name"] == "spectrum_search" }
-    expect(tool["inputSchema"]["required"]).to eq(["focus", "query"])
-    expect(tool["inputSchema"]["properties"]["focus"]["enum"]).to include("mirlyn")
+    expect(tool["inputSchema"]["required"]).to eq(["datastore", "query"])
+    expect(tool["inputSchema"]["properties"]["datastore"]["enum"]).to include("Catalog")
   end
 
   it "describes the get_record tool's required arguments" do
     tool = tools_list["result"]["tools"].find { |t| t["name"] == "spectrum_get_record" }
-    expect(tool["inputSchema"]["required"]).to eq(["focus", "id"])
+    expect(tool["inputSchema"]["required"]).to eq(["datastore", "id"])
   end
 
   it "describes the export_ris tool's required arguments" do
     tool = tools_list["result"]["tools"].find { |t| t["name"] == "spectrum_export_ris" }
-    expect(tool["inputSchema"]["required"]).to eq(["focus", "ids"])
+    expect(tool["inputSchema"]["required"]).to eq(["datastore", "ids"])
   end
 end

@@ -4,18 +4,18 @@ WebMock.disable_net_connect!
 
 SPECTRUM_BASE_URL = ENV.fetch("SPECTRUM_BASE_URL", "http://localhost:3000")
 
-# The tool classes build their `focus` enum from the live datastore list when
-# they're first loaded, so that lookup has to be stubbed before requiring them.
+# The tool classes build their `datastore` enum from the live datastore list
+# when they're first loaded, so that lookup has to be stubbed before requiring them.
 WebMock.stub_request(:get, "#{SPECTRUM_BASE_URL}/spectrum").to_return(
   status: 200,
   headers: {"Content-Type" => "application/json"},
   body: {
     response: [
-      {uid: "mirlyn"},
-      {uid: "databases"},
-      {uid: "onlinejournals"},
-      {uid: "primo"},
-      {uid: "website"}
+      {uid: "mirlyn", metadata: {name: "Catalog"}},
+      {uid: "databases", metadata: {name: "Databases"}},
+      {uid: "onlinejournals", metadata: {name: "Online Journals"}},
+      {uid: "primo", metadata: {name: "Articles"}},
+      {uid: "website", metadata: {name: "Guides and more"}}
     ]
   }.to_json
 )

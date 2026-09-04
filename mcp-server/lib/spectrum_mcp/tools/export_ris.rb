@@ -9,10 +9,10 @@ module SpectrumMcp
 
       input_schema(
         properties: {
-          focus: {
+          datastore: {
             type: "string",
-            enum: SpectrumMcp::Client.foci,
-            description: "Datastore the records belong to: mirlyn (library catalog), databases, onlinejournals, primo (articles), website"
+            enum: SpectrumMcp::Client.datastore_names,
+            description: "Name of the datastore the records belong to"
           },
           ids: {
             type: "array",
@@ -24,13 +24,13 @@ module SpectrumMcp
             description: "Optional base URL used to build a link back to each record in the exported RIS data"
           }
         },
-        required: ["focus", "ids"]
+        required: ["datastore", "ids"]
       )
 
       class << self
-        def call(focus:, ids:, base_url: "", server_context: nil)
+        def call(datastore:, ids:, base_url: "", server_context: nil)
           client = SpectrumMcp::Client.new
-          result = client.export_ris(focus: focus, ids: ids, base_url: base_url)
+          result = client.export_ris(datastore: datastore, ids: ids, base_url: base_url)
           MCP::Tool::Response.new([{type: "text", text: result}])
         rescue SpectrumMcp::Client::RequestError => e
           MCP::Tool::Response.new([{type: "text", text: e.message}], error: true)

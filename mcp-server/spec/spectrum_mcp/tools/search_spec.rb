@@ -12,7 +12,7 @@ RSpec.describe SpectrumMcp::Tools::Search do
       .with { |request| JSON.parse(request.body)["raw_query"] == "psychology" && JSON.parse(request.body)["uid"] == "mirlyn" }
       .to_return(status: 200, headers: {"Content-Type" => "application/json"}, body: response_body.to_json)
 
-    result = described_class.call(focus: "mirlyn", query: "psychology", server_context: nil)
+    result = described_class.call(datastore: "Catalog", query: "psychology", server_context: nil)
 
     expect(stub).to have_been_requested
     expect(result.error?).to be false
@@ -24,7 +24,7 @@ RSpec.describe SpectrumMcp::Tools::Search do
   it "returns an error response when Spectrum fails" do
     stub_request(:post, "#{SPECTRUM_BASE_URL}/spectrum/mirlyn").to_return(status: 500, body: "boom")
 
-    result = described_class.call(focus: "mirlyn", query: "psychology", server_context: nil)
+    result = described_class.call(datastore: "Catalog", query: "psychology", server_context: nil)
 
     expect(result.error?).to be true
     expect(result.content.first[:text]).to include("500")

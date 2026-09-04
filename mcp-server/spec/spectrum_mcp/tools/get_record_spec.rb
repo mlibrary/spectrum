@@ -11,7 +11,7 @@ RSpec.describe SpectrumMcp::Tools::GetRecord do
     stub = stub_request(:get, "#{SPECTRUM_BASE_URL}/spectrum/mirlyn/record/990000000001")
       .to_return(status: 200, headers: {"Content-Type" => "application/json"}, body: response_body.to_json)
 
-    result = described_class.call(focus: "mirlyn", id: "990000000001", server_context: nil)
+    result = described_class.call(datastore: "Catalog", id: "990000000001", server_context: nil)
 
     expect(stub).to have_been_requested
     expect(result.error?).to be false
@@ -23,7 +23,7 @@ RSpec.describe SpectrumMcp::Tools::GetRecord do
     stub = stub_request(:get, "#{SPECTRUM_BASE_URL}/spectrum/mirlyn/record/10.1000%2Fxyz")
       .to_return(status: 200, headers: {"Content-Type" => "application/json"}, body: {data: {}}.to_json)
 
-    described_class.call(focus: "mirlyn", id: "10.1000/xyz", server_context: nil)
+    described_class.call(datastore: "Catalog", id: "10.1000/xyz", server_context: nil)
 
     expect(stub).to have_been_requested
   end
@@ -31,7 +31,7 @@ RSpec.describe SpectrumMcp::Tools::GetRecord do
   it "returns an error response when Spectrum fails" do
     stub_request(:get, "#{SPECTRUM_BASE_URL}/spectrum/mirlyn/record/missing").to_return(status: 404, body: "not found")
 
-    result = described_class.call(focus: "mirlyn", id: "missing", server_context: nil)
+    result = described_class.call(datastore: "Catalog", id: "missing", server_context: nil)
 
     expect(result.error?).to be true
     expect(result.content.first[:text]).to include("404")

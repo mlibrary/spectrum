@@ -8,7 +8,7 @@ RSpec.describe SpectrumMcp::Tools::ExportRis do
       .with { |request| JSON.parse(request.body)["mirlyn"]["records"] == ["990000000001"] }
       .to_return(status: 200, headers: {"Content-Type" => "application/x-research-info-systems"}, body: ris_body)
 
-    result = described_class.call(focus: "mirlyn", ids: ["990000000001"], server_context: nil)
+    result = described_class.call(datastore: "Catalog", ids: ["990000000001"], server_context: nil)
 
     expect(stub).to have_been_requested
     expect(result.error?).to be false
@@ -20,7 +20,7 @@ RSpec.describe SpectrumMcp::Tools::ExportRis do
       .with { |request| JSON.parse(request.body)["mirlyn"]["base_url"] == "https://search.lib.umich.edu" }
       .to_return(status: 200, body: "TY  - BOOK\r\nER  -\r\n")
 
-    described_class.call(focus: "mirlyn", ids: ["990000000001"], base_url: "https://search.lib.umich.edu", server_context: nil)
+    described_class.call(datastore: "Catalog", ids: ["990000000001"], base_url: "https://search.lib.umich.edu", server_context: nil)
 
     expect(stub).to have_been_requested
   end
@@ -28,7 +28,7 @@ RSpec.describe SpectrumMcp::Tools::ExportRis do
   it "returns an error response when Spectrum fails" do
     stub_request(:post, "#{SPECTRUM_BASE_URL}/spectrum/file").to_return(status: 500, body: "boom")
 
-    result = described_class.call(focus: "mirlyn", ids: ["990000000001"], server_context: nil)
+    result = described_class.call(datastore: "Catalog", ids: ["990000000001"], server_context: nil)
 
     expect(result.error?).to be true
     expect(result.content.first[:text]).to include("500")

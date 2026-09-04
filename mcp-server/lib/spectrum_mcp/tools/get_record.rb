@@ -9,23 +9,23 @@ module SpectrumMcp
 
       input_schema(
         properties: {
-          focus: {
+          datastore: {
             type: "string",
-            enum: SpectrumMcp::Client.foci,
-            description: "Datastore the record belongs to: mirlyn (library catalog), databases, onlinejournals, primo (articles), website"
+            enum: SpectrumMcp::Client.datastore_names,
+            description: "Name of the datastore the record belongs to"
           },
           id: {
             type: "string",
             description: "The record id (e.g. the uid returned by spectrum_search)"
           }
         },
-        required: ["focus", "id"]
+        required: ["datastore", "id"]
       )
 
       class << self
-        def call(focus:, id:, server_context: nil)
+        def call(datastore:, id:, server_context: nil)
           client = SpectrumMcp::Client.new
-          result = client.record(focus: focus, id: id)
+          result = client.record(datastore: datastore, id: id)
           MCP::Tool::Response.new([{type: "text", text: result.to_json}])
         rescue SpectrumMcp::Client::RequestError => e
           MCP::Tool::Response.new([{type: "text", text: e.message}], error: true)

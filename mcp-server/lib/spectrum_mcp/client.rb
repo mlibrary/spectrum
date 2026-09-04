@@ -5,29 +5,45 @@ require "cgi"
 
 module SpectrumMcp
   # HTTP client for the subset of the Spectrum Sinatra API this MCP server wraps.
+  # Callers refer to datastores by their human-readable name; Spectrum's internal
+  # uids (mirlyn, primo, etc.) are resolved internally and never exposed.
   class Client
     class RequestError < StandardError; end
 
     # Fallback used only if the live /spectrum endpoint can't be reached at load time.
-    DEFAULT_FOCI = %w[mirlyn databases onlinejournals primo website].freeze
+    DEFAULT_DATASTORES = {
+      "Catalog" => "mirlyn",
+      "Databases" => "databases",
+      "Online Journals" => "onlinejournals",
+      "Articles" => "primo",
+      "Guides and more" => "website"
+    }.freeze
 
-    def self.foci(base_url: ENV.fetch("SPECTRUM_BASE_URL", "http://localhost:3000"))
-      @foci ||= begin
+    # Hash of {datastore name => Spectrum uid}
+    def self.datastores(base_url: ENV.fetch("SPECTRUM_BASE_URL", "http://localhost:3000"))
+      @datastores ||= begin
         data = new(base_url: base_url).send(:get_json, "/spectrum")
-        data.fetch("response").map { |datastore| datastore.fetch("uid") }
+        data.fetch("response").each_with_object({}) do |datastore, hash|
+          hash[datastore.fetch("metadata").fetch("name")] = datastore.fetch("uid")
+        end
       rescue => e
-        warn "spectrum-mcp: falling back to default foci list (#{e.message})"
-        DEFAULT_FOCI
+        warn "spectrum-mcp: falling back to default datastore list (#{e.message})"
+        DEFAULT_DATASTORES
       end
+    end
+
+    def self.datastore_names(base_url: ENV.fetch("SPECTRUM_BASE_URL", "http://localhost:3000"))
+      datastores(base_url: base_url).keys
     end
 
     def initialize(base_url: ENV.fetch("SPECTRUM_BASE_URL", "http://localhost:3000"))
       @base_url = URI.join(base_url.end_with?("/") ? base_url : "#{base_url}/", "")
     end
 
-    def search(focus:, query:, start: 0, count: 10, sort: nil)
+    def search(datastore:, query:, start: 0, count: 10, sort: nil)
+      uid = resolve_uid(datastore)
       body = {
-        uid: focus,
+        uid: uid,
         request_id: 1,
         start: start,
         count: count,
@@ -37,16 +53,18 @@ module SpectrumMcp
         raw_query: query
       }
       body[:sort] = sort if sort
-      post_json("/spectrum/#{focus}", body)
+      post_json("/spectrum/#{uid}", body)
     end
 
-    def record(focus:, id:)
-      get_json("/spectrum/#{focus}/record/#{CGI.escape(id)}")
+    def record(datastore:, id:)
+      uid = resolve_uid(datastore)
+      get_json("/spectrum/#{uid}/record/#{CGI.escape(id)}")
     end
 
-    def export_ris(focus:, ids:, base_url: "")
+    def export_ris(datastore:, ids:, base_url: "")
+      uid = resolve_uid(datastore)
       body = {
-        focus => {
+        uid => {
           "records" => ids,
           "base_url" => base_url
         }
@@ -55,6 +73,12 @@ module SpectrumMcp
     end
 
     private
+
+    def resolve_uid(datastore_name)
+      self.class.datastores.fetch(datastore_name) do
+        raise RequestError, "Unknown datastore: #{datastore_name}"
+      end
+    end
 
     def post_json(path, body)
       response = http_post(path, body)

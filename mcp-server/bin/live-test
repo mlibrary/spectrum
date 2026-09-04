@@ -3,14 +3,14 @@
 # Exercises: tools/list, spectrum_search, spectrum_get_record, spectrum_export_ris.
 #
 # Requires: curl, jq
-# Usage: bin/live-test [MCP_HTTP_URL] [FOCUS] [QUERY]
+# Usage: bin/live-test [MCP_HTTP_URL] [DATASTORE] [QUERY]
 #   MCP_HTTP_URL defaults to http://localhost:8925/
-#   FOCUS        defaults to mirlyn (the library catalog)
+#   DATASTORE    defaults to "Catalog" (the library catalog)
 #   QUERY        defaults to "psychology"
 set -e
 
 URL="${1:-${MCP_HTTP_URL:-http://localhost:8925/}}"
-FOCUS="${2:-mirlyn}"
+DATASTORE="${2:-Catalog}"
 QUERY="${3:-psychology}"
 
 for cmd in curl jq; do
@@ -49,8 +49,8 @@ echo "== tools/list =="
 rpc "tools/list" '{}' | jq '.result.tools[].name'
 echo
 
-echo "== spectrum_search (focus=$FOCUS query=$QUERY) =="
-search_result=$(call_tool "spectrum_search" "$(jq -n --arg focus "$FOCUS" --arg query "$QUERY" '{focus: $focus, query: $query, count: 1}')")
+echo "== spectrum_search (datastore=$DATASTORE query=$QUERY) =="
+search_result=$(call_tool "spectrum_search" "$(jq -n --arg datastore "$DATASTORE" --arg query "$QUERY" '{datastore: $datastore, query: $query, count: 1}')")
 echo "$search_result" | jq .
 record_id=$(echo "$search_result" | tool_text | jq -r '.response[0].uid')
 echo "found record id: $record_id"
@@ -61,11 +61,11 @@ if [ -z "$record_id" ] || [ "$record_id" = "null" ]; then
   exit 1
 fi
 
-echo "== spectrum_get_record (focus=$FOCUS id=$record_id) =="
-call_tool "spectrum_get_record" "$(jq -n --arg focus "$FOCUS" --arg id "$record_id" '{focus: $focus, id: $id}')" | jq .
+echo "== spectrum_get_record (datastore=$DATASTORE id=$record_id) =="
+call_tool "spectrum_get_record" "$(jq -n --arg datastore "$DATASTORE" --arg id "$record_id" '{datastore: $datastore, id: $id}')" | jq .
 echo
 
-echo "== spectrum_export_ris (focus=$FOCUS id=$record_id) =="
-ris_result=$(call_tool "spectrum_export_ris" "$(jq -n --arg focus "$FOCUS" --arg id "$record_id" '{focus: $focus, ids: [$id]}')")
+echo "== spectrum_export_ris (datastore=$DATASTORE id=$record_id) =="
+ris_result=$(call_tool "spectrum_export_ris" "$(jq -n --arg datastore "$DATASTORE" --arg id "$record_id" '{datastore: $datastore, ids: [$id]}')")
 echo "$ris_result" | jq .
 echo "$ris_result" | tool_text
