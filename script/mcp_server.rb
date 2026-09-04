@@ -20,5 +20,5 @@ Bundler.require(:default)
 Spectrum::Json.configure(APP_ROOT, ENV.fetch('RAILS_RELATIVE_URL_ROOT', ''))
 
 Spectrum::Json::Mcp::Server.new(
-  base_url: ENV.fetch('RAILS_RELATIVE_URL_ROOT', ''),
+#  base_url: ENV.fetch('RAILS_RELATIVE_URL_ROOT', ''),
 ).to_stdio_transport.open

@@ -11,7 +11,7 @@ module Spectrum
         :category, :base,
         :fields, :url, :filters, :sorts, :id_field, :solr_params,
         :highly_recommended, :base_url, :raw_config, :default_sort,
-        :transformer
+        :transformer, :metadata
 
       HREF_DATA = {
         "id" => "href",

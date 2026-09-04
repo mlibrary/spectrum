@@ -53,6 +53,8 @@ gem "mlibrary_search_parser",
 
 gem "json"
 
+gem "mcp"
+
 gem "httpclient"
 gem "nokogiri"
 gem "rlimit"
