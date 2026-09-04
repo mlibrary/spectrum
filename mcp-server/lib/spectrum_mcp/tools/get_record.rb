@@ -11,7 +11,7 @@ module SpectrumMcp
         properties: {
           focus: {
             type: "string",
-            enum: SpectrumMcp::Client::FOCI,
+            enum: SpectrumMcp::Client.foci,
             description: "Datastore the record belongs to: mirlyn (library catalog), databases, onlinejournals, primo (articles), website"
           },
           id: {

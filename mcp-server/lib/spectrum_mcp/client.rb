@@ -8,7 +8,18 @@ module SpectrumMcp
   class Client
     class RequestError < StandardError; end
 
-    FOCI = %w[mirlyn databases onlinejournals primo website].freeze
+    # Fallback used only if the live /spectrum endpoint can't be reached at load time.
+    DEFAULT_FOCI = %w[mirlyn databases onlinejournals primo website].freeze
+
+    def self.foci(base_url: ENV.fetch("SPECTRUM_BASE_URL", "http://localhost:3000"))
+      @foci ||= begin
+        data = new(base_url: base_url).send(:get_json, "/spectrum")
+        data.fetch("response").map { |datastore| datastore.fetch("uid") }
+      rescue => e
+        warn "spectrum-mcp: falling back to default foci list (#{e.message})"
+        DEFAULT_FOCI
+      end
+    end
 
     def initialize(base_url: ENV.fetch("SPECTRUM_BASE_URL", "http://localhost:3000"))
       @base_url = URI.join(base_url.end_with?("/") ? base_url : "#{base_url}/", "")
