@@ -54,6 +54,11 @@ services:
       context: ./mcp-server
     environment:
       - SPECTRUM_BASE_URL=http://web:3000
+      # Set to "http" to serve Streamable HTTP instead of stdio
+      - MCP_TRANSPORT=${MCP_TRANSPORT:-stdio}
+      - MCP_ALLOWED_HOSTS=mcp-server,mcp-server:8925,localhost,localhost:8925
+    ports:
+    - "8925:8925"
     stdin_open: true
     tty: true
 

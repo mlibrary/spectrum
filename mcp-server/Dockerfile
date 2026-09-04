@@ -9,7 +9,9 @@ COPY Gemfile* ${APP_HOME}/
 RUN bundle install
 
 COPY . ${APP_HOME}
+RUN chmod +x bin/docker-entrypoint
 
 ENV SPECTRUM_BASE_URL=http://web:3000
 
-ENTRYPOINT ["ruby", "server.rb"]
+# MCP_TRANSPORT=stdio (default) or http
+ENTRYPOINT ["bin/docker-entrypoint"]

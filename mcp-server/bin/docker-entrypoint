@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+
+if [ "$MCP_TRANSPORT" = "http" ]; then
+  exec bundle exec puma -b "tcp://0.0.0.0:${PORT:-8925}" config.ru
+else
+  exec bundle exec ruby server.rb
+fi
