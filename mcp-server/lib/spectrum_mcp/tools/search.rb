@@ -31,15 +31,25 @@ module SpectrumMcp
           sort: {
             type: "string",
             description: "Sort uid, e.g. relevance, date_desc, date_asc, title_asc, title_desc, author_asc, author_desc"
+          },
+          filters: {
+            type: "object",
+            description: "Facet filters to narrow results, keyed by facet name (e.g. format, subject, language, publication_date). Each value is either a single string or an array of strings. All filters are AND'd together; when a facet has multiple values, a result must match all of them (not just one), so only combine multiple values for a facet that can hold more than one at once (e.g. a record with both a Book and a CDROM format). Example: {\"format\": [\"Book\", \"CDROM\"]}",
+            additionalProperties: {
+              oneOf: [
+                {type: "string"},
+                {type: "array", items: {type: "string"}}
+              ]
+            }
           }
         },
         required: ["datastore", "query"]
       )
 
       class << self
-        def call(datastore:, query:, start: 0, count: 10, sort: nil, server_context: nil)
+        def call(datastore:, query:, start: 0, count: 10, sort: nil, filters: {}, server_context: nil)
           client = SpectrumMcp::Client.new
-          result = client.search(datastore: datastore, query: query, start: start, count: count, sort: sort)
+          result = client.search(datastore: datastore, query: query, start: start, count: count, sort: sort, filters: filters)
           MCP::Tool::Response.new([{type: "text", text: result.to_json}])
         rescue SpectrumMcp::Client::RequestError => e
           MCP::Tool::Response.new([{type: "text", text: e.message}], error: true)

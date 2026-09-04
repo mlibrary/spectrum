@@ -21,6 +21,17 @@ RSpec.describe SpectrumMcp::Tools::Search do
     expect(parsed["response"].first["uid"]).to eq("990000000001")
   end
 
+  it "passes facet filters through to Spectrum" do
+    stub = stub_request(:post, "#{SPECTRUM_BASE_URL}/spectrum/mirlyn")
+      .with { |request| JSON.parse(request.body)["facets"] == {"format" => ["Book", "CDROM"]} }
+      .to_return(status: 200, headers: {"Content-Type" => "application/json"}, body: {response: []}.to_json)
+
+    result = described_class.call(datastore: "Catalog", query: "psychology", filters: {"format" => ["Book", "CDROM"]}, server_context: nil)
+
+    expect(stub).to have_been_requested
+    expect(result.error?).to be false
+  end
+
   it "returns an error response when Spectrum fails" do
     stub_request(:post, "#{SPECTRUM_BASE_URL}/spectrum/mirlyn").to_return(status: 500, body: "boom")
 

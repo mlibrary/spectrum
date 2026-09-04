@@ -40,7 +40,7 @@ module SpectrumMcp
       @base_url = URI.join(base_url.end_with?("/") ? base_url : "#{base_url}/", "")
     end
 
-    def search(datastore:, query:, start: 0, count: 10, sort: nil)
+    def search(datastore:, query:, start: 0, count: 10, sort: nil, filters: {})
       uid = resolve_uid(datastore)
       body = {
         uid: uid,
@@ -48,7 +48,7 @@ module SpectrumMcp
         start: start,
         count: count,
         field_tree: {},
-        facets: {},
+        facets: filters,
         settings: {},
         raw_query: query
       }
