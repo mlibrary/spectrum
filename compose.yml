@@ -1,5 +1,15 @@
 ---
 services:
+  haproxy:
+    profiles: ["haproxy"]
+    image: haproxy:3.2
+    ports:
+    - "1936:1936"
+    - "8080:8080"
+    - "9999:9999"
+    volumes:
+    - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+
   web:
     stdin_open: true
     tty: true
@@ -19,20 +29,38 @@ services:
     ports:
     - "3000:3000"
     user: ${UID}:${GID}
+    cap_add:
+    - SYS_PTRACE
 
   catalog-solr:
-    image: ghcr.io/mlibrary/catalog-solr-unstable:latest 
+    image: ghcr.io/mlibrary/catalog-solr-unstable:d28c18597acec136b9b3012c4dd9eb7735c76e91
+    #image: ghcr.io/mlibrary/catalog-solr-unstable:407fc04acda14f5f906b3d27afdb62344ffe5a01
     ports:
      - "8026:8026"
     volumes:
       - catalog:/var/solr
+    command: "-p 8026"
 
   library-web-solr:
     image: ghcr.io/mlibrary/library-web-solr:latest
-    ports:
-      - "8080:8080"
+    #ports:
+      #- "8080:8080"
     volumes:
       - library-web:/var/solr
+
+  mcp-server:
+    profiles: ["mcp"]
+    build:
+      context: ./mcp-server
+    environment:
+      - SPECTRUM_BASE_URL=http://web:3000
+      # Set to "http" to serve Streamable HTTP instead of stdio
+      - MCP_TRANSPORT=${MCP_TRANSPORT:-stdio}
+      - MCP_ALLOWED_HOSTS=mcp-server,mcp-server:8925,localhost,localhost:8925
+    ports:
+    - "8925:8925"
+    stdin_open: true
+    tty: true
 
 volumes:
   bundle:
