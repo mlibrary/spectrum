@@ -142,6 +142,7 @@ GEM
       http-2 (>= 1.0.0)
     i18n (1.14.8)
       concurrent-ruby (~> 1.0)
+    io-console (0.9.2)
     json (2.19.9)
     json-jwt (1.16.7)
       activesupport (>= 4.2)
@@ -262,7 +263,11 @@ GEM
       nokogiri (>= 1.15.7, != 1.16.7, != 1.16.6, != 1.16.5, != 1.16.4, != 1.16.3, != 1.16.2, != 1.16.1, != 1.16.0.rc1, != 1.16.0)
     rainbow (3.1.1)
     rake (13.2.1)
+    readline (0.0.4)
+      reline
     regexp_parser (2.10.0)
+    reline (0.7.0)
+      io-console (~> 0.5)
     rexml (3.4.2)
     rlimit (0.1.0)
       ffi (~> 1.9)
@@ -410,6 +415,7 @@ DEPENDENCIES
   rack-test
   rack-timeout
   rails-html-sanitizer
+  readline
   rlimit
   rspec
   simplecov
@@ -425,4 +431,4 @@ DEPENDENCIES
   yabeda-puma-plugin
 
 BUNDLED WITH
-   4.0.20
+  4.0.20

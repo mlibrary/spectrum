@@ -65,6 +65,7 @@ end
 
 group :test, :development do
   gem "pry-byebug"
+  gem "readline"
   gem "standard"
   gem "simplecov"
   gem "webmock"
