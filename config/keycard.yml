@@ -42,12 +42,6 @@ ldap:
           - RegularStaffFDBRN
           - TemporaryStaffDBRN
           - SponsoredAffiliateDBRN
-cookie:
-  institution_finder:
-    institutions:
-      - name: Flint
-        key: affiliation
-        value: flint
 yaml:
   institution_finder:
     institutions:
