@@ -23,6 +23,11 @@ updates:
   multi-ecosystem-group: "maintenance"
   patterns: ["*"]
 
+- package-ecosystem: "docker-compose"
+  directory: "/"
+  multi-ecosystem-group: "maintenance"
+  patterns: ["*"]
+
 - package-ecosystem: "github-actions"
   directory: "/"
   multi-ecosystem-group: "maintenance"
