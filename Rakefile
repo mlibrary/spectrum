@@ -3,7 +3,9 @@
 
 require "bundler"
 ENV["ALMA_API_HOST"] ||= ""
+Bundler.require(:metrics)
 Bundler.require
+
 require "rubygems/package"
 require "json"
 
@@ -12,6 +14,27 @@ File.expand_path("lib", __dir__).tap do |libdir|
 end
 
 Spectrum::Json.configure(__dir__, ENV["RAILS_RELATIVE_URL_ROOT"])
+
+def push_success(data)
+  push_client = Prometheus::Client::Push.new(job: data["job"], gateway: "http://prometheus.pushgateway:9091", grouping_key: { instance: data["instance"] })
+  registry = Prometheus::Client::Registry.new
+  registry.gauge(:job_last_run_completion_timestamp_seconds, docstring: "Timestamp for the job's most recent completion in seconds").set(data["end"])
+  registry.gauge(:job_last_run_success, docstring: "For a job's last run, 0 for failure, 1 for success").set(1)
+  registry.gauge(:job_last_run_duration_seconds, docstring: "Duration of the job's last run").set(data["runtime_seconds"])
+  registry.gauge(:job_last_run_duration_threshold_seconds, docstring: "Maximum acceptable duration for a completed run").set(900)
+  registry.gauge(:job_last_run_items_processed, docstring: "Number of items processed during the most recent run").set(data["photos_downloaded"])
+  registry.gauge(:job_last_run_bytes_written, docstring: "Number of bytes written during the most recent run").set(data["bytes_downloaded"])
+  registry.gauge(:job_last_success_timestamp_seconds, docstring: "Timestamp for the job's most recent success in seconds").set(data["end"])
+  registry.gauge(:job_last_success_staleness_threshold_seconds, docstring: "Maximum acceptable time since the job last completed successfully").set(24.hours.to_i)
+  begin
+    push_client.replace(registry)
+  rescue Socket::ResolutionError => e
+    puts "Failed to connect to Prometheus Pushgateway: #{e.message}"
+    puts "Assuming a development environment. Skipping metrics push."
+    puts "Metrics data:"
+    pp data
+  end
+end
 
 desc "Install versioned/flavored Search UI"
 task :search, [:version, :flavor] do |t, args|
@@ -67,6 +90,15 @@ namespace 'assets' do
 
     desc "Download profile photos"
     task :profile_photos do
+      data = {
+        "job" => "profile_photos",
+        "instance" => "spectrum",
+        "runtime_seconds" => -1,
+        "photos_downloaded" => 0,
+        "bytes_downloaded" => 0,
+        "start" => Time.now.to_i,
+        "end" => -1,
+      }
       photo_dir = ENV.fetch("SPECTRUM_PHOTO_DIR", "public/photos")
       if ENV.fetch('SPECTRUM_BUILDS_SEARCH', false)
         puts "Downloading profile photos ..."
@@ -89,13 +121,18 @@ namespace 'assets' do
           begin
             Down.download(url_string, destination: dest_file)
             FileUtils.chmod('ug=rw,o=r', dest_file)
+            data["photos_downloaded"] += 1
+            data["bytes_downloaded"] += File.size(dest_file)
           rescue
             retries -= 1
             retry if retries > 0
             raise
           end
         end
+        data["end"] = Time.now.to_i
+        data["runtime_seconds"] = data["end"] - data["start"]
         puts "Finished downloading profile photos"
+        push_success(data)
       end
     end
 
@@ -111,7 +148,7 @@ namespace 'assets' do
         system("git clone --branch #{search_branch} --depth 1 https://github.com/mlibrary/search tmp/search") ||
           abort("Couldn't clone search")
 
-        Bundler.with_clean_env do
+        Bundler.with_unbundled_env do
           Dotenv.load
           system('(cd tmp/search && npm install --no-progress --legacy-peer-deps && npm run build)') ||
             abort("Couldn't build search front end")
