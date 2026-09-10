@@ -2,7 +2,7 @@
 services:
   haproxy:
     profiles: ["haproxy"]
-    image: haproxy:3.2
+    image: haproxy:3.4
     ports:
     - "1936:1936"
     - "8080:8080"
