@@ -2,13 +2,14 @@ module Spectrum
   class Holding
     class RequestThisAction < Action
       def self.label
-        'Request This' 
+        "Request This"
       end
+
       def self.for(item)
         case item.library
-        when 'CLEM'
-          ClementsRequestThisAction.new(item, Spectrum::ClementsBibRecord.new(item.fullrecord)) 
-        when 'BENT'
+        when "CLEM"
+          ClementsRequestThisAction.new(item, Spectrum::ClementsBibRecord.new(item.fullrecord))
+        when "BENT"
           BentleyRequestThisAction.new(item, Spectrum::SpecialCollectionsBibRecord.new(item.fullrecord))
         else
           RequestThisAction.new(item, Spectrum::SpecialCollectionsBibRecord.new(item.fullrecord))
@@ -20,7 +21,7 @@ module Spectrum
       end
 
       def initialize(item, bib)
-        @bib = bib 
+        @bib = bib
         @item = item
       end
 
@@ -29,23 +30,23 @@ module Spectrum
       end
 
       private
-      
-    [
-      :title,
-      :author, 
-      :genre,
-      :sgenre,
-      :date,
-      :edition,
-      :publisher,
-      :place,
-      :extent,
-      :sysnum,
-    ].each do |name|
-      define_method(name) do
-        (@bib.public_send(name) || '').slice(0, 250)
+
+      [
+        :title,
+        :author,
+        :genre,
+        :sgenre,
+        :date,
+        :edition,
+        :publisher,
+        :place,
+        :extent,
+        :sysnum
+      ].each do |name|
+        define_method(name) do
+          (@bib.public_send(name) || "").slice(0, 250)
+        end
       end
-    end
       def callnumber
         @item.callnumber
       end
@@ -53,16 +54,19 @@ module Spectrum
       def barcode
         @item.barcode
       end
+
       def description
-        (@item.description || '').slice(0, 250)
+        (@item.description || "").slice(0, 250)
       end
 
       def location
         @item.library
       end
+
       def sublocation
         @item.location
       end
+
       def fixedshelf
         @item.inventory_number
       end
@@ -70,6 +74,7 @@ module Spectrum
       def isbn
         @item.isbn
       end
+
       def issn
         @item.issn
       end
@@ -79,13 +84,13 @@ module Spectrum
       end
 
       def base_url
-        'https://aeon.lib.umich.edu/logon?'
+        "https://aeon.lib.umich.edu/logon?"
       end
 
-      def query
+      def query_options
         {
-          Action: '10',
-          Form: '30',
+          Action: "10",
+          Form: "30",
           callnumber: callnumber,
           genre: genre,
           sgenre: sgenre,
@@ -103,32 +108,50 @@ module Spectrum
           sublocation: sublocation,
           fixedshelf: fixedshelf,
           issn: issn,
-          isbn: isbn,
-        }.to_query
+          isbn: isbn
+        }
+      end
+
+      def query
+        query_options.to_query
       end
 
       def href
         base_url + query
       end
-
     end
-    class ClementsRequestThisAction < RequestThisAction 
-      def base_url 
-        'https://aeon.clements.umich.edu/logon?'
+
+    class ClementsRequestThisAction < RequestThisAction
+      def base_url
+        "https://aeon.clements.umich.edu/logon?"
       end
+
       def location
-        ''
+        ""
       end
+
+      def restriction
+        @item.restriction
+      end
+
       def sublocation
         @item.location
       end
-    end
-    class BentleyRequestThisAction < RequestThisAction 
-      def base_url 
-        'https://aeon.bentley.umich.edu/login?'
+
+      def query_options
+        result = super
+        result[:accessrestrict] = restriction
+        result
       end
+    end
+
+    class BentleyRequestThisAction < RequestThisAction
+      def base_url
+        "https://aeon.bentley.umich.edu/login?"
+      end
+
       def location
-        ''
+        ""
       end
     end
   end
