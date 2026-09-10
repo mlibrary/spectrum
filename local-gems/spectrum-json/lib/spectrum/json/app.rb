@@ -7,7 +7,6 @@ require "spectrum/json/app/holdings"
 require "spectrum/json/app/profile"
 require "spectrum/json/app/auth"
 
-require "keycard/cookie/institution_finder"
 require "keycard/ldap/institution_finder"
 
 module Spectrum
