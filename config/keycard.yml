@@ -42,12 +42,6 @@ ldap:
           - RegularStaffFDBRN
           - TemporaryStaffDBRN
           - SponsoredAffiliateDBRN
-cookie:
-  institution_finder:
-    institutions:
-      - name: Flint
-        key: affiliation
-        value: flint
 yaml:
   institution_finder:
     institutions:
@@ -59,6 +53,27 @@ yaml:
         access: allow
       - name: Ann Arbor
         network: "35.3.0.0/16"
+        access: allow
+      - name: Ann Arbor
+        network: "35.4.0.0/16"
+        access: allow
+      - name: Ann Arbor
+        network: "35.5.0.0/16"
+        access: allow
+      - name: Ann Arbor
+        network: "35.6.0.0/16"
+        access: allow
+      - name: Ann Arbor
+        network: "35.7.0.0/18"
+        access: allow
+      - name: Flint
+        network: "35.7.112.0/20"
+        access: allow
+      - name: Ann Arbor
+        network: "35.7.128.0/18"
+        access: allow
+      - name: Dearborn
+        network: "35.7.224.0/19"
         access: allow
       - name: Ann Arbor
         network: "67.194.0.0/16"
