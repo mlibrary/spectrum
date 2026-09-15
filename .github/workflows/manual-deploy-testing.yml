@@ -28,3 +28,26 @@ jobs:
       CONFIG_REPO_RW_INSTALL_ID: ${{ vars.CONFIG_REPO_RW_INSTALL_ID }}
       CONFIG_REPO_FULL_NAME: ${{ vars.CONFIG_REPO_FULL_NAME }}
     secrets: inherit
+
+  build-unstable-mcp:
+    name: MCP Build unstable ${{ github.sha }}
+    uses: mlibrary/platform-engineering-workflows/.github/workflows/build-unstable.yml@2012bb6a322ad02c45c01372de2f5e2e3d7329ac # v1.6.7
+    with:
+      image_name: ${{ vars.IMAGE_NAME }}-mcp
+      tag: ${{ github.sha }}
+      docker_context: mcp-server/.
+      dockerfile: mcp-server/Dockerfile
+    secrets: inherit
+
+  deploy-testing-mcp:
+    needs: build-unstable-mcp
+    name: MCP Deploy to testing
+    uses: mlibrary/platform-engineering-workflows/.github/workflows/deploy.yml@2012bb6a322ad02c45c01372de2f5e2e3d7329ac # v1.6.7
+    with:
+      image: ${{ needs.build-unstable-mcp.outputs.image }}
+      file: ${{ vars.CONFIG_REPO_TESTING_IMAGE_FILE }}-mcp
+      CONFIG_REPO_RW_APP_ID: ${{ vars.CONFIG_REPO_RW_APP_ID }}
+      CONFIG_REPO_RW_INSTALL_ID: ${{ vars.CONFIG_REPO_RW_INSTALL_ID }}
+      CONFIG_REPO_FULL_NAME: ${{ vars.CONFIG_REPO_FULL_NAME }}
+    secrets: inherit
+
