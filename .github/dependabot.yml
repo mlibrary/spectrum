@@ -10,13 +10,18 @@ multi-ecosystem-groups:
       timezone: "America/Detroit"
     commit-message:
       prefix: "Weekly dependency updates: "
-      assignees: ["bertrama"]
+    assignees: ["bertrama"]
 
 updates:
 - package-ecosystem: "bundler"
   directory: "/"
   multi-ecosystem-group: "maintenance"
   patterns: ["*"]
+  assignees: ["bertrama"]
+  groups:
+    ruby-security:
+      applies-to: "security-updates"
+      patterns: ["*"]
 
 - package-ecosystem: "docker"
   directory: "/"
