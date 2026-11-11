@@ -1,7 +1,7 @@
 ########
 # Base #
 ########
-FROM ruby:4.0@sha256:d907e08a8558207d221f257afe1bfc3e274a12bac035d8bbc9049b01b5364140 AS base
+FROM ruby:4.0@sha256:dd87233ce44e8362fed00a1fd590c01e3dd8f8eb0001ea4a2c8a071388e9185b AS base
 
 #Set up variables for creating a user to run the app in the container
 ARG UID=1000
