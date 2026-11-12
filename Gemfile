@@ -64,6 +64,7 @@ group :metrics do
 end
 
 group :test, :development do
+  gem "irb"
   gem "pry-byebug"
   gem "readline"
   gem "standard"
