@@ -45,7 +45,7 @@ describe Spectrum::Config::Field do
     let(:copied_instance) { described_class.new('ID1', {'ID1' => subject}) }
 
     it 'throws an exception with missing metadata' do
-      expect(exception1).to eq('{"id"=>"ID3"}')
+      expect(exception1).to eq('{"id" => "ID3"}')
     end
 
     it 'throws an exception with a field id and missing definition' do
