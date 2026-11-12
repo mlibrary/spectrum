@@ -36,6 +36,7 @@ module Spectrum
         @messages = []
         if @data
           if @data["raw_query"]
+            @raw_query = @data["raw_query"]
             @data["raw_query"] = preprocess_raw_query(@data["raw_query"])
           end
           bad_request "Request json did not validate" unless Spectrum::Json::Schema.validate(:request, @data)
@@ -107,6 +108,7 @@ module Spectrum
         @tree ||= Spectrum::FieldTree::Empty.new
         @facets ||= Spectrum::FacetList.new(nil)
         @page_size ||= 0
+        @raw_query ||= ""
       end
 
       def pseudo_facet?(name, default = false)
@@ -248,7 +250,8 @@ module Spectrum
           field_tree: @tree.spectrum,
           facets: @facets.spectrum,
           sort: @sort,
-          settings: @settings
+          settings: @settings,
+          raw_query: @raw_query
         }
         if @request_id
           ret.merge(request_id: @request_id)
