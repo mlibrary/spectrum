@@ -1,8 +1,8 @@
 ---
 id: website
 metadata:
-  name: Guides and more
-  short_desc: "Search the for Guides and more."
+  name: Guides and More
+  short_desc: "Search the for guides and more."
 source: website
 new_parser: true
 transformer: MLibrarySearchParser::Transformer::Solr::LocalParams
