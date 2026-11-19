@@ -1,14 +1,15 @@
 ########
 # Base #
 ########
-FROM ruby:4.0@sha256:a69f361db050bb2c65ec66ef75411bfc4ce2e1d993ba1179fac4e4ba6ecfe91f AS base
+FROM ruby:4.0@sha256:4de17567bc750e8a509fd2181e5c5eda3137bbb635b046943277c90271e4ec1c AS base
 
 #Set up variables for creating a user to run the app in the container
 ARG UID=1000
 ARG GID=1000
 ARG UNAME=app
-ENV APP_HOME /app
-ENV BUNDLE_PATH /bundle
+ARG RBSPY_VERSION=v0.55.0
+ENV APP_HOME=/app
+ENV BUNDLE_PATH=/bundle
 
 #Create the group for the user
 RUN if [ x"${GID}" != x"" ] ; \
@@ -24,14 +25,21 @@ RUN if [ x"${UID}" != x"" ] ; \
 
 WORKDIR $APP_HOME
 
-RUN mkdir -p ${BUNDLE_PATH} ${APP_HOME}/public ${APP_HOME}/tmp && chown -R ${UNAME} ${BUNDLE_PATH} ${APP_HOME}/public ${APP_HOME}/tmp
+RUN mkdir -p ${BUNDLE_PATH} ${APP_HOME}/public ${APP_HOME}/tmp \
+ && chown -R ${UNAME} ${BUNDLE_PATH} ${APP_HOME}/public ${APP_HOME}/tmp
 
-RUN curl -s -L https://github.com/rbspy/rbspy/releases/download/v0.33.0/rbspy-x86_64-unknown-linux-gnu.tar.gz | \
+RUN curl -s -L https://github.com/rbspy/rbspy/releases/download/$RBSPY_VERSION/rbspy-x86_64-unknown-linux-gnu.tar.gz | \
   tar xzf - && \
   mv rbspy-x86_64-unknown-linux-gnu /usr/bin/rbspy && \
   chmod +x /usr/bin/rbspy
 
-CMD bundle exec puma -C config/puma.rb
+RUN apt-get update \
+ && apt-get upgrade -y \
+ && apt-get autoremove \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
+
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb" ]
 
 ###############
 # Development #
